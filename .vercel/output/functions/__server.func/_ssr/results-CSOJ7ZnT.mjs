@@ -1,0 +1,7 @@
+import { x as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
+import { o as UpdateTypePage } from "./router-Bh57_LxF.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/results-CSOJ7ZnT.js
+var import_jsx_runtime = require_jsx_runtime();
+var SplitComponent = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UpdateTypePage, { type: "results" });
+//#endregion
+export { SplitComponent as component };

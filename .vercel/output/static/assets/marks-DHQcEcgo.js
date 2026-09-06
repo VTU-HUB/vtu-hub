@@ -1,0 +1,1 @@
+import{C as e}from"./JsonLd-BctWucgc.js";import{o as t,r as n}from"./calculators-D81tzUT8.js";var r=e(),i=()=>(0,r.jsx)(t,{slug:`marks`,children:(0,r.jsx)(n,{})});export{i as component};

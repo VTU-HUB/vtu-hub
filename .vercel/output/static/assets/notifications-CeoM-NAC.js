@@ -1,0 +1,1 @@
+import{C as e}from"./JsonLd-BctWucgc.js";import{a as t}from"./index-AspA6lSN.js";var n=e(),r=()=>(0,n.jsx)(t,{type:`notification`});export{r as component};

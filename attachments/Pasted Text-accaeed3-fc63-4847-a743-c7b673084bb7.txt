@@ -1,0 +1,263 @@
+Add this to the prompt. It keeps the site AdSense/advertising-friendly without sacrificing speed or SEO.
+
+Build a complete static website called VTUHub.site, a VTU student resource platform.
+
+Core requirements
+
+Use:
+
+- Astro
+- TypeScript
+- Tailwind CSS
+- MDX where useful
+- Static site generation only
+- No database
+- No backend
+- No authentication
+- Minimal JavaScript
+- Cloudflare Pages compatible
+- Google AdSense compatible
+
+The absolute priorities are:
+
+1. Extremely fast loading
+2. Excellent SEO
+3. Advertising/AdSense compatibility
+4. Clean and modern UI
+5. Mobile-first responsive design
+6. Simple traditional file/resource structure
+7. Easy content management
+8. Excellent navigation and search experience
+
+Advertising requirements
+
+Design the website so advertisements can be added later without redesigning the entire site.
+
+Create reusable lightweight ad-slot components:
+
+- "AdBanner"
+- "AdInArticle"
+- "AdSidebar"
+- "AdMobile"
+
+Do NOT load advertising scripts on pages where ads are not required.
+
+Create clearly defined ad locations:
+
+Homepage
+
+- One ad slot below the main content
+- One optional ad slot between content sections
+
+Resource pages
+
+- One ad slot between resource information and resource list
+- One optional ad slot below related resources
+
+Article pages
+
+- One ad slot after the introduction
+- One optional ad slot between major sections
+- One ad slot near the end of the article
+
+Desktop
+
+Allow an optional sidebar advertisement without affecting the main content width.
+
+Mobile
+
+Use responsive ad containers that do not cause horizontal scrolling or layout breakage.
+
+Core Web Vitals
+
+Advertisements must not destroy performance.
+
+Reserve fixed dimensions/aspect ratios for ad containers to minimize Cumulative Layout Shift (CLS).
+
+Do not use aggressive popups, auto-playing video ads, or intrusive interstitials.
+
+Do not allow ads to push important navigation or content unexpectedly.
+
+Keep the main content visible and usable even if advertisements fail to load.
+
+Ad implementation
+
+Create a central configuration so advertising can be enabled later:
+
+ads/
+├── config
+├── AdBanner
+├── AdInArticle
+├── AdSidebar
+└── AdMobile
+
+Use placeholder ad containers during development.
+
+Do NOT put real publisher IDs into the repository.
+
+Use environment/configuration variables for production advertising identifiers.
+
+The website should work perfectly when advertising is disabled.
+
+SEO + Ads
+
+Maintain SEO quality even when advertisements are enabled.
+
+Do not:
+
+- Hide content behind ads
+- Create pages primarily for advertisements
+- Add excessive advertisements
+- Generate thin pages solely for SEO
+- Duplicate content
+- Inject advertisements into headings
+- Place ads where they can be confused with download buttons
+
+The actual resource/download controls must always be visually distinct from advertisements.
+
+Resource/file UI
+
+The main experience should remain a clean academic file/resource store.
+
+Example:
+
+CSE
+→ 3rd Semester
+→ DBMS
+→ Notes
+
+Show:
+
+- File icon
+- File name
+- Resource type
+- File size
+- Updated date
+- Download/view button
+
+Advertisements should never look like resource files.
+
+SEO structure
+
+Create static pages:
+
+/vtu/cse
+/vtu/cse/3rd-semester
+/vtu/cse/3rd-semester/dbms
+/vtu/cse/3rd-semester/dbms/notes
+/vtu/cse/3rd-semester/dbms/question-papers
+
+Implement:
+
+- Unique title
+- Meta description
+- Canonical URL
+- Sitemap
+- robots.txt
+- Open Graph
+- Breadcrumbs
+- Structured data
+- Semantic HTML
+- Proper heading hierarchy
+- Internal linking
+
+Performance
+
+Prioritize maximum performance.
+
+Use:
+
+- Static HTML
+- Minimal JavaScript
+- Tailwind CSS
+- Astro components
+- Optimized images
+- WebP/AVIF
+- System fonts where possible
+- Lazy loading
+- CDN caching
+- No unnecessary frameworks
+
+Advertising scripts must be isolated from the core application as much as possible.
+
+Do not let ad code become a dependency for rendering the page.
+
+Site structure
+
+VTUHub.site
+│
+├── Home
+├── VTU
+│   ├── Schemes
+│   ├── Branches
+│   ├── Semesters
+│   └── Subjects
+│
+├── Resources
+│   ├── Notes
+│   ├── Question Papers
+│   ├── Syllabus
+│   ├── Lab Manuals
+│   └── Important Questions
+│
+├── Tools
+│   ├── SGPA Calculator
+│   ├── CGPA Calculator
+│   ├── Marks Calculator
+│   └── Attendance Calculator
+│
+├── Updates
+├── Articles
+├── Search
+├── About
+├── Contact
+├── Privacy Policy
+├── Terms
+└── Disclaimer
+
+Content architecture
+
+Use:
+
+src/
+├── content/
+├── data/
+├── components/
+├── layouts/
+├── pages/
+└── styles/
+
+public/
+├── files/
+├── images/
+└── icons/
+
+Keep all content easy to update.
+
+Search
+
+Implement client-side search using static JSON/index data.
+
+Search:
+
+- Subjects
+- Subject codes
+- Notes
+- Question papers
+- Syllabus
+- Articles
+- Resources
+- Branches
+- Semesters
+
+No backend search.
+
+Final goal
+
+The final website should be:
+
+Extremely fast + SEO optimized + AdSense-ready + mobile-first + static + clean + easy to maintain.
+
+The advertising system must be optional and must never compromise the site's speed, SEO, accessibility, or user experience.
+
+Build the complete working website rather than only a landing page.

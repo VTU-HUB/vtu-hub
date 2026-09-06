@@ -1,0 +1,466 @@
+Yes. For VTUHub.site, don't just create the academic pages. Build the complete trust, legal, informational, and advertising structure from the beginning.
+
+Google says AdSense reviews the entire site, and looks for original/useful content, clear navigation, and a good user experience. 
+
+Add this section to your Grok Build prompt:
+
+Google AdSense / Advertising Ready Structure
+
+Build VTUHub.site so it is ready for Google AdSense review.
+
+The site must look like a genuine, complete student-resource platform rather than a website created primarily to display advertisements.
+
+Google advertising must never be the primary purpose of any page.
+
+Prioritize:
+
+- Original useful content
+- Clear navigation
+- Strong internal linking
+- Complete pages
+- Transparent site ownership/information
+- Good mobile UX
+- Fast loading
+- Non-intrusive advertisements
+- No deceptive ad placement
+
+Required website pages
+
+Create the following permanent pages:
+
+About
+
+"/about"
+
+Explain:
+
+- What VTUHub is
+- Who it is for
+- What resources are provided
+- What the website's purpose is
+- How the site organizes VTU resources
+- Commitment to accuracy and useful student information
+
+Make this a genuine, detailed page, not a few sentences.
+
+Contact
+
+"/contact"
+
+Provide:
+
+- Contact email placeholder/configuration
+- Contact purpose
+- Resource correction/reporting method
+- Copyright/ownership contact
+- General inquiries
+
+Use a simple static contact page.
+
+Do not create a fake address, fake phone number, or fake organization.
+
+Privacy Policy
+
+"/privacy-policy"
+
+Create a proper privacy policy covering:
+
+- Information collected
+- Server/log information
+- Cookies
+- Analytics if used
+- Advertising
+- Google/third-party advertising cookies
+- Personalized advertising
+- How users can manage advertising preferences
+- Data retention
+- Third-party services
+- Contact information
+- Privacy rights where applicable
+
+The privacy policy must specifically disclose Google's advertising cookies and relevant third-party advertising practices.
+
+Google requires publishers to have a privacy policy that discloses relevant cookie/advertising practices.
+
+Terms and Conditions
+
+"/terms"
+
+Cover:
+
+- Website usage
+- Resource usage
+- Intellectual property
+- User responsibilities
+- External links
+- Accuracy/disclaimer
+- Website availability
+- Changes to the service
+
+Disclaimer
+
+"/disclaimer"
+
+Clearly explain:
+
+- VTUHub is an independent student-resource website
+- It is not automatically affiliated with VTU unless there is an actual official relationship
+- Information should be verified against official VTU sources
+- Exam dates, notifications, syllabus information, and other changing information may change
+- VTUHub does not guarantee the accuracy of third-party materials
+
+Do not imply official VTU affiliation.
+
+Copyright / DMCA
+
+"/copyright"
+
+Create a clear copyright and content-removal page.
+
+Include:
+
+- Copyright policy
+- How rights holders can report content
+- Contact method
+- Process for reviewing removal requests
+- Statement that resources must not be uploaded without appropriate rights
+
+Do not knowingly publish copyrighted material without permission or a lawful basis.
+
+Sitemap
+
+"/sitemap.xml"
+
+Generate automatically from Astro.
+
+Robots
+
+"/robots.txt"
+
+Allow legitimate search engine crawling.
+
+Do not accidentally block:
+
+- Googlebot
+- Important public pages
+- Sitemap
+
+Footer
+
+Every major page should have a clean footer containing:
+
+VTUHub
+
+Resources
+Notes
+Question Papers
+Syllabus
+VTU Updates
+Tools
+
+Information
+About
+Contact
+Privacy Policy
+Terms
+Disclaimer
+Copyright
+
+© VTUHub
+
+Do not make the footer excessively large.
+
+Header navigation
+
+Use clear navigation:
+
+Home
+Browse
+Resources
+Tools
+Updates
+Articles
+Search
+
+Users must be able to reach important sections without confusion.
+
+Google specifically emphasizes clear, easy-to-use navigation.
+
+Resource pages
+
+Do not create pages that contain only:
+
+- A PDF link
+- A download button
+- An advertisement
+
+Every important resource page should contain useful contextual information.
+
+Example:
+
+DBMS Question Papers
+
+CSE · 3rd Semester · 2022 Scheme
+
+About this resource
+A collection of previous VTU DBMS question papers...
+
+Available papers
+
+2025 — Download
+2024 — Download
+2023 — Download
+
+Related resources
+DBMS Notes
+DBMS Syllabus
+DBMS Important Questions
+
+The page should provide useful information before the user reaches the download.
+
+Article pages
+
+Create genuinely useful original articles.
+
+Examples:
+
+- How to calculate VTU CGPA
+- How VTU SGPA is calculated
+- How to prepare for VTU semester exams
+- DBMS exam preparation guide
+- How to use VTU question papers effectively
+- Understanding VTU grading
+- VTU semester preparation checklist
+
+Articles must contain substantial original information.
+
+Do not generate hundreds of nearly identical pages just to target keywords.
+
+Search pages
+
+The search interface should be useful, but search-result pages should not automatically become thousands of thin SEO pages.
+
+Do not index empty or low-value search-result URLs.
+
+Use:
+
+<meta name="robots" content="noindex,follow">
+
+where appropriate for dynamic search-result URLs.
+
+Category pages
+
+Category pages should contain useful introductory content.
+
+Example:
+
+CSE 3rd Semester
+
+Browse VTU CSE 3rd semester resources for the applicable scheme.
+
+Subjects
+...
+
+Available resources
+...
+
+Related guides
+...
+
+Do not make category pages only lists of links.
+
+Advertisement design
+
+Create advertisement containers that are visually separate from content.
+
+Every ad placement must be clearly distinguishable from:
+
+- Download buttons
+- Navigation
+- Search results
+- Resource links
+- VTU notifications
+
+Never design advertisements so they look like downloadable files.
+
+Google prohibits deceptive ad implementations that can make ads appear to be navigation or download links.
+
+Advertisement locations
+
+Use conservative placements.
+
+Homepage
+
+Hero/search
+↓
+Useful content
+↓
+Ad
+↓
+Resources
+↓
+Ad
+↓
+Tools
+
+Subject page
+
+Subject information
+↓
+Ad
+↓
+Resources
+↓
+Related resources
+
+Article
+
+Title
+↓
+Introduction
+↓
+Content
+↓
+Ad
+↓
+Content
+↓
+Related articles
+
+Do not put advertisements immediately next to critical download controls.
+
+Do not overload pages with ads.
+
+Google states that pages should not be created primarily to show ads and that excessive advertising can create policy problems.
+
+Ad layout stability
+
+Reserve space for advertisements before they load.
+
+Prevent:
+
+- Layout shifts
+- Content jumping
+- Buttons moving
+- Download links moving
+- Navigation movement
+
+Maintain excellent Core Web Vitals even with advertisements enabled.
+
+Ad configuration
+
+Create:
+
+src/
+└── components/
+    └── ads/
+        ├── AdBanner.astro
+        ├── AdInArticle.astro
+        ├── AdSidebar.astro
+        └── AdMobile.astro
+
+Create a central configuration:
+
+adsEnabled: false
+
+During development, advertisements should be disabled.
+
+Production can enable them without changing page layouts.
+
+Never hard-code real publisher IDs into reusable components.
+
+No intrusive advertising
+
+Do NOT implement:
+
+- Pop-under ads
+- Fake download ads
+- Fake notification buttons
+- Auto redirects
+- Forced redirects
+- Misleading buttons
+- Ads covering content
+- Excessive interstitials
+- Ads that prevent normal navigation
+
+The site must remain useful even if all advertisements fail to load.
+
+Trust signals
+
+Add visible but non-intrusive trust information.
+
+Examples:
+
+Independent VTU student resource platform
+
+Where applicable, show:
+
+- Last updated date
+- Source/reference
+- Official-source link
+- Resource type
+- Scheme
+- Semester
+- Branch
+
+Do not fabricate credentials, partnerships, reviews, or affiliations.
+
+Official VTU information
+
+When displaying official VTU information:
+
+- Clearly identify it as official-source information
+- Link users to the relevant official source when appropriate
+- Don't imply VTU endorsement
+- Don't copy large amounts of official material without permission
+
+Add a small source/reference area to important update pages.
+
+Content quality
+
+Every indexed page should provide genuine value.
+
+Avoid:
+
+- Empty pages
+- Placeholder pages
+- "Coming soon" pages
+- Automatically generated meaningless text
+- Keyword stuffing
+- Duplicate descriptions
+- Copied articles
+- Scraped content
+- Pages created only to host advertisements
+
+Google specifically warns against insufficient or scraped/copied content and pages with little original value.
+
+Pre-AdSense launch checklist
+
+Before submitting VTUHub.site for review, ensure:
+
+- Site is fully launched
+- No placeholder pages
+- All major navigation links work
+- Mobile layout works
+- HTTPS works
+- Privacy Policy exists
+- Terms exists
+- Disclaimer exists
+- About exists
+- Contact exists
+- Copyright page exists
+- Sitemap works
+- robots.txt works
+- Important pages are crawlable
+- No broken links
+- No misleading downloads
+- No excessive ads
+- Original useful content exists
+- Resource pages contain meaningful context
+- Articles contain substantial original content
+- Advertising does not cause major layout shifts
+- Search-result pages are handled appropriately
+- No fake VTU affiliation
+- No copyrighted resources are published without appropriate rights
+
+The website must be complete before AdSense submission, rather than looking like an unfinished template. Google specifically identifies unfinished sites, insufficient content, poor navigation, and thin content as common reasons a site may not be ready.

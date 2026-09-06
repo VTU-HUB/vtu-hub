@@ -1,0 +1,416 @@
+Build a complete static website called VTUHub.site, a VTU student resource platform.
+
+Core requirements
+
+Use:
+
+- Astro
+- TypeScript
+- Tailwind CSS
+- MDX where useful
+- Static site generation only
+- No database
+- No backend
+- No authentication
+- No React/Angular runtime unless absolutely required
+- Minimal JavaScript
+- Cloudflare Pages compatible
+
+The absolute priorities are:
+
+1. Extremely fast loading
+2. Excellent SEO
+3. Clean and modern UI
+4. Mobile-first responsive design
+5. Simple traditional file/resource structure
+6. Easy content management
+7. Excellent navigation and search experience
+
+Design direction
+
+Do NOT make it look like a generic university website.
+
+Create a clean, modern digital resource/file-store interface, inspired by the usability of modern file managers and content platforms, while maintaining an original design.
+
+The interface should feel:
+
+- Clean
+- Minimal
+- Fast
+- Professional
+- Academic
+- Easy to scan
+- Spacious
+- Modern
+- Mobile friendly
+
+Avoid excessive gradients, glassmorphism, huge animations, unnecessary cards, and visual clutter.
+
+Use subtle borders, good typography, clear hierarchy, compact controls, breadcrumbs, tabs, filters, and clean list/grid layouts.
+
+Main structure
+
+Create:
+
+Home
+
+- Hero/search section
+- Browse by branch
+- Browse by semester
+- Popular subjects
+- Latest resources
+- Latest question papers
+- VTU updates
+- Popular tools
+
+VTU
+
+- Schemes
+- Branches
+- Semesters
+- Subjects
+
+Resources
+
+- Notes
+- Question Papers
+- Syllabus
+- Lab Manuals
+- Important Questions
+- Study Materials
+
+Tools
+
+- SGPA Calculator
+- CGPA Calculator
+- VTU Marks Calculator
+- Attendance Calculator
+- Percentage Calculator
+
+Updates
+
+- VTU notifications
+- Exam timetable
+- Results information
+- Academic calendar
+
+Articles
+
+- VTU guides
+- Exam preparation
+- Subject guides
+- Educational articles
+
+About
+
+- About VTUHub
+- Contact
+- Privacy Policy
+- Disclaimer
+
+Traditional file/resource structure
+
+The resource browsing experience should be the main feature.
+
+Use a structure similar to:
+
+Branch
+→ Semester
+→ Subject
+→ Resource Type
+→ Files
+
+Example:
+
+CSE
+→ 3rd Semester
+→ Database Management Systems
+→ Notes
+→ Unit 1
+→ Unit 2
+→ Unit 3
+→ Unit 4
+→ Unit 5
+
+Also:
+
+CSE
+→ 3rd Semester
+→ Database Management Systems
+→ Question Papers
+→ 2025
+→ 2024
+→ 2023
+
+Make the interface feel like a clean digital academic file store.
+
+Resource page
+
+Every resource should have:
+
+- Resource title
+- Subject
+- Branch
+- Semester
+- Scheme
+- Resource type
+- Description
+- File type
+- File size
+- Published/updated date
+- Preview where possible
+- Download button
+- Related resources
+- Breadcrumb navigation
+
+Example:
+
+Home / CSE / 3rd Semester / DBMS / Notes
+
+Then show the files/resources in a clean list.
+
+Use file-type icons and clear metadata.
+
+Search
+
+Create a prominent global search.
+
+Users should be able to search for:
+
+- Subject names
+- Subject codes
+- Notes
+- Question papers
+- Schemes
+- Branches
+- Semesters
+- Articles
+- Resources
+
+Example searches:
+
+"DBMS notes"
+
+"18CS43"
+
+"CSE 3rd semester"
+
+"2022 scheme"
+
+"Engineering Mathematics"
+
+Search should work entirely client-side using static JSON/indexed data.
+
+Do not create a backend search API.
+
+Navigation
+
+Create a very clean navigation system.
+
+Desktop:
+
+Logo → Browse → Resources → Tools → Updates → Search
+
+Mobile:
+
+Use a clean mobile navigation/drawer.
+
+Include breadcrumbs throughout the academic hierarchy.
+
+SEO
+
+SEO is extremely important.
+
+Generate static SEO-friendly pages for every:
+
+- Branch
+- Semester
+- Subject
+- Resource category
+- Article
+
+Use clean URLs such as:
+
+/vtu/cse
+/vtu/cse/3rd-semester
+/vtu/cse/3rd-semester/dbms
+/vtu/cse/3rd-semester/dbms/notes
+/vtu/cse/3rd-semester/dbms/question-papers
+
+Implement:
+
+- Unique title tags
+- Meta descriptions
+- Canonical URLs
+- Sitemap
+- robots.txt
+- Open Graph metadata
+- Structured data where appropriate
+- Breadcrumb structured data
+- Semantic HTML
+- Proper H1/H2 hierarchy
+- Internal linking
+- SEO-friendly pagination where needed
+
+Avoid duplicate/thin pages.
+
+Performance
+
+Treat performance as a primary requirement.
+
+The public website should use:
+
+- Static HTML
+- Minimal JavaScript
+- Optimized CSS
+- Lazy-loaded images
+- WebP/AVIF images
+- System fonts where possible
+- No unnecessary third-party libraries
+- No unnecessary animations
+- No large JavaScript framework
+- Proper caching
+- CDN-friendly assets
+
+Do not hydrate components unless they actually require client-side interaction.
+
+Prefer Astro components over JavaScript frameworks.
+
+Content architecture
+
+Keep content easy to maintain.
+
+Use a structure similar to:
+
+src/
+├── content/
+│   ├── subjects/
+│   ├── notes/
+│   ├── question-papers/
+│   ├── articles/
+│   └── updates/
+│
+├── data/
+│   ├── branches.json
+│   ├── semesters.json
+│   ├── subjects.json
+│   └── resources.json
+│
+├── layouts/
+├── components/
+├── pages/
+└── styles/
+
+public/
+├── files/
+├── images/
+└── icons/
+
+Do not put everything into one huge file.
+
+Create reusable Astro components.
+
+UI components
+
+Build lightweight reusable components for:
+
+- Header
+- Footer
+- Search
+- Breadcrumbs
+- Resource list
+- Resource card
+- Subject card
+- Branch selector
+- Semester selector
+- File row
+- Download button
+- Filter bar
+- Tabs
+- Pagination
+- Empty state
+- Search results
+- Mobile navigation
+
+Keep the components lightweight and reusable.
+
+Important UI requirement
+
+The resource/file browsing interface should be the visual identity of VTUHub.
+
+Think:
+
+"Google Drive simplicity + modern educational platform + clean search experience"
+
+but do NOT copy Google's or another website's exact design.
+
+The user should immediately understand:
+
+Where am I?
+
+What branch am I viewing?
+
+What semester?
+
+What subject?
+
+What resources are available?
+
+How do I download the file?
+
+Data
+
+Initially use mock/static data so the complete website can be demonstrated.
+
+Create realistic VTU examples for:
+
+- CSE
+- ISE
+- ECE
+- EEE
+- Mechanical
+- Civil
+
+Include multiple semesters and subjects.
+
+Do not use copyrighted notes or files. Use placeholder/sample resources where actual redistribution rights are unavailable.
+
+Calculators
+
+Implement the SGPA, CGPA, marks, percentage, and attendance calculators as lightweight client-side components.
+
+They must work without a backend.
+
+Final requirement
+
+Build the project completely, not just a landing page.
+
+Create the actual:
+
+- Pages
+- Routes
+- Components
+- Static data
+- Search
+- Resource browsing
+- SEO metadata
+- Responsive design
+- Calculators
+- Sample content
+- Sitemap
+- robots.txt
+
+Keep the code clean, maintainable, and production-ready.
+
+Before finishing, check for:
+
+- Broken links
+- Incorrect routes
+- Missing metadata
+- Mobile layout problems
+- Unnecessary JavaScript
+- Accessibility issues
+- Slow-loading assets
+- Duplicate SEO metadata
+
+The final result should feel like a fast, clean, professional VTU student file/resource platform, with the resource browsing experience as the central feature.
