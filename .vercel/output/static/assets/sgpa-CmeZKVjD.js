@@ -1,1 +1,0 @@
-import{C as e}from"./JsonLd-BctWucgc.js";import{a as t,o as n}from"./calculators-D81tzUT8.js";var r=e(),i=()=>(0,r.jsx)(n,{slug:`sgpa`,children:(0,r.jsx)(t,{})});export{i as component};
