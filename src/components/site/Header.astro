@@ -40,7 +40,15 @@ function active(href: string) {
     </form>
     <div class="ml-auto flex items-center gap-1 md:ml-1">
       <a href="/search" class="inline-flex size-11 items-center justify-center rounded-sm hover:bg-secondary md:hidden" aria-label="Search">Search</a>
-      <button type="button" id="theme-toggle" class="inline-flex size-11 items-center justify-center rounded-sm hover:bg-secondary" aria-label="Toggle color theme">Theme</button>
+      <button type="button" id="theme-toggle" class="inline-flex size-11 items-center justify-center rounded-sm text-muted hover:bg-secondary hover:text-foreground" aria-label="Toggle color theme">
+        <svg class="theme-icon theme-icon-moon size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="theme-icon theme-icon-sun size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      </button>
       <details class="nav-details relative lg:hidden">
         <summary class="inline-flex h-11 cursor-pointer items-center rounded-sm px-3 text-sm font-medium hover:bg-secondary">Menu</summary>
         <nav class="absolute right-0 z-50 mt-2 w-64 rounded-lg border bg-background p-2 shadow-sm" aria-label="Mobile">

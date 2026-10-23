@@ -46,6 +46,18 @@
   color-scheme: light;
 }
 
+.theme-icon-sun {
+  display: none;
+}
+
+.dark .theme-icon-moon {
+  display: none;
+}
+
+.dark .theme-icon-sun {
+  display: block;
+}
+
 .dark {
   --vt-background: #0f172a;
   --vt-surface: #111827;
