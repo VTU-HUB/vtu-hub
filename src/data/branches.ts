@@ -1,4 +1,4 @@
-import type { Branch, BranchSlug, Scheme } from "@/data/types";
+import type { Branch, Scheme } from "@/data/types";
 
 export const branches: Branch[] = [
   {
@@ -84,16 +84,7 @@ export const schemes: Scheme[] = [
   },
 ];
 
-export const SEMESTER_ORD = [
-  "1st",
-  "2nd",
-  "3rd",
-  "4th",
-  "5th",
-  "6th",
-  "7th",
-  "8th",
-] as const;
+export const SEMESTER_ORD = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"] as const;
 
 export function semesterSlug(n: number) {
   return `${SEMESTER_ORD[n - 1]}-semester`;

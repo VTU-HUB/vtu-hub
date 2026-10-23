@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    "Segoe UI", ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --color-background: var(--vt-background);
@@ -149,6 +149,21 @@
     background: var(--vt-secondary);
     color: var(--vt-faint);
     border-radius: 10px;
+    content-visibility: auto;
+  }
+
+  .aio-answer {
+    border-left: 3px solid var(--vt-primary);
+    background: var(--vt-secondary);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 14px;
+  }
+
+  .nav-details > summary {
+    list-style: none;
+  }
+  .nav-details > summary::-webkit-details-marker {
+    display: none;
   }
 }
 

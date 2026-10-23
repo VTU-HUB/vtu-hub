@@ -1,0 +1,65 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import FileTable from "@/components/site/FileTable.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { getBranch, parseSemesterSlug, semesterName, semesterSlug } from "@/data/branches";
+import { resourceTypes } from "@/data/resource-types";
+import { resourcesFor } from "@/data/resources";
+import { subjectPath, subjects } from "@/data/subjects";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const subject of subjects) {
+    for (const type of resourceTypes) {
+      if (resourcesFor(subject.branch, subject.semester, subject.slug, type.slug).length === 0) continue;
+      paths.push({
+        params: {
+          branch: subject.branch,
+          semester: semesterSlug(subject.semester),
+          subject: subject.slug,
+          type: type.slug,
+        },
+      });
+    }
+  }
+  return paths;
+}
+
+const branch = getBranch(Astro.params.branch)!;
+const n = parseSemesterSlug(Astro.params.semester)!;
+const subject = subjects.find((s) => s.branch === branch.slug && s.semester === n && s.slug === Astro.params.subject)!;
+const type = resourceTypes.find((t) => t.slug === Astro.params.type)!;
+const files = resourcesFor(subject.branch, subject.semester, subject.slug, type.slug);
+const path = `${subjectPath(subject)}/${type.slug}`;
+---
+
+<Base
+  title={`${subject.shortName} ${type.label}`}
+  description={`${type.label} for ${subject.name} — VTU ${branch.shortName} ${semesterName(n)} in Karnataka.`}
+  path={path}
+  crumbs={[
+    { label: "VTU", href: "/vtu" },
+    { label: branch.shortName, href: `/vtu/${branch.slug}` },
+    { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
+    { label: subject.shortName, href: subjectPath(subject) },
+    { label: type.label, href: path },
+  ]}
+  faqs={[{ q: `Does VTUHub host official ${subject.code} papers?`, a: "No. These are original study guides. Official SEE papers and college manuals are issued by VTU and your department." }]}
+>
+  <Crumbs items={[
+    { label: "VTU", href: "/vtu" },
+    { label: branch.shortName, href: `/vtu/${branch.slug}` },
+    { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
+    { label: subject.shortName, href: subjectPath(subject) },
+    { label: type.label },
+  ]} />
+  <PageHeader kicker={subject.code} title={`${subject.shortName} ${type.label}`} answer={type.description} />
+  <Notice class="mb-6">Original study guides. Official SEE papers and college manuals are issued by VTU and your department — we do not host those PDFs.</Notice>
+  {files.length === 0 ? (
+    <p class="text-sm text-muted">No {type.label.toLowerCase()} yet. <a class="text-primary hover:underline" href={subjectPath(subject)}>Back to subject</a></p>
+  ) : (
+    <FileTable files={files} />
+  )}
+</Base>

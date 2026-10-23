@@ -8,12 +8,7 @@ import { Notice } from "@/components/ui/Notice";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { getBranch, semesterName, semesterSlug } from "@/data/branches";
 import { getResourceType } from "@/data/resource-types";
-import {
-  getResource,
-  relatedFiles,
-  subjectFor,
-  typePath,
-} from "@/data/resources";
+import { getResource, relatedFiles, subjectFor, typePath } from "@/data/resources";
 import { subjectPath } from "@/data/subjects";
 import { OFFICIAL_VTU_URL } from "@/lib/site";
 import { pageHead } from "@/lib/seo";
@@ -75,15 +70,19 @@ function FilePage() {
           href={`/vtu/${file.branch}/${sem}`}
         />
         {subject ? (
-          <Meta label="Subject" value={`${subject.name} (${subject.code})`} href={subjectPath(subject)} />
+          <Meta
+            label="Subject"
+            value={`${subject.name} (${subject.code})`}
+            href={subjectPath(subject)}
+          />
         ) : null}
         <Meta label="Scheme" value={`${subject?.scheme ?? "2022"} scheme`} href="/schemes/2022" />
         <Meta label="Type" value={type?.label ?? file.type} href={`/resources/${file.type}`} />
         {file.unit ? <Meta label="Unit" value={`Unit ${file.unit}`} /> : null}
       </dl>
       <Notice className="mt-8">
-        Original VTUHub writing. Not an official VTU circular and not a scanned
-        university paper. Confirm module titles on{" "}
+        Original VTUHub writing. Not an official VTU circular and not a scanned university paper.
+        Confirm module titles on{" "}
         <a href={OFFICIAL_VTU_URL} className="text-primary hover:underline">
           vtu.ac.in
         </a>
@@ -123,15 +122,7 @@ function FilePage() {
   );
 }
 
-function Meta({
-  label,
-  value,
-  href,
-}: {
-  label: string;
-  value: string;
-  href?: string;
-}) {
+function Meta({ label, value, href }: { label: string; value: string; href?: string }) {
   return (
     <div className="rounded-md border bg-surface px-4 py-3">
       <dt className="text-xs font-medium uppercase tracking-wider text-faint">{label}</dt>

@@ -1,0 +1,59 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import Sections from "@/components/site/Sections.astro";
+import { articles, getArticle, relatedArticles } from "@/data/articles";
+import { absUrl, SITE_URL } from "@/lib/site";
+import { formatFullDate } from "@/lib/utils";
+
+export function getStaticPaths() {
+  return articles.map((a) => ({ params: { slug: a.slug } }));
+}
+
+const article = getArticle(Astro.params.slug)!;
+const related = relatedArticles(article.slug);
+const path = `/articles/${article.slug}`;
+const faqs = article.sections.slice(0, 3).map((s) => ({
+  q: s.heading,
+  a: [...(s.paragraphs ?? []), ...(s.bullets ?? [])].join(" "),
+})).filter((f) => f.a);
+---
+<Base
+  title={article.title}
+  description={article.description}
+  path={path}
+  ogType="article"
+  published={article.published}
+  updated={article.updated}
+  crumbs={[{ label: "Articles", href: "/articles" }, { label: article.title, href: path }]}
+  faqs={faqs}
+  extraJsonLd={[{
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.published,
+    dateModified: article.updated,
+    inLanguage: "en-IN",
+    mainEntityOfPage: absUrl(path),
+    author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  }]}
+>
+  <Crumbs items={[{ label: "Articles", href: "/articles" }, { label: article.title }]} />
+  <PageHeader kicker={article.category} title={article.title} answer={article.description}>
+    <p slot="meta" class="mt-3 flex flex-wrap gap-x-3 text-sm text-muted">
+      <span>Updated {formatFullDate(article.updated)}</span>
+      <span>{article.readMinutes} min read</span>
+    </p>
+  </PageHeader>
+  <Sections sections={article.sections} />
+  {related.length > 0 ? (
+    <aside class="mt-12 max-w-3xl border-t pt-8">
+      <h2 class="text-lg font-semibold">Related</h2>
+      <ul class="mt-3 space-y-2">
+        {related.map((r) => <li><a class="text-sm text-primary hover:underline" href={`/articles/${r.slug}`}>{r.title}</a></li>)}
+      </ul>
+    </aside>
+  ) : null}
+</Base>

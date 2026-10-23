@@ -1,0 +1,43 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { articles } from "@/data/articles";
+import { branches, schemes, semesterName, semesterPath } from "@/data/branches";
+import { resourceTypes } from "@/data/resource-types";
+import { tools } from "@/data/tools";
+import { updates } from "@/data/updates";
+---
+<Base title="Sitemap" description="All major VTUHub sections: branches, semesters, resources, tools, updates and legal pages." path="/sitemap" crumbs={[{ label: "Sitemap", href: "/sitemap" }]}>
+  <Crumbs items={[{ label: "Sitemap" }]} />
+  <PageHeader title="Sitemap" answer="A human-readable map of VTUHub. The machine-readable file is the XML sitemap, and AI crawlers can read llms.txt." />
+  <section class="mt-10">
+    <h2 class="text-lg font-semibold">Start</h2>
+    <ul class="mt-3 columns-1 text-sm sm:columns-2 md:columns-3">
+      <li class="py-1"><a class="text-primary hover:underline" href="/">Home</a></li>
+      <li class="py-1"><a class="text-primary hover:underline" href="/vtu">Browse VTU</a></li>
+      <li class="py-1"><a class="text-primary hover:underline" href="/faq">FAQ</a></li>
+      <li class="py-1"><a class="text-primary hover:underline" href="/schemes">Schemes</a></li>
+      <li class="py-1"><a class="text-primary hover:underline" href="/semesters">Semesters</a></li>
+      <li class="py-1"><a class="text-primary hover:underline" href="/llms.txt">llms.txt</a></li>
+    </ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-lg font-semibold">Schemes and branches</h2>
+    <ul class="mt-3 columns-1 text-sm sm:columns-2 md:columns-3">
+      {schemes.map((s) => <li class="py-1"><a class="text-primary hover:underline" href={`/schemes/${s.year}`}>{s.name}</a></li>)}
+      {branches.map((b) => <li class="py-1"><a class="text-primary hover:underline" href={`/vtu/${b.slug}`}>{b.shortName}</a></li>)}
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => <li class="py-1"><a class="text-primary hover:underline" href={semesterPath(n)}>{semesterName(n)}</a></li>)}
+    </ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="text-lg font-semibold">Resources, tools, articles</h2>
+    <ul class="mt-3 columns-1 text-sm sm:columns-2 md:columns-3">
+      {resourceTypes.map((t) => <li class="py-1"><a class="text-primary hover:underline" href={`/resources/${t.slug}`}>{t.label}</a></li>)}
+      <li class="py-1"><a class="text-primary hover:underline" href="/resources/study-materials">Study materials</a></li>
+      {tools.map((t) => <li class="py-1"><a class="text-primary hover:underline" href={t.href}>{t.name}</a></li>)}
+      {articles.map((a) => <li class="py-1"><a class="text-primary hover:underline" href={`/articles/${a.slug}`}>{a.title}</a></li>)}
+      {updates.map((u) => <li class="py-1"><a class="text-primary hover:underline" href={`/updates/${u.slug}`}>{u.title}</a></li>)}
+    </ul>
+  </section>
+</Base>

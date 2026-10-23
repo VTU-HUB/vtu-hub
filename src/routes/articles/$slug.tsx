@@ -30,12 +30,7 @@ function ArticlePage() {
   const { article, related } = Route.useLoaderData();
   return (
     <Container className="py-8 md:py-12">
-      <Breadcrumbs
-        items={[
-          { label: "Articles", href: "/articles" },
-          { label: article.title },
-        ]}
-      />
+      <Breadcrumbs items={[{ label: "Articles", href: "/articles" }, { label: article.title }]} />
       <PageHeader
         kicker={article.category}
         title={article.title}

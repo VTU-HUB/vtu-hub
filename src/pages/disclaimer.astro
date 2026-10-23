@@ -1,0 +1,19 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+---
+<Base title="Disclaimer" description="VTUHub is independent of Visvesvaraya Technological University. Resources and calculators are study aids, not official records." path="/disclaimer" crumbs={[{ label: "Disclaimer", href: "/disclaimer" }]}>
+  <Crumbs items={[{ label: "Disclaimer" }]} />
+  <PageHeader title="Disclaimer" answer="VTUHub is not affiliated with Visvesvaraya Technological University, Belagavi, or any affiliated college. If this site and an official PDF disagree, the official PDF wins.">
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 28 August 2026</p>
+  </PageHeader>
+  <div class="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-xl font-semibold text-foreground">Official sources</h2>
+    <p>Exam dates, results, scheme PDFs, circulars and USN services are published by the university. Names of programmes, schemes and subject codes are used to describe publicly known structures.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Study files and calculators</h2>
+    <p>Original notes, practice questions and lab-prep guides are study aids. They are not a guarantee of SEE questions and not scanned university papers. SGPA, CGPA, marks and attendance tools implement commonly cited formulae. Colleges may use stricter attendance rules. Percentage conversions from CGPA are informal unless a circular for your batch says otherwise.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">No professional advice</h2>
+    <p>Nothing on this site is legal, academic-misconduct, or career advice.</p>
+  </div>
+</Base>

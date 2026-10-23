@@ -6,14 +6,7 @@ import { tools } from "@/data/tools";
 import { updates } from "@/data/updates";
 import type { ResourceType, Subject } from "@/data/types";
 
-export type SearchKind =
-  | "subject"
-  | "resource"
-  | "article"
-  | "update"
-  | "tool"
-  | "branch"
-  | "page";
+export type SearchKind = "subject" | "resource" | "article" | "update" | "tool" | "branch" | "page";
 
 export type SearchHit = {
   title: string;
@@ -43,12 +36,7 @@ function typesFor(s: Subject): ResourceType[] {
   if (s.kind === "project") return [];
   if (s.kind === "lab") return ["lab-manuals", "syllabus"];
   if (s.kind === "ability") return ["syllabus"];
-  const types: ResourceType[] = [
-    "notes",
-    "question-papers",
-    "syllabus",
-    "important-questions",
-  ];
+  const types: ResourceType[] = ["notes", "question-papers", "syllabus", "important-questions"];
   if (s.hasLab) types.push("lab-manuals");
   return types;
 }
@@ -73,18 +61,24 @@ export const searchIndex: SearchHit[] = [
   ),
   hit("Syllabus", "/resources/syllabus", "page", "Module lists", "scheme pdf"),
   hit("Lab guides", "/resources/lab-manuals", "page", "Labs", "cie experiments"),
-  hit("Important questions", "/resources/important-questions", "page", "Practice", "module questions"),
+  hit(
+    "Important questions",
+    "/resources/important-questions",
+    "page",
+    "Practice",
+    "module questions",
+  ),
   hit("Exam timetable guides", "/updates/exam-timetable", "page", "SEE dates", "timetable"),
   hit("Results guides", "/updates/results", "page", "Revaluation", "photocopy"),
-  hit("Academic calendar", "/updates/academic-calendar", "page", "Term dates", "cie last working day"),
+  hit(
+    "Academic calendar",
+    "/updates/academic-calendar",
+    "page",
+    "Term dates",
+    "cie last working day",
+  ),
   ...[1, 2, 3, 4, 5, 6, 7, 8].map((n) =>
-    hit(
-      semesterName(n),
-      `/semesters/${semesterSlug(n)}`,
-      "page",
-      "All branches",
-      `${n} semester`,
-    ),
+    hit(semesterName(n), `/semesters/${semesterSlug(n)}`, "page", "All branches", `${n} semester`),
   ),
   ...branches.map((b) =>
     hit(b.name, `/vtu/${b.slug}`, "branch", b.shortName, `${b.code} ${b.shortName}`),
@@ -110,9 +104,7 @@ export const searchIndex: SearchHit[] = [
       );
     }),
   ),
-  ...articles.map((a) =>
-    hit(a.title, `/articles/${a.slug}`, "article", a.category, a.description),
-  ),
+  ...articles.map((a) => hit(a.title, `/articles/${a.slug}`, "article", a.category, a.description)),
   ...updates.map((u) => hit(u.title, `/updates/${u.slug}`, "update", u.type, u.summary)),
   ...tools.map((t) => hit(t.name, t.href, "tool", "Calculator", t.description)),
 ];

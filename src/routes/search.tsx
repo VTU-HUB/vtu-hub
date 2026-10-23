@@ -30,10 +30,7 @@ function SearchPage() {
   return (
     <Container className="py-8 md:py-12">
       <Breadcrumbs items={[{ label: "Search" }]} />
-      <PageHeader
-        title="Search"
-        description="Subjects, guides, branches, tools and articles."
-      />
+      <PageHeader title="Search" description="Subjects, guides, branches, tools and articles." />
       <div className="max-w-xl">
         <SearchField size="page" initialQuery={q} live={false} />
       </div>

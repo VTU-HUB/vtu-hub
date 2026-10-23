@@ -32,12 +32,7 @@ function SchemePage() {
   const extra = schemePages[scheme.year];
   return (
     <Container className="py-8 md:py-12">
-      <Breadcrumbs
-        items={[
-          { label: "Schemes", href: "/schemes" },
-          { label: scheme.name },
-        ]}
-      />
+      <Breadcrumbs items={[{ label: "Schemes", href: "/schemes" }, { label: scheme.name }]} />
       <PageHeader
         kicker={`${scheme.year} regulation`}
         title={scheme.name}
@@ -50,12 +45,10 @@ function SchemePage() {
         }
       />
       <Notice>
-        Confirm the scheme printed on your exam admission ticket. VTUHub organises
-        current notes around the 2022 basket; older papers stay useful for practice.
+        Confirm the scheme printed on your exam admission ticket. VTUHub organises current notes
+        around the 2022 basket; older papers stay useful for practice.
       </Notice>
-      <p className="mt-6 text-sm text-muted">
-        Typical codes: {extra.codes}
-      </p>
+      <p className="mt-6 text-sm text-muted">Typical codes: {extra.codes}</p>
       {extra.sections.map((sec) => (
         <section key={sec.heading} className="mt-10 max-w-3xl">
           <h2 className="text-lg font-semibold">{sec.heading}</h2>

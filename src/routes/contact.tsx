@@ -28,9 +28,8 @@ function ContactPage() {
         </a>
       </p>
       <p>
-        Use this for questions about how the site is organised, missing
-        branches, and partnership enquiries that are not advertisements stuffed
-        into the first line.
+        Use this for questions about how the site is organised, missing branches, and partnership
+        enquiries that are not advertisements stuffed into the first line.
       </p>
       <h2>Corrections</h2>
       <p>
@@ -39,9 +38,8 @@ function ContactPage() {
         </a>
       </p>
       <p>
-        If a subject code, module title or file is wrong, include the page URL,
-        the code printed on your admission ticket, and what you expected. We
-        cannot change university marks.
+        If a subject code, module title or file is wrong, include the page URL, the code printed on
+        your admission ticket, and what you expected. We cannot change university marks.
       </p>
       <h2>Copyright</h2>
       <p>
@@ -54,8 +52,8 @@ function ContactPage() {
         <a href="/copyright" className="text-primary hover:underline">
           copyright
         </a>{" "}
-        page for the notice format. Do not send malware or password-protected
-        archives as “evidence”.
+        page for the notice format. Do not send malware or password-protected archives as
+        “evidence”.
       </p>
       <h2>What we cannot help with</h2>
       <ul>

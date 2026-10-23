@@ -1,0 +1,50 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+---
+<Base
+  title="Search"
+  description="Search VTUHub for subjects, study guides, tools and articles."
+  path="/search"
+  noindex
+>
+  <Crumbs items={[{ label: "Search" }]} />
+  <PageHeader title="Search" answer="Search subjects, guides, branches, tools and articles. Try a subject code such as BCS304, a branch such as ECE, or a tool such as SGPA." />
+  <form action="/search" method="get" role="search" class="max-w-xl">
+    <label class="sr-only" for="q">Search</label>
+    <input id="q" name="q" type="search" class="h-12 w-full rounded-md border bg-surface px-4" />
+  </form>
+  <div id="search-results" class="mt-8"></div>
+</Base>
+<script>
+  import { KIND_LABEL, search } from "@/data/search-index";
+  const params = new URLSearchParams(location.search);
+  const q = params.get("q") ?? "";
+  const input = document.querySelector<HTMLInputElement>("#q");
+  if (input) input.value = q;
+  const mount = document.querySelector("#search-results");
+  if (mount && q.trim()) {
+    const hits = search(q, 40);
+    if (hits.length === 0) {
+      mount.innerHTML = '<p class="text-sm text-muted">No matches. Try a subject code (BCS304), a branch (ECE) or a tool (SGPA).</p>';
+    } else {
+      const list = document.createElement("ul");
+      list.className = "divide-y border-t";
+      for (const hit of hits) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = hit.href;
+        a.className = "block py-3.5 hover:bg-secondary/60";
+        a.innerHTML = `<p class="text-xs font-medium uppercase tracking-wider text-muted"></p><p class="mt-1 font-medium"></p><p class="text-sm text-muted"></p>`;
+        const [k, title, sub] = a.querySelectorAll("p");
+        k.textContent = KIND_LABEL[hit.kind];
+        title.textContent = hit.title;
+        sub.textContent = hit.subtitle;
+        li.append(a);
+        list.append(li);
+      }
+      mount.append(list);
+    }
+  }
+</script>

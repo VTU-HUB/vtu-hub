@@ -1,0 +1,119 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import FileTable from "@/components/site/FileTable.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { getBranch, parseSemesterSlug, semesterName, semesterSlug } from "@/data/branches";
+import { resourceTypes } from "@/data/resource-types";
+import { resourceCounts, resourcesFor } from "@/data/resources";
+import { getSubjectsBySemester, subjectPath, subjects } from "@/data/subjects";
+import { absUrl, SITE_URL } from "@/lib/site";
+
+export function getStaticPaths() {
+  return subjects.map((subject) => ({
+    params: {
+      branch: subject.branch,
+      semester: semesterSlug(subject.semester),
+      subject: subject.slug,
+    },
+  }));
+}
+
+const branch = getBranch(Astro.params.branch)!;
+const n = parseSemesterSlug(Astro.params.semester)!;
+const subject = subjects.find((s) => s.branch === branch.slug && s.semester === n && s.slug === Astro.params.subject)!;
+const files = resourcesFor(subject.branch, subject.semester, subject.slug);
+const counts = resourceCounts(subject.branch, subject.semester, subject.slug);
+const siblings = getSubjectsBySemester(branch.slug, n).filter((s) => s.slug !== subject.slug);
+const path = subjectPath(subject);
+const faqs = [
+  { q: `What is ${subject.name} (${subject.code})?`, a: subject.description },
+  { q: `How many credits is ${subject.code}?`, a: `${subject.name} is ${subject.credits} credit${subject.credits === 1 ? "" : "s"} on the ${subject.scheme} scheme for VTU ${branch.shortName}, semester ${n}.` },
+];
+---
+
+<Base
+  title={`${subject.name} (${subject.code})`}
+  description={subject.description}
+  path={path}
+  keywords={`${subject.code}, VTU ${branch.shortName}, ${semesterName(n)}, ${subject.scheme} scheme`}
+  crumbs={[
+    { label: "VTU", href: "/vtu" },
+    { label: branch.shortName, href: `/vtu/${branch.slug}` },
+    { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
+    { label: subject.shortName, href: path },
+  ]}
+  faqs={faqs}
+  extraJsonLd={[{
+    "@type": "Course",
+    name: subject.name,
+    description: subject.description,
+    courseCode: subject.code,
+    numberOfCredits: subject.credits,
+    inLanguage: "en-IN",
+    provider: { "@id": `${SITE_URL}/#organization` },
+    url: absUrl(path),
+  }]}
+>
+  <Crumbs items={[
+    { label: "VTU", href: "/vtu" },
+    { label: branch.shortName, href: `/vtu/${branch.slug}` },
+    { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
+    { label: subject.shortName },
+  ]} />
+  <PageHeader
+    kicker={`${subject.code} · ${branch.shortName} · ${semesterName(n)} · Karnataka`}
+    title={subject.name}
+    answer={subject.description}
+  >
+    <p slot="meta" class="mt-3 flex flex-wrap gap-x-3 text-sm text-muted">
+      <span>{subject.credits} credits</span>
+      <span>{subject.scheme} scheme</span>
+      <span class="capitalize">{subject.kind}</span>
+    </p>
+  </PageHeader>
+  <ul class="flex flex-wrap gap-2">
+    {resourceTypes.filter((t) => counts[t.slug] > 0).map((t) => (
+      <li>
+        <a class="inline-flex h-11 items-center rounded-md border bg-surface px-3 text-sm font-medium hover:border-primary/40" href={`${path}/${t.slug}`}>
+          {t.label}<span class="ml-2 text-xs text-faint">{counts[t.slug]}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <Notice class="mt-6">Guides on this page are original VTUHub writing. We do not host university question-paper PDFs or scanned faculty notes. Confirm module titles against the official scheme PDF on vtu.ac.in.</Notice>
+  {subject.units.length > 0 && subject.kind === "theory" ? (
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold">Modules</h2>
+      <ol class="mt-4 divide-y border-t">
+        {subject.units.map((u) => (
+          <li class="py-3.5">
+            <p class="font-medium">Unit {u.number} · {u.title}</p>
+            <p class="mt-1 text-sm text-muted">{u.topics}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ) : null}
+  {subject.outcomes.length > 0 ? (
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold">Outcomes</h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-muted">
+        {subject.outcomes.map((o) => <li>{o}</li>)}
+      </ul>
+    </section>
+  ) : null}
+  <section class="mt-10">
+    <h2 class="mb-4 text-lg font-semibold">Guides</h2>
+    <FileTable files={files} />
+  </section>
+  {siblings.length > 0 ? (
+    <section class="mt-10">
+      <h2 class="mb-3 text-lg font-semibold">Same semester</h2>
+      <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+        {siblings.map((s) => <li><a class="text-primary hover:underline" href={subjectPath(s)}>{s.shortName}</a></li>)}
+      </ul>
+    </section>
+  ) : null}
+</Base>

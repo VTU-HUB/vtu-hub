@@ -23,8 +23,8 @@ function PrivacyPage() {
     >
       <h2>Who we are</h2>
       <p>
-        VTUHub is an independent website at vtuhub.site. It is not Visvesvaraya
-        Technological University. Contact:{" "}
+        VTUHub is an independent website at vtuhub.site. It is not Visvesvaraya Technological
+        University. Contact:{" "}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary hover:underline">
           {CONTACT_EMAIL}
         </a>
@@ -32,84 +32,74 @@ function PrivacyPage() {
       </p>
       <h2>Information we collect</h2>
       <p>
-        Calculators run in your browser. SGPA rows, CIE marks and attendance
-        counts are not sent to a VTUHub server. We do not ask for a USN,
-        password or government ID.
+        Calculators run in your browser. SGPA rows, CIE marks and attendance counts are not sent to
+        a VTUHub server. We do not ask for a USN, password or government ID.
       </p>
       <h3>Server and log information</h3>
       <p>
-        Hosting and content-delivery providers typically record IP address, user
-        agent, requested URL, referrer and a timestamp. These logs exist to
-        operate and secure the site, not to build a student profile.
+        Hosting and content-delivery providers typically record IP address, user agent, requested
+        URL, referrer and a timestamp. These logs exist to operate and secure the site, not to build
+        a student profile.
       </p>
       <h3>Theme preference</h3>
       <p>
-        Light/dark mode is stored in localStorage on your device
-        (<code>vtuhub-theme</code>). It does not identify you.
+        Light/dark mode is stored in localStorage on your device (<code>vtuhub-theme</code>). It
+        does not identify you.
       </p>
       <h2>Cookies</h2>
       <p>
-        First-party cookies, if any, are limited to hosting, security and
-        similar operational needs. Search queries you type are used to show
-        results on this site.
+        First-party cookies, if any, are limited to hosting, security and similar operational needs.
+        Search queries you type are used to show results on this site.
       </p>
       <h2>Analytics</h2>
       <p>
-        If traffic analytics are added later, they will be configured to avoid
-        collecting USNs or form contents from the calculators. This policy will
-        be updated with the product name if that happens.
+        If traffic analytics are added later, they will be configured to avoid collecting USNs or
+        form contents from the calculators. This policy will be updated with the product name if
+        that happens.
       </p>
       <h2>Advertising</h2>
       <p>
-        Advertising on VTUHub is off by default in the current build. If Google
-        AdSense or another network is enabled:
+        Advertising on VTUHub is off by default in the current build. If Google AdSense or another
+        network is enabled:
       </p>
       <ul>
         <li>
-          Google and its partners may use cookies to serve ads based on a user’s
-          previous visits to this or other websites.
+          Google and its partners may use cookies to serve ads based on a user’s previous visits to
+          this or other websites.
         </li>
         <li>
-          Google’s use of advertising cookies enables it and its partners to
-          serve ads based on visits to this site and/or other sites on the
-          Internet.
+          Google’s use of advertising cookies enables it and its partners to serve ads based on
+          visits to this site and/or other sites on the Internet.
         </li>
         <li>
           Users may opt out of personalised advertising by visiting{" "}
-          <a
-            href="https://www.google.com/settings/ads"
-            className="text-primary hover:underline"
-          >
+          <a href="https://www.google.com/settings/ads" className="text-primary hover:underline">
             Google Ads Settings
           </a>
           .
         </li>
         <li>
           Alternatively, users can opt out of some third-party cookies at{" "}
-          <a
-            href="https://www.aboutads.info/choices/"
-            className="text-primary hover:underline"
-          >
+          <a href="https://www.aboutads.info/choices/" className="text-primary hover:underline">
             aboutads.info
           </a>
           .
         </li>
       </ul>
       <p>
-        Third-party vendors, including Google, use cookies to serve ads. We do
-        not control those vendors’ retention of cookie identifiers.
+        Third-party vendors, including Google, use cookies to serve ads. We do not control those
+        vendors’ retention of cookie identifiers.
       </p>
       <h2>Third-party services</h2>
       <p>
-        Fonts, hosting, and (if enabled) advertising or analytics providers
-        process requests under their own policies. External links — including
-        vtu.ac.in — are not covered by this document.
+        Fonts, hosting, and (if enabled) advertising or analytics providers process requests under
+        their own policies. External links — including vtu.ac.in — are not covered by this document.
       </p>
       <h2>Retention</h2>
       <p>
-        Server logs are kept only as long as the host’s default unless a
-        security incident requires a longer copy. Emails you send to the contact
-        addresses are kept as long as needed to answer them.
+        Server logs are kept only as long as the host’s default unless a security incident requires
+        a longer copy. Emails you send to the contact addresses are kept as long as needed to answer
+        them.
       </p>
       <h2>Your choices</h2>
       <ul>
@@ -119,13 +109,13 @@ function PrivacyPage() {
       </ul>
       <h2>Children</h2>
       <p>
-        The site is aimed at university students. We do not knowingly collect
-        personal information from children.
+        The site is aimed at university students. We do not knowingly collect personal information
+        from children.
       </p>
       <h2>Changes</h2>
       <p>
-        Material changes will be dated at the top of this page. Continued use
-        after a change is acceptance of the updated text.
+        Material changes will be dated at the top of this page. Continued use after a change is
+        acceptance of the updated text.
       </p>
     </LegalLayout>
   );

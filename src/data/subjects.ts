@@ -5,7 +5,7 @@ function units(items: [string, string][]): Unit[] {
   return items.map(([title, topics], i) => ({
     number: i + 1,
     title,
-    topics
+    topics,
   }));
 }
 const DEFAULT_UNITS = units([
@@ -13,7 +13,7 @@ const DEFAULT_UNITS = units([
   ["Core methods", "Standard techniques and worked representations used in CIE tests."],
   ["Analysis and design", "How to set up, compare, and reason about typical problems."],
   ["Advanced topics", "Extensions that often appear as SEE long-answer questions."],
-  ["Applications", "Where the module shows up in labs, projects, and later subjects."]
+  ["Applications", "Where the module shows up in labs, projects, and later subjects."],
 ]);
 type SubjectInput = {
   branch: BranchSlug;
@@ -48,9 +48,9 @@ function s(input: SubjectInput): Subject {
     outcomes: input.outcomes ?? [
       `Explain the core ideas of ${input.name} as listed in the ${input.code} syllabus.`,
       `Solve typical CIE and SEE problems from this subject.`,
-      `Connect this module to later subjects in the same programme.`
+      `Connect this module to later subjects in the same programme.`,
     ],
-    units: input.units ?? DEFAULT_UNITS
+    units: input.units ?? DEFAULT_UNITS,
   };
 }
 function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[] {
@@ -69,12 +69,18 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       credits: 4,
       description: `Differential calculus, linear algebra and the first-semester mathematics core for VTU ${b.shortName} students.`,
       units: units([
-        ["Differential calculus", "Partial derivatives, Euler's theorem, total derivatives, Jacobians."],
+        [
+          "Differential calculus",
+          "Partial derivatives, Euler's theorem, total derivatives, Jacobians.",
+        ],
         ["Linear algebra", "Matrices, rank, inverse, consistency of linear systems."],
         ["Integral calculus", "Multiple integrals and applications to area and volume."],
-        ["Ordinary differential equations", "First-order and higher-order linear ODEs with constant coefficients."],
-        ["Applications", `Engineering models that show up in later ${b.shortName} subjects.`]
-      ])
+        [
+          "Ordinary differential equations",
+          "First-order and higher-order linear ODEs with constant coefficients.",
+        ],
+        ["Applications", `Engineering models that show up in later ${b.shortName} subjects.`],
+      ]),
     }),
     s({
       branch,
@@ -84,7 +90,7 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       name: "Applied Physics",
       shortName: "Physics",
       hasLab: true,
-      description: `Applied Physics for the ${phyFirst ? "physics" : "chemistry"}-cycle ${b.shortName} batch.`
+      description: `Applied Physics for the ${phyFirst ? "physics" : "chemistry"}-cycle ${b.shortName} batch.`,
     }),
     s({
       branch,
@@ -94,7 +100,7 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       name: "Applied Chemistry",
       shortName: "Chemistry",
       hasLab: true,
-      description: `Engineering chemistry for VTU ${b.shortName}: water technology, electrochemistry, fuels and polymers.`
+      description: `Engineering chemistry for VTU ${b.shortName}: water technology, electrochemistry, fuels and polymers.`,
     }),
     s({
       branch,
@@ -105,7 +111,7 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       shortName: "C Programming",
       hasLab: true,
       flagship: branch === "cse" || branch === "ise",
-      description: `First-year C programming as taught on the VTU 2022 scheme. Covers types, control flow, functions, arrays, pointers and files.`
+      description: `First-year C programming as taught on the VTU 2022 scheme. Covers types, control flow, functions, arrays, pointers and files.`,
     }),
     s({
       branch,
@@ -116,7 +122,7 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       shortName: "English",
       credits: 2,
       kind: "ability",
-      description: `Communicative English for VTU first-year ${b.shortName}: technical writing and the language paper.`
+      description: `Communicative English for VTU first-year ${b.shortName}: technical writing and the language paper.`,
     }),
     s({
       branch,
@@ -126,7 +132,7 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       name: "Mathematics-II",
       shortName: "Maths-II",
       credits: 4,
-      description: `Integral transforms, vector calculus and the second-semester mathematics core for ${b.shortName}.`
+      description: `Integral transforms, vector calculus and the second-semester mathematics core for ${b.shortName}.`,
     }),
     s({
       branch,
@@ -136,8 +142,8 @@ function firstYear(branch: BranchSlug, cycle: "physics" | "chemistry"): Subject[
       name: "Introduction to Python Programming",
       shortName: "Python",
       hasLab: true,
-      description: `Introductory Python for VTU ${b.shortName} — syntax, data structures, functions and plotting at first-year depth.`
-    })
+      description: `Introductory Python for VTU ${b.shortName} — syntax, data structures, functions and plotting at first-year depth.`,
+    }),
   ];
 }
 const cseCore: Subject[] = [
@@ -149,7 +155,8 @@ const cseCore: Subject[] = [
     name: "Mathematics for Computer Science",
     shortName: "Maths for CSE",
     credits: 4,
-    description: "Third-semester mathematics for VTU CSE (2022 scheme): statistical methods, random variables and numerical techniques."
+    description:
+      "Third-semester mathematics for VTU CSE (2022 scheme): statistical methods, random variables and numerical techniques.",
   }),
   s({
     branch: "cse",
@@ -160,7 +167,8 @@ const cseCore: Subject[] = [
     shortName: "DDCO",
     flagship: true,
     hasLab: true,
-    description: "Boolean algebra, combinational and sequential circuits with the processor datapath — the hardware foundation for later OS memory topics."
+    description:
+      "Boolean algebra, combinational and sequential circuits with the processor datapath — the hardware foundation for later OS memory topics.",
   }),
   s({
     branch: "cse",
@@ -170,7 +178,8 @@ const cseCore: Subject[] = [
     name: "Operating Systems",
     shortName: "OS",
     flagship: true,
-    description: "Operating Systems (BCS303) for VTU CSE 3rd semester. Process management, CPU scheduling, memory, deadlocks and file systems."
+    description:
+      "Operating Systems (BCS303) for VTU CSE 3rd semester. Process management, CPU scheduling, memory, deadlocks and file systems.",
   }),
   s({
     branch: "cse",
@@ -181,7 +190,8 @@ const cseCore: Subject[] = [
     shortName: "DSA",
     flagship: true,
     hasLab: true,
-    description: "Data Structures and Applications (BCS304) is the core 3rd-semester CSE paper. Arrays, stacks, queues, linked lists, trees, graphs and hashing."
+    description:
+      "Data Structures and Applications (BCS304) is the core 3rd-semester CSE paper. Arrays, stacks, queues, linked lists, trees, graphs and hashing.",
   }),
   s({
     branch: "cse",
@@ -192,7 +202,8 @@ const cseCore: Subject[] = [
     shortName: "DSA Lab",
     kind: "lab",
     credits: 1,
-    description: "The DSA lab (BCSL305) implements the structures taught in BCS304. Use the lab manual as a write-up template, not as copy-paste code."
+    description:
+      "The DSA lab (BCSL305) implements the structures taught in BCS304. Use the lab manual as a write-up template, not as copy-paste code.",
   }),
   s({
     branch: "cse",
@@ -203,7 +214,8 @@ const cseCore: Subject[] = [
     shortName: "OOP Java",
     flagship: true,
     hasLab: true,
-    description: "OOP with Java (BCS306A) covers classes, inheritance, interfaces, packages, exceptions and basic collections."
+    description:
+      "OOP with Java (BCS306A) covers classes, inheritance, interfaces, packages, exceptions and basic collections.",
   }),
   s({
     branch: "cse",
@@ -214,7 +226,8 @@ const cseCore: Subject[] = [
     shortName: "ADA",
     flagship: true,
     hasLab: true,
-    description: "Asymptotic analysis plus divide-and-conquer, greedy, dynamic programming, graph algorithms and NP-completeness at VTU depth."
+    description:
+      "Asymptotic analysis plus divide-and-conquer, greedy, dynamic programming, graph algorithms and NP-completeness at VTU depth.",
   }),
   s({
     branch: "cse",
@@ -223,7 +236,8 @@ const cseCore: Subject[] = [
     code: "BCS402",
     name: "Discrete Mathematical Structures",
     shortName: "DMS",
-    description: "Logic, sets, relations, functions, combinatorics and graph theory as used by computer science. Proof-and-problem based."
+    description:
+      "Logic, sets, relations, functions, combinatorics and graph theory as used by computer science. Proof-and-problem based.",
   }),
   s({
     branch: "cse",
@@ -234,19 +248,20 @@ const cseCore: Subject[] = [
     shortName: "DBMS",
     flagship: true,
     hasLab: true,
-    description: "Database Management Systems (BCS403) for VTU CSE 4th semester, 2022 scheme. ER modelling, the relational model, SQL, normalisation, transactions and storage.",
+    description:
+      "Database Management Systems (BCS403) for VTU CSE 4th semester, 2022 scheme. ER modelling, the relational model, SQL, normalisation, transactions and storage.",
     outcomes: [
       "Draw ER diagrams and map them to a relational schema.",
       "Write SQL for typical university-database questions.",
-      "Normalise relations to 3NF/BCNF and explain transaction properties."
+      "Normalise relations to 3NF/BCNF and explain transaction properties.",
     ],
     units: units([
       ["Introduction and ER model", "Data models, schemas, ER diagrams, keys, constraints."],
       ["Relational model and SQL", "Relational algebra, DDL/DML, joins, nested queries, views."],
       ["Normalisation", "FD, 1NF–BCNF, lossless join, dependency preservation."],
       ["Transactions and concurrency", "ACID, schedules, locking, timestamps, recovery outline."],
-      ["Storage and indexing", "File organisation, B+ trees, hashing, query processing idea."]
-    ])
+      ["Storage and indexing", "File organisation, B+ trees, hashing, query processing idea."],
+    ]),
   }),
   s({
     branch: "cse",
@@ -257,7 +272,7 @@ const cseCore: Subject[] = [
     shortName: "ADA Lab",
     kind: "lab",
     credits: 1,
-    description: "ADA laboratory implements sorting, graph and DP algorithms from BCS401."
+    description: "ADA laboratory implements sorting, graph and DP algorithms from BCS401.",
   }),
   s({
     branch: "cse",
@@ -266,7 +281,8 @@ const cseCore: Subject[] = [
     code: "BCS405A",
     name: "Data Communication",
     shortName: "DC",
-    description: "Physical and data-link ideas that later support Computer Networks in the fifth semester."
+    description:
+      "Physical and data-link ideas that later support Computer Networks in the fifth semester.",
   }),
   s({
     branch: "cse",
@@ -277,7 +293,8 @@ const cseCore: Subject[] = [
     shortName: "CN",
     flagship: true,
     hasLab: true,
-    description: "Layered architecture, IP, TCP/UDP, routing and application protocols for VTU CSE fifth semester."
+    description:
+      "Layered architecture, IP, TCP/UDP, routing and application protocols for VTU CSE fifth semester.",
   }),
   s({
     branch: "cse",
@@ -286,7 +303,7 @@ const cseCore: Subject[] = [
     code: "BCS501",
     name: "Software Engineering and Project Management",
     shortName: "SE",
-    description: "Process models, requirements, design, testing and a project-management outline."
+    description: "Process models, requirements, design, testing and a project-management outline.",
   }),
   s({
     branch: "cse",
@@ -295,7 +312,8 @@ const cseCore: Subject[] = [
     code: "BCS503",
     name: "Theory of Computation",
     shortName: "TOC",
-    description: "Automata, regular languages, CFGs, Turing machines and decidability at syllabus depth."
+    description:
+      "Automata, regular languages, CFGs, Turing machines and decidability at syllabus depth.",
   }),
   s({
     branch: "cse",
@@ -305,7 +323,7 @@ const cseCore: Subject[] = [
     name: "Web Technology",
     shortName: "Web",
     hasLab: true,
-    description: "HTML/CSS/JS and server-side outlines used in fifth-semester web electives."
+    description: "HTML/CSS/JS and server-side outlines used in fifth-semester web electives.",
   }),
   s({
     branch: "cse",
@@ -316,7 +334,7 @@ const cseCore: Subject[] = [
     shortName: "CN Lab",
     kind: "lab",
     credits: 1,
-    description: "Socket and protocol experiments that sit next to BCS502."
+    description: "Socket and protocol experiments that sit next to BCS502.",
   }),
   s({
     branch: "cse",
@@ -327,7 +345,8 @@ const cseCore: Subject[] = [
     shortName: "ML",
     flagship: true,
     hasLab: true,
-    description: "Supervised and unsupervised methods at sixth-semester depth: regression, classification, clustering and a neural-net outline."
+    description:
+      "Supervised and unsupervised methods at sixth-semester depth: regression, classification, clustering and a neural-net outline.",
   }),
   s({
     branch: "cse",
@@ -337,7 +356,8 @@ const cseCore: Subject[] = [
     name: "Full Stack Development",
     shortName: "Full Stack",
     hasLab: true,
-    description: "Client–server apps, REST and a small database-backed project as listed in the scheme."
+    description:
+      "Client–server apps, REST and a small database-backed project as listed in the scheme.",
   }),
   s({
     branch: "cse",
@@ -346,7 +366,7 @@ const cseCore: Subject[] = [
     code: "BCS603",
     name: "Computer Graphics and Visualization",
     shortName: "CG",
-    description: "2D/3D pipeline, transformations, viewing and a visualisation outline."
+    description: "2D/3D pipeline, transformations, viewing and a visualisation outline.",
   }),
   s({
     branch: "cse",
@@ -355,7 +375,8 @@ const cseCore: Subject[] = [
     code: "BCS604A",
     name: "Information Security",
     shortName: "InfoSec",
-    description: "Crypto primitives, authentication, network security and a case-question style used in SEE."
+    description:
+      "Crypto primitives, authentication, network security and a case-question style used in SEE.",
   }),
   s({
     branch: "cse",
@@ -366,7 +387,8 @@ const cseCore: Subject[] = [
     shortName: "ML Lab",
     kind: "lab",
     credits: 1,
-    description: "Regression, classification, clustering and a small neural-net notebook. Record metrics."
+    description:
+      "Regression, classification, clustering and a small neural-net notebook. Record metrics.",
   }),
   s({
     branch: "cse",
@@ -375,7 +397,7 @@ const cseCore: Subject[] = [
     code: "BCS701",
     name: "Big Data Analytics",
     shortName: "Big Data",
-    description: "Volume/velocity ideas, Hadoop/Spark at survey depth, and analytics workflows."
+    description: "Volume/velocity ideas, Hadoop/Spark at survey depth, and analytics workflows.",
   }),
   s({
     branch: "cse",
@@ -386,7 +408,8 @@ const cseCore: Subject[] = [
     shortName: "Internship",
     kind: "project",
     credits: 6,
-    description: "The internship credit is assessed by report and presentation. VTUHub does not host employer materials."
+    description:
+      "The internship credit is assessed by report and presentation. VTUHub does not host employer materials.",
   }),
   s({
     branch: "cse",
@@ -397,7 +420,7 @@ const cseCore: Subject[] = [
     shortName: "Project-I",
     kind: "project",
     credits: 2,
-    description: "Phase-1 is literature survey, problem statement and design."
+    description: "Phase-1 is literature survey, problem statement and design.",
   }),
   s({
     branch: "cse",
@@ -408,7 +431,7 @@ const cseCore: Subject[] = [
     shortName: "Project-II",
     kind: "project",
     credits: 8,
-    description: "Phase-2 is implementation, testing and the final report."
+    description: "Phase-2 is implementation, testing and the final report.",
   }),
   s({
     branch: "cse",
@@ -419,8 +442,8 @@ const cseCore: Subject[] = [
     shortName: "Seminar",
     kind: "project",
     credits: 1,
-    description: "Seminar credit is presentation and a short report, not a downloadable paper."
-  })
+    description: "Seminar credit is presentation and a short report, not a downloadable paper.",
+  }),
 ];
 const iseCore: Subject[] = [
   s({
@@ -432,7 +455,8 @@ const iseCore: Subject[] = [
     shortName: "DSA",
     flagship: true,
     hasLab: true,
-    description: "ISE 3rd-semester data structures (BIS304). Same linear and non-linear structures as CSE, with IS-coded papers."
+    description:
+      "ISE 3rd-semester data structures (BIS304). Same linear and non-linear structures as CSE, with IS-coded papers.",
   }),
   s({
     branch: "ise",
@@ -442,7 +466,8 @@ const iseCore: Subject[] = [
     name: "Operating Systems",
     shortName: "OS",
     flagship: true,
-    description: "OS for ISE 3rd semester. Scheduling numericals and memory management as in the 2022 scheme."
+    description:
+      "OS for ISE 3rd semester. Scheduling numericals and memory management as in the 2022 scheme.",
   }),
   s({
     branch: "ise",
@@ -452,7 +477,7 @@ const iseCore: Subject[] = [
     name: "Digital Design and Computer Organization",
     shortName: "DDCO",
     hasLab: true,
-    description: "DDCO for ISE. Boolean algebra through a simple datapath."
+    description: "DDCO for ISE. Boolean algebra through a simple datapath.",
   }),
   s({
     branch: "ise",
@@ -462,7 +487,7 @@ const iseCore: Subject[] = [
     name: "Object Oriented Programming with JAVA",
     shortName: "OOP Java",
     hasLab: true,
-    description: "Java OOP for ISE 3rd semester."
+    description: "Java OOP for ISE 3rd semester.",
   }),
   s({
     branch: "ise",
@@ -473,7 +498,7 @@ const iseCore: Subject[] = [
     shortName: "DBMS",
     flagship: true,
     hasLab: true,
-    description: "DBMS for ISE 4th semester (BIS403). ER, SQL, normalisation and transactions."
+    description: "DBMS for ISE 4th semester (BIS403). ER, SQL, normalisation and transactions.",
   }),
   s({
     branch: "ise",
@@ -483,7 +508,7 @@ const iseCore: Subject[] = [
     name: "Analysis and Design of Algorithms",
     shortName: "ADA",
     hasLab: true,
-    description: "ADA for ISE 4th semester."
+    description: "ADA for ISE 4th semester.",
   }),
   s({
     branch: "ise",
@@ -492,7 +517,7 @@ const iseCore: Subject[] = [
     code: "BIS402",
     name: "Discrete Mathematical Structures",
     shortName: "DMS",
-    description: "Discrete mathematics for ISE."
+    description: "Discrete mathematics for ISE.",
   }),
   s({
     branch: "ise",
@@ -502,7 +527,7 @@ const iseCore: Subject[] = [
     name: "Computer Networks",
     shortName: "CN",
     flagship: true,
-    description: "Computer networks for ISE fifth semester."
+    description: "Computer networks for ISE fifth semester.",
   }),
   s({
     branch: "ise",
@@ -511,7 +536,7 @@ const iseCore: Subject[] = [
     code: "BIS501",
     name: "Software Engineering",
     shortName: "SE",
-    description: "Software engineering for ISE."
+    description: "Software engineering for ISE.",
   }),
   s({
     branch: "ise",
@@ -521,7 +546,7 @@ const iseCore: Subject[] = [
     name: "Web Technology",
     shortName: "Web",
     hasLab: true,
-    description: "Web technologies for ISE, with a lab component."
+    description: "Web technologies for ISE, with a lab component.",
   }),
   s({
     branch: "ise",
@@ -531,7 +556,7 @@ const iseCore: Subject[] = [
     name: "Machine Learning",
     shortName: "ML",
     hasLab: true,
-    description: "Machine learning for ISE sixth semester."
+    description: "Machine learning for ISE sixth semester.",
   }),
   s({
     branch: "ise",
@@ -540,8 +565,9 @@ const iseCore: Subject[] = [
     code: "BIS602",
     name: "Information Management",
     shortName: "IM",
-    description: "Information management and systems ideas that distinguish ISE from CSE electives."
-  })
+    description:
+      "Information management and systems ideas that distinguish ISE from CSE electives.",
+  }),
 ];
 const eceCore: Subject[] = [
   s({
@@ -552,7 +578,7 @@ const eceCore: Subject[] = [
     name: "Network Analysis",
     shortName: "NA",
     flagship: true,
-    description: "Circuit theorems, transients and two-port networks for VTU ECE 3rd semester."
+    description: "Circuit theorems, transients and two-port networks for VTU ECE 3rd semester.",
   }),
   s({
     branch: "ece",
@@ -563,7 +589,7 @@ const eceCore: Subject[] = [
     shortName: "AEC",
     flagship: true,
     hasLab: true,
-    description: "Diodes, BJT/FET amplifiers and op-amp applications."
+    description: "Diodes, BJT/FET amplifiers and op-amp applications.",
   }),
   s({
     branch: "ece",
@@ -573,7 +599,7 @@ const eceCore: Subject[] = [
     name: "Digital System Design",
     shortName: "DSD",
     hasLab: true,
-    description: "Combinational and sequential digital design for ECE."
+    description: "Combinational and sequential digital design for ECE.",
   }),
   s({
     branch: "ece",
@@ -583,7 +609,7 @@ const eceCore: Subject[] = [
     name: "Signals and Systems",
     shortName: "S&S",
     flagship: true,
-    description: "Continuous and discrete signals, LTI systems, Fourier and Laplace at ECE depth."
+    description: "Continuous and discrete signals, LTI systems, Fourier and Laplace at ECE depth.",
   }),
   s({
     branch: "ece",
@@ -592,7 +618,7 @@ const eceCore: Subject[] = [
     code: "BEC402",
     name: "Control Systems",
     shortName: "CS",
-    description: "Modelling, time response, stability and compensators."
+    description: "Modelling, time response, stability and compensators.",
   }),
   s({
     branch: "ece",
@@ -602,7 +628,7 @@ const eceCore: Subject[] = [
     name: "Digital Communication",
     shortName: "DC",
     flagship: true,
-    description: "PCM, digital modulation, matched filters and a noise outline."
+    description: "PCM, digital modulation, matched filters and a noise outline.",
   }),
   s({
     branch: "ece",
@@ -612,7 +638,7 @@ const eceCore: Subject[] = [
     name: "VLSI Design",
     shortName: "VLSI",
     hasLab: true,
-    description: "MOS, CMOS logic and a layout/FPGA outline as listed in the scheme."
+    description: "MOS, CMOS logic and a layout/FPGA outline as listed in the scheme.",
   }),
   s({
     branch: "ece",
@@ -621,8 +647,8 @@ const eceCore: Subject[] = [
     code: "BEC601",
     name: "Microwave Engineering",
     shortName: "MW",
-    description: "Waveguides, microwave tubes and a radar outline at sixth-semester depth."
-  })
+    description: "Waveguides, microwave tubes and a radar outline at sixth-semester depth.",
+  }),
 ];
 const eeeCore: Subject[] = [
   s({
@@ -633,7 +659,7 @@ const eeeCore: Subject[] = [
     name: "Electric Circuit Analysis",
     shortName: "ECA",
     flagship: true,
-    description: "Network theorems and transients for VTU EEE 3rd semester."
+    description: "Network theorems and transients for VTU EEE 3rd semester.",
   }),
   s({
     branch: "eee",
@@ -643,7 +669,7 @@ const eeeCore: Subject[] = [
     name: "Transformers and Generators",
     shortName: "T&G",
     hasLab: true,
-    description: "Single-phase/three-phase transformers and synchronous generators."
+    description: "Single-phase/three-phase transformers and synchronous generators.",
   }),
   s({
     branch: "eee",
@@ -654,7 +680,7 @@ const eeeCore: Subject[] = [
     shortName: "IM",
     flagship: true,
     hasLab: true,
-    description: "Three-phase and single-phase induction motors, starting and speed control."
+    description: "Three-phase and single-phase induction motors, starting and speed control.",
   }),
   s({
     branch: "eee",
@@ -663,7 +689,7 @@ const eeeCore: Subject[] = [
     code: "BEE402",
     name: "Power Generation and Economics",
     shortName: "PG",
-    description: "Thermal, hydro, nuclear and a tariff/economics outline."
+    description: "Thermal, hydro, nuclear and a tariff/economics outline.",
   }),
   s({
     branch: "eee",
@@ -673,7 +699,7 @@ const eeeCore: Subject[] = [
     name: "Power System Analysis",
     shortName: "PSA",
     flagship: true,
-    description: "Per-unit, load flow, faults and stability at fifth-semester depth."
+    description: "Per-unit, load flow, faults and stability at fifth-semester depth.",
   }),
   s({
     branch: "eee",
@@ -682,8 +708,8 @@ const eeeCore: Subject[] = [
     code: "BEE601",
     name: "Switchgear and Protection",
     shortName: "SGP",
-    description: "Relays, circuit breakers and protection of lines, transformers and machines."
-  })
+    description: "Relays, circuit breakers and protection of lines, transformers and machines.",
+  }),
 ];
 const meCore: Subject[] = [
   s({
@@ -694,7 +720,7 @@ const meCore: Subject[] = [
     name: "Mechanics of Materials",
     shortName: "MOM",
     flagship: true,
-    description: "Stress, strain, torsion, bending and columns for VTU Mechanical 3rd semester."
+    description: "Stress, strain, torsion, bending and columns for VTU Mechanical 3rd semester.",
   }),
   s({
     branch: "me",
@@ -704,7 +730,7 @@ const meCore: Subject[] = [
     name: "Engineering Thermodynamics",
     shortName: "TD",
     flagship: true,
-    description: "First and second law, properties of steam and gas cycles."
+    description: "First and second law, properties of steam and gas cycles.",
   }),
   s({
     branch: "me",
@@ -715,7 +741,7 @@ const meCore: Subject[] = [
     shortName: "FM",
     flagship: true,
     hasLab: true,
-    description: "Statics, kinematics, Bernoulli, viscous flow and dimensional analysis."
+    description: "Statics, kinematics, Bernoulli, viscous flow and dimensional analysis.",
   }),
   s({
     branch: "me",
@@ -725,7 +751,7 @@ const meCore: Subject[] = [
     name: "Manufacturing Process",
     shortName: "MP",
     hasLab: true,
-    description: "Casting, welding, forming and machining as listed in the scheme."
+    description: "Casting, welding, forming and machining as listed in the scheme.",
   }),
   s({
     branch: "me",
@@ -735,7 +761,8 @@ const meCore: Subject[] = [
     name: "Design of Machine Elements",
     shortName: "DME",
     flagship: true,
-    description: "Static and fatigue design of shafts, keys, couplings and joints. Cite the design data handbook your college uses."
+    description:
+      "Static and fatigue design of shafts, keys, couplings and joints. Cite the design data handbook your college uses.",
   }),
   s({
     branch: "me",
@@ -744,8 +771,8 @@ const meCore: Subject[] = [
     code: "BME601",
     name: "Heat Transfer",
     shortName: "HT",
-    description: "Conduction, convection, radiation and heat exchangers at sixth-semester depth."
-  })
+    description: "Conduction, convection, radiation and heat exchangers at sixth-semester depth.",
+  }),
 ];
 const cvCore: Subject[] = [
   s({
@@ -756,7 +783,7 @@ const cvCore: Subject[] = [
     name: "Strength of Materials",
     shortName: "SOM",
     flagship: true,
-    description: "Axial, bending, shear and torsion for VTU Civil 3rd semester."
+    description: "Axial, bending, shear and torsion for VTU Civil 3rd semester.",
   }),
   s({
     branch: "cv",
@@ -767,7 +794,7 @@ const cvCore: Subject[] = [
     shortName: "Surveying",
     hasLab: true,
     flagship: true,
-    description: "Chain, compass, levelling, theodolite and a total-station outline."
+    description: "Chain, compass, levelling, theodolite and a total-station outline.",
   }),
   s({
     branch: "cv",
@@ -777,7 +804,8 @@ const cvCore: Subject[] = [
     name: "Structural Analysis",
     shortName: "SA",
     flagship: true,
-    description: "Determinate and indeterminate structures, slope-deflection and moment distribution."
+    description:
+      "Determinate and indeterminate structures, slope-deflection and moment distribution.",
   }),
   s({
     branch: "cv",
@@ -787,7 +815,8 @@ const cvCore: Subject[] = [
     name: "Concrete Technology",
     shortName: "CT",
     hasLab: true,
-    description: "Materials, mix design, fresh and hardened properties. Cite the IS code your college uses."
+    description:
+      "Materials, mix design, fresh and hardened properties. Cite the IS code your college uses.",
   }),
   s({
     branch: "cv",
@@ -797,7 +826,8 @@ const cvCore: Subject[] = [
     name: "Design of RC Structural Elements",
     shortName: "RCC",
     flagship: true,
-    description: "Limit-state design of beams, slabs, columns and footings. Always write the IS 456 clause you are using."
+    description:
+      "Limit-state design of beams, slabs, columns and footings. Always write the IS 456 clause you are using.",
   }),
   s({
     branch: "cv",
@@ -806,7 +836,7 @@ const cvCore: Subject[] = [
     code: "BCV502",
     name: "Geotechnical Engineering",
     shortName: "GTE",
-    description: "Index properties, compaction, permeability, shear strength and bearing capacity."
+    description: "Index properties, compaction, permeability, shear strength and bearing capacity.",
   }),
   s({
     branch: "cv",
@@ -815,8 +845,8 @@ const cvCore: Subject[] = [
     code: "BCV601",
     name: "Transportation Engineering",
     shortName: "TE",
-    description: "Highway geometric design, traffic, pavements and a railway/airport outline."
-  })
+    description: "Highway geometric design, traffic, pavements and a railway/airport outline.",
+  }),
 ];
 
 function seniorYear(
@@ -884,7 +914,8 @@ const iseMore: Subject[] = [
     name: "Mathematics for Information Science",
     shortName: "Maths for ISE",
     credits: 4,
-    description: "Third-semester mathematics for VTU ISE (2022 scheme): statistics, transforms and numerical methods.",
+    description:
+      "Third-semester mathematics for VTU ISE (2022 scheme): statistics, transforms and numerical methods.",
   }),
   s({
     branch: "ise",
@@ -998,7 +1029,8 @@ const eceMore: Subject[] = [
     name: "Embedded Systems",
     shortName: "Embedded",
     hasLab: true,
-    description: "Microcontrollers, peripherals and a small embedded project at seventh-semester depth.",
+    description:
+      "Microcontrollers, peripherals and a small embedded project at seventh-semester depth.",
   }),
 ];
 
@@ -1072,7 +1104,8 @@ const meMore: Subject[] = [
     name: "Mathematics for Mechanical Engineering",
     shortName: "Maths for ME",
     credits: 4,
-    description: "Differential equations, Laplace and numerical methods for VTU Mechanical third semester.",
+    description:
+      "Differential equations, Laplace and numerical methods for VTU Mechanical third semester.",
   }),
   s({
     branch: "me",
@@ -1118,7 +1151,8 @@ const meMore: Subject[] = [
     code: "BME701",
     name: "Finite Element Methods",
     shortName: "FEM",
-    description: "One- and two-dimensional elements, stiffness assembly and a thermal/structural outline.",
+    description:
+      "One- and two-dimensional elements, stiffness assembly and a thermal/structural outline.",
   }),
 ];
 
@@ -1168,7 +1202,8 @@ const cvMore: Subject[] = [
     code: "BCV602",
     name: "Quantity Surveying and Contract Management",
     shortName: "QS",
-    description: "Estimation, rate analysis and a contracts outline. Follow the IS/KPWD schedule your college uses.",
+    description:
+      "Estimation, rate analysis and a contracts outline. Follow the IS/KPWD schedule your college uses.",
   }),
   s({
     branch: "cv",
@@ -1178,7 +1213,8 @@ const cvMore: Subject[] = [
     name: "Design of Steel Structures",
     shortName: "DSS",
     flagship: true,
-    description: "Limit-state design of tension, compression and flexural steel members. Cite IS 800.",
+    description:
+      "Limit-state design of tension, compression and flexural steel members. Cite IS 800.",
   }),
 ];
 
@@ -1213,22 +1249,15 @@ function branchesForSemester(semester: number) {
   return branches.filter((b) => present.has(b.slug));
 }
 function countSubjects(branch: BranchSlug, semester?: number) {
-  return subjects.filter((x) => x.branch === branch && (semester == null || x.semester === semester)).length;
+  return subjects.filter(
+    (x) => x.branch === branch && (semester == null || x.semester === semester),
+  ).length;
 }
 function getSubject(branch: string, semester: number, slug: string): Subject | undefined {
   return subjects.find((x) => x.branch === branch && x.semester === semester && x.slug === slug);
 }
 function subjectPath(sub: Subject) {
-  const ord = [
-    "1st",
-    "2nd",
-    "3rd",
-    "4th",
-    "5th",
-    "6th",
-    "7th",
-    "8th"
-  ][sub.semester - 1];
+  const ord = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"][sub.semester - 1];
   return `/vtu/${sub.branch}/${ord}-semester/${sub.slug}`;
 }
 function flagshipSubjects() {
@@ -1246,11 +1275,12 @@ function popularSubjectsMixed(limit = 8): Subject[] {
   let i = 0;
   while (out.length < limit) {
     let added = false;
-    for (const list of buckets.values()) if (list[i]) {
-      out.push(list[i]);
-      added = true;
-      if (out.length >= limit) break;
-    }
+    for (const list of buckets.values())
+      if (list[i]) {
+        out.push(list[i]);
+        added = true;
+        if (out.length >= limit) break;
+      }
     if (!added) break;
     i += 1;
   }

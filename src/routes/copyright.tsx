@@ -7,8 +7,7 @@ export const Route = createFileRoute("/copyright")({
   head: () =>
     pageHead({
       title: "Copyright",
-      description:
-        "VTUHub hosts original guides only. How rights holders can send a notice.",
+      description: "VTUHub hosts original guides only. How rights holders can send a notice.",
       path: "/copyright",
     }),
   component: CopyrightPage,
@@ -23,10 +22,9 @@ function CopyrightPage() {
     >
       <h2>What we publish</h2>
       <p>
-        Layout, original articles, original subject guides, calculator
-        interfaces and the organisation of pages are produced for VTUHub. You
-        may quote short passages with a link back. You may not copy the site
-        wholesale.
+        Layout, original articles, original subject guides, calculator interfaces and the
+        organisation of pages are produced for VTUHub. You may quote short passages with a link
+        back. You may not copy the site wholesale.
       </p>
       <h2>What we do not host</h2>
       <ul>
@@ -36,10 +34,9 @@ function CopyrightPage() {
         <li>Official scheme PDFs (those live on vtu.ac.in).</li>
       </ul>
       <p>
-        Subject codes, scheme names and university circulars belong to
-        Visvesvaraya Technological University. We describe publicly known
-        structures so students can find the right page; we do not reproduce the
-        university’s documents as downloads.
+        Subject codes, scheme names and university circulars belong to Visvesvaraya Technological
+        University. We describe publicly known structures so students can find the right page; we do
+        not reproduce the university’s documents as downloads.
       </p>
       <h2>Send a notice</h2>
       <p>
@@ -56,9 +53,8 @@ function CopyrightPage() {
         <li>A statement that you are the owner or an authorised agent.</li>
       </ul>
       <p>
-        We will review and, where the claim is specific and plausible, remove or
-        rewrite the page. We do not accept bulk “take down everything in this
-        folder” emails without URLs.
+        We will review and, where the claim is specific and plausible, remove or rewrite the page.
+        We do not accept bulk “take down everything in this folder” emails without URLs.
       </p>
     </LegalLayout>
   );

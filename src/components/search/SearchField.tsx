@@ -80,9 +80,7 @@ export function SearchField({
           autoCorrect="off"
           spellCheck={false}
           placeholder={
-            isHero
-              ? "Search subjects, papers, notes..."
-              : "Search notes, subjects, papers..."
+            isHero ? "Search subjects, papers, notes..." : "Search notes, subjects, papers..."
           }
           aria-autocomplete="list"
           aria-controls={listId}
@@ -94,9 +92,7 @@ export function SearchField({
           onFocus={() => setOpen(true)}
           className={cn(
             "w-full rounded-md border bg-surface text-foreground placeholder:text-faint transition-colors duration-150",
-            isHero
-              ? "h-12 pl-11 pr-4 md:h-14 md:text-[15px]"
-              : "h-10 pl-9 pr-3 text-sm",
+            isHero ? "h-12 pl-11 pr-4 md:h-14 md:text-[15px]" : "h-10 pl-9 pr-3 text-sm",
           )}
         />
       </form>

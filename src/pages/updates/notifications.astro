@@ -1,0 +1,7 @@
+---
+import Base from "@/layouts/Base.astro";
+import UpdateType from "@/components/site/UpdateType.astro";
+---
+<Base title="VTU notifications" description="How to read university notices — exam applications, scheme circulars and portal messages. Confirm the PDF on vtu.ac.in." path="/updates/notifications" crumbs={[{ label: "Updates", href: "/updates" }, { label: "Notifications", href: "/updates/notifications" }]}>
+  <UpdateType type="notification" />
+</Base>

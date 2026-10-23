@@ -57,8 +57,8 @@ function TypePage() {
         description={type.description}
       />
       <Notice className="mb-6">
-        Original study guides. Official SEE papers and college manuals are
-        issued by VTU and your department — we do not host those PDFs.
+        Original study guides. Official SEE papers and college manuals are issued by VTU and your
+        department — we do not host those PDFs.
       </Notice>
       {files.length === 0 ? (
         <EmptyState

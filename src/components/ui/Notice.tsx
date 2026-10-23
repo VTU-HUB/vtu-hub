@@ -1,13 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export function Notice({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function Notice({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <aside
       className={cn(

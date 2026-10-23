@@ -8,8 +8,7 @@ export function NotFound() {
       <p className="text-xs font-medium uppercase tracking-wider text-muted">404</p>
       <h1 className="mt-2 text-3xl font-semibold md:text-4xl">Page not found</h1>
       <p className="mt-3 max-w-lg text-muted">
-        That URL is not a VTUHub page. Search for a subject, or browse by branch
-        and semester.
+        That URL is not a VTUHub page. Search for a subject, or browse by branch and semester.
       </p>
       <div className="mt-6 max-w-xl">
         <SearchField size="hero" autoFocus />

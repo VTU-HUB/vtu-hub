@@ -35,19 +35,12 @@ function SemesterHub() {
   return (
     <Container className="py-8 md:py-12">
       <Breadcrumbs
-        items={[
-          { label: "Semesters", href: "/semesters" },
-          { label: semesterName(n) },
-        ]}
+        items={[{ label: "Semesters", href: "/semesters" }, { label: semesterName(n) }]}
       />
-      <PageHeader
-        kicker="All branches"
-        title={semesterName(n)}
-        description={semesterAbout(n)}
-      />
+      <PageHeader kicker="All branches" title={semesterName(n)} description={semesterAbout(n)} />
       <Notice className="mb-8">
-        This page is the semester hub. Choose your branch below to open subjects
-        and files for that programme. VTUHub never assumes Computer Science.
+        This page is the semester hub. Choose your branch below to open subjects and files for that
+        programme. VTUHub never assumes Computer Science.
       </Notice>
       <BranchSwitcher semester={n} />
       <div className="mt-8">

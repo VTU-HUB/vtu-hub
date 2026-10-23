@@ -1,0 +1,13 @@
+---
+import Base from "@/layouts/Base.astro";
+---
+<Base title="Page not found" description="That URL is not a VTUHub page." path="/404" noindex>
+  <p class="text-xs font-medium uppercase tracking-wider text-muted">404</p>
+  <h1 class="mt-2 text-3xl font-semibold md:text-4xl">Page not found</h1>
+  <p class="aio-answer mt-4 max-w-lg text-sm">That URL is not a VTUHub page. Search for a subject, or browse by branch and semester.</p>
+  <form action="/search" method="get" role="search" class="mt-6 max-w-xl">
+    <label class="sr-only" for="missing-q">Search</label>
+    <input id="missing-q" name="q" type="search" placeholder="Subject, code, tool" class="h-12 w-full rounded-md border bg-surface px-4" />
+  </form>
+  <p class="mt-6 text-sm"><a class="text-primary hover:underline" href="/">Back to home</a> <span class="text-faint">·</span> <a class="text-primary hover:underline" href="/vtu">Browse resources</a></p>
+</Base>

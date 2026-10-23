@@ -25,7 +25,9 @@ function guide(
   return {
     ...partial,
     fileType: "Guide",
-    readMinutes: partial.readMinutes ?? Math.max(4, Math.round(partial.body.join(" ").split(/\s+/).length / 180)),
+    readMinutes:
+      partial.readMinutes ??
+      Math.max(4, Math.round(partial.body.join(" ").split(/\s+/).length / 180)),
     updated: partial.updated ?? dateFor(partial.id),
   };
 }
@@ -242,12 +244,7 @@ function buildForSubject(sub: Subject): ResourceFile[] {
 
 export const resources: ResourceFile[] = subjects.flatMap(buildForSubject);
 
-export function resourcesFor(
-  branch: string,
-  semester: number,
-  slug: string,
-  type?: ResourceType,
-) {
+export function resourcesFor(branch: string, semester: number, slug: string, type?: ResourceType) {
   return resources.filter(
     (r) =>
       r.branch === branch &&
@@ -275,9 +272,7 @@ export function popularNotes(limit = 6) {
   return resources
     .filter(
       (r) =>
-        r.type === "notes" &&
-        r.unit === 1 &&
-        flagshipSlugs.has(`${r.branch}:${r.subjectSlug}`),
+        r.type === "notes" && r.unit === 1 && flagshipSlugs.has(`${r.branch}:${r.subjectSlug}`),
     )
     .slice(0, limit);
 }
@@ -318,16 +313,13 @@ export function relatedFiles(file: ResourceFile, limit = 6) {
 
 export function studyMaterials(limit = 40) {
   return resources
-    .filter((r) => r.type === "notes" || r.type === "important-questions" || r.type === "lab-manuals")
+    .filter(
+      (r) => r.type === "notes" || r.type === "important-questions" || r.type === "lab-manuals",
+    )
     .slice(0, limit);
 }
 
-export function typePath(
-  branch: string,
-  semester: number,
-  slug: string,
-  type: ResourceType,
-) {
+export function typePath(branch: string, semester: number, slug: string, type: ResourceType) {
   const sub = getSubject(branch, semester, slug);
   if (!sub) return "/resources";
   return `${subjectPath(sub)}/${type}`;

@@ -35,9 +35,7 @@ function SchemesIndex() {
                 href={`/schemes/${s.year}`}
                 className="flex h-full flex-col rounded-lg border bg-surface p-4 hover:border-primary/40"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-muted">
-                  {s.year}
-                </p>
+                <p className="text-xs font-medium uppercase tracking-wider text-muted">{s.year}</p>
                 <h2 className="mt-1 font-semibold">{s.name}</h2>
                 <p className="mt-2 text-sm text-muted">{s.description}</p>
                 <p className="mt-3 text-xs text-faint">{extra.cieSee}</p>

@@ -15,7 +15,8 @@ export const Route = createFileRoute("/sitemap")({
   head: () =>
     pageHead({
       title: "Sitemap",
-      description: "All major VTUHub sections: branches, semesters, resources, tools, updates and legal pages.",
+      description:
+        "All major VTUHub sections: branches, semesters, resources, tools, updates and legal pages.",
       path: "/sitemap",
     }),
   component: HtmlSitemap,
@@ -25,9 +26,7 @@ function Group({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mt-10">
       <h2 className="text-lg font-semibold">{title}</h2>
-      <ul className="mt-3 columns-1 gap-x-8 text-sm sm:columns-2 md:columns-3">
-        {children}
-      </ul>
+      <ul className="mt-3 columns-1 gap-x-8 text-sm sm:columns-2 md:columns-3">{children}</ul>
     </section>
   );
 }

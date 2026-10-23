@@ -32,12 +32,7 @@ function BranchPage() {
 
   return (
     <Container className="py-8 md:py-12">
-      <Breadcrumbs
-        items={[
-          { label: "VTU", href: "/vtu" },
-          { label: branch.shortName },
-        ]}
-      />
+      <Breadcrumbs items={[{ label: "VTU", href: "/vtu" }, { label: branch.shortName }]} />
       <PageHeader
         kicker={`${branch.code} · 2022 scheme`}
         title={branch.name}

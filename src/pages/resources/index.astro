@@ -1,0 +1,36 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { resourceTypes } from "@/data/resource-types";
+import { resourcesByType } from "@/data/resources";
+---
+<Base
+  title="Resources"
+  description="Original VTU study guides, practice questions, syllabus walk-throughs and lab-prep checklists organised by type."
+  path="/resources"
+  crumbs={[{ label: "Resources", href: "/resources" }]}
+>
+  <Crumbs items={[{ label: "Resources" }]} />
+  <PageHeader
+    title="Resources"
+    answer="VTUHub publishes original unit guides, practice questions, syllabus maps and lab-prep checklists. We do not host university question-paper PDFs. Open a type, then the subject."
+  />
+  <ul class="grid gap-3 sm:grid-cols-2">
+    {resourceTypes.map((t) => (
+      <li>
+        <a class="flex h-full flex-col rounded-lg border bg-surface p-4 hover:border-primary/40" href={`/resources/${t.slug}`}>
+          <h2 class="font-semibold">{t.label}</h2>
+          <p class="mt-2 text-sm text-muted">{t.description}</p>
+          <p class="mt-3 text-xs text-faint">{resourcesByType(t.slug).length} files</p>
+        </a>
+      </li>
+    ))}
+    <li>
+      <a class="flex h-full flex-col rounded-lg border bg-surface p-4 hover:border-primary/40" href="/resources/study-materials">
+        <h2 class="font-semibold">Study materials</h2>
+        <p class="mt-2 text-sm text-muted">Notes, important questions and lab manuals on one shelf, with context for how to use them before CIE and SEE.</p>
+      </a>
+    </li>
+  </ul>
+</Base>

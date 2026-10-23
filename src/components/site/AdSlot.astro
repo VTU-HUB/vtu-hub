@@ -1,0 +1,37 @@
+---
+import { adsConfig, adSizes, type AdFormat } from "@/data/ads";
+
+interface Props {
+  format: AdFormat;
+  class?: string;
+}
+
+const { format, class: className = "" } = Astro.props;
+const size = adSizes[format];
+const show = adsConfig.enabled || adsConfig.showPlaceholders;
+const clientId = adsConfig.clientId;
+---
+
+{show ? (
+  <aside
+    class:list={["ad-slot my-0 flex", className]}
+    style={`min-height:${size.height}px`}
+    aria-label="Advertisement"
+    data-ad-format={format}
+  >
+    {clientId ? (
+      <ins
+        class="adsbygoogle"
+        style={`display:block;width:${size.width}px;height:${size.height}px`}
+        data-ad-client={clientId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+    ) : (
+      <>
+        <span class="text-[11px] font-medium uppercase tracking-[0.14em] text-faint">Advertisement</span>
+        <span class="mt-1 text-xs text-faint">{size.label} · {size.width}×{size.height}</span>
+      </>
+    )}
+  </aside>
+) : null}

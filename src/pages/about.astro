@@ -1,0 +1,34 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { SITE_NAME } from "@/lib/site";
+---
+<Base title="About" description="VTUHub is an independent student resource platform for Visvesvaraya Technological University — notes, papers, syllabus and tools organised by branch and semester." path="/about" crumbs={[{ label: "About", href: "/about" }]}>
+  <Crumbs items={[{ label: "About" }]} />
+  <PageHeader title="About VTUHub" answer="VTUHub is an independent catalogue of VTU study resources for students in Karnataka. It is not the university, not a college portal, and not the results system.">
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 28 August 2026</p>
+  </PageHeader>
+  <div class="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-xl font-semibold text-foreground">What this site is</h2>
+    <p>{SITE_NAME} is a student-built resource platform for programmes under Visvesvaraya Technological University, Belagavi. It organises original guides and small calculators by branch, semester and subject.</p>
+    <p>It is not Visvesvaraya Technological University, not a college portal, and not an official results or exam-application system. Circulars, USNs, hall tickets and marks live on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a> and on your college exam section.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Who it is for</h2>
+    <p>Undergraduates on the 2022 scheme (and students still sitting 2018 or 2021 papers) in Computer Science, Information Science, Electronics and Communication, Electrical and Electronics, Mechanical and Civil Engineering across Karnataka. If your branch is missing, that is a gap — not a claim that the programme does not exist.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">How resources are organised</h2>
+    <ul class="list-disc space-y-1.5 pl-5">
+      <li>Branch first when you already know your programme — subject codes (BCS, BIS, BEC, …) stay in their own tree.</li>
+      <li>Semester first when you only know the term. Opening a semester lists every branch that runs it. Nothing defaults to CSE.</li>
+      <li>Subject pages hold original unit guides, practice questions, a syllabus walk-through and a lab-prep checklist where a lab exists. We do not host university question-paper PDFs.</li>
+    </ul>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Accuracy</h2>
+    <p>Module titles and codes are transcribed from publicly described 2022 scheme structures and labelled as study aids. Colleges overlay electives and lab batches. Always match the code on your admission ticket. If a guide is wrong, use the <a class="text-primary hover:underline" href="/contact">contact</a> page.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">What we do not do</h2>
+    <ul class="list-disc space-y-1.5 pl-5">
+      <li>Host scanned VTU question papers or third-party notes.</li>
+      <li>Collect USNs, passwords or revaluation fees.</li>
+      <li>Claim leaked forthcoming SEE papers.</li>
+      <li>Sell admission, internships or projects.</li>
+    </ul>
+  </div>
+</Base>

@@ -3,11 +3,7 @@ export type BranchSlug = "cse" | "ise" | "ece" | "eee" | "me" | "cv";
 export type SchemeYear = "2022" | "2021" | "2018";
 
 export type ResourceType =
-  | "notes"
-  | "question-papers"
-  | "syllabus"
-  | "lab-manuals"
-  | "important-questions";
+  "notes" | "question-papers" | "syllabus" | "lab-manuals" | "important-questions";
 
 export type SubjectKind = "theory" | "lab" | "project" | "ability";
 
@@ -86,11 +82,7 @@ export type Article = {
   sections: ArticleSection[];
 };
 
-export type UpdateType =
-  | "notification"
-  | "exam-timetable"
-  | "results"
-  | "academic-calendar";
+export type UpdateType = "notification" | "exam-timetable" | "results" | "academic-calendar";
 
 export type VtuUpdate = {
   slug: string;

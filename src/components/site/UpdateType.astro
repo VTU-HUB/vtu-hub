@@ -1,0 +1,35 @@
+---
+import Crumbs from "@/components/site/Crumbs.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { updates, updateTypeLabel } from "@/data/updates";
+import type { UpdateType } from "@/data/types";
+import { formatFullDate } from "@/lib/utils";
+
+interface Props { type: UpdateType }
+const { type } = Astro.props;
+const list = updates.filter((u) => u.type === type);
+const label = updateTypeLabel[type];
+const about: Record<UpdateType, string> = {
+  notification: "How to read university notices — exam applications, scheme circulars and portal messages. Confirm the PDF on vtu.ac.in.",
+  "exam-timetable": "How to match scheme, subject code and sitting on a SEE timetable. VTUHub does not set exam dates.",
+  results: "Result announcement, photocopies and revaluation windows explained. Deadlines are only valid on the official circular.",
+  "academic-calendar": "Term start, CIE slots and last working day. Colleges in Karnataka can be stricter than the university PDF — follow the stricter one for attendance.",
+};
+---
+<Crumbs items={[{ label: "Updates", href: "/updates" }, { label }]} />
+<PageHeader title={label} answer={about[type]} />
+<Notice class="mb-8">Official dates and PDFs live on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.</Notice>
+{list.length === 0 ? <p class="text-sm text-muted">No guides in this category yet.</p> : (
+  <ul class="divide-y border-t">
+    {list.map((u) => (
+      <li class="py-5">
+        <a class="block hover:text-primary" href={`/updates/${u.slug}`}>
+          <p class="text-xs text-faint">{formatFullDate(u.date)}</p>
+          <h2 class="mt-1 text-lg font-semibold">{u.title}</h2>
+          <p class="mt-2 text-sm text-muted">{u.summary}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+)}

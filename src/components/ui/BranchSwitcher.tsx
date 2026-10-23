@@ -3,19 +3,11 @@ import { branches, semesterPath, semesterSlug } from "@/data/branches";
 import type { Branch, BranchSlug } from "@/data/types";
 import { cn } from "@/lib/utils";
 
-export function BranchSwitcher({
-  semester,
-  current,
-}: {
-  semester: number;
-  current?: BranchSlug;
-}) {
+export function BranchSwitcher({ semester, current }: { semester: number; current?: BranchSlug }) {
   const sem = semesterSlug(semester);
   return (
     <div>
-      <p className="mb-2 text-xs font-medium uppercase tracking-wider text-faint">
-        Branch
-      </p>
+      <p className="mb-2 text-xs font-medium uppercase tracking-wider text-faint">Branch</p>
       <div className="flex flex-wrap gap-2" role="navigation" aria-label="Switch branch">
         <AppLink
           href={semesterPath(semester)}

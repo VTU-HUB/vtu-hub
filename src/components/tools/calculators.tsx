@@ -4,13 +4,10 @@ import { GRADE_SCALE, gradeFromMarks } from "@/data/tools";
 import { cn } from "@/lib/utils";
 
 const LETTERS = GRADE_SCALE.map((g) => g.letter);
-const inputClass =
-  "h-11 w-full rounded-sm border bg-surface px-3 text-foreground";
+const inputClass = "h-11 w-full rounded-sm border bg-surface px-3 text-foreground";
 
 function Card({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={cn("rounded-lg border bg-surface p-4 md:p-5", className)}>{children}</div>
-  );
+  return <div className={cn("rounded-lg border bg-surface p-4 md:p-5", className)}>{children}</div>;
 }
 
 function Result({ label, value, hint }: { label: string; value: string; hint?: string }) {
@@ -62,7 +59,9 @@ export function SgpaCalculator() {
                 value={r.name}
                 aria-label="Course name"
                 onChange={(e) =>
-                  setRows((rs) => rs.map((x) => (x.id === r.id ? { ...x, name: e.target.value } : x)))
+                  setRows((rs) =>
+                    rs.map((x) => (x.id === r.id ? { ...x, name: e.target.value } : x)),
+                  )
                 }
               />
               <input
@@ -83,7 +82,9 @@ export function SgpaCalculator() {
                 value={r.letter}
                 aria-label="Letter grade"
                 onChange={(e) =>
-                  setRows((rs) => rs.map((x) => (x.id === r.id ? { ...x, letter: e.target.value } : x)))
+                  setRows((rs) =>
+                    rs.map((x) => (x.id === r.id ? { ...x, letter: e.target.value } : x)),
+                  )
                 }
               >
                 {LETTERS.map((l) => (
@@ -107,7 +108,12 @@ export function SgpaCalculator() {
           onClick={() =>
             setRows((rs) => [
               ...rs,
-              { id: (rs.at(-1)?.id ?? 0) + 1, name: `Course ${rs.length + 1}`, credits: 3, letter: "A" },
+              {
+                id: (rs.at(-1)?.id ?? 0) + 1,
+                name: `Course ${rs.length + 1}`,
+                credits: 3,
+                letter: "A",
+              },
             ])
           }
         >
@@ -122,7 +128,10 @@ export function SgpaCalculator() {
         />
         <p className="text-sm text-muted">
           Formula: SGPA = Σ (Ci × Gi) / Σ Ci. Failed papers keep their credits in the denominator.{" "}
-          <AppLink href="/articles/how-vtu-sgpa-is-calculated" className="text-primary hover:underline">
+          <AppLink
+            href="/articles/how-vtu-sgpa-is-calculated"
+            className="text-primary hover:underline"
+          >
             Full worked example
           </AppLink>
           .
@@ -161,7 +170,9 @@ export function CgpaCalculator() {
                 value={r.name}
                 aria-label="Semester"
                 onChange={(e) =>
-                  setRows((rs) => rs.map((x) => (x.id === r.id ? { ...x, name: e.target.value } : x)))
+                  setRows((rs) =>
+                    rs.map((x) => (x.id === r.id ? { ...x, name: e.target.value } : x)),
+                  )
                 }
               />
               <input
@@ -207,7 +218,12 @@ export function CgpaCalculator() {
           onClick={() =>
             setRows((rs) => [
               ...rs,
-              { id: (rs.at(-1)?.id ?? 0) + 1, name: `Semester ${rs.length + 1}`, credits: 20, sgpa: 8 },
+              {
+                id: (rs.at(-1)?.id ?? 0) + 1,
+                name: `Semester ${rs.length + 1}`,
+                credits: 20,
+                sgpa: 8,
+              },
             ])
           }
         >
@@ -215,11 +231,19 @@ export function CgpaCalculator() {
         </button>
       </Card>
       <div className="space-y-4">
-        <Result label="CGPA" value={result.cgpa.toFixed(2)} hint={`${result.credits} credits counted`} />
+        <Result
+          label="CGPA"
+          value={result.cgpa.toFixed(2)}
+          hint={`${result.credits} credits counted`}
+        />
         <p className="text-sm text-muted">
           Informal percentage conversion (CGPA − 0.75) × 10 ≈{" "}
-          <span className="tabular-nums text-foreground">{result.approxPct.toFixed(1)}%</span>. Unofficial.{" "}
-          <AppLink href="/articles/how-to-calculate-vtu-cgpa" className="text-primary hover:underline">
+          <span className="tabular-nums text-foreground">{result.approxPct.toFixed(1)}%</span>.
+          Unofficial.{" "}
+          <AppLink
+            href="/articles/how-to-calculate-vtu-cgpa"
+            className="text-primary hover:underline"
+          >
             How CGPA is calculated
           </AppLink>
           .
@@ -294,7 +318,10 @@ export function MarksCalculator() {
           hint={`${grade.label} · ${grade.point} grade points. ${pass ? "At or above the common 40% total." : "Below the common 40% pass total."}`}
         />
         <p className="text-sm text-muted">
-          <AppLink href="/articles/understanding-vtu-grading" className="text-primary hover:underline">
+          <AppLink
+            href="/articles/understanding-vtu-grading"
+            className="text-primary hover:underline"
+          >
             Grading explained
           </AppLink>
           .

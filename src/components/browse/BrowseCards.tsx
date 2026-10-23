@@ -8,14 +8,15 @@ import {
   semesterName,
   semesterPath,
 } from "@/data/branches";
-import { branchesForSemester, countSubjects, getSubjectsBySemester, subjectPath } from "@/data/subjects";
+import {
+  branchesForSemester,
+  countSubjects,
+  getSubjectsBySemester,
+  subjectPath,
+} from "@/data/subjects";
 import type { Branch, BranchSlug, Subject } from "@/data/types";
 
-export function BranchGrid({
-  semester,
-}: {
-  semester?: number;
-}) {
+export function BranchGrid({ semester }: { semester?: number }) {
   const list = semester ? branchesForSemester(semester) : branches;
   return (
     <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -28,13 +29,7 @@ export function BranchGrid({
   );
 }
 
-export function BranchCard({
-  branch,
-  semester,
-}: {
-  branch: Branch;
-  semester?: number;
-}) {
+export function BranchCard({ branch, semester }: { branch: Branch; semester?: number }) {
   const href = semester ? branchSemesterPath(branch.slug, semester) : branchPath(branch.slug);
   const count = countSubjects(branch.slug, semester);
   const preview =
@@ -52,9 +47,7 @@ export function BranchCard({
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-muted">
-            {branch.code}
-          </p>
+          <p className="text-xs font-medium uppercase tracking-wider text-muted">{branch.code}</p>
           <h3 className="mt-1 font-semibold text-foreground">{branch.shortName}</h3>
         </div>
         <ChevronRight
@@ -97,11 +90,7 @@ export function SemesterJump({ className }: { className?: string }) {
   );
 }
 
-export function SemesterGrid({
-  branchSlug,
-}: {
-  branchSlug?: string;
-}) {
+export function SemesterGrid({ branchSlug }: { branchSlug?: string }) {
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
       {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => {
@@ -127,7 +116,7 @@ export function SemesterGrid({
               <span className="mt-2 text-xs text-faint">
                 {branchSlug
                   ? `${count} subject${count === 1 ? "" : "s"}`
-                  : names ?? `${count} branches`}
+                  : (names ?? `${count} branches`)}
               </span>
             </AppLink>
           </li>

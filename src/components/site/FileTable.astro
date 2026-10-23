@@ -1,0 +1,45 @@
+---
+import { getResourceType } from "@/data/resource-types";
+import { subjectFor } from "@/data/resources";
+import { subjectPath } from "@/data/subjects";
+import { formatMonthYear } from "@/lib/utils";
+import type { ResourceFile } from "@/data/types";
+
+interface Props {
+  files: ResourceFile[];
+  showSubject?: boolean;
+}
+const { files, showSubject = false } = Astro.props;
+---
+
+{files.length > 0 ? (
+  <div role="table" aria-label="Study guides" class="text-sm">
+    <div role="row" class="hidden border-b py-2 text-xs font-medium uppercase tracking-wider text-faint md:grid md:grid-cols-[minmax(0,1fr)_72px_88px_108px] md:gap-4">
+      <span>Guide</span><span>Kind</span><span>Read</span><span>Updated</span>
+    </div>
+    {files.map((file) => {
+      const sub = subjectFor(file);
+      const type = getResourceType(file.type);
+      return (
+        <div role="row" class="file-row" data-branch={file.branch}>
+          <div class="min-w-0">
+            <p class="truncate font-medium">
+              <a class="hover:text-primary" href={`/files/${file.id}`}>{file.title}</a>
+            </p>
+            {showSubject && sub ? (
+              <p class="mt-0.5 truncate text-xs text-muted">
+                <a class="hover:text-foreground" href={subjectPath(sub)}>{sub.shortName}</a>
+                <span class="text-faint"> · {sub.code} · {type?.label}</span>
+              </p>
+            ) : (
+              <p class="mt-0.5 text-xs text-muted md:hidden">Guide · {file.readMinutes} min · {formatMonthYear(file.updated)}</p>
+            )}
+          </div>
+          <span class="hidden text-muted md:block">{file.fileType}</span>
+          <span class="hidden tabular-nums text-muted md:block">{file.readMinutes} min</span>
+          <span class="hidden text-muted md:block">{formatMonthYear(file.updated)}</span>
+        </div>
+      );
+    })}
+  </div>
+) : null}

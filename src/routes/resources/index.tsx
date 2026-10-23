@@ -49,8 +49,8 @@ function ResourcesIndex() {
           >
             <h2 className="font-semibold">Study materials</h2>
             <p className="mt-2 text-sm text-muted">
-              Notes, important questions and lab manuals on one shelf, with
-              context for how to use them before CIE and SEE.
+              Notes, important questions and lab manuals on one shelf, with context for how to use
+              them before CIE and SEE.
             </p>
           </AppLink>
         </li>

@@ -1,0 +1,37 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import FileTable from "@/components/site/FileTable.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { resourceTypes } from "@/data/resource-types";
+import { studyMaterials } from "@/data/resources";
+
+const files = studyMaterials(48);
+---
+<Base
+  title="VTU study materials"
+  description="Unit notes, important questions and lab manuals for VTU programmes, grouped so you can study one subject at a time."
+  path="/resources/study-materials"
+  crumbs={[{ label: "Resources", href: "/resources" }, { label: "Study materials", href: "/resources/study-materials" }]}
+>
+  <Crumbs items={[{ label: "Resources", href: "/resources" }, { label: "Study materials" }]} />
+  <PageHeader
+    title="Study materials"
+    answer="Study materials here are original guides organised by subject, then by module. Official previous papers stay with VTU and your college. We do not host those PDFs."
+  />
+  <div class="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <p>Open the subject page when you need the syllabus sitting next to the notes — that pairing is how you catch a module the class skipped.</p>
+    <p>Important-question lists are drill prompts written here. They are not a leak. Lab guides are prep checklists; follow your college instructor for equipment and the signed manual.</p>
+  </div>
+  <ul class="mt-8 flex flex-wrap gap-2">
+    {resourceTypes.map((t) => (
+      <li><a class="inline-flex h-11 items-center rounded-md border bg-surface px-3 text-sm font-medium hover:border-primary/40" href={`/resources/${t.slug}`}>{t.label}</a></li>
+    ))}
+  </ul>
+  <Notice class="mt-8">Original VTUHub writing. Confirm module titles against the official scheme PDF on vtu.ac.in.</Notice>
+  <section class="mt-8">
+    <h2 class="mb-4 text-lg font-semibold">Recent guides</h2>
+    <FileTable files={files} showSubject />
+  </section>
+</Base>

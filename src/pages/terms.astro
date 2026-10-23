@@ -1,0 +1,28 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { CONTACT_EMAIL } from "@/lib/site";
+---
+<Base title="Terms" description="Terms of use for VTUHub: study resources, intellectual property, accuracy and availability." path="/terms" crumbs={[{ label: "Terms", href: "/terms" }]}>
+  <Crumbs items={[{ label: "Terms" }]} />
+  <PageHeader title="Terms of use" answer="By using VTUHub you agree to these terms and the privacy policy. The site is a study aid, not an official university service.">
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 28 August 2026</p>
+  </PageHeader>
+  <div class="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-xl font-semibold text-foreground">What the site provides</h2>
+    <p>Study organisation, original written guides and in-browser calculators. It is not tuition, not a degree, and not an official university service. We do not host university question-paper PDFs.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Resource use</h2>
+    <ul class="list-disc space-y-1.5 pl-5">
+      <li>Use guides for personal study.</li>
+      <li>Do not scrape the site to resell a dump of pages.</li>
+      <li>Do not treat VTUHub writing as an official university circular.</li>
+    </ul>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Intellectual property</h2>
+    <p>Site design, original articles and organisation are VTUHub’s. Subject codes and scheme structures belong to Visvesvaraya Technological University. See the copyright page to send a notice.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Accuracy and availability</h2>
+    <p>Schemes change. Calculators implement commonly published formulae; they are not a substitute for a transcript. The site may be down, slow or incomplete. We may change or remove pages without notice.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Limitation</h2>
+    <p>To the extent permitted by law, VTUHub is not liable for exam outcomes, missed deadlines, or reliance on a calculator result. Questions: <a class="text-primary hover:underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+  </div>
+</Base>

@@ -1,0 +1,7 @@
+---
+import Base from "@/layouts/Base.astro";
+import UpdateType from "@/components/site/UpdateType.astro";
+---
+<Base title="VTU results" description="Result announcement, photocopies and revaluation windows explained. Deadlines are only valid on the official circular." path="/updates/results" crumbs={[{ label: "Updates", href: "/updates" }, { label: "Results", href: "/updates/results" }]}>
+  <UpdateType type="results" />
+</Base>

@@ -1,6 +1,91 @@
 import { genericOAuthClient } from "better-auth/client/plugins";
 import { createAuthClient } from "better-auth/react";
-import { runPreSignInSignOut, runSignOut } from "../../../scripts/sign-out-plan.mjs";
+const PREVIEW_SIGN_OUT_TIMEOUT_MS = 1500;
+const DEPLOYED_SIGN_OUT_TIMEOUT_MS = 10_000;
+
+function signOutTimeoutMs(livePreview: boolean) {
+  return livePreview ? PREVIEW_SIGN_OUT_TIMEOUT_MS : DEPLOYED_SIGN_OUT_TIMEOUT_MS;
+}
+
+function settleWithin(
+  start: () => unknown,
+  timeoutMs: number,
+): Promise<"ok" | "failed" | "timeout"> {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve("timeout"), timeoutMs);
+    const done = (outcome: "ok" | "failed") => {
+      clearTimeout(timer);
+      resolve(outcome);
+    };
+    try {
+      Promise.resolve(start()).then(
+        () => done("ok"),
+        () => done("failed"),
+      );
+    } catch {
+      done("failed");
+    }
+  });
+}
+
+type SignOutSteps = {
+  livePreview: boolean;
+  hasBearer: boolean;
+  requestSignOut: () => unknown;
+  clearToken: () => void;
+  redirect: () => void;
+  timeoutMs?: number;
+};
+
+async function runSignOut({
+  livePreview,
+  hasBearer,
+  requestSignOut,
+  clearToken,
+  redirect,
+  timeoutMs,
+}: SignOutSteps) {
+  if (livePreview) {
+    if (hasBearer) {
+      await settleWithin(requestSignOut, timeoutMs ?? signOutTimeoutMs(livePreview));
+    }
+    clearToken();
+    redirect();
+    return;
+  }
+
+  const outcome = await settleWithin(requestSignOut, timeoutMs ?? signOutTimeoutMs(livePreview));
+  if (outcome !== "ok") {
+    throw new Error(
+      outcome === "timeout"
+        ? "Sign-out timed out — you are still signed in. Please try again."
+        : "Sign-out failed — you are still signed in. Please try again.",
+    );
+  }
+  clearToken();
+  redirect();
+}
+
+type PreSignInSteps = {
+  livePreview: boolean;
+  hasBearer: boolean;
+  requestSignOut: () => unknown;
+  clearToken: () => void;
+  timeoutMs?: number;
+};
+
+async function runPreSignInSignOut({
+  livePreview,
+  hasBearer,
+  requestSignOut,
+  clearToken,
+  timeoutMs,
+}: PreSignInSteps) {
+  if (hasBearer || !livePreview) {
+    await settleWithin(requestSignOut, timeoutMs ?? signOutTimeoutMs(livePreview));
+  }
+  clearToken();
+}
 import { GROK_PROVIDERS } from "./providers";
 
 /**
@@ -73,10 +158,7 @@ function setBearerToken(token: string | null): void {
  * popup there and a normal redirect everywhere else.
  */
 function inLivePreview(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    window.location.hostname.endsWith(".grok-sandbox.com")
-  );
+  return typeof window !== "undefined" && window.location.hostname.endsWith(".grok-sandbox.com");
 }
 
 /** Message the popup posts back to the opener once sign-in completes. */
@@ -136,7 +218,11 @@ export async function signIn(
     if (typeof window !== "undefined") {
       const dest = new URL(callbackURL, window.location.origin);
       const here = window.location;
-      if (dest.origin !== here.origin || dest.pathname !== here.pathname || dest.search !== here.search) {
+      if (
+        dest.origin !== here.origin ||
+        dest.pathname !== here.pathname ||
+        dest.search !== here.search
+      ) {
         window.location.href = callbackURL;
       }
     }

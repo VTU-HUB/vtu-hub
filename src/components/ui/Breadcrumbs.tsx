@@ -25,9 +25,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
           const last = i === all.length - 1;
           return (
             <li key={`${c.label}-${i}`} className="flex items-center gap-1">
-              {i > 0 ? (
-                <ChevronRight className="size-3 text-faint" aria-hidden="true" />
-              ) : null}
+              {i > 0 ? <ChevronRight className="size-3 text-faint" aria-hidden="true" /> : null}
               {c.href && !last ? (
                 <AppLink
                   href={c.href}
@@ -36,7 +34,10 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
                   {c.label}
                 </AppLink>
               ) : (
-                <span className={last ? "text-foreground" : undefined} aria-current={last ? "page" : undefined}>
+                <span
+                  className={last ? "text-foreground" : undefined}
+                  aria-current={last ? "page" : undefined}
+                >
                   {c.label}
                 </span>
               )}

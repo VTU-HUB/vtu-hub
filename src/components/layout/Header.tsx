@@ -31,8 +31,7 @@ export function Header() {
         <Logo />
         <nav aria-label="Primary" className="ml-4 hidden items-center gap-0.5 lg:flex">
           {mainNav.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <AppLink
                 key={item.href}

@@ -31,12 +31,7 @@ export function UpdateTypePage({ type }: { type: UpdateType }) {
   const label = updateTypeLabel[type];
   return (
     <Container className="py-8 md:py-12">
-      <Breadcrumbs
-        items={[
-          { label: "Updates", href: "/updates" },
-          { label },
-        ]}
-      />
+      <Breadcrumbs items={[{ label: "Updates", href: "/updates" }, { label }]} />
       <PageHeader title={label} description={ABOUT[type]} />
       <Notice className="mb-8">
         Official dates and PDFs live on{" "}

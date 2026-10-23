@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { CONTACT_EMAIL } from "@/lib/site";
+---
+<Base title="Privacy Policy" description="How VTUHub handles logs, cookies, analytics and advertising, including Google advertising cookies if ads are enabled." path="/privacy-policy" crumbs={[{ label: "Privacy Policy", href: "/privacy-policy" }]}>
+  <Crumbs items={[{ label: "Privacy Policy" }]} />
+  <PageHeader title="Privacy Policy" answer="Calculators stay in your browser. VTUHub does not ask for a USN. Ad slots are on every page; a third-party ad script loads only after a publisher id is configured.">
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 23 October 2026</p>
+  </PageHeader>
+  <div class="prose-legal max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-xl font-semibold text-foreground">Who we are</h2>
+    <p>VTUHub is an independent website at vtuhub.site for Visvesvaraya Technological University students in Karnataka. It is not the university. Contact: <a class="text-primary hover:underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Information we collect</h2>
+    <p>Calculators run in your browser. SGPA rows, CIE marks and attendance counts are not sent to a VTUHub server. We do not ask for a USN, password or government ID.</p>
+    <h3 class="mt-6 text-base font-semibold text-foreground">Server and log information</h3>
+    <p>Hosting and content-delivery providers typically record IP address, user agent, requested URL, referrer and a timestamp. These logs exist to operate and secure the site, not to build a student profile.</p>
+    <h3 class="mt-6 text-base font-semibold text-foreground">Theme preference</h3>
+    <p>Light/dark mode is stored in localStorage on your device (<code>vtuhub-theme</code>). It does not identify you.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Cookies</h2>
+    <p>First-party cookies, if any, are limited to hosting, security and similar operational needs. Search queries you type are used to show results on this site.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Advertising</h2>
+    <p>Every page reserves advertisement placements: a leaderboard under the header, a sidebar on large screens, an in-article slot after the content, and a mobile slot. Those slots stay labeled placeholders until a Google AdSense publisher id is added. When that network is enabled:</p>
+    <ul class="list-disc space-y-1.5 pl-5">
+      <li>Google and its partners may use cookies to serve ads based on previous visits to this or other websites.</li>
+      <li>Users may opt out of personalised advertising at <a class="text-primary hover:underline" href="https://www.google.com/settings/ads">Google Ads Settings</a>.</li>
+      <li>Some third-party cookies can be limited at <a class="text-primary hover:underline" href="https://www.aboutads.info/choices/">aboutads.info</a>.</li>
+    </ul>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Analytics</h2>
+    <p>If traffic analytics are added later, they will be configured to avoid collecting USNs or calculator contents. This policy will name the product if that happens.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Retention and children</h2>
+    <p>Server logs follow the host’s default unless a security incident needs a longer copy. The site is aimed at university students. We do not knowingly collect personal information from children.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Your choices</h2>
+    <ul class="list-disc space-y-1.5 pl-5">
+      <li>Use the site without creating an account — there is no account.</li>
+      <li>Block cookies in the browser; core pages still work.</li>
+      <li>Use Google Ads Settings or aboutads.info to limit ad personalisation.</li>
+    </ul>
+  </div>
+</Base>

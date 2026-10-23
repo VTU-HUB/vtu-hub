@@ -1,0 +1,91 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import FileTable from "@/components/site/FileTable.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { getBranch, semesterName, semesterSlug } from "@/data/branches";
+import { getResourceType } from "@/data/resource-types";
+import { getResource, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
+import { subjectPath } from "@/data/subjects";
+import { absUrl, OFFICIAL_VTU_URL, SITE_URL } from "@/lib/site";
+import { formatFullDate } from "@/lib/utils";
+
+export function getStaticPaths() {
+  return resources.map((file) => ({ params: { id: file.id } }));
+}
+
+const file = getResource(Astro.params.id)!;
+const branch = getBranch(file.branch);
+const type = getResourceType(file.type);
+const subject = subjectFor(file);
+const related = relatedFiles(file);
+const sem = semesterSlug(file.semester);
+const path = `/files/${file.id}`;
+---
+<Base
+  title={file.title}
+  description={file.description}
+  path={path}
+  ogType="article"
+  published={file.updated}
+  updated={file.updated}
+  crumbs={[
+    { label: "Resources", href: "/resources" },
+    { label: type?.label ?? file.type, href: `/resources/${file.type}` },
+    { label: file.title, href: path },
+  ]}
+  extraJsonLd={[{
+    "@type": "Article",
+    headline: file.title,
+    description: file.description,
+    dateModified: file.updated,
+    inLanguage: "en-IN",
+    mainEntityOfPage: absUrl(path),
+    author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  }]}
+>
+  <Crumbs items={[
+    { label: "Resources", href: "/resources" },
+    { label: type?.label ?? file.type, href: `/resources/${file.type}` },
+    { label: file.title },
+  ]} />
+  <PageHeader
+    kicker={`${type?.label ?? file.type} · original guide`}
+    title={file.title}
+    answer={file.description}
+  >
+    <p slot="meta" class="mt-3 flex flex-wrap gap-x-3 text-sm text-muted">
+      {branch ? <span>{branch.shortName}</span> : null}
+      <span>{semesterName(file.semester)}</span>
+      {subject ? <span>{subject.code}</span> : null}
+      <span>{file.readMinutes} min read</span>
+      <span>Updated {formatFullDate(file.updated)}</span>
+    </p>
+  </PageHeader>
+  <dl class="grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Branch</dt><dd class="mt-1 font-medium"><a class="hover:text-primary" href={`/vtu/${file.branch}`}>{branch?.name ?? file.branch}</a></dd></div>
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Semester</dt><dd class="mt-1 font-medium"><a class="hover:text-primary" href={`/vtu/${file.branch}/${sem}`}>{semesterName(file.semester)}</a></dd></div>
+    {subject ? <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Subject</dt><dd class="mt-1 font-medium"><a class="hover:text-primary" href={subjectPath(subject)}>{subject.name} ({subject.code})</a></dd></div> : null}
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Scheme</dt><dd class="mt-1 font-medium"><a class="hover:text-primary" href="/schemes/2022">{subject?.scheme ?? "2022"} scheme</a></dd></div>
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Type</dt><dd class="mt-1 font-medium"><a class="hover:text-primary" href={`/resources/${file.type}`}>{type?.label ?? file.type}</a></dd></div>
+    {file.unit ? <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Unit</dt><dd class="mt-1 font-medium">Unit {file.unit}</dd></div> : null}
+  </dl>
+  <Notice class="mt-8">Original VTUHub writing. Not an official VTU circular and not a scanned university paper. Confirm module titles on <a class="text-primary hover:underline" href={OFFICIAL_VTU_URL}>vtu.ac.in</a>.</Notice>
+  <article class="mt-8 max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    {file.body.map((p) => <p>{p}</p>)}
+    {file.bullets && file.bullets.length > 0 ? (
+      <ul class="list-disc space-y-1.5 pl-5">{file.bullets.map((b) => <li>{b}</li>)}</ul>
+    ) : null}
+  </article>
+  {subject ? (
+    <p class="mt-8 text-sm"><a class="text-primary hover:underline" href={typePath(file.branch, file.semester, file.subjectSlug, file.type)}>All {type?.label.toLowerCase() ?? "guides"} for {subject.shortName}</a></p>
+  ) : null}
+  {related.length > 0 ? (
+    <section class="mt-10">
+      <h2 class="mb-4 text-lg font-semibold">Related guides</h2>
+      <FileTable files={related} />
+    </section>
+  ) : null}
+</Base>

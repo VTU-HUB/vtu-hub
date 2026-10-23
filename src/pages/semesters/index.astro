@@ -1,0 +1,20 @@
+---
+import Base from "@/layouts/Base.astro";
+import Browse from "@/components/site/Browse.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+---
+<Base
+  title="Browse by semester"
+  description="Open a VTU semester to see every branch that runs that term — CSE, ISE, ECE, EEE, Mechanical and Civil — then pick your programme."
+  path="/semesters"
+  crumbs={[{ label: "Semesters", href: "/semesters" }]}
+>
+  <Crumbs items={[{ label: "Semesters" }]} />
+  <PageHeader
+    kicker="All programmes · Karnataka"
+    title="Browse by semester"
+    answer="Each semester page lists the VTU branches that run that term. You choose CSE, ISE, ECE, EEE, Mechanical or Civil after you open the semester. Nothing defaults to Computer Science."
+  />
+  <Browse kind="semesters" />
+</Base>

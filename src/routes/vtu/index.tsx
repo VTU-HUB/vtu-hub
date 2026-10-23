@@ -35,8 +35,8 @@ function VtuIndex() {
       <section>
         <SectionHead title="Semesters" href="/semesters" />
         <p className="mb-4 max-w-2xl text-sm text-muted">
-          Each semester lists CSE, ISE, ECE, EEE, Mechanical and Civil. It does
-          not open Computer Science automatically.
+          Each semester lists CSE, ISE, ECE, EEE, Mechanical and Civil. It does not open Computer
+          Science automatically.
         </p>
         <SemesterGrid />
       </section>
@@ -53,9 +53,7 @@ function VtuIndex() {
                 href={`/schemes/${s.year}`}
                 className="block h-full rounded-lg border bg-surface p-4 hover:border-primary/40"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-muted">
-                  {s.year}
-                </p>
+                <p className="text-xs font-medium uppercase tracking-wider text-muted">{s.year}</p>
                 <h3 className="mt-1 font-semibold">{s.name}</h3>
                 <p className="mt-2 text-sm text-muted">{s.description}</p>
               </AppLink>

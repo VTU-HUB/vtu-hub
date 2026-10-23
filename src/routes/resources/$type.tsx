@@ -38,12 +38,7 @@ function ResourceTypePage() {
   const shown = (branch ? files.filter((f) => f.branch === branch) : files).slice(0, 80);
   return (
     <Container className="py-8 md:py-12">
-      <Breadcrumbs
-        items={[
-          { label: "Resources", href: "/resources" },
-          { label: type.label },
-        ]}
-      />
+      <Breadcrumbs items={[{ label: "Resources", href: "/resources" }, { label: type.label }]} />
       <PageHeader title={type.label} description={type.description} />
       <div className="mb-6 flex flex-wrap gap-2" role="group" aria-label="Filter by branch">
         <button
@@ -63,7 +58,9 @@ function ResourceTypePage() {
             onClick={() => setBranch(b.slug)}
             className={cn(
               "inline-flex h-11 items-center rounded-md border px-3 text-sm font-medium",
-              branch === b.slug ? "border-primary bg-secondary" : "bg-surface hover:border-primary/40",
+              branch === b.slug
+                ? "border-primary bg-secondary"
+                : "bg-surface hover:border-primary/40",
             )}
           >
             {b.shortName}
@@ -71,8 +68,8 @@ function ResourceTypePage() {
         ))}
       </div>
       <Notice className="mb-6">
-        {shown.length} original guides shown. Open a subject for the full list.
-        We do not host university paper PDFs.{" "}
+        {shown.length} original guides shown. Open a subject for the full list. We do not host
+        university paper PDFs.{" "}
         <AppLink href="/resources/study-materials" className="text-primary hover:underline">
           Study materials
         </AppLink>

@@ -1,0 +1,28 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { articles } from "@/data/articles";
+import { formatFullDate } from "@/lib/utils";
+---
+<Base
+  title="Guides and articles"
+  description="VTU exam preparation, SGPA and CGPA, grading, and subject guides written for students in Karnataka."
+  path="/articles"
+  crumbs={[{ label: "Articles", href: "/articles" }]}
+>
+  <Crumbs items={[{ label: "Articles" }]} />
+  <PageHeader title="Guides" answer="These are original explainers on grading, exam prep and how to use previous papers. They are not university circulars. Confirm dates on vtu.ac.in." />
+  <ul class="divide-y border-t">
+    {articles.map((a) => (
+      <li class="py-5">
+        <a class="block hover:text-primary" href={`/articles/${a.slug}`}>
+          <p class="text-xs font-medium uppercase tracking-wider text-muted">{a.category}</p>
+          <h2 class="mt-1 text-lg font-semibold">{a.title}</h2>
+          <p class="mt-2 text-sm text-muted">{a.description}</p>
+          <p class="mt-2 text-xs text-faint">{formatFullDate(a.updated)} · {a.readMinutes} min read</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

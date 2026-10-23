@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { updates, updateTypeLabel } from "@/data/updates";
+import { formatFullDate } from "@/lib/utils";
+
+const types = [
+  ["Notifications", "/updates/notifications"],
+  ["Exam timetable", "/updates/exam-timetable"],
+  ["Results", "/updates/results"],
+  ["Academic calendar", "/updates/academic-calendar"],
+] as const;
+---
+<Base
+  title="VTU updates"
+  description="Guides to reading VTU exam timetables, results, revaluation and academic calendars. Confirm dates on vtu.ac.in."
+  path="/updates"
+  crumbs={[{ label: "Updates", href: "/updates" }]}
+>
+  <Crumbs items={[{ label: "Updates" }]} />
+  <PageHeader title="VTU updates" answer="These pages explain how to read official circulars for timetables, results and calendars. VTUHub does not publish university dates. The PDF on vtu.ac.in wins." />
+  <Notice class="mb-8">Dates and PDFs that count live on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>. These pages explain how to use them.</Notice>
+  <ul class="mb-8 flex flex-wrap gap-2">
+    {types.map(([label, href]) => (
+      <li><a class="inline-flex h-11 items-center rounded-md border bg-surface px-3 text-sm font-medium hover:border-primary/40" href={href}>{label}</a></li>
+    ))}
+  </ul>
+  <ul class="divide-y border-t">
+    {updates.map((u) => (
+      <li class="py-5">
+        <a class="block hover:text-primary" href={`/updates/${u.slug}`}>
+          <p class="text-xs font-medium uppercase tracking-wider text-muted">{updateTypeLabel[u.type]} · {formatFullDate(u.date)}</p>
+          <h2 class="mt-1 text-lg font-semibold">{u.title}</h2>
+          <p class="mt-2 text-sm text-muted">{u.summary}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

@@ -16,9 +16,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       </span>
       <span className="font-semibold tracking-tight">
         VTU<span className="text-primary">Hub</span>
-        {!compact ? (
-          <span className="sr-only"> — VTU student resources</span>
-        ) : null}
+        {!compact ? <span className="sr-only"> — VTU student resources</span> : null}
       </span>
     </Link>
   );

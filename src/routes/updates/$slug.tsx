@@ -29,12 +29,7 @@ function UpdatePage() {
   const { update } = Route.useLoaderData();
   return (
     <Container className="py-8 md:py-12">
-      <Breadcrumbs
-        items={[
-          { label: "Updates", href: "/updates" },
-          { label: update.title },
-        ]}
-      />
+      <Breadcrumbs items={[{ label: "Updates", href: "/updates" }, { label: update.title }]} />
       <PageHeader
         kicker={updateTypeLabel[update.type]}
         title={update.title}

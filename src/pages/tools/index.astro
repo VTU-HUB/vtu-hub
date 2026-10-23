@@ -1,0 +1,25 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { tools } from "@/data/tools";
+---
+<Base
+  title="VTU calculators"
+  description="SGPA, CGPA, marks, attendance and percentage calculators for VTU students in Karnataka. They run in your browser."
+  path="/tools"
+  crumbs={[{ label: "Tools", href: "/tools" }]}
+>
+  <Crumbs items={[{ label: "Tools" }]} />
+  <PageHeader title="Calculators" answer="SGPA, CGPA, CIE + SEE, attendance and percentage calculators run in your browser. VTUHub does not upload USNs, marks or attendance." />
+  <ul class="grid gap-3 sm:grid-cols-2">
+    {tools.map((t) => (
+      <li>
+        <a class="flex h-full flex-col rounded-lg border bg-surface p-4 hover:border-primary/40" href={t.href}>
+          <h2 class="font-semibold">{t.name}</h2>
+          <p class="mt-2 text-sm text-muted">{t.description}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

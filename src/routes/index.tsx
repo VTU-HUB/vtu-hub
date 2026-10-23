@@ -32,8 +32,7 @@ export const Route = createFileRoute("/")({
       title: `${SITE_NAME} · VTU study guides, calculators and scheme explainers`,
       description: SITE_DESCRIPTION,
       path: "/",
-      keywords:
-        "VTU study guides, VTU SGPA calculator, CSE syllabus, 2022 scheme",
+      keywords: "VTU study guides, VTU SGPA calculator, CSE syllabus, 2022 scheme",
     }),
   component: Home,
 });
@@ -67,8 +66,7 @@ function Home() {
           Study guides, calculators and scheme explainers — organised the way you study
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-          Open a semester first. You get every branch — CSE, ISE, ECE, EEE,
-          Mechanical and Civil.
+          Open a semester first. You get every branch — CSE, ISE, ECE, EEE, Mechanical and Civil.
         </p>
         <div className="mt-5 max-w-xl">
           <SearchField size="hero" />
@@ -77,11 +75,7 @@ function Home() {
       </section>
 
       <section className="mt-8">
-        <SectionHead
-          title="Browse by semester"
-          href="/semesters"
-          action="All semesters"
-        />
+        <SectionHead title="Browse by semester" href="/semesters" action="All semesters" />
         <SemesterGrid />
         <p className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
           {CATALOG.map((item) => (
@@ -113,9 +107,7 @@ function Home() {
                 href={subjectPath(s)}
                 className="flex items-center gap-4 py-3.5 hover:bg-secondary/60"
               >
-                <span className="w-24 shrink-0 font-mono text-xs text-muted">
-                  {s.code}
-                </span>
+                <span className="w-24 shrink-0 font-mono text-xs text-muted">{s.code}</span>
                 <span className="min-w-0 flex-1">
                   <span className="block font-medium">{s.name}</span>
                   <span className="block text-xs text-faint">
@@ -146,9 +138,7 @@ function Home() {
               <li key={u.slug} className="py-3.5">
                 <AppLink href={`/updates/${u.slug}`} className="block hover:text-primary">
                   <span className="font-medium">{u.title}</span>
-                  <span className="mt-1 block text-xs text-faint">
-                    {formatFullDate(u.date)}
-                  </span>
+                  <span className="mt-1 block text-xs text-faint">{formatFullDate(u.date)}</span>
                 </AppLink>
               </li>
             ))}

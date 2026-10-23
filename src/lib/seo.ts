@@ -7,9 +7,7 @@ export function pageHead(opts: {
   noindex?: boolean;
   keywords?: string;
 }) {
-  const title = opts.title.includes(SITE_NAME)
-    ? opts.title
-    : `${opts.title} · ${SITE_NAME}`;
+  const title = opts.title.includes(SITE_NAME) ? opts.title : `${opts.title} · ${SITE_NAME}`;
   const url = absUrl(opts.path);
   return {
     meta: [

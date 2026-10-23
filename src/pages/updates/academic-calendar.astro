@@ -1,0 +1,7 @@
+---
+import Base from "@/layouts/Base.astro";
+import UpdateType from "@/components/site/UpdateType.astro";
+---
+<Base title="VTU academic calendar" description="Term start, CIE slots and last working day. Colleges can be stricter than the university PDF — follow the stricter one for attendance." path="/updates/academic-calendar" crumbs={[{ label: "Updates", href: "/updates" }, { label: "Academic calendar", href: "/updates/academic-calendar" }]}>
+  <UpdateType type="academic-calendar" />
+</Base>

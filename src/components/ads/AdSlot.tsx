@@ -1,13 +1,7 @@
 import { adsConfig, adSizes, type AdFormat } from "@/data/ads";
 import { cn } from "@/lib/utils";
 
-export function AdSlot({
-  format,
-  className,
-}: {
-  format: AdFormat;
-  className?: string;
-}) {
+export function AdSlot({ format, className }: { format: AdFormat; className?: string }) {
   if (!adsConfig.enabled && !adsConfig.showPlaceholders) return null;
   const size = adSizes[format];
   return (

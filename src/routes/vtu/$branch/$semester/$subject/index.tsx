@@ -25,9 +25,7 @@ export const Route = createFileRoute("/vtu/$branch/$semester/$subject/")({
     const n = parseSemesterSlug(params.semester) ?? 1;
     const subject = getSubject(params.branch, n, params.subject);
     return pageHead({
-      title: subject
-        ? `${subject.name} (${subject.code})`
-        : params.subject,
+      title: subject ? `${subject.name} (${subject.code})` : params.subject,
       description: subject?.description ?? "VTU subject resources.",
       path: `/vtu/${params.branch}/${params.semester}/${params.subject}`,
     });
@@ -39,9 +37,7 @@ function SubjectPage() {
   const { branch, n, semesterSlug, subject } = Route.useLoaderData();
   const files = resourcesFor(subject.branch, subject.semester, subject.slug);
   const counts = resourceCounts(subject.branch, subject.semester, subject.slug);
-  const siblings = getSubjectsBySemester(branch.slug, n).filter(
-    (s) => s.slug !== subject.slug,
-  );
+  const siblings = getSubjectsBySemester(branch.slug, n).filter((s) => s.slug !== subject.slug);
 
   return (
     <Container className="py-8 md:py-12">
@@ -81,9 +77,9 @@ function SubjectPage() {
           ))}
       </ul>
       <Notice className="mt-6">
-        Guides on this page are original VTUHub writing. We do not host
-        university question-paper PDFs or scanned faculty notes. Confirm module
-        titles against the official scheme PDF on vtu.ac.in.
+        Guides on this page are original VTUHub writing. We do not host university question-paper
+        PDFs or scanned faculty notes. Confirm module titles against the official scheme PDF on
+        vtu.ac.in.
       </Notice>
       {subject.units.length > 0 && subject.kind === "theory" ? (
         <section className="mt-10">

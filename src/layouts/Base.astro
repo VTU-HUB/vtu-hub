@@ -1,0 +1,140 @@
+---
+import "../styles.css";
+import Header from "@/components/site/Header.astro";
+import Footer from "@/components/site/Footer.astro";
+import AdSlot from "@/components/site/AdSlot.astro";
+import { adsConfig } from "@/data/ads";
+import { breadcrumbLd, faqLd, graphLd, pageTitle, type Crumb, type FaqItem } from "@/lib/seo-doc";
+import { absUrl, SITE_NAME, SITE_URL } from "@/lib/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+  keywords?: string;
+  ogType?: "website" | "article";
+  published?: string;
+  updated?: string;
+  crumbs?: Crumb[];
+  faqs?: FaqItem[];
+  extraJsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  path,
+  noindex = false,
+  keywords,
+  ogType = "website",
+  published,
+  updated,
+  crumbs = [],
+  faqs = [],
+  extraJsonLd = [],
+} = Astro.props;
+
+const fullTitle = pageTitle(title);
+const url = absUrl(path);
+const image = absUrl("/og.jpg");
+const nodes: Record<string, unknown>[] = [];
+nodes.push({
+  "@type": "WebPage",
+  url,
+  name: fullTitle,
+  description,
+  inLanguage: "en-IN",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  speakable: { "@type": "SpeakableSpecification", cssSelector: [".aio-answer", "h1"] },
+});
+if (crumbs.length) nodes.push(breadcrumbLd([{ label: "Home", href: "/" }, ...crumbs]));
+if (faqs.length) nodes.push(faqLd(faqs));
+nodes.push(...extraJsonLd);
+const jsonLd = graphLd(nodes);
+const clientId = adsConfig.clientId;
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
+    {keywords ? <meta name="keywords" content={keywords} /> : null}
+    <meta name="author" content={SITE_NAME} />
+    <meta name="application-name" content={SITE_NAME} />
+    <meta name="theme-color" content="#2563EB" />
+    <meta name="geo.region" content="IN-KA" />
+    <meta name="geo.placename" content="Belagavi, Karnataka, India" />
+    <meta name="geo.position" content="15.8497;74.4977" />
+    <meta name="ICBM" content="15.8497, 74.4977" />
+    <meta name="language" content="English" />
+    <link rel="alternate" hreflang="en-in" href={url} />
+    <link rel="alternate" hreflang="en" href={url} />
+    <link rel="alternate" hreflang="x-default" href={url} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    {published ? <meta property="article:published_time" content={published} /> : null}
+    {updated ? <meta property="article:modified_time" content={updated} /> : null}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/__grok/icon-180.png" />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("vtuhub-theme");
+          if (t === "dark" || (t !== "light" && matchMedia("(prefers-color-scheme: dark)").matches))
+            document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+    {clientId ? (
+      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`} crossorigin="anonymous"></script>
+    ) : null}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-screen bg-background font-sans text-foreground antialiased">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <div class="border-b bg-background">
+      <div class="mx-auto w-full max-w-[1200px] px-4 py-3 sm:px-5 md:px-6 lg:px-8">
+        <AdSlot format="banner" class="hidden md:flex" />
+        <AdSlot format="mobile" class="flex md:hidden" />
+      </div>
+    </div>
+    <div class="mx-auto grid w-full max-w-[1200px] gap-8 px-4 sm:px-5 md:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:px-8">
+      <main id="main" class="min-w-0 py-8 md:py-12">
+        <slot />
+        <AdSlot format="in-article" class="mt-10" />
+      </main>
+      <aside class="hidden lg:block">
+        <div class="sticky top-20 space-y-4 py-12">
+          <AdSlot format="sidebar" />
+          <p class="text-xs leading-relaxed text-faint">
+            Independent guides for Visvesvaraya Technological University students in Karnataka.
+            Official dates stay on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.
+          </p>
+        </div>
+      </aside>
+    </div>
+    <Footer />
+    <script is:inline>
+      document.getElementById("theme-toggle")?.addEventListener("click", function () {
+        var dark = document.documentElement.classList.toggle("dark");
+        try { localStorage.setItem("vtuhub-theme", dark ? "dark" : "light"); } catch (e) {}
+      });
+    </script>
+  </body>
+</html>

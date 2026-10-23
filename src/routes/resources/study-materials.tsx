@@ -26,10 +26,7 @@ function StudyMaterials() {
   return (
     <Container className="py-8 md:py-12">
       <Breadcrumbs
-        items={[
-          { label: "Resources", href: "/resources" },
-          { label: "Study materials" },
-        ]}
+        items={[{ label: "Resources", href: "/resources" }, { label: "Study materials" }]}
       />
       <PageHeader
         title="Study materials"
@@ -37,15 +34,13 @@ function StudyMaterials() {
       />
       <div className="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
         <p>
-          Study materials on VTUHub are original guides organised by subject,
-          then by module. Open the subject page when you need the syllabus
-          sitting next to the notes — that pairing is how you catch a module
-          the class skipped.
+          Study materials on VTUHub are original guides organised by subject, then by module. Open
+          the subject page when you need the syllabus sitting next to the notes — that pairing is
+          how you catch a module the class skipped.
         </p>
         <p>
-          Important-question lists are drill prompts written here. They are not
-          a leak. Lab guides are prep checklists; follow your college instructor
-          for equipment and the signed manual.
+          Important-question lists are drill prompts written here. They are not a leak. Lab guides
+          are prep checklists; follow your college instructor for equipment and the signed manual.
         </p>
       </div>
       <ul className="mt-8 flex flex-wrap gap-2">
@@ -61,8 +56,7 @@ function StudyMaterials() {
         ))}
       </ul>
       <Notice className="mt-8">
-        Original VTUHub writing. Confirm module titles against the official
-        scheme PDF on vtu.ac.in.
+        Original VTUHub writing. Confirm module titles against the official scheme PDF on vtu.ac.in.
       </Notice>
       <section className="mt-8">
         <h2 className="mb-4 text-lg font-semibold">Recent guides</h2>

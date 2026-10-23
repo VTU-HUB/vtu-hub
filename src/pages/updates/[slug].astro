@@ -1,0 +1,44 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { getUpdate, updates, updateTypeLabel } from "@/data/updates";
+import { absUrl, SITE_URL } from "@/lib/site";
+import { formatFullDate } from "@/lib/utils";
+
+export function getStaticPaths() {
+  return updates.map((u) => ({ params: { slug: u.slug } }));
+}
+
+const update = getUpdate(Astro.params.slug)!;
+const path = `/updates/${update.slug}`;
+---
+<Base
+  title={update.title}
+  description={update.summary}
+  path={path}
+  ogType="article"
+  published={update.date}
+  updated={update.date}
+  crumbs={[{ label: "Updates", href: "/updates" }, { label: update.title, href: path }]}
+  extraJsonLd={[{
+    "@type": "Article",
+    headline: update.title,
+    description: update.summary,
+    datePublished: update.date,
+    inLanguage: "en-IN",
+    mainEntityOfPage: absUrl(path),
+    author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  }]}
+>
+  <Crumbs items={[{ label: "Updates", href: "/updates" }, { label: update.title }]} />
+  <PageHeader kicker={updateTypeLabel[update.type]} title={update.title} answer={update.summary}>
+    <p slot="meta" class="mt-3 text-sm text-muted">{formatFullDate(update.date)}</p>
+  </PageHeader>
+  <Notice class="mb-8">Confirm on the official source: <a class="text-primary hover:underline" href={update.sourceUrl}>{update.sourceLabel}</a>.</Notice>
+  <div class="max-w-3xl space-y-4 leading-relaxed text-muted">
+    {update.body.map((p) => <p>{p}</p>)}
+  </div>
+</Base>

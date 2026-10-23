@@ -32,13 +32,7 @@ export function FileTable({
   );
 }
 
-function FileRow({
-  file,
-  showSubject,
-}: {
-  file: ResourceFile;
-  showSubject: boolean;
-}) {
+function FileRow({ file, showSubject }: { file: ResourceFile; showSubject: boolean }) {
   const sub = subjectFor(file);
   const type = getResourceType(file.type);
   return (
@@ -76,12 +70,8 @@ function FileRow({
         </div>
       </div>
       <span className="hidden text-muted md:block">{file.fileType}</span>
-      <span className="hidden tabular-nums text-muted md:block">
-        {file.readMinutes} min
-      </span>
-      <span className="hidden text-muted md:block">
-        {formatMonthYear(file.updated)}
-      </span>
+      <span className="hidden tabular-nums text-muted md:block">{file.readMinutes} min</span>
+      <span className="hidden text-muted md:block">{formatMonthYear(file.updated)}</span>
     </div>
   );
 }

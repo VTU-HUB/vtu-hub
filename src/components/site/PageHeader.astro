@@ -1,0 +1,24 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  description?: string;
+  answer?: string;
+}
+const { kicker, title, description, answer } = Astro.props;
+const direct = answer ?? description;
+---
+
+<header class="mb-8 max-w-3xl">
+  {kicker ? <p class="mb-2 text-xs font-medium uppercase tracking-wider text-muted">{kicker}</p> : null}
+  <h1 class="text-[1.875rem] font-semibold leading-tight md:text-4xl">{title}</h1>
+  <slot name="meta" />
+  {direct ? (
+    <p class="aio-answer mt-4 text-sm leading-relaxed text-foreground">
+      <span class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted">Quick answer</span>
+      {direct}
+    </p>
+  ) : null}
+  {description && answer ? <p class="mt-4 leading-relaxed text-muted">{description}</p> : null}
+  <slot />
+</header>

@@ -1,0 +1,54 @@
+---
+import Base from "@/layouts/Base.astro";
+import Browse from "@/components/site/Browse.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import Notice from "@/components/site/Notice.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { branches, getBranch, parseSemesterSlug, semesterAbout, semesterName, semesterPath, semesterSlug } from "@/data/branches";
+import { getSubjectsBySemester } from "@/data/subjects";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const branch of branches) {
+    for (let n = 1; n <= 8; n++) {
+      const subjects = getSubjectsBySemester(branch.slug, n);
+      if (subjects.length === 0) continue;
+      paths.push({ params: { branch: branch.slug, semester: semesterSlug(n) } });
+    }
+  }
+  return paths;
+}
+
+const branch = getBranch(Astro.params.branch)!;
+const n = parseSemesterSlug(Astro.params.semester)!;
+const subjects = getSubjectsBySemester(branch.slug, n);
+const about = semesterAbout(n, branch);
+---
+
+<Base
+  title={`${branch.shortName} ${semesterName(n)}`}
+  description={`Subjects, notes and question papers for VTU ${branch.shortName} ${semesterName(n)} (2022 scheme) in Karnataka.`}
+  path={`/vtu/${branch.slug}/${Astro.params.semester}`}
+  crumbs={[
+    { label: "VTU", href: "/vtu" },
+    { label: branch.shortName, href: `/vtu/${branch.slug}` },
+    { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
+  ]}
+  faqs={[{ q: `What is in VTU ${branch.shortName} ${semesterName(n)}?`, a: about }]}
+>
+  <Crumbs items={[
+    { label: "VTU", href: "/vtu" },
+    { label: branch.shortName, href: `/vtu/${branch.slug}` },
+    { label: semesterName(n) },
+  ]} />
+  <PageHeader kicker={`${branch.shortName} · ${branch.code}`} title={`${branch.shortName} · ${semesterName(n)}`} answer={about} />
+  <Notice class="mb-6">
+    You are viewing <strong class="text-foreground">{branch.shortName}</strong> for this semester. Other programmes have different subject codes. <a class="text-primary hover:underline" href={semesterPath(n)}>See all branches in {semesterName(n)}</a>.
+  </Notice>
+  <Browse kind="switcher" semester={n} current={branch.slug} />
+  <section class="mt-8">
+    <h2 class="mb-2 text-lg font-semibold">Subjects</h2>
+    <p class="mb-4 text-sm text-muted">{subjects.length} papers on the {branch.shortName} {semesterName(n)} card.</p>
+    <Browse kind="subjects" subjects={subjects} />
+  </section>
+</Base>

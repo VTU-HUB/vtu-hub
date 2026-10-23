@@ -1,0 +1,30 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { CONTACT_EMAIL, COPYRIGHT_EMAIL, CORRECTIONS_EMAIL } from "@/lib/site";
+---
+<Base title="Contact" description="Contact VTUHub for corrections, copyright notices and general questions. We do not recover USNs or process exam fees." path="/contact" crumbs={[{ label: "Contact", href: "/contact" }]}>
+  <Crumbs items={[{ label: "Contact" }]} />
+  <PageHeader title="Contact" answer="Email only. There is no campus office and no phone number. VTUHub cannot recover a USN, reset a password, or process an exam fee.">
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 28 August 2026</p>
+  </PageHeader>
+  <div class="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-xl font-semibold text-foreground">General</h2>
+    <p><a class="text-primary hover:underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+    <p>Use this for questions about how the site is organised, missing branches, and partnership enquiries that are not advertisements stuffed into the first line.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Corrections</h2>
+    <p><a class="text-primary hover:underline" href={`mailto:${CORRECTIONS_EMAIL}`}>{CORRECTIONS_EMAIL}</a></p>
+    <p>If a subject code, module title or file is wrong, include the page URL, the code printed on your admission ticket, and what you expected. We cannot change university marks.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Copyright</h2>
+    <p><a class="text-primary hover:underline" href={`mailto:${COPYRIGHT_EMAIL}`}>{COPYRIGHT_EMAIL}</a></p>
+    <p>Rights holders: see the <a class="text-primary hover:underline" href="/copyright">copyright</a> page for the notice format. Do not send malware or password-protected archives as “evidence”.</p>
+    <h2 class="mt-10 text-xl font-semibold text-foreground">What we cannot help with</h2>
+    <ul class="list-disc space-y-1.5 pl-5">
+      <li>USN recovery, password reset, or exam applications.</li>
+      <li>Revaluation, photocopy or result portal errors.</li>
+      <li>College-internal CIE marks and attendance registers.</li>
+    </ul>
+    <p>Those belong to your principal’s office and to <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.</p>
+  </div>
+</Base>

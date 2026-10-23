@@ -10,14 +10,12 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-            Independent VTU student resource platform. Not affiliated with
-            Visvesvaraya Technological University.
+            Independent VTU student resource platform. Not affiliated with Visvesvaraya
+            Technological University.
           </p>
         </div>
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-faint">
-            Resources
-          </p>
+          <p className="text-xs font-medium uppercase tracking-wider text-faint">Resources</p>
           <ul className="mt-3 space-y-2">
             {footerResources.map((l) => (
               <li key={l.href}>
@@ -32,9 +30,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-faint">
-            Information
-          </p>
+          <p className="text-xs font-medium uppercase tracking-wider text-faint">Information</p>
           <ul className="mt-3 space-y-2">
             {footerInfo.map((l) => (
               <li key={l.href}>

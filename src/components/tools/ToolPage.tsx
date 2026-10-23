@@ -22,8 +22,7 @@ export function ToolPage({
       {children}
       {extra}
       <aside className="mt-10 rounded-md border bg-secondary px-4 py-3 text-sm text-muted">
-        These calculators run in your browser. VTUHub does not store USNs, marks or
-        attendance.
+        These calculators run in your browser. VTUHub does not store USNs, marks or attendance.
       </aside>
       <ul className="mt-8 flex flex-wrap gap-3 text-sm">
         {tools

@@ -55,8 +55,8 @@ function BranchSemesterPage() {
         description={semesterAbout(n, branch)}
       />
       <Notice className="mb-6">
-        You are viewing <strong className="text-foreground">{branch.shortName}</strong>{" "}
-        for this semester. Other programmes have different subject codes.{" "}
+        You are viewing <strong className="text-foreground">{branch.shortName}</strong> for this
+        semester. Other programmes have different subject codes.{" "}
         <AppLink href={semesterPath(n)} className="text-primary hover:underline">
           See all branches in {semesterName(n)}
         </AppLink>
