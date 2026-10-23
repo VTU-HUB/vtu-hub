@@ -57,7 +57,8 @@ const answers: Record<string, string> = {
       <li><a class="text-primary hover:underline" href={t.href}>{t.name}</a></li>
     ))}
   </ul>
+  <script>
+    import { mountCalculators } from "@/scripts/calculators.ts";
+    mountCalculators();
+  </script>
 </Base>
-<script>
-  import "@/scripts/calculators.ts";
-</script>

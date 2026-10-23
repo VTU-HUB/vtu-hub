@@ -361,8 +361,9 @@ function mountPercentage(root: HTMLElement) {
   paint();
 }
 
-const root = document.querySelector<HTMLElement>("[data-calc]");
-if (root) {
+export function mountCalculators() {
+  const root = document.querySelector<HTMLElement>("[data-calc]");
+  if (!root) return;
   const slug = root.dataset.calc;
   if (slug === "sgpa") mountSgpa(root);
   if (slug === "cgpa") mountCgpa(root);
