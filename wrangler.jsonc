@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers static-assets deploy for the Astro static build.
+  // "name" must match the Worker in the Cloudflare dashboard (vtu-hub).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vtu-hub",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    // /vtu/cse serves dist/vtu/cse.html directly (200, no redirect); /vtu/cse/ redirects to /vtu/cse.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
