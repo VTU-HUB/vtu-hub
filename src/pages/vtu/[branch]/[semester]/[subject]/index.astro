@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
 import Notice from "@/components/site/Notice.astro";
@@ -27,6 +28,16 @@ const files = resourcesFor(subject.branch, subject.semester, subject.slug);
 const counts = resourceCounts(subject.branch, subject.semester, subject.slug);
 const siblings = getSubjectsBySemester(branch.slug, n).filter((s) => s.slug !== subject.slug);
 const path = subjectPath(subject);
+const br = branch.shortName;
+const seoTitle = fitTitle(
+  `${subject.name} (${subject.code}) VTU ${br} Notes & Questions`,
+  `${subject.name} (${subject.code}) – VTU ${br} Notes`,
+  `${subject.code} ${subject.shortName} – VTU ${br} Notes & Questions`,
+  `${subject.code} ${subject.shortName} – VTU ${br} Notes`,
+);
+const seoDesc = clampDesc(
+  `${subject.code} ${subject.name}, VTU ${br} ${semesterName(n)} (${subject.scheme} scheme): ${subject.description} Unit-wise notes, important questions and syllabus map.`,
+);
 const faqs = [
   { q: `What is ${subject.name} (${subject.code})?`, a: subject.description },
   { q: `How many credits is ${subject.code}?`, a: `${subject.name} is ${subject.credits} credit${subject.credits === 1 ? "" : "s"} on the ${subject.scheme} scheme for VTU ${branch.shortName}, semester ${n}.` },
@@ -34,8 +45,8 @@ const faqs = [
 ---
 
 <Base
-  title={`${subject.name} (${subject.code})`}
-  description={subject.description}
+  title={seoTitle}
+  description={seoDesc}
   path={path}
   keywords={`${subject.code}, VTU ${branch.shortName}, ${semesterName(n)}, ${subject.scheme} scheme`}
   crumbs={[
@@ -53,6 +64,9 @@ const faqs = [
     numberOfCredits: subject.credits,
     inLanguage: "en-IN",
     provider: { "@id": `${SITE_URL}/#organization` },
+    educationalLevel: `VTU ${br} ${semesterName(n)}`,
+    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: `${subject.credits} credits` },
+    offers: { "@type": "Offer", price: 0, priceCurrency: "INR", category: "Free" },
     url: absUrl(path),
   }]}
 >

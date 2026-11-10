@@ -15,7 +15,7 @@ const scheme = getScheme(Astro.params.year)!;
 const extra = schemePages[scheme.year];
 ---
 <Base
-  title={scheme.name}
+  title={`VTU ${scheme.name}: CIE, SEE and Subject Codes`}
   description={scheme.description}
   path={`/schemes/${scheme.year}`}
   crumbs={[{ label: "Schemes", href: "/schemes" }, { label: scheme.name, href: `/schemes/${scheme.year}` }]}

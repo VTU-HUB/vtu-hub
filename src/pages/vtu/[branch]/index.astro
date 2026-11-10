@@ -16,7 +16,7 @@ const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
 ---
 
 <Base
-  title={`${branch.shortName} · VTU notes and papers`}
+  title={`VTU ${branch.shortName} Notes, Syllabus & Important Questions`}
   description={branch.description}
   path={`/vtu/${branch.slug}`}
   keywords={`VTU ${branch.shortName}, ${branch.name}, Karnataka, 2022 scheme`}
@@ -24,7 +24,7 @@ const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
   faqs={[{ q: `Where do I find ${branch.shortName} notes?`, a: branch.about }]}
 >
   <Crumbs items={[{ label: "VTU", href: "/vtu" }, { label: branch.shortName }]} />
-  <PageHeader kicker={`${branch.code} · 2022 scheme · Karnataka`} title={branch.name} answer={branch.about} description={branch.description} />
+  <PageHeader kicker={`${branch.code} · 2022 scheme · Karnataka`} title={`VTU ${branch.name} (${branch.shortName})`} answer={branch.about} description={branch.description} />
   <section>
     <h2 class="mb-4 text-lg font-semibold">Semesters</h2>
     <Browse kind="semesters" branchSlug={branch.slug} />
