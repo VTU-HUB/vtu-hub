@@ -9,7 +9,7 @@ import { schemes } from "@/data/branches";
 
 <Base
   title="VTU Notes & Syllabus by Branch and Semester"
-  description="Browse free VTU notes, important questions and syllabus maps by branch (CSE, ISE, ECE, EEE, ME, Civil), semester and 2022 / 2021 / 2018 scheme."
+  description="All VTU 2022-scheme B.E./B.Tech programmes by stream — CSE, ISE, AIML, Data Science, ECE, EEE, Mechanical, Civil and more — with semester-wise subjects, credits and official syllabus."
   path="/vtu"
   crumbs={[{ label: "VTU", href: "/vtu" }]}
 >
@@ -17,13 +17,13 @@ import { schemes } from "@/data/branches";
   <Steps current={1} />
   <PageHeader
     title="Browse VTU resources"
-    answer="Open a semester to see every VTU branch in Karnataka, or pick CSE, ISE, ECE, EEE, Mechanical or Civil for that programme’s subject codes. Nothing on this page defaults to Computer Science."
+    answer="Open a semester to see every VTU branch in Karnataka, or pick your programme below — grouped by first-year stream — for its subject codes, credits and syllabus. Nothing on this page defaults to Computer Science."
     description="Open a semester to see every branch, or pick a programme for subject codes. Semesters do not default to CSE."
   />
   <Browse kind="jump" />
   <section class="mt-8">
     <h2 class="mb-4 text-lg font-semibold">Semesters</h2>
-    <p class="mb-4 max-w-2xl text-sm text-muted">Each semester lists CSE, ISE, ECE, EEE, Mechanical and Civil. It does not open Computer Science automatically.</p>
+    <p class="mb-4 max-w-2xl text-sm text-muted">Each semester lists every programme that runs that term. It does not open Computer Science automatically.</p>
     <Browse kind="semesters" />
   </section>
   <section class="mt-14">
