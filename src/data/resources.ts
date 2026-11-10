@@ -1,5 +1,5 @@
 import { getBranch, semesterName } from "@/data/branches";
-import { getSubject, subjectPath, subjects } from "@/data/subjects";
+import { canonicalSubject, getSubject, subjectPath, subjects } from "@/data/subjects";
 import type { ResourceFile, ResourceType, Subject, Unit } from "@/data/types";
 import { lastCommitDate } from "@/lib/content-date";
 import reviewedGuides from "@/data/reviewed-guides.json";
@@ -125,6 +125,8 @@ function labBody(sub: Subject): { body: string[]; bullets: string[] } {
 function buildForSubject(sub: Subject): ResourceFile[] {
   // No generated guides for elective options, common/non-core courses, or any course
   // without a unit outline written for it — that would be filler built on placeholder units.
+  // A course shared by several programmes gets guides once, under its canonical page.
+  if (canonicalSubject(sub) !== sub) return [];
   if (sub.electiveGroup || !sub.hasUnitOutline) {
     return sub.kind === "lab" && !sub.electiveGroup ? buildLab(sub) : [];
   }

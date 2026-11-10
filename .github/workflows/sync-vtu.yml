@@ -8,6 +8,7 @@ on:
   schedule:
     - cron: "15 */6 * * *" # notices, every 6 hours (UTC)
     - cron: "45 20 * * *" # schemes + notices, 02:15 IST daily
+    - cron: "30 21 * * 0" # syllabus PDFs (large, change rarely), Monday 03:00 IST
   workflow_dispatch:
 
 permissions:
@@ -20,7 +21,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,6 +38,10 @@ jobs:
       - name: Sync scheme courses
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '45 20 * * *'
         run: node scripts/vtu/sync-schemes.mjs
+
+      - name: Sync syllabus modules, outcomes and books
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 21 * * 0'
+        run: node scripts/vtu/sync-syllabus.mjs
 
       - name: Check the site still builds with the new data
         run: |

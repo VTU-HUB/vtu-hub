@@ -146,25 +146,60 @@ const faqs = [
   <Notice class="mt-6">
     Course code, title and credits are read from VTU's official scheme PDF{subject.sourceUrl ? <> (<a class="text-primary hover:underline" href={subject.sourceUrl} rel="noopener" target="_blank">open the scheme PDF on vtu.ac.in</a>)</> : null} and re-checked daily. Guides are original VTUHub writing — we do not host question-paper PDFs or scanned notes.
   </Notice>
-  {subject.units.length > 0 && subject.kind === "theory" ? (
-    <section class="mt-10">
-      <h2 class="text-lg font-semibold">Modules</h2>
-      <ol class="mt-4 divide-y border-t">
+  {subject.units.length > 0 ? (
+    <section class="mt-10" aria-labelledby="modules">
+      <div class="flex flex-wrap items-end justify-between gap-2">
+        <h2 id="modules" class="text-lg font-semibold">{subject.code} syllabus — {subject.units.length} modules</h2>
+        {subject.syllabusUrl ? <a class="text-sm font-medium text-primary hover:underline" href={subject.syllabusUrl} rel="noopener" target="_blank">Official syllabus PDF ↗</a> : null}
+      </div>
+      <ol class="mt-4 space-y-3">
         {subject.units.map((u) => (
-          <li class="py-3.5">
-            <p class="font-medium">Unit {u.number} · {u.title}</p>
-            <p class="mt-1 text-sm text-muted">{u.topics}</p>
+          <li class="rounded-xl border bg-surface p-4">
+            <p class="text-xs font-semibold uppercase tracking-wider text-primary">Module {u.number}</p>
+            <h3 class="mt-1 font-semibold">{u.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{u.topics}</p>
           </li>
         ))}
       </ol>
+      {subject.syllabusUrl ? <p class="mt-2 text-xs text-faint">Module topics as listed in VTU's official {subject.scheme}-scheme syllabus. Check the PDF for lab programs, CIE/SEE split and question-paper pattern.</p> : null}
     </section>
   ) : null}
   {subject.outcomes.length > 0 ? (
-    <section class="mt-10">
-      <h2 class="text-lg font-semibold">Outcomes</h2>
-      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-muted">
+    <section class="mt-10" aria-labelledby="outcomes">
+      <h2 id="outcomes" class="text-lg font-semibold">Course outcomes</h2>
+      <p class="mt-1 text-sm text-muted">What VTU expects you to be able to do after {subject.code} — the SEE paper is set against these.</p>
+      <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-muted">
         {subject.outcomes.map((o) => <li>{o}</li>)}
-      </ul>
+      </ol>
+    </section>
+  ) : null}
+  {(subject.textbooks?.length || subject.references?.length || subject.links?.length) ? (
+    <section class="mt-10" aria-labelledby="refs">
+      <h2 id="refs" class="text-lg font-semibold">Books and references prescribed by VTU</h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        {subject.textbooks?.length ? (
+          <div class="rounded-xl border bg-surface p-4">
+            <h3 class="text-sm font-semibold">Textbooks</h3>
+            <ol class="mt-2 list-decimal space-y-1.5 pl-5 text-sm text-muted">{subject.textbooks.map((b) => <li>{b}</li>)}</ol>
+          </div>
+        ) : null}
+        {subject.references?.length ? (
+          <div class="rounded-xl border bg-surface p-4">
+            <h3 class="text-sm font-semibold">Reference books</h3>
+            <ol class="mt-2 list-decimal space-y-1.5 pl-5 text-sm text-muted">{subject.references.map((b) => <li>{b}</li>)}</ol>
+          </div>
+        ) : null}
+        {subject.links?.length ? (
+          <div class="rounded-xl border bg-surface p-4 md:col-span-2">
+            <h3 class="text-sm font-semibold">Web links and video lectures (from the syllabus)</h3>
+            <ul class="mt-2 space-y-1.5 text-sm">
+              {subject.links.map((l) => (
+                <li class="truncate"><a class="text-primary hover:underline" href={l} rel="nofollow noopener" target="_blank">{l.replace(/^https?:\/\/(www\.)?/, "")}</a></li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </div>
     </section>
   ) : null}
   {files.length > 0 ? (

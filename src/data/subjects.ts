@@ -10,6 +10,17 @@ import { branches, semesterName } from "@/data/branches";
 import { legacySubjects } from "@/data/legacy-subjects";
 import type { BranchSlug, Subject, SubjectKind } from "@/data/types";
 import courseData from "@/data/vtu/courses.json";
+import syllabusData from "@/data/vtu/syllabus.json";
+
+type Syllabus = {
+  source: string;
+  modules: { number: number; title: string; topics: string }[];
+  outcomes: string[];
+  textbooks: string[];
+  references: string[];
+  links: string[];
+};
+const syllabi = (syllabusData as { courses: Record<string, Syllabus> }).courses;
 
 type Course = {
   code: string;
@@ -130,7 +141,10 @@ function build(): Subject[] {
       if (used.has(`${c.semester}/${slug}`)) slug = `${slug}-${c.code.toLowerCase()}`;
       used.add(`${c.semester}/${slug}`);
       const kind = kindOf(c);
-      const hasOutline = Boolean(legacy && legacy.units[0]?.title !== GENERIC_UNIT);
+      // Modules from VTU's official syllabus win; a hand-written outline is the fallback.
+      const syl = syllabi[c.code];
+      const officialUnits = syl && syl.modules.length >= 3 ? syl.modules : null;
+      const hasOutline = Boolean(officialUnits) || Boolean(legacy && legacy.units[0]?.title !== GENERIC_UNIT);
       out.push({
         branch: p.slug as BranchSlug,
         semester: c.semester,
@@ -143,10 +157,14 @@ function build(): Subject[] {
         kind,
         hasLab: kind === "lab" || c.type === "IPCC",
         flagship: Boolean(legacy?.flagship) && !c.elective,
-        description: legacy && hasOutline ? legacy.description : describe(c, branch.name),
-        outcomes: [],
-        units: hasOutline ? legacy!.units : [],
+        description: describe(c, branch.name) + (officialUnits ? ` Its ${officialUnits.length} modules cover ${officialUnits.map((u) => u.title).slice(0, 3).join(", ")}${officialUnits.length > 3 ? " and more" : ""}.` : ""),
+        outcomes: syl?.outcomes ?? [],
+        units: officialUnits ?? (hasOutline ? legacy!.units : []),
         hasUnitOutline: hasOutline,
+        syllabusUrl: syl?.source,
+        textbooks: syl?.textbooks ?? [],
+        references: syl?.references ?? [],
+        links: syl?.links ?? [],
         electiveGroup: c.elective && c.group ? c.group : undefined,
         category: c.category,
         courseType: c.type ?? undefined,

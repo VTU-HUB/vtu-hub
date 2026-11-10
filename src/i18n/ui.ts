@@ -99,7 +99,7 @@ const en = {
     selectSemester: "Select semester",
     semesterOption: (ord: string) => `${ord} semester`,
     showSubjects: "Show my subjects",
-    finderFoot: "Free · No sign-up · 2022 scheme",
+    finderFoot: "Free · 2022 scheme",
     howTitle: "Find your notes in 3 steps",
     how: [
       ["Pick your branch", "Any VTU B.E./B.Tech programme, grouped by stream."],
@@ -229,7 +229,7 @@ const kn: Dict = {
     selectSemester: "ಸೆಮಿಸ್ಟರ್ ಆಯ್ಕೆಮಾಡಿ",
     semesterOption: (ord: string) => `${ord} ಸೆಮಿಸ್ಟರ್`,
     showSubjects: "ನನ್ನ ವಿಷಯಗಳನ್ನು ತೋರಿಸಿ",
-    finderFoot: "ಉಚಿತ · ನೋಂದಣಿ ಬೇಡ · 2022 ಸ್ಕೀಮ್",
+    finderFoot: "ಉಚಿತ · 2022 ಸ್ಕೀಮ್",
     howTitle: "3 ಹಂತಗಳಲ್ಲಿ ನಿಮ್ಮ ನೋಟ್ಸ್ ಪಡೆಯಿರಿ",
     how: [
       ["ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ", "ಯಾವುದೇ VTU B.E./B.Tech ಪ್ರೋಗ್ರಾಂ, ಸ್ಟ್ರೀಮ್ ಪ್ರಕಾರ."],
@@ -357,7 +357,7 @@ const hi: Dict = {
     selectSemester: "सेमेस्टर चुनें",
     semesterOption: (ord: string) => `${ord} सेमेस्टर`,
     showSubjects: "मेरे विषय दिखाएँ",
-    finderFoot: "मुफ़्त · कोई साइन-अप नहीं · 2022 स्कीम",
+    finderFoot: "मुफ़्त · 2022 स्कीम",
     howTitle: "3 आसान चरणों में नोट्स पाएँ",
     how: [
       ["ब्रांच चुनें", "कोई भी VTU B.E./B.Tech प्रोग्राम, स्ट्रीम के अनुसार।"],

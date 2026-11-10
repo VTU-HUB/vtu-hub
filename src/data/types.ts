@@ -61,6 +61,13 @@ export type Subject = {
   courseType?: string;
   /** Official scheme PDF this course was read from. */
   sourceUrl?: string;
+  /** Official syllabus PDF the modules / outcomes / books were read from. */
+  syllabusUrl?: string;
+  /** Prescribed textbooks and reference books, as printed in the VTU syllabus. */
+  textbooks?: string[];
+  references?: string[];
+  /** Web links / NPTEL / video lectures listed in the VTU syllabus. */
+  links?: string[];
 };
 
 export type ResourceFile = {

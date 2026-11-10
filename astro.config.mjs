@@ -59,7 +59,39 @@ export default defineConfig({
       hooks: {
         "astro:build:done": ({ dir }) => {
           const out = fileURLToPath(dir);
-          fs.copyFileSync(path.join(out, "sitemap-index.xml"), path.join(out, "sitemap.xml"));
+          // Split the flat sitemap into one file per site section so Search Console
+          // reports coverage per section, and style it so a browser shows the structure.
+          const flat = fs.readFileSync(path.join(out, "sitemap-0.xml"), "utf8");
+          const head = flat.slice(0, flat.indexOf("<url>")).replace(/^<\?xml[^>]*\?>/, "");
+          const urls = flat.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+          const SECTIONS = [
+            ["kannada", "Kannada pages", (p) => /^\/kn(\/|$)/.test(p)],
+            ["hindi", "Hindi pages", (p) => /^\/hi(\/|$)/.test(p)],
+            ["subjects", "Subjects (every course page)", (p) => /^\/vtu\/[^/]+\/[^/]+\/[^/]+/.test(p)],
+            ["programmes", "Programmes, semesters and schemes", (p) => /^\/(vtu|semesters|schemes)(\/|$)/.test(p)],
+            ["updates", "Exam updates, guides and articles", (p) => /^\/(updates|articles|resources|files)(\/|$)/.test(p)],
+            ["tools", "Calculators", (p) => /^\/tools(\/|$)/.test(p)],
+            ["pages", "Home and site pages", () => true],
+          ];
+          const groups = new Map(SECTIONS.map(([k]) => [k, []]));
+          for (const u of urls) {
+            const p = (/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/.exec(u)?.[1] || "/").replace(/\/$/, "") || "/";
+            groups.get(SECTIONS.find(([, , test]) => test(p))[0]).push(u);
+          }
+          const xsl = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>';
+          const today = new Date().toISOString().slice(0, 10);
+          const index = [];
+          for (const [key, label] of SECTIONS) {
+            const list = groups.get(key);
+            if (!list.length) continue;
+            const file = `sitemap-${key}.xml`;
+            fs.writeFileSync(path.join(out, file), `${xsl}${head}<!-- ${label}: ${list.length} URLs -->${list.join("")}</urlset>`);
+            index.push(`<sitemap><loc>https://vtuhub.site/${file}</loc><lastmod>${today}</lastmod></sitemap>`);
+          }
+          const idx = `${xsl}<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${index.join("")}</sitemapindex>`;
+          fs.writeFileSync(path.join(out, "sitemap.xml"), idx);
+          fs.writeFileSync(path.join(out, "sitemap-index.xml"), idx);
+          fs.rmSync(path.join(out, "sitemap-0.xml"));
         },
       },
     },

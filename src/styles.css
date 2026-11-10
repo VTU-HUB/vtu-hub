@@ -206,6 +206,12 @@
     }
 
     ::picker(select) {
+      /* Same width as the select box, so the list opens directly under it
+         instead of stretching to the longest option name. */
+      width: anchor-size(width);
+      min-width: 12rem;
+      max-width: calc(100vw - 32px);
+      box-sizing: border-box;
       margin-block: 6px;
       padding: 6px;
       max-height: min(22rem, 60vh);
@@ -217,25 +223,9 @@
       box-shadow:
         0 12px 32px -8px rgb(0 0 0 / 0.25),
         0 2px 6px rgb(0 0 0 / 0.08);
-      opacity: 0;
-      translate: 0 -4px;
-      transition:
-        opacity 0.15s ease,
-        translate 0.15s ease,
-        display 0.15s allow-discrete,
-        overlay 0.15s allow-discrete;
-    }
-
-    ::picker(select):popover-open {
+      /* No open/close fade: browsers that support base-select but not
+         ::picker(select):popover-open would leave the list at opacity 0 (invisible). */
       opacity: 1;
-      translate: 0 0;
-    }
-
-    @starting-style {
-      ::picker(select):popover-open {
-        opacity: 0;
-        translate: 0 -4px;
-      }
     }
 
     select option {
@@ -244,6 +234,9 @@
       gap: 0.6rem;
       min-height: 2.75rem;
       padding: 0.55rem 0.75rem;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      line-height: 1.35;
       border-radius: var(--radius-sm);
       background: transparent;
       color: var(--vt-foreground);

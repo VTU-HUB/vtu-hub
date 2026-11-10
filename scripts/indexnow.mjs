@@ -28,13 +28,20 @@ console.log(`Found ${urls.length} URLs in the sitemap.`);
 if (dryRun || urls.length === 0) process.exit(0);
 
 // IndexNow accepts up to 10,000 URLs per request.
+// A freshly deployed key file can take a minute to verify (HTTP 403) — retry before failing.
 for (let i = 0; i < urls.length; i += 10000) {
   const batch = urls.slice(i, i + 10000);
-  const res = await fetch("https://api.indexnow.org/indexnow", {
-    method: "POST",
-    headers: { "Content-Type": "application/json; charset=utf-8" },
-    body: JSON.stringify({ host: new URL(SITE).host, key: KEY, keyLocation: `${SITE}/${KEY}.txt`, urlList: batch }),
-  });
-  console.log(`IndexNow: ${batch.length} URLs → HTTP ${res.status} ${res.statusText}`);
-  if (res.status >= 400) process.exitCode = 1;
+  let status = 0;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    const res = await fetch("https://api.indexnow.org/indexnow", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ host: new URL(SITE).host, key: KEY, keyLocation: `${SITE}/${KEY}.txt`, urlList: batch }),
+    });
+    status = res.status;
+    console.log(`IndexNow: ${batch.length} URLs → HTTP ${res.status} ${res.statusText} (attempt ${attempt})`);
+    if (status < 400 || ![403, 429].includes(status)) break;
+    await new Promise((r) => setTimeout(r, 60_000 * attempt));
+  }
+  if (status >= 400) process.exitCode = 1;
 }
