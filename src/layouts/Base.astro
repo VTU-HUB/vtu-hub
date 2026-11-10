@@ -68,6 +68,7 @@ if (faqs.length) nodes.push(faqLd(faqs));
 nodes.push(...extraJsonLd);
 const jsonLd = graphLd(nodes);
 const clientId = adsConfig.clientId;
+const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlaceholders);
 ---
 
 <!doctype html>
@@ -130,26 +131,26 @@ const clientId = adsConfig.clientId;
   <body class="min-h-screen bg-background font-sans text-foreground antialiased">
     <a href="#main" class="skip-link">Skip to content</a>
     <Header />
-    <div class="border-b bg-background">
-      <div class="mx-auto w-full max-w-[1200px] px-4 py-3 sm:px-5 md:px-6 lg:px-8">
-        <AdSlot format="banner" class="hidden md:flex" />
-        <AdSlot format="mobile" class="flex md:hidden" />
+    {adsOn ? (
+      <div class="border-b bg-background">
+        <div class="mx-auto w-full max-w-[1200px] px-4 py-3 sm:px-5 md:px-6 lg:px-8">
+          <AdSlot format="banner" class="hidden md:flex" />
+          <AdSlot format="mobile" class="flex md:hidden" />
+        </div>
       </div>
-    </div>
-    <div class="mx-auto grid w-full max-w-[1200px] gap-8 px-4 sm:px-5 md:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:px-8">
+    ) : null}
+    <div class:list={["mx-auto grid w-full max-w-[1200px] gap-8 px-4 sm:px-5 md:px-6 lg:px-8", adsOn && "lg:grid-cols-[minmax(0,1fr)_300px]"]}>
       <main id="main" class="min-w-0 py-8 md:py-12">
         <slot />
         <AdSlot format="in-article" class="mt-10" />
       </main>
-      <aside class="hidden lg:block">
-        <div class="sticky top-20 space-y-4 py-12">
-          <AdSlot format="sidebar" />
-          <p class="text-xs leading-relaxed text-faint">
-            Independent guides for Visvesvaraya Technological University students in Karnataka.
-            Official dates stay on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.
-          </p>
-        </div>
-      </aside>
+      {adsOn ? (
+        <aside class="hidden lg:block">
+          <div class="sticky top-20 space-y-4 py-12">
+            <AdSlot format="sidebar" />
+          </div>
+        </aside>
+      ) : null}
     </div>
     <Footer />
     <script is:inline>

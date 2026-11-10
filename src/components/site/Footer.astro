@@ -1,37 +1,53 @@
 ---
-import { footerInfo, footerResources } from "@/data/nav";
+import { footerInfo } from "@/data/nav";
 const year = new Date().getFullYear();
+const study = [
+  { label: "Notes by branch", href: "/vtu" },
+  { label: "Notes by semester", href: "/semesters" },
+  { label: "Important questions", href: "/resources/important-questions" },
+  { label: "Syllabus maps", href: "/resources/syllabus" },
+  { label: "Lab guides", href: "/resources/lab-manuals" },
+  { label: "Exam updates", href: "/updates" },
+  { label: "Guides", href: "/articles" },
+];
+const calculators = [
+  { label: "SGPA calculator", href: "/tools/sgpa" },
+  { label: "CGPA calculator", href: "/tools/cgpa" },
+  { label: "Marks calculator", href: "/tools/marks" },
+  { label: "Attendance calculator", href: "/tools/attendance" },
+  { label: "Percentage calculator", href: "/tools/percentage" },
+];
+const columns = [
+  { title: "Study", links: study },
+  { title: "Calculators", links: calculators },
+  { title: "About", links: footerInfo },
+];
 ---
 
-<footer class="mt-8 border-t bg-background">
-  <div class="mx-auto grid w-full max-w-[1200px] gap-10 px-4 py-10 sm:px-5 md:grid-cols-[1.2fr_1fr_1fr] md:px-6 lg:px-8">
+<footer class="mt-12 border-t bg-secondary/40">
+  <div class="mx-auto grid w-full max-w-[1200px] gap-10 px-4 py-12 sm:px-5 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:px-6 lg:px-8">
     <div>
-      <a href="/" class="font-semibold tracking-tight">VTU<span class="text-primary">Hub</span></a>
+      <a href="/" class="text-lg font-semibold tracking-tight">VTU<span class="text-primary">Hub</span></a>
       <p class="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-        Independent study platform for Visvesvaraya Technological University students across Karnataka. Based on the Belagavi university. Not an official VTU site.
+        Free, original study guides and calculators for VTU students in Karnataka. Not an official VTU site. Official dates and results are on
+        <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.
       </p>
     </div>
-    <div>
-      <p class="text-xs font-medium uppercase tracking-wider text-faint">Resources</p>
-      <ul class="mt-3 space-y-2">
-        {footerResources.map((l) => (
-          <li><a class="text-sm text-muted hover:text-foreground" href={l.href}>{l.label}</a></li>
-        ))}
-      </ul>
-    </div>
-    <div>
-      <p class="text-xs font-medium uppercase tracking-wider text-faint">Information</p>
-      <ul class="mt-3 space-y-2">
-        {footerInfo.map((l) => (
-          <li><a class="text-sm text-muted hover:text-foreground" href={l.href}>{l.label}</a></li>
-        ))}
-      </ul>
-    </div>
+    {columns.map((col) => (
+      <div>
+        <p class="text-sm font-semibold">{col.title}</p>
+        <ul class="mt-3 space-y-2">
+          {col.links.map((l) => (
+            <li><a class="text-sm text-muted hover:text-primary" href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
   </div>
   <div class="border-t">
     <div class="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-2 px-4 py-4 text-xs text-faint sm:px-5 md:px-6 lg:px-8">
       <p>© {year} VTUHub · Belagavi, Karnataka, India</p>
-      <p><a class="hover:text-foreground" href="/llms.txt">llms.txt</a> · <a class="hover:text-foreground" href="/sitemap-index.xml">XML sitemap</a></p>
+      <p><a class="hover:text-foreground" href="/sitemap">Sitemap</a> · <a class="hover:text-foreground" href="/llms.txt">llms.txt</a></p>
     </div>
   </div>
 </footer>

@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import Steps from "@/components/site/Steps.astro";
 import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
@@ -76,6 +77,7 @@ const faqs = [
     { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
     { label: subject.shortName },
   ]} />
+  <Steps current={3} branch={{ label: branch.shortName, href: `/vtu/${branch.slug}` }} semester={{ label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` }} />
   <PageHeader
     kicker={`${subject.code} · ${branch.shortName} · ${semesterName(n)} · Karnataka`}
     title={subject.name}

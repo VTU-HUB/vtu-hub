@@ -1,0 +1,55 @@
+---
+/**
+ * Beginner progress bar for the notes flow: Branch → Semester → Subject.
+ * `current` is the step the student is on now; earlier steps show as done and link back.
+ */
+interface Props {
+  current: 1 | 2 | 3;
+  branch?: { label: string; href: string };
+  semester?: { label: string; href: string };
+  class?: string;
+}
+const { current, branch, semester, class: className = "" } = Astro.props;
+const steps = [
+  { n: 1, label: "Branch", value: branch?.label, href: branch?.href ?? "/vtu" },
+  { n: 2, label: "Semester", value: semester?.label, href: semester?.href },
+  { n: 3, label: "Subject", value: undefined, href: undefined },
+];
+const hint = ["Pick your branch", "Now pick your semester", "Now open a subject"][current - 1];
+---
+
+<nav aria-label="Your progress" class:list={["mb-6 rounded-lg border bg-secondary/60 p-3", className]}>
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+    {steps.map((s, i) => {
+      const done = s.n < current;
+      const active = s.n === current;
+      const inner = (
+        <>
+          <span
+            class:list={[
+              "grid size-6 shrink-0 place-items-center rounded-full text-xs font-semibold",
+              done && "bg-success text-white",
+              active && "bg-primary text-primary-foreground",
+              !done && !active && "border bg-surface text-muted",
+            ]}
+            aria-hidden="true"
+          >{done ? "✓" : s.n}</span>
+          <span class:list={["font-medium", !done && !active && "text-muted"]}>
+            {done && s.value ? s.value : s.label}
+          </span>
+        </>
+      );
+      return (
+        <li class="flex items-center gap-2" aria-current={active ? "step" : undefined}>
+          {done && s.href ? (
+            <a href={s.href} class="flex items-center gap-2 rounded-md px-1 hover:text-primary">{inner}</a>
+          ) : (
+            <span class="flex items-center gap-2 px-1">{inner}</span>
+          )}
+          {i < steps.length - 1 ? <span class="text-faint" aria-hidden="true">→</span> : null}
+        </li>
+      );
+    })}
+    <li class="ml-auto hidden text-xs text-muted sm:block">{hint}</li>
+  </ol>
+</nav>

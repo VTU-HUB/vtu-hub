@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import Steps from "@/components/site/Steps.astro";
 import Browse from "@/components/site/Browse.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
@@ -24,9 +25,10 @@ const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
   faqs={[{ q: `Where do I find ${branch.shortName} notes?`, a: branch.about }]}
 >
   <Crumbs items={[{ label: "VTU", href: "/vtu" }, { label: branch.shortName }]} />
+  <Steps current={2} branch={{ label: branch.shortName, href: `/vtu/${branch.slug}` }} />
   <PageHeader kicker={`${branch.code} · 2022 scheme · Karnataka`} title={`VTU ${branch.name} (${branch.shortName})`} answer={branch.about} description={branch.description} />
   <section>
-    <h2 class="mb-4 text-lg font-semibold">Semesters</h2>
+    <h2 class="mb-4 text-lg font-semibold">Choose your semester</h2>
     <Browse kind="semesters" branchSlug={branch.slug} />
   </section>
   {featured.length > 0 ? (

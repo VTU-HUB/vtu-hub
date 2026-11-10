@@ -7,9 +7,9 @@ export const branches: Branch[] = [
     name: "Computer Science & Engineering",
     shortName: "CSE",
     description:
-      "Notes, question papers and syllabus for VTU Computer Science & Engineering — data structures, DBMS, OS, networks and more.",
+      "Free notes, important questions and syllabus maps for VTU Computer Science & Engineering: data structures, DBMS, OS, networks and more.",
     about:
-      "CSE is the largest VTU programme on VTUHub. Resources follow the 2022 scheme (BCS codes) with unit-wise notes, previous question papers and lab manuals for core subjects such as Data Structures, Operating Systems, Database Management Systems and Computer Networks.",
+      "CSE is the largest VTU programme on VTUHub. Resources follow the 2022 scheme (BCS codes) with unit-wise notes, practice questions and lab-prep guides for core subjects such as Data Structures, Operating Systems, Database Management Systems and Computer Networks.",
   },
   {
     slug: "ise",
@@ -29,7 +29,7 @@ export const branches: Branch[] = [
     description:
       "Analog, digital, signals, communication and VLSI resources for VTU Electronics & Communication.",
     about:
-      "ECE pages cover network analysis, analog and digital electronics, signals and systems, and communication subjects. Lab manuals are listed separately from theory notes so you can download only what you need for CIE and SEE.",
+      "ECE pages cover network analysis, analog and digital electronics, signals and systems, and communication subjects. Lab-prep guides are listed separately from theory notes so you can open only what you need for CIE and SEE.",
   },
   {
     slug: "eee",
@@ -39,7 +39,7 @@ export const branches: Branch[] = [
     description:
       "Electrical machines, power systems, control and circuits for VTU Electrical & Electronics students.",
     about:
-      "EEE resources are grouped from circuit analysis and machines through power systems and control. Where a subject has a lab component, the lab manual sits next to the theory notes on the subject page.",
+      "EEE resources are grouped from circuit analysis and machines through power systems and control. Where a subject has a lab component, the lab-prep guide sits next to the theory notes on the subject page.",
   },
   {
     slug: "me",

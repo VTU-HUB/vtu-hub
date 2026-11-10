@@ -8,7 +8,7 @@ interface Props {
 
 const { format, class: className = "" } = Astro.props;
 const size = adSizes[format];
-const show = adsConfig.enabled || adsConfig.showPlaceholders;
+const show = adsConfig.enabled && (Boolean(adsConfig.clientId) || adsConfig.showPlaceholders);
 const clientId = adsConfig.clientId;
 ---
 

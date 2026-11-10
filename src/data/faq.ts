@@ -9,7 +9,7 @@ export const faqs: { q: string; a: string[] }[] = [
   {
     q: "How do I find notes for my branch and semester?",
     a: [
-      "Open Browse, pick your branch (CSE, ISE, ECE, EEE, Mechanical or Civil), then pick the semester. That page lists subjects with that programme’s subject codes.",
+      "Open Notes in the top menu, pick your branch (CSE, ISE, ECE, EEE, Mechanical or Civil), then pick the semester. That page lists subjects with that programme’s subject codes.",
       "If you open a semester from the home page first, you will see every branch that runs that term — it does not jump to CSE.",
     ],
   },

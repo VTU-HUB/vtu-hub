@@ -1,24 +1,27 @@
 ---
 import Base from "@/layouts/Base.astro";
-import Browse from "@/components/site/Browse.astro";
-import FileTable from "@/components/site/FileTable.astro";
 import { faqs } from "@/data/faq";
-import { latestQuestionPapers, popularNotes } from "@/data/resources";
-import { popularSubjectsMixed, subjectPath } from "@/data/subjects";
+import { branches, branchPath, SEMESTER_ORD, semesterPath } from "@/data/branches";
+import { countSubjects, popularSubjectsMixed, subjectPath } from "@/data/subjects";
 import { tools } from "@/data/tools";
-import { updates } from "@/data/updates";
 import { SITE_NAME } from "@/lib/site";
-import { formatFullDate } from "@/lib/utils";
 
-const popular = popularSubjectsMixed(8);
-const papers = latestQuestionPapers(6);
-const notes = popularNotes(6);
+// One entry per subject name (the same course appears under several branches).
+const popular = popularSubjectsMixed(24)
+  .filter((s, i, all) => all.findIndex((x) => x.name === s.name) === i)
+  .slice(0, 6);
 const homeFaqs = faqs.slice(0, 4).map((f) => ({ q: f.q, a: f.a.join(" ") }));
-const catalog = [
-  { href: "/schemes", label: "Schemes" },
-  { href: "/resources/study-materials", label: "Study materials" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/sitemap", label: "Sitemap" },
+const quickLinks = [
+  { label: "SGPA calculator", href: "/tools/sgpa" },
+  { label: "CSE notes", href: "/vtu/cse" },
+  { label: "Exam timetable help", href: "/updates/exam-timetable" },
+  { label: "CGPA to %", href: "/tools/cgpa" },
+];
+const featuredTools = tools.filter((t) => ["sgpa", "cgpa", "attendance"].includes(t.slug));
+const steps = [
+  { n: 1, title: "Pick your branch", text: "CSE, ISE, ECE, EEE, Mechanical or Civil." },
+  { n: 2, title: "Pick your semester", text: "1st to 8th semester, 2022 scheme." },
+  { n: 3, title: "Open a subject", text: "Unit notes, important questions and the syllabus map." },
 ];
 ---
 
@@ -29,45 +32,165 @@ const catalog = [
   keywords="VTU notes, VTU CSE notes, VTU syllabus, VTU important questions, VTU SGPA calculator, VTU CGPA calculator, 2022 scheme"
   faqs={homeFaqs}
 >
-  <section class="max-w-3xl">
-    <p class="text-xs font-medium uppercase tracking-wider text-muted">Independent VTU resource platform · Karnataka</p>
-    <h1 class="mt-2 text-3xl font-semibold leading-tight md:text-4xl">VTU notes, study guides and SGPA calculators, organised by branch and semester</h1>
-    <p class="aio-answer mt-4 text-sm leading-relaxed">
-      <span class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted">Quick answer</span>
-      VTUHub is an independent site for Visvesvaraya Technological University students in Karnataka. Open a semester to see every branch, then a subject for original unit guides, practice questions and the 2022-scheme code. Official dates and PDFs stay on vtu.ac.in.
-    </p>
-    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-      Open a semester first. You get every branch — CSE, ISE, ECE, EEE, Mechanical and Civil.
-    </p>
-    <form action="/search" method="get" role="search" class="mt-5 max-w-xl">
-      <label class="sr-only" for="home-q">Search</label>
-      <input id="home-q" name="q" type="search" placeholder="Search a subject, code or tool" class="h-12 w-full rounded-md border bg-surface px-4" />
-    </form>
-    <div class="mt-5"><Browse kind="jump" /></div>
+  <!-- Hero -->
+  <section class="grid items-center gap-10 py-4 md:py-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-14">
+    <!-- Left: message + search -->
+    <div>
+      <p class="text-sm font-semibold text-primary">For VTU students in Karnataka</p>
+      <h1 class="mt-3 text-3xl font-bold leading-[1.15] tracking-tight md:text-[2.75rem]">
+        VTU notes, study guides and SGPA calculators, organised by branch and semester
+      </h1>
+      <p class="aio-answer aio-plain mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+        Find notes for your subject in three clicks. Pick your branch, pick your semester, open the subject. Everything is written for the 2022 scheme.
+      </p>
+      <form action="/search" method="get" role="search" class="mt-7 flex max-w-xl gap-2">
+        <label class="sr-only" for="home-q">Search subjects, codes or tools</label>
+        <input
+          id="home-q"
+          name="q"
+          type="search"
+          placeholder="Try “BCS401”, “DBMS” or “SGPA”"
+          class="h-12 min-w-0 flex-1 rounded-lg border bg-surface px-4 text-base shadow-sm"
+        />
+        <button type="submit" class="h-12 shrink-0 rounded-lg bg-primary px-5 font-semibold text-primary-foreground hover:bg-primary-hover">Search</button>
+      </form>
+      <ul class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+        <li class="text-muted">Popular:</li>
+        {quickLinks.map((l) => (
+          <li><a class="rounded-full border bg-surface px-3 py-1 font-medium hover:border-primary hover:text-primary" href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Right: quick finder -->
+    <div class="rounded-2xl border bg-secondary/60 p-5 shadow-sm md:p-7">
+      <h2 class="text-lg font-semibold">Quick finder</h2>
+      <p class="mt-1 text-sm text-muted">Choose two things and we open your subject list.</p>
+      <form id="quick-finder" action="/vtu" method="get" class="mt-5 space-y-4">
+        <div>
+          <label for="qf-branch" class="mb-1.5 flex items-center gap-2 text-sm font-medium">
+            <span class="grid size-5 place-items-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground" aria-hidden="true">1</span>
+            Your branch
+          </label>
+          <select id="qf-branch" name="branch" required class="h-12 w-full rounded-lg border bg-surface px-3 text-base">
+            <option value="" disabled selected>Select branch</option>
+            {branches.map((b) => <option value={b.slug}>{b.shortName} · {b.name}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="qf-sem" class="mb-1.5 flex items-center gap-2 text-sm font-medium">
+            <span class="grid size-5 place-items-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground" aria-hidden="true">2</span>
+            Your semester
+          </label>
+          <select id="qf-sem" name="semester" required class="h-12 w-full rounded-lg border bg-surface px-3 text-base">
+            <option value="" disabled selected>Select semester</option>
+            {SEMESTER_ORD.map((label) => <option value={`${label}-semester`}>{label} semester</option>)}
+          </select>
+        </div>
+        <button type="submit" class="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-semibold text-primary-foreground hover:bg-primary-hover">
+          Show my subjects <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p class="mt-4 text-center text-xs text-muted">Free · No sign-up · 2022 scheme</p>
+    </div>
+  </section>
+  <script is:inline>
+    (function () {
+      var f = document.getElementById("quick-finder");
+      if (!f) return;
+      f.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var b = f.elements.namedItem("branch").value;
+        var s = f.elements.namedItem("semester").value;
+        if (b && s) location.href = "/vtu/" + b + "/" + s;
+      });
+    })();
+  </script>
+
+  <!-- How it works -->
+  <section class="mt-12" aria-labelledby="how">
+    <h2 id="how" class="text-center text-xl font-semibold md:text-2xl">Find your notes in 3 steps</h2>
+    <ol class="mt-6 grid gap-4 md:grid-cols-3">
+      {steps.map((s) => (
+        <li class="flex gap-4 rounded-xl border bg-surface p-5">
+          <span class="grid size-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground" aria-hidden="true">{s.n}</span>
+          <div>
+            <p class="font-semibold">{s.title}</p>
+            <p class="mt-1 text-sm text-muted">{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
   </section>
 
-  <section class="mt-8">
-    <div class="mb-4 flex items-end justify-between"><h2 class="text-lg font-semibold md:text-xl">Browse by semester</h2><a class="text-sm font-medium text-primary hover:underline" href="/semesters">All semesters</a></div>
-    <Browse kind="semesters" />
-    <p class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-      {catalog.map((item) => <a class="font-medium text-primary hover:underline" href={item.href}>{item.label}</a>)}
-    </p>
+  <!-- Step 1: branches -->
+  <section class="mt-14" aria-labelledby="branches">
+    <div class="flex flex-wrap items-end justify-between gap-2">
+      <div>
+        <p class="text-sm font-semibold text-primary">Step 1</p>
+        <h2 id="branches" class="text-xl font-semibold md:text-2xl">Choose your branch</h2>
+      </div>
+      <a class="text-sm font-medium text-primary hover:underline" href="/vtu">See all branches →</a>
+    </div>
+    <ul class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {branches.map((b) => (
+        <li>
+          <a href={branchPath(b.slug)} class="group flex h-full items-center gap-4 rounded-xl border bg-surface p-4 transition hover:border-primary hover:shadow-sm">
+            <span class="grid size-12 shrink-0 place-items-center rounded-lg bg-primary/10 text-sm font-bold text-primary" aria-hidden="true">{b.shortName}</span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-semibold group-hover:text-primary">{b.shortName}</span>
+              <span class="block text-sm text-muted">{b.name}</span>
+              <span class="mt-1 block text-xs text-faint">{countSubjects(b.slug)} subjects</span>
+            </span>
+            <span class="text-faint group-hover:text-primary" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 
-  <section class="mt-12">
-    <div class="mb-4 flex items-end justify-between"><h2 class="text-lg font-semibold md:text-xl">Browse by branch</h2><a class="text-sm font-medium text-primary hover:underline" href="/vtu">All branches</a></div>
-    <Browse kind="branches" />
+  <!-- Or semester -->
+  <section class="mt-10 rounded-xl border bg-surface p-5" aria-labelledby="sems">
+    <h2 id="sems" class="font-semibold">Know your semester? Jump straight to it</h2>
+    <p class="mt-1 text-sm text-muted">Shows every branch for that semester.</p>
+    <ul class="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-8">
+      {SEMESTER_ORD.map((label, i) => (
+        <li>
+          <a class="flex h-12 items-center justify-center rounded-lg border bg-secondary/60 font-semibold hover:border-primary hover:text-primary" href={semesterPath(i + 1)} aria-label={`${label} semester`}>{label}</a>
+        </li>
+      ))}
+    </ul>
   </section>
 
-  <section class="mt-14">
-    <h2 class="mb-4 text-lg font-semibold">Popular subjects</h2>
-    <ul class="divide-y border-t">
+  <!-- Calculators -->
+  <section class="mt-14" aria-labelledby="calc">
+    <div class="flex flex-wrap items-end justify-between gap-2">
+      <h2 id="calc" class="text-xl font-semibold md:text-2xl">Free calculators</h2>
+      <a class="text-sm font-medium text-primary hover:underline" href="/tools">All calculators →</a>
+    </div>
+    <ul class="mt-5 grid gap-3 md:grid-cols-3">
+      {featuredTools.map((t) => (
+        <li>
+          <a href={t.href} class="group flex h-full flex-col rounded-xl border bg-surface p-5 hover:border-primary hover:shadow-sm">
+            <span class="font-semibold group-hover:text-primary">{t.name}</span>
+            <span class="mt-2 flex-1 text-sm text-muted">{t.description}</span>
+            <span class="mt-4 text-sm font-semibold text-primary">Open calculator →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Popular subjects -->
+  <section class="mt-14" aria-labelledby="popular">
+    <h2 id="popular" class="text-xl font-semibold md:text-2xl">Popular subjects</h2>
+    <ul class="mt-5 grid gap-3 sm:grid-cols-2">
       {popular.map((s) => (
         <li>
-          <a class="flex items-center gap-4 py-3.5 hover:bg-secondary/60" href={subjectPath(s)}>
-            <span class="w-24 shrink-0 font-mono text-xs text-muted">{s.code}</span>
+          <a class="group flex items-center gap-3 rounded-xl border bg-surface p-4 hover:border-primary" href={subjectPath(s)}>
+            <span class="shrink-0 rounded-md bg-secondary px-2 py-1 font-mono text-xs text-muted">{s.code}</span>
             <span class="min-w-0 flex-1">
-              <span class="block font-medium">{s.name}</span>
+              <span class="block font-medium group-hover:text-primary">{s.name}</span>
               <span class="block text-xs text-faint">{s.branch.toUpperCase()} · Semester {s.semester}</span>
             </span>
           </a>
@@ -76,52 +199,20 @@ const catalog = [
     </ul>
   </section>
 
-  <section class="mt-14">
-    <div class="mb-4 flex items-end justify-between"><h2 class="text-lg font-semibold">Practice questions</h2><a class="text-sm font-medium text-primary hover:underline" href="/resources/question-papers">View all</a></div>
-    <FileTable files={papers} showSubject />
-  </section>
-
-  <section class="mt-14">
-    <div class="mb-4 flex items-end justify-between"><h2 class="text-lg font-semibold">Unit study guides</h2><a class="text-sm font-medium text-primary hover:underline" href="/resources/notes">View all</a></div>
-    <FileTable files={notes} showSubject />
-  </section>
-
-  <section class="mt-14 grid gap-10 lg:grid-cols-2">
-    <div>
-      <div class="mb-4 flex items-end justify-between"><h2 class="text-lg font-semibold">VTU updates</h2><a class="text-sm font-medium text-primary hover:underline" href="/updates">View all</a></div>
-      <ul class="divide-y border-t">
-        {updates.slice(0, 4).map((u) => (
-          <li class="py-3.5">
-            <a class="block hover:text-primary" href={`/updates/${u.slug}`}>
-              <span class="font-medium">{u.title}</span>
-              <span class="mt-1 block text-xs text-faint">{formatFullDate(u.date)}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+  <!-- FAQ -->
+  <section class="mt-14" aria-labelledby="faq">
+    <h2 id="faq" class="text-xl font-semibold md:text-2xl">Common questions</h2>
+    <div class="mt-5 divide-y rounded-xl border bg-surface">
+      {homeFaqs.map((f) => (
+        <details class="group p-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium">
+            {f.q}
+            <span class="text-faint transition group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-muted">{f.a}</p>
+        </details>
+      ))}
     </div>
-    <div>
-      <div class="mb-4 flex items-end justify-between"><h2 class="text-lg font-semibold">Tools</h2><a class="text-sm font-medium text-primary hover:underline" href="/tools">View all</a></div>
-      <ul class="divide-y border-t">
-        {tools.map((t) => (
-          <li class="py-3.5">
-            <a class="block hover:text-primary" href={t.href}>
-              <span class="font-medium">{t.name}</span>
-              <span class="mt-1 block text-xs text-muted">{t.description}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <section class="mt-14 max-w-3xl">
-    <h2 class="text-lg font-semibold">Questions students ask</h2>
-    {homeFaqs.map((f) => (
-      <section class="mt-6 border-t pt-4">
-        <h3 class="font-semibold">{f.q}</h3>
-        <p class="mt-2 text-sm leading-relaxed text-muted">{f.a}</p>
-      </section>
-    ))}
+    <p class="mt-4 text-sm"><a class="font-medium text-primary hover:underline" href="/faq">More questions →</a></p>
   </section>
 </Base>
