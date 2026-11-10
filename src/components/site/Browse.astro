@@ -1,13 +1,14 @@
 ---
 import {
   branches,
+  branchesByStream,
   branchPath,
   branchSemesterPath,
   SEMESTER_ORD,
   semesterName,
   semesterPath,
 } from "@/data/branches";
-import { branchesForSemester, countSubjects, getSubjectsBySemester, subjectPath } from "@/data/subjects";
+import { branchesForSemester, countSubjects, creditsLabel, getSubjectsBySemester, groupSubjects, subjectPath } from "@/data/subjects";
 import type { BranchSlug, Subject } from "@/data/types";
 
 interface Props {
@@ -35,8 +36,14 @@ const branchList = semester ? branchesForSemester(semester) : branches;
 ) : null}
 
 {kind === "branches" ? (
+  <div class="space-y-10">
+  {branchesByStream().map((stream) => {
+    const list = branchList.filter((b) => b.stream === stream.key);
+    return list.length === 0 ? null : (
+  <section aria-label={stream.name}>
+  <h2 class="mb-3 flex items-baseline gap-2 text-lg font-semibold">{stream.name}<span class="text-sm font-normal text-faint">{list.length}</span></h2>
   <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-    {branchList.map((branch) => {
+    {list.map((branch) => {
       const href = semester ? branchSemesterPath(branch.slug, semester) : branchPath(branch.slug);
       const count = countSubjects(branch.slug, semester);
       const preview = semester != null
@@ -55,11 +62,15 @@ const branchList = semester ? branchesForSemester(semester) : branches;
       );
     })}
   </ul>
+  </section>
+    );
+  })}
+  </div>
 ) : null}
 
 {kind === "semesters" ? (
   <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-    {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => {
+    {[1, 2, 3, 4, 5, 6, 7, 8].filter((n) => (branchSlug ? countSubjects(branchSlug, n) > 0 : branchesForSemester(n).length > 0)).map((n) => {
       const href = branchSlug ? branchSemesterPath(branchSlug, n) : semesterPath(n);
       const count = branchSlug ? countSubjects(branchSlug as BranchSlug, n) : branchesForSemester(n).length;
       const names = branchSlug ? "" : branchesForSemester(n).map((b) => b.shortName).join(" · ");
@@ -77,19 +88,32 @@ const branchList = semester ? branchesForSemester(semester) : branches;
 ) : null}
 
 {kind === "subjects" && subjects.length > 0 ? (
-  <ul class="divide-y border-t">
-    {subjects.map((s) => (
-      <li>
-        <a class="flex items-center gap-4 py-3.5 hover:bg-secondary/60" href={subjectPath(s)}>
-          <span class="w-24 shrink-0 font-mono text-xs text-muted">{s.code}</span>
-          <span class="min-w-0 flex-1">
-            <span class="block font-medium">{s.name}</span>
-            <span class="block text-xs text-faint">{s.credits} credit{s.credits === 1 ? "" : "s"} · {s.kind}{s.hasLab ? " · has lab" : ""}</span>
-          </span>
-        </a>
-      </li>
+  <div class="space-y-8">
+    {groupSubjects(subjects).map((g) => (
+      <section aria-labelledby={`g-${g.id}`}>
+        <h3 id={`g-${g.id}`} class="flex items-baseline gap-2 text-sm font-semibold uppercase tracking-wider text-muted">
+          {g.title}<span class="font-normal normal-case tracking-normal text-faint">{g.subjects.length}</span>
+        </h3>
+        {g.note ? <p class="mt-1 text-xs text-faint">{g.note}</p> : null}
+        <ul class="mt-2 divide-y rounded-lg border bg-surface">
+          {g.subjects.map((s) => (
+            <li>
+              <a class="flex items-center gap-3 px-4 py-3 hover:bg-secondary/60 sm:gap-4" href={subjectPath(s)}>
+                <span class="w-20 shrink-0 font-mono text-xs text-muted sm:w-24">{s.code}</span>
+                <span class="min-w-0 flex-1">
+                  <span class="block font-medium leading-snug">{s.name}</span>
+                  <span class="block text-xs text-faint">
+                    {[creditsLabel(s.credits), s.courseType, s.hasLab && s.kind !== "lab" ? "has lab" : ""].filter(Boolean).join(" · ")}
+                  </span>
+                </span>
+                <span class="text-faint" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     ))}
-  </ul>
+  </div>
 ) : null}
 
 {kind === "switcher" && semester ? (
@@ -101,7 +125,7 @@ const branchList = semester ? branchesForSemester(semester) : branches;
         aria-current={!current ? "page" : undefined}
         class:list={["inline-flex h-11 items-center rounded-md border px-3 text-sm font-medium", !current ? "border-primary bg-secondary" : "bg-surface text-muted hover:border-primary/40"]}
       >All branches</a>
-      {branches.map((b) => (
+      {branches.filter((b) => (b.featured || b.slug === current || b.stream === branches.find((x) => x.slug === current)?.stream) && countSubjects(b.slug, semester) > 0).map((b) => (
         <a
           href={`/vtu/${b.slug}/${["1st","2nd","3rd","4th","5th","6th","7th","8th"][semester - 1]}-semester`}
           aria-current={current === b.slug ? "page" : undefined}

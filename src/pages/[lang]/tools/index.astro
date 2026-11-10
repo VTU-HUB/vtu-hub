@@ -13,13 +13,9 @@ const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
 const d = t(lang);
 const path = localePath(lang, "/tools");
 const title = lang === "kn" ? "VTU SGPA, CGPA ಮತ್ತು ಶೇಕಡಾ ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ಗಳು" : "VTU SGPA, CGPA और प्रतिशत कैलकुलेटर";
-const keywords =
-  lang === "kn"
-    ? "VTU SGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್, VTU CGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್, VTU ಹಾಜರಾತಿ, CGPA ಇಂದ ಶೇಕಡಾ"
-    : "VTU SGPA कैलकुलेटर, VTU CGPA कैलकुलेटर, VTU उपस्थिति, CGPA से प्रतिशत";
 ---
 
-<Base title={title} description={d.tools.intro} keywords={keywords} path={path} crumbs={[{ label: d.nav.calculators[0], href: path }]} lang={lang}>
+<Base title={title} description={d.tools.intro} path={path} crumbs={[{ label: d.nav.calculators[0], href: path }]} lang={lang}>
   <Crumbs items={[{ label: d.nav.calculators[0] }]} lang={lang} />
   <PageHeader title={d.tools.title} answer={d.tools.intro} lang={lang} />
   <ul class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">

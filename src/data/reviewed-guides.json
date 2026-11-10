@@ -1,0 +1,4 @@
+{
+  "$comment": "IDs of /files/<id> guides that a person has rewritten or reviewed beyond the generated template. Only these are indexed and listed in the sitemap; every other guide page is noindex,follow. Read by src/data/resources.ts and astro.config.mjs.",
+  "ids": []
+}

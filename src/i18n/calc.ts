@@ -1,4 +1,6 @@
 /** Calculator UI strings. The language comes from <html lang>, set per page by Base.astro. */
+export type MarksOutcome = "pass" | "cie" | "see" | "total";
+
 const en = {
   course: (n: number) => `Course ${n}`,
   lab: "Lab",
@@ -22,8 +24,15 @@ const en = {
   see: (max: number) => `SEE (max ${max})`,
   scheme2022: "2022 scheme · 50 + 50",
   scheme2018: "2018 scheme · 40 + 60",
-  gradeHint: (label: string, point: number, pass: boolean) =>
-    `${label} · ${point} grade points. ${pass ? "At or above the common 40% total." : "Below the common 40% pass total."}`,
+  gradeHint: (label: string, point: number, outcome: MarksOutcome) =>
+    `${label} · ${point} grade points. ${
+      {
+        pass: "Meets the CIE 40%, SEE 35% and 40/100 total minimums.",
+        cie: "Below the 40% CIE minimum — this is an F whatever the total.",
+        see: "Below the 35% SEE minimum — this is an F whatever the total.",
+        total: "Below the 40/100 pass total.",
+      }[outcome]
+    }`,
   attended: "Classes attended",
   conducted: "Classes conducted",
   target: "Target %",
@@ -60,8 +69,15 @@ const kn: CalcStrings = {
   see: (max) => `SEE (ಗರಿಷ್ಠ ${max})`,
   scheme2022: "2022 ಸ್ಕೀಮ್ · 50 + 50",
   scheme2018: "2018 ಸ್ಕೀಮ್ · 40 + 60",
-  gradeHint: (label, point, pass) =>
-    `${label} · ${point} ಗ್ರೇಡ್ ಪಾಯಿಂಟ್. ${pass ? "ಸಾಮಾನ್ಯ 40% ಮಿತಿಗೆ ಸಮ ಅಥವಾ ಹೆಚ್ಚು." : "ಸಾಮಾನ್ಯ 40% ಪಾಸ್ ಮಿತಿಗಿಂತ ಕಡಿಮೆ."}`,
+  gradeHint: (label, point, outcome) =>
+    `${label} · ${point} ಗ್ರೇಡ್ ಪಾಯಿಂಟ್. ${
+      {
+        pass: "CIE 40%, SEE 35% ಮತ್ತು ಒಟ್ಟು 40/100 ಕನಿಷ್ಠ ಮಿತಿಗಳನ್ನು ಪೂರೈಸುತ್ತದೆ.",
+        cie: "CIE ಕನಿಷ್ಠ 40%ಕ್ಕಿಂತ ಕಡಿಮೆ — ಒಟ್ಟು ಎಷ್ಟೇ ಇದ್ದರೂ F.",
+        see: "SEE ಕನಿಷ್ಠ 35%ಕ್ಕಿಂತ ಕಡಿಮೆ — ಒಟ್ಟು ಎಷ್ಟೇ ಇದ್ದರೂ F.",
+        total: "ಒಟ್ಟು 40/100 ಪಾಸ್ ಮಿತಿಗಿಂತ ಕಡಿಮೆ.",
+      }[outcome]
+    }`,
   attended: "ಹಾಜರಾದ ತರಗತಿಗಳು",
   conducted: "ನಡೆದ ತರಗತಿಗಳು",
   target: "ಗುರಿ %",
@@ -96,8 +112,15 @@ const hi: CalcStrings = {
   see: (max) => `SEE (अधिकतम ${max})`,
   scheme2022: "2022 स्कीम · 50 + 50",
   scheme2018: "2018 स्कीम · 40 + 60",
-  gradeHint: (label, point, pass) =>
-    `${label} · ${point} ग्रेड पॉइंट। ${pass ? "सामान्य 40% सीमा के बराबर या ऊपर।" : "सामान्य 40% पास सीमा से कम।"}`,
+  gradeHint: (label, point, outcome) =>
+    `${label} · ${point} ग्रेड पॉइंट। ${
+      {
+        pass: "CIE 40%, SEE 35% और कुल 40/100 की न्यूनतम सीमा पूरी है।",
+        cie: "CIE न्यूनतम 40% से कम — कुल कितना भी हो, F।",
+        see: "SEE न्यूनतम 35% से कम — कुल कितना भी हो, F।",
+        total: "कुल 40/100 पास सीमा से कम।",
+      }[outcome]
+    }`,
   attended: "उपस्थित कक्षाएँ",
   conducted: "कुल कक्षाएँ",
   target: "लक्ष्य %",

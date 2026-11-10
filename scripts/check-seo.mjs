@@ -115,8 +115,13 @@ for (const file of htmlFiles) {
   }
   const canonical = html.match(/<link[^>]*rel=["']canonical["'][^>]*>/i);
   if (!canonical) add("ERROR missing canonical", route);
-  else if (route !== "/404" && attr(canonical[0], "href") !== SITE + (route === "/" ? "" : route) && attr(canonical[0], "href") !== `${SITE}/`)
-    add("ERROR canonical does not match URL", route, attr(canonical[0], "href"));
+  else if (route !== "/404" && attr(canonical[0], "href") !== SITE + (route === "/" ? "" : route) && attr(canonical[0], "href") !== `${SITE}/`) {
+    // A canonical may deliberately point at another page (the same VTU course shared by
+    // several programmes) — fine as long as that page exists.
+    const target = attr(canonical[0], "href").replace(SITE, "") || "/";
+    if (!target.startsWith("/") || !existing.has(target === "/" ? "/index.html" : `${target}.html`))
+      add("ERROR canonical points to a missing page", route, attr(canonical[0], "href"));
+  }
 
   const h1s = (html.match(/<h1\b/gi) ?? []).length;
   if (h1s !== 1) add("ERROR h1 count != 1", route, `(${h1s})`);

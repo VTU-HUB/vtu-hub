@@ -22,4 +22,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+Sitemap: https://vtuhub.site/sitemap.xml
 Sitemap: https://vtuhub.site/sitemap-index.xml

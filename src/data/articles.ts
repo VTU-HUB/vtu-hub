@@ -299,9 +299,9 @@ export const articles: Article[] = [
         ],
       },
       {
-        heading: "How to download the right notes",
+        heading: "How to find the right notes",
         paragraphs: [
-          "Open your branch, then 1st or 2nd semester, and match the subject code (BPHY102 vs BCHE102). Downloading “first semester physics” because a friend is physics-cycle will waste a CIE if you are not.",
+          "Open your branch, then 1st or 2nd semester, and match the subject code (BPHY102 vs BCHE102). Studying “first semester physics” because a friend is physics-cycle will waste a CIE if you are not.",
         ],
       },
     ],

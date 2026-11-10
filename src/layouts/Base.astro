@@ -4,6 +4,7 @@ import Header from "@/components/site/Header.astro";
 import Footer from "@/components/site/Footer.astro";
 import AdSlot from "@/components/site/AdSlot.astro";
 import { adsConfig } from "@/data/ads";
+import { analyticsConfig, siteVerification } from "@/data/analytics";
 import { breadcrumbLd, faqLd, graphLd, pageTitle, type Crumb, type FaqItem } from "@/lib/seo-doc";
 import { absUrl, OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 import type { LangLink } from "@/components/site/Header.astro";
@@ -14,7 +15,8 @@ interface Props {
   description: string;
   path: string;
   noindex?: boolean;
-  keywords?: string;
+  /** Canonical path when this page duplicates another (defaults to `path`). */
+  canonical?: string;
   ogType?: "website" | "article";
   published?: string;
   updated?: string;
@@ -32,7 +34,7 @@ const {
   description,
   path,
   noindex = false,
-  keywords,
+  canonical,
   ogType = "website",
   published,
   updated,
@@ -57,10 +59,6 @@ const langLinks: LangLink[] = LANGS.map((l) =>
 );
 
 const fullTitle = pageTitle(title);
-// Pages without their own keywords still get VTU-focused ones derived from the title.
-const metaKeywords =
-  keywords ??
-  [title.replace(/ · VTUHub$/, ""), "VTU", "Visvesvaraya Technological University", "VTU notes", "VTU 2022 scheme", "VTU Karnataka"].join(", ");
 const url = absUrl(path);
 const image = absUrl(shareImage.path);
 const imageType = shareImage.type ?? "image/jpeg";
@@ -100,9 +98,8 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={url} />
+    <link rel="canonical" href={canonical ? absUrl(canonical) : url} />
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
-    <meta name="keywords" content={metaKeywords} />
     <meta name="author" content={SITE_NAME} />
     <meta name="application-name" content={SITE_NAME} />
     <meta name="theme-color" content="#2563EB" />
@@ -137,6 +134,24 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    {siteVerification.google ? <meta name="google-site-verification" content={siteVerification.google} /> : null}
+    {siteVerification.bing ? <meta name="msvalidate.01" content={siteVerification.bing} /> : null}
+    {siteVerification.yandex ? <meta name="yandex-verification" content={siteVerification.yandex} /> : null}
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    {analyticsConfig.ga4MeasurementId ? (
+      <>
+        <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.ga4MeasurementId}`}></script>
+        <script is:inline define:vars={{ gaId: analyticsConfig.ga4MeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag("js", new Date());
+          gtag("config", gaId, { anonymize_ip: true });
+        </script>
+      </>
+    ) : null}
+    {analyticsConfig.cloudflareToken ? (
+      <script defer is:inline src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: analyticsConfig.cloudflareToken })}></script>
+    ) : null}
     <script is:inline>
       (function () {
         try {

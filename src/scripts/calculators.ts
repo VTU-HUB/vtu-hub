@@ -1,4 +1,13 @@
-import { GRADE_SCALE, gradeFromMarks } from "@/data/tools";
+import {
+  attendance,
+  cgpa as cgpaOf,
+  cgpaToPercentage,
+  courseResult,
+  GRADE_SCALE,
+  MARK_SPLITS,
+  percentage,
+  sgpa as sgpaOf,
+} from "@/lib/grades";
 import { calcStrings } from "@/i18n/calc";
 
 const S = calcStrings();
@@ -76,14 +85,7 @@ function mountSgpa(root: HTMLElement) {
   const paint = () => {
     save("sgpa", rows);
     list.replaceChildren();
-    let num = 0;
-    let den = 0;
     for (const row of rows) {
-      const g = GRADE_SCALE.find((x) => x.letter === row.letter);
-      if (g && row.credits > 0) {
-        num += row.credits * g.point;
-        den += row.credits;
-      }
       const line = el("div", "grid grid-cols-1 gap-2 md:grid-cols-[1fr_88px_96px_72px]");
       const name = el("input", inputClass) as HTMLInputElement;
       name.value = row.name;
@@ -123,9 +125,9 @@ function mountSgpa(root: HTMLElement) {
       line.append(name, credits, letter, remove);
       list.append(line);
     }
-    const sgpa = den === 0 ? 0 : num / den;
-    result.value.textContent = sgpa.toFixed(2);
-    if (result.hint) result.hint.textContent = S.sgpaHint(num, den);
+    const s = sgpaOf(rows);
+    result.value.textContent = s.value.toFixed(2);
+    if (result.hint) result.hint.textContent = S.sgpaHint(s.points, s.credits);
   };
   add.addEventListener("click", () => {
     rows = [
@@ -169,13 +171,7 @@ function mountCgpa(root: HTMLElement) {
   const paint = () => {
     save("cgpa", rows);
     list.replaceChildren();
-    let num = 0;
-    let den = 0;
     for (const row of rows) {
-      if (row.credits > 0) {
-        num += row.credits * row.sgpa;
-        den += row.credits;
-      }
       const line = el("div", "grid grid-cols-1 gap-2 md:grid-cols-[1fr_88px_96px_72px]");
       const name = el("input", inputClass) as HTMLInputElement;
       name.value = row.name;
@@ -210,11 +206,10 @@ function mountCgpa(root: HTMLElement) {
       line.append(name, credits, sgpa, remove);
       list.append(line);
     }
-    const cgpa = den === 0 ? 0 : num / den;
-    const pct = (cgpa - 0.75) * 10;
-    result.value.textContent = cgpa.toFixed(2);
-    if (result.hint) result.hint.textContent = S.creditsCounted(den);
-    note.innerHTML = S.cgpaNote(pct.toFixed(1));
+    const c = cgpaOf(rows);
+    result.value.textContent = c.value.toFixed(2);
+    if (result.hint) result.hint.textContent = S.creditsCounted(c.credits);
+    note.innerHTML = S.cgpaNote(cgpaToPercentage(c.value).toFixed(1));
   };
   add.addEventListener("click", () => {
     rows = [
@@ -261,8 +256,7 @@ function mountMarks(root: HTMLElement) {
   wrap.append(card, side);
   const paint = () => {
     save("marks", { scheme, cie, see });
-    const cieMax = scheme === "50" ? 50 : 40;
-    const seeMax = scheme === "50" ? 50 : 60;
+    const { cieMax, seeMax } = MARK_SPLITS[scheme];
     cieLabel.textContent = S.cie(cieMax);
     seeLabel.textContent = S.see(seeMax);
     cieInput.max = String(cieMax);
@@ -283,12 +277,11 @@ function mountMarks(root: HTMLElement) {
       });
       split.append(b);
     }
-    const total = Math.min(100, cie + see);
-    const grade = gradeFromMarks(total);
-    const pass = total >= 40 && grade.letter !== "F";
-    result.value.textContent = `${total} · ${grade.letter}`;
+    const r = courseResult(scheme, cie, see);
+    const outcome = r.pass ? "pass" : !r.cieOk ? "cie" : !r.seeOk ? "see" : "total";
+    result.value.textContent = `${r.total} · ${r.grade.letter}`;
     if (result.hint) {
-      result.hint.textContent = S.gradeHint(grade.label, grade.point, pass);
+      result.hint.textContent = S.gradeHint(r.grade.label, r.grade.point, outcome);
     }
   };
   cieInput.addEventListener("input", () => {
@@ -338,18 +331,10 @@ function mountAttendance(root: HTMLElement) {
   wrap.append(card, result.box);
   const paint = () => {
     save("attendance", { attended, conducted, target });
-    const pct = conducted === 0 ? 0 : (attended / conducted) * 100;
-    const t = target / 100;
-    let need = 0;
-    if (pct < target && t < 1) need = Math.max(0, Math.ceil((t * conducted - attended) / (1 - t)));
-    let canMiss = 0;
-    if (pct >= target) canMiss = Math.max(0, Math.floor((attended - t * conducted) / t));
-    result.value.textContent = `${pct.toFixed(1)}%`;
+    const a = attendance(attended, conducted, target);
+    result.value.textContent = `${a.pct.toFixed(1)}%`;
     if (result.hint) {
-      result.hint.textContent =
-        pct >= target
-          ? S.canMiss(canMiss, target)
-          : S.need(need, target);
+      result.hint.textContent = a.onTrack ? S.canMiss(a.canMiss, a.target) : S.need(a.need, a.target);
     }
   };
   root.replaceChildren(wrap);
@@ -385,8 +370,7 @@ function mountPercentage(root: HTMLElement) {
   card.append(grid, result.box);
   const paint = () => {
     save("percentage", { obtained, max });
-    const pct = max === 0 ? 0 : (obtained / max) * 100;
-    result.value.textContent = `${pct.toFixed(2)}%`;
+    result.value.textContent = `${percentage(obtained, max).toFixed(2)}%`;
   };
   root.replaceChildren(card);
   paint();

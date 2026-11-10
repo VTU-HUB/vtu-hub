@@ -100,6 +100,181 @@
     border-color: var(--vt-border);
   }
 
+  /* Native selects: custom chevron, themed focus ring, and readable options in both themes. */
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    color: var(--vt-foreground);
+    background-color: var(--vt-surface);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.1rem;
+    padding-right: 2.5rem !important;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  select:hover {
+    border-color: var(--vt-primary);
+  }
+
+  select:focus-visible {
+    outline: none;
+    border-color: var(--vt-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--vt-primary) 25%, transparent);
+  }
+
+  select:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  select option,
+  select optgroup {
+    color: var(--vt-foreground);
+    background-color: var(--vt-surface);
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  select option:checked {
+    color: var(--vt-primary-foreground);
+    background-color: var(--vt-primary);
+    font-weight: 600;
+  }
+
+  /* Placeholder ("Select branch"): shown in the closed box, hidden from the open list. */
+  select:has(option[value=""]:checked) {
+    color: var(--vt-muted);
+  }
+
+  select option[value=""][disabled] {
+    display: none;
+  }
+
+  select option:disabled {
+    color: var(--vt-muted);
+  }
+
+  select option:not(:checked):hover {
+    background-color: var(--vt-secondary);
+  }
+
+  select optgroup {
+    font-weight: 700;
+    color: var(--vt-muted);
+  }
+
+  /*
+   * Customizable select (Chrome / Edge / Opera 135+): the open list becomes a real,
+   * fully styled popover instead of the OS menu. Other browsers keep the native list above.
+   */
+  @supports (appearance: base-select) {
+    select,
+    ::picker(select) {
+      appearance: base-select;
+    }
+
+    select {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-image: none;
+      padding-right: 0.75rem !important;
+    }
+
+    select::picker-icon {
+      content: "";
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-left: auto;
+      background-color: var(--vt-muted);
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+      transition: rotate 0.2s ease;
+    }
+
+    select:open::picker-icon {
+      rotate: 180deg;
+    }
+
+    select:open {
+      border-color: var(--vt-primary);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--vt-primary) 25%, transparent);
+    }
+
+    ::picker(select) {
+      margin-block: 6px;
+      padding: 6px;
+      max-height: min(22rem, 60vh);
+      overflow-y: auto;
+      border: 1px solid var(--vt-border);
+      border-radius: var(--radius-lg);
+      background: var(--vt-surface);
+      color: var(--vt-foreground);
+      box-shadow:
+        0 12px 32px -8px rgb(0 0 0 / 0.25),
+        0 2px 6px rgb(0 0 0 / 0.08);
+      opacity: 0;
+      translate: 0 -4px;
+      transition:
+        opacity 0.15s ease,
+        translate 0.15s ease,
+        display 0.15s allow-discrete,
+        overlay 0.15s allow-discrete;
+    }
+
+    ::picker(select):popover-open {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    @starting-style {
+      ::picker(select):popover-open {
+        opacity: 0;
+        translate: 0 -4px;
+      }
+    }
+
+    select option {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 2.75rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--vt-foreground);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    select option:hover,
+    select option:focus-visible {
+      outline: none;
+      background: var(--vt-secondary);
+    }
+
+    select option:checked {
+      background: color-mix(in srgb, var(--vt-primary) 14%, transparent);
+      color: var(--vt-primary);
+      font-weight: 600;
+    }
+
+    select option::checkmark {
+      order: 1;
+      margin-left: auto;
+      color: var(--vt-primary);
+    }
+
+    select option[value=""][disabled] {
+      display: none;
+    }
+  }
+
   h1,
   h2,
   h3,
@@ -192,6 +367,16 @@
   }
   .nav-details > summary::-webkit-details-marker {
     display: none;
+  }
+  .branch-menu[open] .branch-chevron {
+    rotate: 180deg;
+  }
+  .mobile-menu-btn .icon-close,
+  details[open] > .mobile-menu-btn .icon-open {
+    display: none;
+  }
+  details[open] > .mobile-menu-btn .icon-close {
+    display: block;
   }
 }
 

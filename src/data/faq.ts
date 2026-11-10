@@ -50,7 +50,7 @@ export const faqs: { q: string; a: string[] }[] = [
   {
     q: "How do I report a wrong file or a copyright issue?",
     a: [
-      "Email corrections@vtuhub.site for academic errors and copyright@vtuhub.site for rights-holder takedown requests. Include the page URL and, for copyright, the details listed on the Copyright page.",
+      "Email vtuhub2021@gmail.com for academic errors and for rights-holder takedown requests. Include the page URL and, for copyright, the details listed on the Copyright page.",
     ],
   },
 ];

@@ -6,7 +6,7 @@ import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import { getBranch, semesterName, semesterSlug } from "@/data/branches";
 import { getResourceType } from "@/data/resource-types";
-import { getResource, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
+import { getResource, isIndexable, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
 import { subjectPath } from "@/data/subjects";
 import { absUrl, OFFICIAL_VTU_URL, OG_IMAGE, SITE_URL } from "@/lib/site";
 import { clampDesc, fitTitle } from "@/lib/seo-doc";
@@ -53,8 +53,8 @@ const crumbTrail = subject
 <Base
   title={seoTitle}
   description={seoDesc}
-  keywords={`${file.title}, ${code ? `${code}, ${code} notes, ${code} PDF download, ` : ""}${subject ? `${subject.name} VTU notes, ` : ""}VTU ${br} notes, VTU ${br} ${semesterName(file.semester)}`}
   path={path}
+  noindex={!isIndexable(file)}
   ogType="article"
   published={file.updated}
   updated={file.updated}
@@ -100,11 +100,11 @@ const crumbTrail = subject
       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"></path></svg>
       Read online
     </a>
-    <button type="button" data-download-pdf class="inline-flex h-11 items-center gap-2 rounded-lg border bg-surface px-4 font-semibold hover:border-primary hover:text-primary">
-      <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path><path d="M12 15V3"></path></svg>
-      Download PDF
+    <button type="button" data-print-guide class="inline-flex h-11 items-center gap-2 rounded-lg border bg-surface px-4 font-semibold hover:border-primary hover:text-primary">
+      <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+      Print / save as PDF
     </button>
-    <span class="self-center text-xs text-muted">Free · Choose “Save as PDF” in the print dialog</span>
+    <span class="self-center text-xs text-muted">Opens your browser’s print dialog — pick “Save as PDF” to keep a copy of this guide</span>
   </div>
   <Notice class="mt-8">Original VTUHub writing. Not an official VTU circular and not a scanned university paper. Confirm module titles on <a class="text-primary hover:underline" href={OFFICIAL_VTU_URL}>vtu.ac.in</a>.</Notice>
   <article id="notes" class="mt-8 max-w-3xl scroll-mt-24 space-y-4 text-[15px] leading-relaxed text-muted">
@@ -117,8 +117,8 @@ const crumbTrail = subject
   <script is:inline>
     (function () {
       function save() { window.print(); }
-      document.querySelectorAll("[data-download-pdf]").forEach(function (b) { b.addEventListener("click", save); });
-      if (location.hash === "#download") setTimeout(save, 400);
+      document.querySelectorAll("[data-print-guide]").forEach(function (b) { b.addEventListener("click", save); });
+      if (location.hash === "#print" || location.hash === "#download") setTimeout(save, 400);
     })();
   </script>
   {subject ? (

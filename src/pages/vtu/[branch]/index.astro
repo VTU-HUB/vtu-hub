@@ -20,7 +20,6 @@ const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
   title={`VTU ${branch.shortName} Notes, Syllabus & Important Questions`}
   description={branch.description}
   path={`/vtu/${branch.slug}`}
-  keywords={`VTU ${branch.shortName}, ${branch.name}, Karnataka, 2022 scheme`}
   crumbs={[{ label: "VTU", href: "/vtu" }, { label: branch.shortName, href: `/vtu/${branch.slug}` }]}
   faqs={[{ q: `Where do I find ${branch.shortName} notes?`, a: branch.about }]}
 >

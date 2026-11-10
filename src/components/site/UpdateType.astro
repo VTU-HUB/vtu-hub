@@ -2,6 +2,8 @@
 import Crumbs from "@/components/site/Crumbs.astro";
 import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
+import NoticeList from "@/components/site/NoticeList.astro";
+import type { NoticeType } from "@/data/notices";
 import { updates, updateTypeLabel } from "@/data/updates";
 import type { UpdateType } from "@/data/types";
 import { formatFullDate } from "@/lib/utils";
@@ -10,6 +12,12 @@ interface Props { type: UpdateType }
 const { type } = Astro.props;
 const list = updates.filter((u) => u.type === type);
 const label = updateTypeLabel[type];
+const noticeType: Record<UpdateType, NoticeType> = {
+  notification: "notifications",
+  "exam-timetable": "exam-timetable",
+  results: "results",
+  "academic-calendar": "academic-calendar",
+};
 const about: Record<UpdateType, string> = {
   notification: "How to read university notices — exam applications, scheme circulars and portal messages. Confirm the PDF on vtu.ac.in.",
   "exam-timetable": "How to match scheme, subject code and sitting on a SEE timetable. VTUHub does not set exam dates.",
@@ -20,7 +28,10 @@ const about: Record<UpdateType, string> = {
 <Crumbs items={[{ label: "Updates", href: "/updates" }, { label }]} />
 <PageHeader title={label} answer={about[type]} />
 <Notice class="mb-8">Official dates and PDFs live on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.</Notice>
-{list.length === 0 ? <p class="text-sm text-muted">No guides in this category yet.</p> : (
+<NoticeList type={noticeType[type]} title={`Official VTU ${label.toLowerCase()} notices`} />
+{list.length === 0 ? null : (
+  <>
+  <h2 class="mb-2 text-lg font-semibold">How-to guides</h2>
   <ul class="divide-y border-t">
     {list.map((u) => (
       <li class="py-5">
@@ -32,4 +43,5 @@ const about: Record<UpdateType, string> = {
       </li>
     ))}
   </ul>
+  </>
 )}

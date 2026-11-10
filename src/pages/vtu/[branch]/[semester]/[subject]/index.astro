@@ -9,7 +9,8 @@ import PageHeader from "@/components/site/PageHeader.astro";
 import { getBranch, parseSemesterSlug, semesterName, semesterSlug } from "@/data/branches";
 import { resourceTypes } from "@/data/resource-types";
 import { resourceCounts, resourcesFor } from "@/data/resources";
-import { getSubjectsBySemester, subjectPath, subjects } from "@/data/subjects";
+import { canonicalSubject, creditsLabel, getSubjectsBySemester, subjectPath, subjects } from "@/data/subjects";
+import { branches } from "@/data/branches";
 import { absUrl, SITE_URL } from "@/lib/site";
 
 export function getStaticPaths() {
@@ -29,6 +30,15 @@ const files = resourcesFor(subject.branch, subject.semester, subject.slug);
 const counts = resourceCounts(subject.branch, subject.semester, subject.slug);
 const siblings = getSubjectsBySemester(branch.slug, n).filter((s) => s.slug !== subject.slug);
 const path = subjectPath(subject);
+const canonicalPath = subjectPath(canonicalSubject(subject));
+const alsoIn = subjects
+  .filter((s) => s.code === subject.code && s.branch !== subject.branch)
+  .map((s) => ({ s, b: branches.find((b) => b.slug === s.branch)! }))
+  .filter((x) => x.b);
+const slotOptions = subject.electiveGroup
+  ? getSubjectsBySemester(branch.slug, n).filter((s) => s.electiveGroup === subject.electiveGroup && s.slug !== subject.slug)
+  : [];
+const credits = creditsLabel(subject.credits);
 const br = branch.shortName;
 const seoTitle = fitTitle(
   `${subject.name} (${subject.code}) VTU ${br} Notes & Questions`,
@@ -37,11 +47,13 @@ const seoTitle = fitTitle(
   `${subject.code} ${subject.shortName} – VTU ${br} Notes`,
 );
 const seoDesc = clampDesc(
-  `${subject.code} ${subject.name}, VTU ${br} ${semesterName(n)} (${subject.scheme} scheme): ${subject.description} Unit-wise notes, important questions and syllabus map.`,
+  `${subject.code} ${subject.name}, VTU ${br} ${semesterName(n)} (${subject.scheme} scheme)${credits ? `, ${credits}` : ""}. ${subject.description}`,
 );
 const faqs = [
   { q: `What is ${subject.name} (${subject.code})?`, a: subject.description },
-  { q: `How many credits is ${subject.code}?`, a: `${subject.name} is ${subject.credits} credit${subject.credits === 1 ? "" : "s"} on the ${subject.scheme} scheme for VTU ${branch.shortName}, semester ${n}.` },
+  ...(subject.credits != null
+    ? [{ q: `How many credits is ${subject.code}?`, a: `${subject.name} is ${credits} on VTU's ${subject.scheme} scheme for ${branch.name}, ${semesterName(n)}, as printed in the official scheme PDF.` }]
+    : []),
 ];
 ---
 
@@ -49,7 +61,7 @@ const faqs = [
   title={seoTitle}
   description={seoDesc}
   path={path}
-  keywords={`${subject.code}, ${subject.code} notes, ${subject.name} VTU notes, ${subject.code} previous year question papers, ${subject.code} PYQ, ${subject.code} important questions, ${subject.code} syllabus, VTU ${branch.shortName} ${semesterName(n)} notes, VTU ${subject.scheme} scheme`}
+  canonical={canonicalPath}
   crumbs={[
     { label: "VTU", href: "/vtu" },
     { label: branch.shortName, href: `/vtu/${branch.slug}` },
@@ -62,11 +74,11 @@ const faqs = [
     name: subject.name,
     description: subject.description,
     courseCode: subject.code,
-    numberOfCredits: subject.credits,
+    ...(subject.credits != null ? { numberOfCredits: subject.credits } : {}),
     inLanguage: "en-IN",
     provider: { "@id": `${SITE_URL}/#organization` },
     educationalLevel: `VTU ${br} ${semesterName(n)}`,
-    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: `${subject.credits} credits` },
+    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", ...(credits ? { courseWorkload: credits } : {}) },
     offers: { "@type": "Offer", price: 0, priceCurrency: "INR", category: "Free" },
     url: absUrl(path),
   }]}
@@ -84,11 +96,24 @@ const faqs = [
     answer={subject.description}
   >
     <p slot="meta" class="mt-3 flex flex-wrap gap-x-3 text-sm text-muted">
-      <span>{subject.credits} credits</span>
+      {credits ? <span>{credits}</span> : null}
       <span>{subject.scheme} scheme</span>
-      <span class="capitalize">{subject.kind}</span>
+      {subject.courseType ? <span>{subject.courseType}</span> : <span class="capitalize">{subject.kind}</span>}
+      {subject.hasLab && subject.kind !== "lab" ? <span>includes lab</span> : null}
     </p>
   </PageHeader>
+  <dl class="mb-6 grid grid-cols-2 gap-3 text-sm lg:grid-cols-4">
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Course code</dt><dd class="mt-1 font-mono font-semibold">{subject.code}</dd></div>
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Credits</dt><dd class="mt-1 font-semibold">{subject.credits ?? "Not printed in scheme"}</dd></div>
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Programme</dt><dd class="mt-1 font-semibold"><a class="hover:text-primary" href={`/vtu/${branch.slug}`}>{branch.name}</a></dd></div>
+    <div class="rounded-md border bg-surface px-4 py-3"><dt class="text-xs font-medium uppercase tracking-wider text-faint">Semester</dt><dd class="mt-1 font-semibold"><a class="hover:text-primary" href={`/vtu/${branch.slug}/${Astro.params.semester}`}>{semesterName(n)}</a></dd></div>
+  </dl>
+  {subject.electiveGroup ? (
+    <Notice class="mb-6">
+      This is one option in elective slot <strong class="text-foreground">{subject.electiveGroup}</strong>. You study one course from the slot, chosen from what your college offers.
+      {slotOptions.length > 0 ? <> Other options: {slotOptions.map((s, i) => <>{i > 0 ? ", " : ""}<a class="text-primary hover:underline" href={subjectPath(s)}>{s.name}</a></>)}.</> : null}
+    </Notice>
+  ) : null}
   <ul class="flex flex-wrap gap-2">
     {resourceTypes.filter((t) => counts[t.slug] > 0).map((t) => (
       <li>
@@ -118,7 +143,9 @@ const faqs = [
       >Official VTU papers <span aria-hidden="true">↗</span></a>
     </div>
   </section>
-  <Notice class="mt-6">Guides on this page are original VTUHub writing. We do not host university question-paper PDFs or scanned faculty notes. Confirm module titles against the official scheme PDF on vtu.ac.in.</Notice>
+  <Notice class="mt-6">
+    Course code, title and credits are read from VTU's official scheme PDF{subject.sourceUrl ? <> (<a class="text-primary hover:underline" href={subject.sourceUrl} rel="noopener" target="_blank">open the scheme PDF on vtu.ac.in</a>)</> : null} and re-checked daily. Guides are original VTUHub writing — we do not host question-paper PDFs or scanned notes.
+  </Notice>
   {subject.units.length > 0 && subject.kind === "theory" ? (
     <section class="mt-10">
       <h2 class="text-lg font-semibold">Modules</h2>
@@ -140,15 +167,28 @@ const faqs = [
       </ul>
     </section>
   ) : null}
-  <section class="mt-10">
-    <h2 class="mb-4 text-lg font-semibold">Guides</h2>
-    <FileTable files={files} />
-  </section>
+  {files.length > 0 ? (
+    <section class="mt-10">
+      <h2 class="mb-4 text-lg font-semibold">Guides</h2>
+      <FileTable files={files} />
+    </section>
+  ) : null}
+  {alsoIn.length > 0 ? (
+    <section class="mt-10">
+      <h2 class="mb-1 text-lg font-semibold">Same course in other programmes</h2>
+      <p class="mb-3 text-sm text-muted">{subject.code} is also part of these VTU programmes' 2022 scheme.</p>
+      <ul class="flex flex-wrap gap-2 text-sm">
+        {alsoIn.map(({ s, b }) => (
+          <li><a class="inline-flex h-10 items-center rounded-md border bg-surface px-3 hover:border-primary hover:text-primary" href={subjectPath(s)}>{b.shortName}</a></li>
+        ))}
+      </ul>
+    </section>
+  ) : null}
   {siblings.length > 0 ? (
     <section class="mt-10">
       <h2 class="mb-3 text-lg font-semibold">Same semester</h2>
       <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-        {siblings.map((s) => <li><a class="text-primary hover:underline" href={subjectPath(s)}>{s.shortName}</a></li>)}
+        {siblings.map((s) => <li><a class="text-primary hover:underline" href={subjectPath(s)}>{s.name}</a></li>)}
       </ul>
     </section>
   ) : null}

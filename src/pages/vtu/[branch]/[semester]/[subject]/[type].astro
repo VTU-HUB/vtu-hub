@@ -7,7 +7,7 @@ import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import { getBranch, parseSemesterSlug, semesterName, semesterSlug } from "@/data/branches";
 import { resourceTypes } from "@/data/resource-types";
-import { resourcesFor } from "@/data/resources";
+import { isIndexable, resourcesFor } from "@/data/resources";
 import { subjectPath, subjects } from "@/data/subjects";
 
 export function getStaticPaths() {
@@ -49,8 +49,8 @@ const seoDesc = clampDesc(
 <Base
   title={seoTitle}
   description={seoDesc}
-  keywords={`${subject.code} ${type.label.toLowerCase()}, ${subject.name} ${type.label.toLowerCase()}, VTU ${br} ${semesterName(n)} ${type.label.toLowerCase()}, ${subject.code} PYQ, ${subject.code} VTU`}
   path={path}
+  noindex={!files.some(isIndexable)}
   crumbs={[
     { label: "VTU", href: "/vtu" },
     { label: branch.shortName, href: `/vtu/${branch.slug}` },

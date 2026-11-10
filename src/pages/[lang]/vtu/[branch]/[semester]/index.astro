@@ -34,16 +34,11 @@ const description = clampDesc(
     ? `VTU ${br} ${sem} (2022 ಸ್ಕೀಮ್) ವಿಷಯಗಳು: ${codes}. ಉಚಿತ ಘಟಕವಾರು ನೋಟ್ಸ್ ಮತ್ತು ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು.`
     : `VTU ${br} ${sem} (2022 स्कीम) के विषय: ${codes}। मुफ़्त यूनिट-वार नोट्स और महत्वपूर्ण प्रश्न।`,
 );
-const keywords =
-  lang === "kn"
-    ? `VTU ${br} ${n} ಸೆಮಿಸ್ಟರ್ ನೋಟ್ಸ್, VTU ${br} ${sem}, ${subjects.map((s) => s.code).join(", ")}`
-    : `VTU ${br} ${n} सेमेस्टर नोट्स, VTU ${br} ${sem}, ${subjects.map((s) => s.code).join(", ")}`;
 ---
 
 <Base
   title={title}
   description={description}
-  keywords={keywords}
   path={path}
   crumbs={[
     { label: d.nav.notes[0], href: localePath(lang, "/vtu") },
@@ -65,7 +60,7 @@ const keywords =
             <span class="w-24 shrink-0 font-mono text-xs text-muted">{s.code}</span>
             <span class="min-w-0 flex-1">
               <span class="block font-medium">{s.name}</span>
-              <span class="block text-xs text-faint">{d.browse.credits(s.credits)} · {s.kind === "lab" ? d.browse.lab : d.browse.theory}{s.hasLab ? ` · ${d.browse.hasLab}` : ""}</span>
+              <span class="block text-xs text-faint">{s.credits != null ? `${d.browse.credits(s.credits)} · ` : ""}{s.kind === "lab" ? d.browse.lab : d.browse.theory}{s.hasLab ? ` · ${d.browse.hasLab}` : ""}</span>
             </span>
             <span class="text-faint" aria-hidden="true">→</span>
           </a>
@@ -76,7 +71,7 @@ const keywords =
   <section class="mt-10">
     <h2 class="mb-3 text-sm font-semibold text-muted">{d.browse.otherBranches}</h2>
     <ul class="flex flex-wrap gap-2">
-      {branches.filter((b) => b.slug !== branch.slug).map((b) => (
+      {branches.filter((b) => b.slug !== branch.slug && b.stream === branch.stream && getSubjectsBySemester(b.slug, n).length > 0).map((b) => (
         <li><a class="inline-flex h-11 items-center rounded-md border bg-surface px-3 text-sm font-medium hover:border-primary" href={localePath(lang, `/vtu/${b.slug}/${Astro.params.semester}`)}>{b.shortName}</a></li>
       ))}
     </ul>

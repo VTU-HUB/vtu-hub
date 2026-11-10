@@ -1,4 +1,8 @@
-export type BranchSlug = "cse" | "ise" | "ece" | "eee" | "me" | "cv";
+/** URL segment of a programme (/vtu/<slug>). Programmes come from VTU's scheme page. */
+export type BranchSlug = string;
+
+/** First-year engineering stream on the 2022 scheme. */
+export type StreamKey = "cs" | "ee" | "me" | "cv" | "other";
 
 export type SchemeYear = "2022" | "2021" | "2018";
 
@@ -14,6 +18,9 @@ export type Branch = {
   shortName: string;
   description: string;
   about: string;
+  stream?: StreamKey;
+  /** Shown first in menus (the most-studied programmes). */
+  featured?: boolean;
 };
 
 export type Scheme = {
@@ -36,13 +43,24 @@ export type Subject = {
   name: string;
   shortName: string;
   scheme: SchemeYear;
-  credits: number;
+  /** null when the official scheme PDF does not print a credit value for this course. */
+  credits: number | null;
   kind: SubjectKind;
   hasLab: boolean;
   flagship: boolean;
   description: string;
   outcomes: string[];
   units: Unit[];
+  /** True when the unit outline was written for this exact course (not the generic placeholder). */
+  hasUnitOutline?: boolean;
+  /** Elective option inside a slot such as "515x" (Professional Elective) — undefined for core courses. */
+  electiveGroup?: string;
+  /** Category from the official scheme: core, lab, professional-elective, open-elective, … */
+  category?: string;
+  /** Course type as printed in the scheme (IPCC, PCC, PCCL, ESC, …). */
+  courseType?: string;
+  /** Official scheme PDF this course was read from. */
+  sourceUrl?: string;
 };
 
 export type ResourceFile = {

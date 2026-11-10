@@ -19,10 +19,6 @@ const d = t(lang);
 const br = branch.shortName;
 const title =
   lang === "kn" ? `VTU ${br} ನೋಟ್ಸ್, ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು` : `VTU ${br} नोट्स, सिलेबस और महत्वपूर्ण प्रश्न`;
-const keywords =
-  lang === "kn"
-    ? `VTU ${br} ನೋಟ್ಸ್, ${bt.name}, VTU ${br} ಪಠ್ಯಕ್ರಮ, VTU ${br} 2022 ಸ್ಕೀಮ್`
-    : `VTU ${br} नोट्स, ${bt.name}, VTU ${br} सिलेबस, VTU ${br} 2022 स्कीम`;
 const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
 const path = localePath(lang, `/vtu/${branch.slug}`);
 ---
@@ -30,7 +26,6 @@ const path = localePath(lang, `/vtu/${branch.slug}`);
 <Base
   title={title}
   description={clampDesc(`${bt.name} (${br}): ${bt.about}`)}
-  keywords={keywords}
   path={path}
   crumbs={[{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }, { label: br, href: path }]}
   lang={lang}
@@ -43,6 +38,7 @@ const path = localePath(lang, `/vtu/${branch.slug}`);
     <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4">
       {SEMESTER_ORD.map((ord, i) => {
         const n = i + 1;
+        if (countSubjects(branch.slug, n) === 0) return null;
         return (
           <li>
             <a class="flex h-full flex-col rounded-xl border bg-surface p-4 hover:border-primary" href={localePath(lang, `/vtu/${branch.slug}/${ord}-semester`)}>

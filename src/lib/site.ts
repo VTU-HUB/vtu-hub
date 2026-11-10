@@ -4,9 +4,10 @@ export const SITE_TAGLINE = "Original VTU study guides, calculators and scheme e
 export const SITE_DESCRIPTION =
   "VTUHub is an independent study platform for Visvesvaraya Technological University students. Original subject guides, practice questions, scheme explainers and in-browser calculators — organised by branch, semester and subject. We do not host university question-paper PDFs or third-party notes.";
 
-export const CONTACT_EMAIL = "contact@vtuhub.site";
-export const COPYRIGHT_EMAIL = "copyright@vtuhub.site";
-export const CORRECTIONS_EMAIL = "corrections@vtuhub.site";
+/** One inbox for everything: questions, corrections, copyright notices and ads. */
+export const CONTACT_EMAIL = "vtuhub2021@gmail.com";
+export const COPYRIGHT_EMAIL = CONTACT_EMAIL;
+export const CORRECTIONS_EMAIL = CONTACT_EMAIL;
 
 export const OFFICIAL_VTU_URL = "https://vtu.ac.in";
 

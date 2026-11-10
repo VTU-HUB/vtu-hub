@@ -41,6 +41,7 @@ export function hasTranslation(path: string) {
 const en = {
   nav: {
     notes: ["Notes", "Pick your branch"],
+    branches: ["Branches", "Notes by branch"],
     semesters: ["Semesters", "1st to 8th sem"],
     calculators: ["Tools", "SGPA, CGPA, attendance calculators"],
     updates: ["Exam updates", "Timetable, results"],
@@ -81,8 +82,8 @@ const en = {
   },
   landing: {
     eyebrow: "For VTU students in Karnataka",
-    h1: "VTU notes, study guides and SGPA calculators, organised by branch and semester",
-    intro: "Find notes for your subject in three clicks. Pick your branch, pick your semester, open the subject. Everything is written for the 2022 scheme.",
+    h1: "Every VTU programme, semester and subject, in one place",
+    intro: "Course codes, credits and electives for every 2022-scheme B.E./B.Tech programme, read from VTU's official scheme PDFs. Plus live exam updates and SGPA/CGPA calculators.",
     popular: "Popular:",
     quick: {
       sgpa: "SGPA calculator",
@@ -101,7 +102,7 @@ const en = {
     finderFoot: "Free · No sign-up · 2022 scheme",
     howTitle: "Find your notes in 3 steps",
     how: [
-      ["Pick your branch", "CSE, ISE, ECE, EEE, Mechanical or Civil."],
+      ["Pick your branch", "Any VTU B.E./B.Tech programme, grouped by stream."],
       ["Pick your semester", "1st to 8th semester, 2022 scheme."],
       ["Open a subject", "Unit notes, important questions and the syllabus map."],
     ],
@@ -118,6 +119,19 @@ const en = {
     semesterShort: (n: number) => `Semester ${n}`,
     faqTitle: "Common questions",
     moreFaq: "More questions",
+    stats: {
+      programmes: "VTU programmes",
+      courses: "courses & electives",
+      notices: "official VTU notices",
+      daily: "Checked against vtu.ac.in every day",
+    },
+    latestTitle: "Latest from VTU",
+    latestText: "Official exam timetables, results, calendars and circulars, straight from vtu.ac.in.",
+    allUpdates: "All VTU updates",
+    officialPdf: "PDF",
+    officialTitle: "Official VTU services",
+    officialText: "Go straight to the university's own portals.",
+    otherProgrammes: "More programmes",
   },
   browse: {
     vtuTitle: "Choose your branch",
@@ -157,6 +171,7 @@ export type Dict = typeof en;
 const kn: Dict = {
   nav: {
     notes: ["ನೋಟ್ಸ್", "ನಿಮ್ಮ ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ"],
+    branches: ["ಬ್ರಾಂಚ್‌ಗಳು", "ಬ್ರಾಂಚ್ ಪ್ರಕಾರ ನೋಟ್ಸ್"],
     semesters: ["ಸೆಮಿಸ್ಟರ್‌ಗಳು", "1ರಿಂದ 8ನೇ ಸೆಮ್"],
     calculators: ["ಟೂಲ್ಸ್", "SGPA, CGPA, ಹಾಜರಾತಿ ಕ್ಯಾಲ್ಕುಲೇಟರ್"],
     updates: ["ಪರೀಕ್ಷಾ ಅಪ್‌ಡೇಟ್‌ಗಳು", "ವೇಳಾಪಟ್ಟಿ, ಫಲಿತಾಂಶ"],
@@ -217,7 +232,7 @@ const kn: Dict = {
     finderFoot: "ಉಚಿತ · ನೋಂದಣಿ ಬೇಡ · 2022 ಸ್ಕೀಮ್",
     howTitle: "3 ಹಂತಗಳಲ್ಲಿ ನಿಮ್ಮ ನೋಟ್ಸ್ ಪಡೆಯಿರಿ",
     how: [
-      ["ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ", "CSE, ISE, ECE, EEE, ಮೆಕ್ಯಾನಿಕಲ್ ಅಥವಾ ಸಿವಿಲ್."],
+      ["ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ", "ಯಾವುದೇ VTU B.E./B.Tech ಪ್ರೋಗ್ರಾಂ, ಸ್ಟ್ರೀಮ್ ಪ್ರಕಾರ."],
       ["ಸೆಮಿಸ್ಟರ್ ಆಯ್ಕೆಮಾಡಿ", "1ರಿಂದ 8ನೇ ಸೆಮಿಸ್ಟರ್, 2022 ಸ್ಕೀಮ್."],
       ["ವಿಷಯವನ್ನು ತೆರೆಯಿರಿ", "ಘಟಕವಾರು ನೋಟ್ಸ್, ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು ಪಠ್ಯಕ್ರಮ ನಕ್ಷೆ."],
     ],
@@ -234,6 +249,19 @@ const kn: Dict = {
     semesterShort: (n: number) => `ಸೆಮಿಸ್ಟರ್ ${n}`,
     faqTitle: "ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು",
     moreFaq: "ಇನ್ನಷ್ಟು ಪ್ರಶ್ನೆಗಳು",
+    stats: {
+      programmes: "VTU ಪ್ರೋಗ್ರಾಂಗಳು",
+      courses: "ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ಐಚ್ಛಿಕ ವಿಷಯಗಳು",
+      notices: "ಅಧಿಕೃತ VTU ಪ್ರಕಟಣೆಗಳು",
+      daily: "ಪ್ರತಿದಿನ vtu.ac.in ಜೊತೆ ಪರಿಶೀಲನೆ",
+    },
+    latestTitle: "VTU ಇತ್ತೀಚಿನ ಪ್ರಕಟಣೆಗಳು",
+    latestText: "ಅಧಿಕೃತ ಪರೀಕ್ಷಾ ವೇಳಾಪಟ್ಟಿ, ಫಲಿತಾಂಶ, ಕ್ಯಾಲೆಂಡರ್ ಮತ್ತು ಸುತ್ತೋಲೆಗಳು — ನೇರವಾಗಿ vtu.ac.in ನಿಂದ (ಇಂಗ್ಲಿಷ್).",
+    allUpdates: "ಎಲ್ಲಾ VTU ಅಪ್‌ಡೇಟ್‌ಗಳು",
+    officialPdf: "PDF",
+    officialTitle: "ಅಧಿಕೃತ VTU ಸೇವೆಗಳು",
+    officialText: "ವಿಶ್ವವಿದ್ಯಾಲಯದ ಸ್ವಂತ ಪೋರ್ಟಲ್‌ಗಳಿಗೆ ನೇರವಾಗಿ ಹೋಗಿ.",
+    otherProgrammes: "ಇನ್ನಷ್ಟು ಪ್ರೋಗ್ರಾಂಗಳು",
   },
   browse: {
     vtuTitle: "ನಿಮ್ಮ ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ",
@@ -271,6 +299,7 @@ const kn: Dict = {
 const hi: Dict = {
   nav: {
     notes: ["नोट्स", "अपनी ब्रांच चुनें"],
+    branches: ["ब्रांच", "ब्रांच के अनुसार नोट्स"],
     semesters: ["सेमेस्टर", "पहले से 8वें सेम तक"],
     calculators: ["टूल्स", "SGPA, CGPA, उपस्थिति कैलकुलेटर"],
     updates: ["परीक्षा अपडेट", "टाइमटेबल, रिज़ल्ट"],
@@ -331,7 +360,7 @@ const hi: Dict = {
     finderFoot: "मुफ़्त · कोई साइन-अप नहीं · 2022 स्कीम",
     howTitle: "3 आसान चरणों में नोट्स पाएँ",
     how: [
-      ["ब्रांच चुनें", "CSE, ISE, ECE, EEE, मैकेनिकल या सिविल।"],
+      ["ब्रांच चुनें", "कोई भी VTU B.E./B.Tech प्रोग्राम, स्ट्रीम के अनुसार।"],
       ["सेमेस्टर चुनें", "पहले से 8वें सेमेस्टर तक, 2022 स्कीम।"],
       ["विषय खोलें", "यूनिट-वार नोट्स, महत्वपूर्ण प्रश्न और सिलेबस मैप।"],
     ],
@@ -348,6 +377,19 @@ const hi: Dict = {
     semesterShort: (n: number) => `सेमेस्टर ${n}`,
     faqTitle: "आम सवाल",
     moreFaq: "और सवाल",
+    stats: {
+      programmes: "VTU प्रोग्राम",
+      courses: "कोर्स और इलेक्टिव",
+      notices: "आधिकारिक VTU सूचनाएँ",
+      daily: "हर दिन vtu.ac.in से मिलान",
+    },
+    latestTitle: "VTU की ताज़ा सूचनाएँ",
+    latestText: "आधिकारिक परीक्षा टाइमटेबल, रिज़ल्ट, कैलेंडर और सर्कुलर — सीधे vtu.ac.in से (अंग्रेज़ी में)।",
+    allUpdates: "सभी VTU अपडेट",
+    officialPdf: "PDF",
+    officialTitle: "आधिकारिक VTU सेवाएँ",
+    officialText: "विश्वविद्यालय के अपने पोर्टल पर सीधे जाएँ।",
+    otherProgrammes: "और प्रोग्राम",
   },
   browse: {
     vtuTitle: "अपनी ब्रांच चुनें",

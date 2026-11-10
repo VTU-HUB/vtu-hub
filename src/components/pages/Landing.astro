@@ -2,8 +2,9 @@
 /** Landing page, shared by / (en), /kn and /hi. */
 import Base from "@/layouts/Base.astro";
 import { faqs } from "@/data/faq";
-import { branches, SEMESTER_ORD } from "@/data/branches";
-import { countSubjects, popularSubjectsMixed, subjectPath } from "@/data/subjects";
+import { branches, branchesByStream, SEMESTER_ORD } from "@/data/branches";
+import { latestNotices, NOTICE_LABEL, notices, OFFICIAL_LINKS } from "@/data/notices";
+import { countSubjects, popularSubjectsMixed, subjectPath, subjects } from "@/data/subjects";
 import { tools } from "@/data/tools";
 import { SITE_NAME } from "@/lib/site";
 import { branchText, FAQ_TEXT, SEM_ORD, toolText } from "@/i18n/content";
@@ -17,23 +18,28 @@ const d = t(lang);
 const L = d.landing;
 const loc = (path: string) => (hasTranslation(path) ? localePath(lang, path) : path);
 
+const programmeCount = branches.length;
+const courseCount = new Set(subjects.map((s) => s.code)).size;
 const seo = {
   en: {
-    title: `VTU Notes, Syllabus & SGPA Calculator · ${SITE_NAME}`,
-    description: "Free VTU notes, unit-wise study guides, important questions, syllabus maps and SGPA/CGPA calculators for CSE, ISE, ECE, EEE, ME and Civil (2022 scheme).",
-    keywords: "VTU notes, VTU CSE notes, VTU syllabus, VTU important questions, VTU SGPA calculator, VTU CGPA calculator, VTU 2022 scheme, VTU study material",
+    title: `VTU Syllabus, Subjects, Exam Updates & SGPA Calculator · ${SITE_NAME}`,
+    description: `All ${programmeCount} VTU 2022-scheme B.E./B.Tech programmes: subject codes, credits and electives from the official scheme, live exam timetables and results notices, and SGPA/CGPA calculators.`,
   },
   kn: {
-    title: `VTU ನೋಟ್ಸ್, ಪಠ್ಯಕ್ರಮ ಮತ್ತು SGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್ · ${SITE_NAME}`,
-    description: "CSE, ISE, ECE, EEE, ಮೆಕ್ಯಾನಿಕಲ್ ಮತ್ತು ಸಿವಿಲ್‌ಗೆ ಉಚಿತ VTU ನೋಟ್ಸ್, ಘಟಕವಾರು ಅಧ್ಯಯನ ಮಾರ್ಗದರ್ಶಿ, ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು SGPA/CGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್ (2022 ಸ್ಕೀಮ್).",
-    keywords: "VTU ನೋಟ್ಸ್, VTU ಕನ್ನಡ, VTU ಪಠ್ಯಕ್ರಮ, VTU SGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್, VTU CSE ನೋಟ್ಸ್, ವಿಶ್ವೇಶ್ವರಯ್ಯ ತಾಂತ್ರಿಕ ವಿಶ್ವವಿದ್ಯಾಲಯ",
+    title: `VTU ಪಠ್ಯಕ್ರಮ, ವಿಷಯಗಳು, ಪರೀಕ್ಷಾ ಅಪ್‌ಡೇಟ್ ಮತ್ತು SGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್ · ${SITE_NAME}`,
+    description: `ಎಲ್ಲಾ ${programmeCount} VTU 2022 ಸ್ಕೀಮ್ B.E./B.Tech ಪ್ರೋಗ್ರಾಂಗಳು: ಅಧಿಕೃತ ಸ್ಕೀಮ್‌ನ ವಿಷಯ ಕೋಡ್, ಕ್ರೆಡಿಟ್, ಐಚ್ಛಿಕ ವಿಷಯಗಳು, ಪರೀಕ್ಷಾ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು SGPA/CGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್.`,
   },
   hi: {
-    title: `VTU नोट्स, सिलेबस और SGPA कैलकुलेटर · ${SITE_NAME}`,
-    description: "CSE, ISE, ECE, EEE, मैकेनिकल और सिविल के लिए मुफ़्त VTU नोट्स, यूनिट-वार स्टडी गाइड, महत्वपूर्ण प्रश्न और SGPA/CGPA कैलकुलेटर (2022 स्कीम)।",
-    keywords: "VTU नोट्स, VTU हिंदी, VTU सिलेबस, VTU SGPA कैलकुलेटर, VTU CSE नोट्स, विश्वेश्वरय्या टेक्नोलॉजिकल यूनिवर्सिटी",
+    title: `VTU सिलेबस, विषय, परीक्षा अपडेट और SGPA कैलकुलेटर · ${SITE_NAME}`,
+    description: `सभी ${programmeCount} VTU 2022 स्कीम B.E./B.Tech प्रोग्राम: आधिकारिक स्कीम से विषय कोड, क्रेडिट और इलेक्टिव, परीक्षा टाइमटेबल और SGPA/CGPA कैलकुलेटर।`,
   },
 }[lang];
+const latest = latestNotices(6);
+const streams = branchesByStream();
+const featuredBranches = branches.filter((b) => b.featured);
+const branchLabel = (slug: string) => branches.find((b) => b.slug === slug)?.shortName ?? slug.toUpperCase();
+const fmtDate = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(lang === "en" ? "en-IN" : `${lang}-IN`, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 
 const popular = popularSubjectsMixed(24)
   .filter((s, i, all) => all.findIndex((x) => x.name === s.name) === i)
@@ -50,7 +56,7 @@ const featuredTools = tools
   .map((tool) => ({ ...toolText(lang, tool.slug, { name: tool.name, description: tool.description, answer: "" }), href: loc(tool.href) }));
 ---
 
-<Base title={seo.title} description={seo.description} path={localePath(lang, "/")} keywords={seo.keywords} faqs={homeFaqs} lang={lang}>
+<Base title={seo.title} description={seo.description} path={localePath(lang, "/")} faqs={homeFaqs} lang={lang}>
   <section class="grid items-center gap-10 py-4 md:py-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-14">
     <div>
       <p class="text-sm font-semibold text-primary">{L.eyebrow}</p>
@@ -80,7 +86,11 @@ const featuredTools = tools
           </label>
           <select id="qf-branch" name="branch" required class="h-12 w-full rounded-lg border bg-surface px-3 text-base">
             <option value="" disabled selected>{L.selectBranch}</option>
-            {branches.map((b) => <option value={b.slug}>{b.shortName} · {branchText(lang, b.slug, b).name}</option>)}
+            {streams.map((s) => (
+              <optgroup label={s.short}>
+                {s.branches.map((b) => <option value={b.slug}>{b.shortName} · {branchText(lang, b.slug, b).name}</option>)}
+              </optgroup>
+            ))}
           </select>
         </div>
         <div>
@@ -113,6 +123,59 @@ const featuredTools = tools
     })();
   </script>
 
+  <section class="mt-10 grid grid-cols-2 gap-3 rounded-2xl border bg-surface p-4 sm:grid-cols-4 md:p-5" aria-label={L.stats.daily}>
+    <div><p class="text-2xl font-bold tabular-nums md:text-3xl">{programmeCount}</p><p class="text-sm text-muted">{L.stats.programmes}</p></div>
+    <div><p class="text-2xl font-bold tabular-nums md:text-3xl">{courseCount.toLocaleString("en-IN")}</p><p class="text-sm text-muted">{L.stats.courses}</p></div>
+    <div><p class="text-2xl font-bold tabular-nums md:text-3xl">{notices.length}</p><p class="text-sm text-muted">{L.stats.notices}</p></div>
+    <div class="flex items-center gap-2 text-sm text-muted">
+      <span class="relative flex size-2.5 shrink-0" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-60"></span><span class="relative inline-flex size-2.5 rounded-full bg-success"></span></span>
+      {L.stats.daily}
+    </div>
+  </section>
+
+  <section class="mt-12 grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]" aria-labelledby="latest">
+    <div>
+      <div class="flex flex-wrap items-end justify-between gap-2">
+        <div>
+          <h2 id="latest" class="text-xl font-semibold md:text-2xl">{L.latestTitle}</h2>
+          <p class="mt-1 text-sm text-muted">{L.latestText}</p>
+        </div>
+        <a class="text-sm font-medium text-primary hover:underline" href="/updates">{L.allUpdates} →</a>
+      </div>
+      <ul class="mt-4 divide-y rounded-xl border bg-surface">
+        {latest.map((n) => (
+          <li class="flex gap-3 p-4">
+            <span class="mt-0.5 h-fit shrink-0 rounded-md bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">{NOTICE_LABEL[n.type]}</span>
+            <div class="min-w-0 flex-1">
+              <a class="font-medium leading-snug hover:text-primary" href={n.url} rel="noopener" target="_blank" lang="en">{n.title}</a>
+              <p class="mt-1 flex flex-wrap gap-x-3 text-xs text-faint">
+                <time datetime={n.date}>{fmtDate(n.date)}</time>
+                {n.attachments[0] ? <a class="font-medium text-primary hover:underline" href={n.attachments[0].url} rel="noopener" target="_blank">{L.officialPdf} ↗</a> : null}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <aside aria-labelledby="official">
+      <h2 id="official" class="text-xl font-semibold md:text-2xl">{L.officialTitle}</h2>
+      <p class="mt-1 text-sm text-muted">{L.officialText}</p>
+      <ul class="mt-4 grid gap-2">
+        {OFFICIAL_LINKS.map((l) => (
+          <li>
+            <a class="group flex min-h-14 items-center justify-between gap-3 rounded-xl border bg-surface px-4 py-2.5 hover:border-primary" href={l.href} rel="noopener" target="_blank">
+              <span>
+                <span class="block font-medium group-hover:text-primary">{l.label}</span>
+                <span class="block text-xs text-faint">{l.hint}</span>
+              </span>
+              <span class="text-faint group-hover:text-primary" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  </section>
+
   <section class="mt-12" aria-labelledby="how">
     <h2 id="how" class="text-center text-xl font-semibold md:text-2xl">{L.howTitle}</h2>
     <ol class="mt-6 grid gap-4 md:grid-cols-3">
@@ -137,7 +200,7 @@ const featuredTools = tools
       <a class="text-sm font-medium text-primary hover:underline" href={loc("/vtu")}>{L.allBranches} →</a>
     </div>
     <ul class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {branches.map((b) => (
+      {featuredBranches.map((b) => (
         <li>
           <a href={loc(`/vtu/${b.slug}`)} class="group flex h-full items-center gap-4 rounded-xl border bg-surface p-4 transition hover:border-primary hover:shadow-sm">
             <span class="grid size-12 shrink-0 place-items-center rounded-lg bg-primary/10 text-sm font-bold text-primary" aria-hidden="true">{b.shortName}</span>
@@ -151,6 +214,24 @@ const featuredTools = tools
         </li>
       ))}
     </ul>
+    <h3 class="mt-8 text-sm font-semibold uppercase tracking-wider text-muted">{L.otherProgrammes}</h3>
+    <div class="mt-3 grid gap-5 md:grid-cols-2">
+      {streams.map((s) => {
+        const others = s.branches.filter((b) => !b.featured);
+        return others.length ? (
+          <div class="rounded-xl border bg-surface p-4">
+            <p class="text-sm font-semibold">{s.name}</p>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              {others.map((b) => (
+                <li>
+                  <a class="inline-flex min-h-10 items-center rounded-lg border bg-secondary/50 px-3 text-sm hover:border-primary hover:text-primary" href={loc(`/vtu/${b.slug}`)} title={b.name}>{b.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null;
+      })}
+    </div>
   </section>
 
   <section class="mt-10 rounded-xl border bg-surface p-5" aria-labelledby="sems">
@@ -192,7 +273,7 @@ const featuredTools = tools
             <span class="shrink-0 rounded-md bg-secondary px-2 py-1 font-mono text-xs text-muted">{s.code}</span>
             <span class="min-w-0 flex-1">
               <span class="block font-medium group-hover:text-primary">{s.name}</span>
-              <span class="block text-xs text-faint">{s.branch.toUpperCase()} · {L.semesterShort(s.semester)}</span>
+              <span class="block text-xs text-faint">{branchLabel(s.branch)} · {L.semesterShort(s.semester)}</span>
             </span>
           </a>
         </li>

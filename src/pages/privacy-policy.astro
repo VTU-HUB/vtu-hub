@@ -2,6 +2,7 @@
 import Base from "@/layouts/Base.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
+import { analyticsConfig } from "@/data/analytics";
 import { CONTACT_EMAIL } from "@/lib/site";
 ---
 <Base title="Privacy Policy" description="How VTUHub handles logs, cookies, analytics and advertising, including Google advertising cookies if ads are enabled." path="/privacy-policy" crumbs={[{ label: "Privacy Policy", href: "/privacy-policy" }]}>
@@ -28,7 +29,14 @@ import { CONTACT_EMAIL } from "@/lib/site";
       <li>Some third-party cookies can be limited at <a class="text-primary hover:underline" href="https://www.aboutads.info/choices/">aboutads.info</a>.</li>
     </ul>
     <h2 class="mt-10 text-xl font-semibold text-foreground">Analytics</h2>
-    <p>If traffic analytics are added later, they will be configured to avoid collecting USNs or calculator contents. This policy will name the product if that happens.</p>
+    {analyticsConfig.ga4MeasurementId ? (
+      <p>VTUHub uses Google Analytics 4 to understand which pages are useful. It sets first-party cookies (such as <code>_ga</code>) and receives your IP address, which is anonymised. It never receives USNs or calculator contents, which stay in your browser. You can opt out with the <a class="text-primary hover:underline" href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out add-on</a> or by blocking cookies. See <a class="text-primary hover:underline" href="https://policies.google.com/technologies/partner-sites">how Google uses data from sites that use its services</a>.</p>
+    ) : null}
+    {analyticsConfig.cloudflareToken ? (
+      <p>VTUHub uses Cloudflare Web Analytics to count page views. It sets no cookies, does not fingerprint visitors and does not see USNs or calculator contents, which never leave your browser. See <a class="text-primary hover:underline" href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a>.</p>
+    ) : analyticsConfig.ga4MeasurementId ? null : (
+      <p>If traffic analytics are added later, they will be configured to avoid collecting USNs or calculator contents. This policy will name the product if that happens.</p>
+    )}
     <h2 class="mt-10 text-xl font-semibold text-foreground">Retention and children</h2>
     <p>Server logs follow the host’s default unless a security incident needs a longer copy. The site is aimed at university students. We do not knowingly collect personal information from children.</p>
     <h2 class="mt-10 text-xl font-semibold text-foreground">Your choices</h2>

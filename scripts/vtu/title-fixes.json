@@ -1,0 +1,19 @@
+{
+  "$comment": "Manual corrections for cells the PDF parser cannot read cleanly. 'titles' maps a course code to its title as printed in the official scheme PDF. 'codes' fixes typos in VTU's PDFs where the same course is printed correctly in the other streams' schemes.",
+  "titles": {
+    "BEC401": "Electromagnetics Theory",
+    "BMATEC301": "Mathematics-III for EC Engineering",
+    "BEE501": "Engineering Management and Entrepreneurship",
+    "BESK508": "Environmental Studies",
+    "BENGK106": "Communicative English",
+    "BCV702": "Estimation and Contract Management",
+    "BDSL456C": "MERN",
+    "BCEDK103": "Computer-Aided Engineering Drawing",
+    "BCEDK203": "Computer-Aided Engineering Drawing"
+  },
+  "codes": {
+    "BPWKS206": "BPWSK206",
+    "BKBK107": "BKBKK107",
+    "BITDK158": "BIDTK158"
+  }
+}

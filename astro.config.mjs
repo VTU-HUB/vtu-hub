@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sitemap from "@astrojs/sitemap";
@@ -5,12 +6,35 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
+const distDir = path.join(root, "dist");
+
+/**
+ * The sitemap is generated after pages are written, so read each built page and
+ * leave out anything marked noindex (unreviewed template guides, search). One
+ * rule in the page decides both — the sitemap can never disagree with the robots meta.
+ */
+function isIndexedPage(page) {
+  const { pathname } = new URL(page);
+  const file = pathname === "/" ? "index.html" : `${pathname.replace(/^\/|\/$/g, "")}.html`;
+  try {
+    const html = fs.readFileSync(path.join(distDir, file), "utf8");
+    if (/<meta name="robots" content="noindex/.test(html)) return false;
+    // A page whose canonical points elsewhere (a course shared by several programmes)
+    // is a duplicate — list only the canonical copy.
+    const canon = /<link rel="canonical" href="([^"]+)"/.exec(html)?.[1];
+    return !canon || canon === page.replace(/\/$/, "") || canon === page;
+  } catch {
+    return true;
+  }
+}
 
 export default defineConfig({
   site: "https://vtuhub.site",
   output: "static",
   trailingSlash: "never",
   compressHTML: true,
+  // The floating dev toolbar covers mobile footers in local preview; it never ships to production.
+  devToolbar: { enabled: false },
   // "file" emits /vtu/cse.html (not /vtu/cse/index.html) so Cloudflare serves
   // /vtu/cse with a 200 instead of a 307 redirect to /vtu/cse/. That keeps the
   // served URL identical to the canonical and sitemap URLs (trailingSlash: "never").
@@ -18,7 +42,7 @@ export default defineConfig({
   prefetch: { prefetchAll: false, defaultStrategy: "hover" },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes("/search"),
+      filter: (page) => !page.includes("/search") && isIndexedPage(page),
       changefreq: "weekly",
       priority: 0.7,
       // Adds xhtml:link alternates between /, /kn and /hi versions of translated pages.
@@ -27,6 +51,62 @@ export default defineConfig({
         locales: { en: "en-IN", kn: "kn-IN", hi: "hi-IN" },
       },
     }),
+    {
+      // Google, Bing and most tools look for /sitemap.xml first. @astrojs/sitemap writes
+      // sitemap-index.xml; publish an identical copy at the conventional path. Must stay
+      // after sitemap() — Astro runs build:done hooks in array order.
+      name: "sitemap-xml-alias",
+      hooks: {
+        "astro:build:done": ({ dir }) => {
+          const out = fileURLToPath(dir);
+          fs.copyFileSync(path.join(out, "sitemap-index.xml"), path.join(out, "sitemap.xml"));
+        },
+      },
+    },
+    {
+      // Subject and guide URLs that existed before the switch to official VTU data must
+      // keep working. For each old URL with no page any more, 301 to the same course code
+      // in the same programme, else its semester page, else the programme page.
+      name: "legacy-redirects",
+      hooks: {
+        "astro:build:done": ({ dir }) => {
+          const out = fileURLToPath(dir);
+          const legacy = JSON.parse(fs.readFileSync(path.join(root, "src/data/vtu/legacy-urls.json"), "utf8"));
+          const exists = (p) => fs.existsSync(path.join(out, `${p.replace(/^\//, "")}.html`));
+          const byCode = new Map(); // "cse:BCS301" -> "/vtu/cse/3rd-semester/…"
+          const vtuDir = path.join(out, "vtu");
+          for (const b of fs.readdirSync(vtuDir)) {
+            const bd = path.join(vtuDir, b);
+            if (!fs.statSync(bd).isDirectory()) continue;
+            for (const s of fs.readdirSync(bd)) {
+              const sd = path.join(bd, s);
+              if (!fs.statSync(sd).isDirectory()) continue;
+              for (const f of fs.readdirSync(sd)) {
+                if (!f.endsWith(".html")) continue;
+                const code = /"courseCode":"([^"]+)"/.exec(fs.readFileSync(path.join(sd, f), "utf8"))?.[1];
+                const key = `${b}:${code}`;
+                if (code && !byCode.has(key)) byCode.set(key, `/vtu/${b}/${s}/${f.slice(0, -5)}`);
+              }
+            }
+          }
+          const lines = [];
+          for (const s of legacy.subjects) {
+            if (exists(s.path)) continue;
+            const sem = s.path.split("/").slice(0, 4).join("/");
+            const to = byCode.get(`${s.branch}:${s.code}`) ?? (exists(sem) ? sem : `/vtu/${s.branch}`);
+            lines.push(`${s.path} ${to} 301`);
+          }
+          for (const f of legacy.files) {
+            if (exists(f.path)) continue;
+            const branch = f.path.replace("/files/", "").split("-")[0];
+            const to = byCode.get(`${branch}:${f.code}`) ?? (exists(`/vtu/${branch}`) ? `/vtu/${branch}` : "/vtu");
+            lines.push(`${f.path} ${to} 301`);
+          }
+          if (lines.length > 2000) throw new Error(`${lines.length} redirects exceeds Cloudflare's 2,000 static redirect limit`);
+          fs.writeFileSync(path.join(out, "_redirects"), lines.join("\n") + "\n");
+        },
+      },
+    },
   ],
   vite: {
     plugins: [tailwindcss()],

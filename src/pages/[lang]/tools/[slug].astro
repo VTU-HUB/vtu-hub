@@ -23,7 +23,6 @@ const howQ = lang === "kn" ? `VTU ${tt.name} ಹೇಗೆ ಕೆಲಸ ಮಾಡ
 <Base
   title={`VTU ${tt.name} (2022)`}
   description={clampDesc(`${tt.description} ${tt.answer}`)}
-  keywords={`VTU ${tool.name}, VTU ${tt.name}, ${tool.slug.toUpperCase()} VTU 2022`}
   path={path}
   crumbs={[{ label: d.nav.calculators[0], href: toolsHref }, { label: tt.name, href: path }]}
   faqs={[{ q: howQ, a: tt.answer }]}

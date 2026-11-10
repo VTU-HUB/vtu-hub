@@ -1,0 +1,23 @@
+name: IndexNow
+
+# After each deploy of main, tell Bing / Yandex / other IndexNow engines about every
+# URL in the live sitemap. Also runnable by hand from the Actions tab.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Give Cloudflare Workers Builds time to finish deploying the new version.
+      - run: sleep 240
+      - run: node scripts/indexnow.mjs

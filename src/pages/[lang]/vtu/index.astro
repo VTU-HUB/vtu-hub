@@ -17,18 +17,16 @@ const seo = {
   kn: {
     title: "VTU ನೋಟ್ಸ್ — ಬ್ರಾಂಚ್ ಮತ್ತು ಸೆಮಿಸ್ಟರ್ ಪ್ರಕಾರ",
     description: "CSE, ISE, ECE, EEE, ಮೆಕ್ಯಾನಿಕಲ್ ಮತ್ತು ಸಿವಿಲ್ ಬ್ರಾಂಚ್‌ಗಳ ಉಚಿತ VTU ನೋಟ್ಸ್, ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು ಪಠ್ಯಕ್ರಮ ನಕ್ಷೆಗಳು, 1ರಿಂದ 8ನೇ ಸೆಮಿಸ್ಟರ್ (2022 ಸ್ಕೀಮ್).",
-    keywords: "VTU ನೋಟ್ಸ್, VTU ಬ್ರಾಂಚ್, VTU ಸೆಮಿಸ್ಟರ್, VTU ಪಠ್ಯಕ್ರಮ, VTU 2022 ಸ್ಕೀಮ್",
   },
   hi: {
     title: "VTU नोट्स और सिलेबस — ब्रांच और सेमेस्टर के अनुसार",
     description: "CSE, ISE, ECE, EEE, मैकेनिकल और सिविल ब्रांच के लिए मुफ़्त VTU नोट्स, महत्वपूर्ण प्रश्न और सिलेबस मैप, पहले से 8वें सेमेस्टर तक (2022 स्कीम)।",
-    keywords: "VTU नोट्स, VTU ब्रांच, VTU सेमेस्टर, VTU सिलेबस, VTU 2022 स्कीम",
   },
 }[lang];
 const crumbs = [{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }];
 ---
 
-<Base title={seo.title} description={seo.description} keywords={seo.keywords} path={localePath(lang, "/vtu")} crumbs={crumbs} lang={lang}>
+<Base title={seo.title} description={seo.description} path={localePath(lang, "/vtu")} crumbs={crumbs} lang={lang}>
   <Crumbs items={[{ label: d.nav.notes[0] }]} lang={lang} />
   <Steps current={1} lang={lang} />
   <PageHeader title={d.browse.vtuTitle} answer={d.browse.vtuIntro} lang={lang} />

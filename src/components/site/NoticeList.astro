@@ -1,0 +1,39 @@
+---
+/** Live list of official VTU notices (synced from vtu.ac.in). Links go to the official post/PDF. */
+import { latestNotices, NOTICE_LABEL, noticesUpdated, type NoticeType } from "@/data/notices";
+import { formatFullDate } from "@/lib/utils";
+
+interface Props {
+  type?: NoticeType;
+  limit?: number;
+  title?: string;
+}
+const { type, limit = 40, title = "Latest official notices from VTU" } = Astro.props;
+const list = latestNotices(limit, type);
+---
+
+{list.length > 0 ? (
+  <section class="mb-10" aria-labelledby="vtu-notices">
+    <div class="flex flex-wrap items-end justify-between gap-2">
+      <h2 id="vtu-notices" class="text-lg font-semibold">{title}</h2>
+      {noticesUpdated ? <p class="text-xs text-faint">Newest: {formatFullDate(noticesUpdated)} · checked every 6 hours</p> : null}
+    </div>
+    <ul class="mt-3 divide-y rounded-xl border bg-surface">
+      {list.map((n) => (
+        <li class="flex gap-3 p-4">
+          {type ? null : <span class="mt-0.5 h-fit shrink-0 rounded-md bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">{NOTICE_LABEL[n.type]}</span>}
+          <div class="min-w-0 flex-1">
+            <a class="font-medium leading-snug hover:text-primary" href={n.url} rel="noopener" target="_blank">{n.title}</a>
+            <p class="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-faint">
+              <time datetime={n.date}>{formatFullDate(n.date)}</time>
+              {n.attachments.map((a) => (
+                <a class="font-medium text-primary hover:underline" href={a.url} rel="noopener" target="_blank" title={a.label}>PDF ↗</a>
+              ))}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-2 text-xs text-faint">Titles, dates and PDFs belong to Visvesvaraya Technological University. Always act on the official PDF.</p>
+  </section>
+) : null}

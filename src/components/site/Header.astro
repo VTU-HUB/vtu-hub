@@ -1,4 +1,6 @@
 ---
+import { branches } from "@/data/branches";
+import { branchText } from "@/i18n/content";
 import { hasTranslation, LANG_META, localePath, t, type Lang } from "@/i18n/ui";
 
 export type LangLink = { lang: Lang; href: string; external: boolean };
@@ -19,6 +21,13 @@ const nav = [
   { key: "guides", href: "/articles" },
 ] as const;
 const items = nav.map((n) => ({ href: loc(n.href), label: d.nav[n.key][0], hint: d.nav[n.key][1] }));
+const branchLinks = branches.filter((b) => b.featured).map((b) => ({
+  slug: b.slug,
+  short: b.shortName,
+  name: branchText(lang, b.slug, b).name,
+  href: loc(`/vtu/${b.slug}`),
+}));
+const allBranchesHref = loc("/vtu");
 
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 function active(href: string) {
@@ -36,7 +45,38 @@ function active(href: string) {
       <span class="font-semibold tracking-tight">VTU<span class="text-primary">Hub</span></span>
     </a>
     <nav aria-label="Primary" class="ml-4 hidden items-center gap-0.5 lg:flex">
-      {items.map((item) => (
+      <details class="nav-details branch-menu relative">
+        <summary
+          class:list={[
+            "inline-flex cursor-pointer items-center gap-1 rounded-sm px-3 py-2 text-sm font-medium",
+            path.startsWith("/vtu") || /^\/(kn|hi)\/vtu/.test(path) ? "text-foreground" : "text-muted hover:text-foreground",
+          ]}
+        >
+          {d.nav.branches[0]}
+          <svg class="branch-chevron size-3.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </summary>
+        <div class="absolute left-0 z-50 mt-2 w-[30rem] rounded-xl border bg-background p-2 shadow-lg">
+          <p class="px-3 pb-1 pt-1.5 text-xs font-semibold uppercase tracking-wider text-faint">{d.nav.branches[1]}</p>
+          <ul class="grid grid-cols-2 gap-1">
+            {branchLinks.map((b) => (
+              <li>
+                <a
+                  href={b.href}
+                  aria-current={active(b.href) ? "page" : undefined}
+                  class:list={["flex min-h-12 items-center gap-3 rounded-md px-3 py-2 hover:bg-secondary", active(b.href) && "bg-secondary"]}
+                >
+                  <span class="grid h-8 min-w-11 place-items-center rounded-md bg-primary/10 px-1.5 text-xs font-bold text-primary">{b.short}</span>
+                  <span class="text-sm leading-snug text-foreground">{b.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href={allBranchesHref} class="mt-1 flex min-h-11 items-center justify-between rounded-md border-t px-3 pt-1 text-sm font-medium text-primary hover:bg-secondary">
+            {d.landing.allBranches} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </details>
+      {items.filter((item) => item.href !== loc("/vtu")).map((item) => (
         <a
           href={item.href}
           class:list={[
@@ -96,9 +136,25 @@ function active(href: string) {
         </svg>
       </button>
       <details class="nav-details relative lg:hidden">
-        <summary class="inline-flex h-11 cursor-pointer items-center rounded-sm px-3 text-sm font-medium hover:bg-secondary">{d.menu}</summary>
+        <summary class="mobile-menu-btn inline-flex size-11 cursor-pointer items-center justify-center rounded-sm text-foreground hover:bg-secondary" aria-label={d.menu} title={d.menu}>
+          <svg class="icon-open size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+          <svg class="icon-close size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </summary>
         <nav class="absolute right-0 z-50 mt-2 w-72 rounded-xl border bg-background p-2 shadow-lg" aria-label="Mobile">
           <a class="flex min-h-11 items-center rounded-md px-3 font-medium hover:bg-secondary" href={localePath(lang, "/")}>{d.home}</a>
+          <p class="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wider text-faint">{d.nav.branches[0]}</p>
+          <ul class="grid grid-cols-3 gap-1 px-1 pb-2">
+            {branchLinks.map((b) => (
+              <li>
+                <a
+                  href={b.href}
+                  title={b.name}
+                  aria-current={active(b.href) ? "page" : undefined}
+                  class:list={["flex h-11 items-center justify-center rounded-md border text-sm font-semibold hover:border-primary hover:text-primary", active(b.href) && "border-primary text-primary"]}
+                >{b.short}</a>
+              </li>
+            ))}
+          </ul>
           {items.map((item) => (
             <a class="flex min-h-14 flex-col justify-center rounded-md px-3 hover:bg-secondary" href={item.href}>
               <span class="font-medium">{item.label}</span>
@@ -114,3 +170,24 @@ function active(href: string) {
     </div>
   </div>
 </header>
+
+<script is:inline>
+  // Header menus: only one open at a time; close on outside click and on Escape.
+  (function () {
+    var menus = function () { return document.querySelectorAll("header details.nav-details"); };
+    document.addEventListener("toggle", function (e) {
+      var t = e.target;
+      if (!(t instanceof HTMLDetailsElement) || !t.open || !t.classList.contains("nav-details")) return;
+      menus().forEach(function (d) { if (d !== t) d.open = false; });
+    }, true);
+    document.addEventListener("click", function (e) {
+      menus().forEach(function (d) { if (d.open && !d.contains(e.target)) d.open = false; });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      menus().forEach(function (d) {
+        if (d.open) { d.open = false; var s = d.querySelector("summary"); if (s) s.focus(); }
+      });
+    });
+  })();
+</script>

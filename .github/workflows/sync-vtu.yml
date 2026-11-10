@@ -1,0 +1,55 @@
+name: Sync VTU data
+
+# Pulls official data from vtu.ac.in and commits it when — and only when — it changed:
+#   - notices (exam timetables, results/revaluation, calendars, circulars): every 6 hours
+#   - 2022-scheme course lists parsed from the official scheme PDFs: daily
+# A commit to main triggers the normal Cloudflare deploy, so the site updates itself.
+on:
+  schedule:
+    - cron: "15 */6 * * *" # notices, every 6 hours (UTC)
+    - cron: "45 20 * * *" # schemes + notices, 02:15 IST daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-vtu
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Sync notices
+        run: node scripts/vtu/sync-notices.mjs
+
+      - name: Sync scheme courses
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '45 20 * * *'
+        run: node scripts/vtu/sync-schemes.mjs
+
+      - name: Check the site still builds with the new data
+        run: |
+          git diff --quiet -- src/data/vtu && { echo "No changes."; exit 0; }
+          npm test
+          npm run build
+          npm run check:seo
+
+      - name: Commit changes
+        run: |
+          git diff --quiet -- src/data/vtu && exit 0
+          git config user.name "vtuhub-bot"
+          git config user.email "vtuhub-bot@users.noreply.github.com"
+          git add src/data/vtu
+          git commit -m "data: sync official VTU notices and schemes"
+          git push

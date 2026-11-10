@@ -1,16 +1,14 @@
 import { getBranch, semesterName } from "@/data/branches";
 import { getSubject, subjectPath, subjects } from "@/data/subjects";
 import type { ResourceFile, ResourceType, Subject, Unit } from "@/data/types";
+import { lastCommitDate } from "@/lib/content-date";
+import reviewedGuides from "@/data/reviewed-guides.json";
 
-function dateFor(id: string, year = 2026) {
-  let h = 0;
-  for (const c of id) h = (h + c.charCodeAt(0)) % 28;
-  const month = 1 + (h % 8);
-  const day = 1 + (h % 27);
-  const mm = String(month).padStart(2, "0");
-  const dd = String(day).padStart(2, "0");
-  return `${year}-${mm}-${dd}`;
-}
+/**
+ * Guides are generated from the subject data and the templates in this file, so
+ * their honest "updated" date is the last commit that touched either source.
+ */
+const GUIDES_REVISED = lastCommitDate("src/data/resources.ts", "src/data/subjects.ts");
 
 function branchName(slug: string) {
   return getBranch(slug)?.shortName ?? slug.toUpperCase();
@@ -28,7 +26,7 @@ function guide(
     readMinutes:
       partial.readMinutes ??
       Math.max(4, Math.round(partial.body.join(" ").split(/\s+/).length / 180)),
-    updated: partial.updated ?? dateFor(partial.id),
+    updated: partial.updated ?? GUIDES_REVISED,
   };
 }
 
@@ -73,7 +71,7 @@ function practiceBody(sub: Subject): { body: string[]; bullets: string[] } {
   const qs: string[] = [];
   for (const u of sub.units) {
     qs.push(
-      `Explain ${u.title.toLowerCase()} as a ${sub.credits >= 3 ? "eight-to-ten" : "five"}-mark answer. Include one diagram or derivation a ${branchName(sub.branch)} student would actually draw in SEE.`,
+      `Explain ${u.title.toLowerCase()} as a ${(sub.credits ?? 0) >= 3 ? "eight-to-ten" : "five"}-mark answer. Include one diagram or derivation a ${branchName(sub.branch)} student would actually draw in SEE.`,
     );
     qs.push(
       `Work a short problem from “${u.topics.split(".")[0]}”. State the data you assume and the formula you start with.`,
@@ -125,6 +123,11 @@ function labBody(sub: Subject): { body: string[]; bullets: string[] } {
 }
 
 function buildForSubject(sub: Subject): ResourceFile[] {
+  // No generated guides for elective options, common/non-core courses, or any course
+  // without a unit outline written for it — that would be filler built on placeholder units.
+  if (sub.electiveGroup || !sub.hasUnitOutline) {
+    return sub.kind === "lab" && !sub.electiveGroup ? buildLab(sub) : [];
+  }
   const out: ResourceFile[] = [];
   const b = sub.branch;
   const sem = sub.semester;
@@ -242,6 +245,24 @@ function buildForSubject(sub: Subject): ResourceFile[] {
   return out;
 }
 
+function buildLab(sub: Subject): ResourceFile[] {
+  const lab = labBody(sub);
+  return [
+    guide({
+      id: `${sub.branch}-${sub.slug}-lab`,
+      subjectSlug: sub.slug,
+      branch: sub.branch,
+      semester: sub.semester,
+      type: "lab-manuals",
+      title: `${sub.shortName} lab-prep guide`,
+      description: `Original lab-prep checklist for ${sub.name}. Not a college manual.`,
+      body: lab.body,
+      bullets: lab.bullets,
+      readMinutes: 7,
+    }),
+  ];
+}
+
 export const resources: ResourceFile[] = subjects.flatMap(buildForSubject);
 
 export function resourcesFor(branch: string, semester: number, slug: string, type?: ResourceType) {
@@ -293,6 +314,17 @@ export function resourceCounts(branch: string, semester: number, slug: string) {
 
 export function subjectFor(file: ResourceFile) {
   return getSubject(file.branch, file.semester, file.subjectSlug);
+}
+
+const REVIEWED = new Set<string>(reviewedGuides.ids);
+
+/**
+ * Generated template guides are noindex until someone reviews them and adds the
+ * id to src/data/reviewed-guides.json — thin, near-duplicate pages at scale hurt
+ * the whole site in search and in AdSense review.
+ */
+export function isIndexable(file: ResourceFile) {
+  return REVIEWED.has(file.id);
 }
 
 export function getResource(id: string) {

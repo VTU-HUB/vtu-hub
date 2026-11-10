@@ -1,0 +1,5192 @@
+{
+ "subjects": [
+  {
+   "path": "/vtu/cse/1st-semester/applied-physics",
+   "branch": "cse",
+   "semester": 1,
+   "code": "BPHY102"
+  },
+  {
+   "path": "/vtu/cse/1st-semester/communicative-english",
+   "branch": "cse",
+   "semester": 1,
+   "code": "BENGK106"
+  },
+  {
+   "path": "/vtu/cse/1st-semester/mathematics-i",
+   "branch": "cse",
+   "semester": 1,
+   "code": "BMAT101"
+  },
+  {
+   "path": "/vtu/cse/1st-semester/programming-in-c",
+   "branch": "cse",
+   "semester": 1,
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/vtu/cse/2nd-semester/applied-chemistry",
+   "branch": "cse",
+   "semester": 2,
+   "code": "BCHE102"
+  },
+  {
+   "path": "/vtu/cse/2nd-semester/mathematics-ii",
+   "branch": "cse",
+   "semester": 2,
+   "code": "BMAT201"
+  },
+  {
+   "path": "/vtu/cse/2nd-semester/python-programming",
+   "branch": "cse",
+   "semester": 2,
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/vtu/cse/3rd-semester/data-structures-lab",
+   "branch": "cse",
+   "semester": 3,
+   "code": "BCSL305"
+  },
+  {
+   "path": "/vtu/cse/3rd-semester/data-structures",
+   "branch": "cse",
+   "semester": 3,
+   "code": "BCS304"
+  },
+  {
+   "path": "/vtu/cse/3rd-semester/digital-design",
+   "branch": "cse",
+   "semester": 3,
+   "code": "BCS302"
+  },
+  {
+   "path": "/vtu/cse/3rd-semester/mathematics-for-cse",
+   "branch": "cse",
+   "semester": 3,
+   "code": "BCS301"
+  },
+  {
+   "path": "/vtu/cse/3rd-semester/oop-java",
+   "branch": "cse",
+   "semester": 3,
+   "code": "BCS306A"
+  },
+  {
+   "path": "/vtu/cse/3rd-semester/operating-systems",
+   "branch": "cse",
+   "semester": 3,
+   "code": "BCS303"
+  },
+  {
+   "path": "/vtu/cse/4th-semester/ada-lab",
+   "branch": "cse",
+   "semester": 4,
+   "code": "BCSL404"
+  },
+  {
+   "path": "/vtu/cse/4th-semester/algorithms",
+   "branch": "cse",
+   "semester": 4,
+   "code": "BCS401"
+  },
+  {
+   "path": "/vtu/cse/4th-semester/data-communication",
+   "branch": "cse",
+   "semester": 4,
+   "code": "BCS405A"
+  },
+  {
+   "path": "/vtu/cse/4th-semester/dbms",
+   "branch": "cse",
+   "semester": 4,
+   "code": "BCS403"
+  },
+  {
+   "path": "/vtu/cse/4th-semester/discrete-mathematics",
+   "branch": "cse",
+   "semester": 4,
+   "code": "BCS402"
+  },
+  {
+   "path": "/vtu/cse/5th-semester/cn-lab",
+   "branch": "cse",
+   "semester": 5,
+   "code": "BCSL505"
+  },
+  {
+   "path": "/vtu/cse/5th-semester/computer-networks",
+   "branch": "cse",
+   "semester": 5,
+   "code": "BCS502"
+  },
+  {
+   "path": "/vtu/cse/5th-semester/software-engineering",
+   "branch": "cse",
+   "semester": 5,
+   "code": "BCS501"
+  },
+  {
+   "path": "/vtu/cse/5th-semester/theory-of-computation",
+   "branch": "cse",
+   "semester": 5,
+   "code": "BCS503"
+  },
+  {
+   "path": "/vtu/cse/5th-semester/web-technology",
+   "branch": "cse",
+   "semester": 5,
+   "code": "BCS504"
+  },
+  {
+   "path": "/vtu/cse/6th-semester/computer-graphics",
+   "branch": "cse",
+   "semester": 6,
+   "code": "BCS603"
+  },
+  {
+   "path": "/vtu/cse/6th-semester/full-stack",
+   "branch": "cse",
+   "semester": 6,
+   "code": "BCS602"
+  },
+  {
+   "path": "/vtu/cse/6th-semester/information-security",
+   "branch": "cse",
+   "semester": 6,
+   "code": "BCS604A"
+  },
+  {
+   "path": "/vtu/cse/6th-semester/machine-learning-lab",
+   "branch": "cse",
+   "semester": 6,
+   "code": "BCSL604"
+  },
+  {
+   "path": "/vtu/cse/6th-semester/machine-learning",
+   "branch": "cse",
+   "semester": 6,
+   "code": "BCS601"
+  },
+  {
+   "path": "/vtu/cse/7th-semester/big-data-analytics",
+   "branch": "cse",
+   "semester": 7,
+   "code": "BCS701"
+  },
+  {
+   "path": "/vtu/cse/7th-semester/internship",
+   "branch": "cse",
+   "semester": 7,
+   "code": "BCS784"
+  },
+  {
+   "path": "/vtu/cse/7th-semester/project-work-phase-1",
+   "branch": "cse",
+   "semester": 7,
+   "code": "BCS786"
+  },
+  {
+   "path": "/vtu/cse/8th-semester/project-work-phase-2",
+   "branch": "cse",
+   "semester": 8,
+   "code": "BCS888"
+  },
+  {
+   "path": "/vtu/cse/8th-semester/technical-seminar",
+   "branch": "cse",
+   "semester": 8,
+   "code": "BCS808"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/applied-chemistry",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BCHE102"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/communicative-english",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BENGK106"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/mathematics-i",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BMAT101"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/programming-in-c",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/vtu/cv/2nd-semester/applied-physics",
+   "branch": "cv",
+   "semester": 2,
+   "code": "BPHY102"
+  },
+  {
+   "path": "/vtu/cv/2nd-semester/mathematics-ii",
+   "branch": "cv",
+   "semester": 2,
+   "code": "BMAT201"
+  },
+  {
+   "path": "/vtu/cv/2nd-semester/python-programming",
+   "branch": "cv",
+   "semester": 2,
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/vtu/cv/3rd-semester/fluid-mechanics-cv",
+   "branch": "cv",
+   "semester": 3,
+   "code": "BCV304"
+  },
+  {
+   "path": "/vtu/cv/3rd-semester/mathematics-for-cv",
+   "branch": "cv",
+   "semester": 3,
+   "code": "BCV301"
+  },
+  {
+   "path": "/vtu/cv/3rd-semester/strength-of-materials",
+   "branch": "cv",
+   "semester": 3,
+   "code": "BCV302"
+  },
+  {
+   "path": "/vtu/cv/3rd-semester/surveying",
+   "branch": "cv",
+   "semester": 3,
+   "code": "BCV303"
+  },
+  {
+   "path": "/vtu/cv/4th-semester/concrete-technology",
+   "branch": "cv",
+   "semester": 4,
+   "code": "BCV402"
+  },
+  {
+   "path": "/vtu/cv/4th-semester/hydrology",
+   "branch": "cv",
+   "semester": 4,
+   "code": "BCV403"
+  },
+  {
+   "path": "/vtu/cv/4th-semester/structural-analysis",
+   "branch": "cv",
+   "semester": 4,
+   "code": "BCV401"
+  },
+  {
+   "path": "/vtu/cv/5th-semester/environmental-engineering",
+   "branch": "cv",
+   "semester": 5,
+   "code": "BCV503"
+  },
+  {
+   "path": "/vtu/cv/5th-semester/geotechnical-engineering",
+   "branch": "cv",
+   "semester": 5,
+   "code": "BCV502"
+  },
+  {
+   "path": "/vtu/cv/5th-semester/rcc",
+   "branch": "cv",
+   "semester": 5,
+   "code": "BCV501"
+  },
+  {
+   "path": "/vtu/cv/6th-semester/quantity-surveying",
+   "branch": "cv",
+   "semester": 6,
+   "code": "BCV602"
+  },
+  {
+   "path": "/vtu/cv/6th-semester/transportation-engineering",
+   "branch": "cv",
+   "semester": 6,
+   "code": "BCV601"
+  },
+  {
+   "path": "/vtu/cv/7th-semester/design-of-steel-structures",
+   "branch": "cv",
+   "semester": 7,
+   "code": "BCV701"
+  },
+  {
+   "path": "/vtu/cv/7th-semester/internship",
+   "branch": "cv",
+   "semester": 7,
+   "code": "BCV704"
+  },
+  {
+   "path": "/vtu/cv/7th-semester/project-work-phase-1",
+   "branch": "cv",
+   "semester": 7,
+   "code": "BCV714"
+  },
+  {
+   "path": "/vtu/cv/8th-semester/project-work-phase-2",
+   "branch": "cv",
+   "semester": 8,
+   "code": "BCV802"
+  },
+  {
+   "path": "/vtu/cv/8th-semester/technical-seminar",
+   "branch": "cv",
+   "semester": 8,
+   "code": "BCV808"
+  },
+  {
+   "path": "/vtu/ece/1st-semester/applied-physics",
+   "branch": "ece",
+   "semester": 1,
+   "code": "BPHY102"
+  },
+  {
+   "path": "/vtu/ece/1st-semester/communicative-english",
+   "branch": "ece",
+   "semester": 1,
+   "code": "BENGK106"
+  },
+  {
+   "path": "/vtu/ece/1st-semester/mathematics-i",
+   "branch": "ece",
+   "semester": 1,
+   "code": "BMAT101"
+  },
+  {
+   "path": "/vtu/ece/1st-semester/programming-in-c",
+   "branch": "ece",
+   "semester": 1,
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/vtu/ece/2nd-semester/applied-chemistry",
+   "branch": "ece",
+   "semester": 2,
+   "code": "BCHE102"
+  },
+  {
+   "path": "/vtu/ece/2nd-semester/mathematics-ii",
+   "branch": "ece",
+   "semester": 2,
+   "code": "BMAT201"
+  },
+  {
+   "path": "/vtu/ece/2nd-semester/python-programming",
+   "branch": "ece",
+   "semester": 2,
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/vtu/ece/3rd-semester/analog-electronics",
+   "branch": "ece",
+   "semester": 3,
+   "code": "BEC303"
+  },
+  {
+   "path": "/vtu/ece/3rd-semester/digital-electronics",
+   "branch": "ece",
+   "semester": 3,
+   "code": "BEC304"
+  },
+  {
+   "path": "/vtu/ece/3rd-semester/electromagnetics",
+   "branch": "ece",
+   "semester": 3,
+   "code": "BEC305"
+  },
+  {
+   "path": "/vtu/ece/3rd-semester/mathematics-for-ece",
+   "branch": "ece",
+   "semester": 3,
+   "code": "BEC301"
+  },
+  {
+   "path": "/vtu/ece/3rd-semester/network-analysis",
+   "branch": "ece",
+   "semester": 3,
+   "code": "BEC302"
+  },
+  {
+   "path": "/vtu/ece/4th-semester/analog-communication",
+   "branch": "ece",
+   "semester": 4,
+   "code": "BEC403"
+  },
+  {
+   "path": "/vtu/ece/4th-semester/control-systems",
+   "branch": "ece",
+   "semester": 4,
+   "code": "BEC402"
+  },
+  {
+   "path": "/vtu/ece/4th-semester/signals-and-systems",
+   "branch": "ece",
+   "semester": 4,
+   "code": "BEC401"
+  },
+  {
+   "path": "/vtu/ece/5th-semester/digital-communication",
+   "branch": "ece",
+   "semester": 5,
+   "code": "BEC501"
+  },
+  {
+   "path": "/vtu/ece/5th-semester/digital-signal-processing",
+   "branch": "ece",
+   "semester": 5,
+   "code": "BEC503"
+  },
+  {
+   "path": "/vtu/ece/5th-semester/vlsi",
+   "branch": "ece",
+   "semester": 5,
+   "code": "BEC502"
+  },
+  {
+   "path": "/vtu/ece/6th-semester/antennas",
+   "branch": "ece",
+   "semester": 6,
+   "code": "BEC602"
+  },
+  {
+   "path": "/vtu/ece/6th-semester/microwave",
+   "branch": "ece",
+   "semester": 6,
+   "code": "BEC601"
+  },
+  {
+   "path": "/vtu/ece/7th-semester/embedded-systems",
+   "branch": "ece",
+   "semester": 7,
+   "code": "BEC701"
+  },
+  {
+   "path": "/vtu/ece/7th-semester/internship",
+   "branch": "ece",
+   "semester": 7,
+   "code": "BEC704"
+  },
+  {
+   "path": "/vtu/ece/7th-semester/project-work-phase-1",
+   "branch": "ece",
+   "semester": 7,
+   "code": "BEC714"
+  },
+  {
+   "path": "/vtu/ece/8th-semester/project-work-phase-2",
+   "branch": "ece",
+   "semester": 8,
+   "code": "BEC802"
+  },
+  {
+   "path": "/vtu/ece/8th-semester/technical-seminar",
+   "branch": "ece",
+   "semester": 8,
+   "code": "BEC808"
+  },
+  {
+   "path": "/vtu/eee/1st-semester/applied-chemistry",
+   "branch": "eee",
+   "semester": 1,
+   "code": "BCHE102"
+  },
+  {
+   "path": "/vtu/eee/1st-semester/communicative-english",
+   "branch": "eee",
+   "semester": 1,
+   "code": "BENGK106"
+  },
+  {
+   "path": "/vtu/eee/1st-semester/mathematics-i",
+   "branch": "eee",
+   "semester": 1,
+   "code": "BMAT101"
+  },
+  {
+   "path": "/vtu/eee/1st-semester/programming-in-c",
+   "branch": "eee",
+   "semester": 1,
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/vtu/eee/2nd-semester/applied-physics",
+   "branch": "eee",
+   "semester": 2,
+   "code": "BPHY102"
+  },
+  {
+   "path": "/vtu/eee/2nd-semester/mathematics-ii",
+   "branch": "eee",
+   "semester": 2,
+   "code": "BMAT201"
+  },
+  {
+   "path": "/vtu/eee/2nd-semester/python-programming",
+   "branch": "eee",
+   "semester": 2,
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/vtu/eee/3rd-semester/analog-electronics-eee",
+   "branch": "eee",
+   "semester": 3,
+   "code": "BEE304"
+  },
+  {
+   "path": "/vtu/eee/3rd-semester/electric-circuit-analysis",
+   "branch": "eee",
+   "semester": 3,
+   "code": "BEE302"
+  },
+  {
+   "path": "/vtu/eee/3rd-semester/mathematics-for-eee",
+   "branch": "eee",
+   "semester": 3,
+   "code": "BEE301"
+  },
+  {
+   "path": "/vtu/eee/3rd-semester/transformers-and-generators",
+   "branch": "eee",
+   "semester": 3,
+   "code": "BEE303"
+  },
+  {
+   "path": "/vtu/eee/4th-semester/electrical-measurements",
+   "branch": "eee",
+   "semester": 4,
+   "code": "BEE403"
+  },
+  {
+   "path": "/vtu/eee/4th-semester/induction-motors",
+   "branch": "eee",
+   "semester": 4,
+   "code": "BEE401"
+  },
+  {
+   "path": "/vtu/eee/4th-semester/power-generation",
+   "branch": "eee",
+   "semester": 4,
+   "code": "BEE402"
+  },
+  {
+   "path": "/vtu/eee/5th-semester/control-systems-eee",
+   "branch": "eee",
+   "semester": 5,
+   "code": "BEE502"
+  },
+  {
+   "path": "/vtu/eee/5th-semester/power-system-analysis",
+   "branch": "eee",
+   "semester": 5,
+   "code": "BEE501"
+  },
+  {
+   "path": "/vtu/eee/6th-semester/power-electronics",
+   "branch": "eee",
+   "semester": 6,
+   "code": "BEE602"
+  },
+  {
+   "path": "/vtu/eee/6th-semester/switchgear",
+   "branch": "eee",
+   "semester": 6,
+   "code": "BEE601"
+  },
+  {
+   "path": "/vtu/eee/7th-semester/high-voltage",
+   "branch": "eee",
+   "semester": 7,
+   "code": "BEE701"
+  },
+  {
+   "path": "/vtu/eee/7th-semester/internship",
+   "branch": "eee",
+   "semester": 7,
+   "code": "BEE704"
+  },
+  {
+   "path": "/vtu/eee/7th-semester/project-work-phase-1",
+   "branch": "eee",
+   "semester": 7,
+   "code": "BEE714"
+  },
+  {
+   "path": "/vtu/eee/8th-semester/project-work-phase-2",
+   "branch": "eee",
+   "semester": 8,
+   "code": "BEE802"
+  },
+  {
+   "path": "/vtu/eee/8th-semester/technical-seminar",
+   "branch": "eee",
+   "semester": 8,
+   "code": "BEE808"
+  },
+  {
+   "path": "/vtu/ise/1st-semester/applied-physics",
+   "branch": "ise",
+   "semester": 1,
+   "code": "BPHY102"
+  },
+  {
+   "path": "/vtu/ise/1st-semester/communicative-english",
+   "branch": "ise",
+   "semester": 1,
+   "code": "BENGK106"
+  },
+  {
+   "path": "/vtu/ise/1st-semester/mathematics-i",
+   "branch": "ise",
+   "semester": 1,
+   "code": "BMAT101"
+  },
+  {
+   "path": "/vtu/ise/1st-semester/programming-in-c",
+   "branch": "ise",
+   "semester": 1,
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/vtu/ise/2nd-semester/applied-chemistry",
+   "branch": "ise",
+   "semester": 2,
+   "code": "BCHE102"
+  },
+  {
+   "path": "/vtu/ise/2nd-semester/mathematics-ii",
+   "branch": "ise",
+   "semester": 2,
+   "code": "BMAT201"
+  },
+  {
+   "path": "/vtu/ise/2nd-semester/python-programming",
+   "branch": "ise",
+   "semester": 2,
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/vtu/ise/3rd-semester/data-structures-lab",
+   "branch": "ise",
+   "semester": 3,
+   "code": "BISL305"
+  },
+  {
+   "path": "/vtu/ise/3rd-semester/data-structures",
+   "branch": "ise",
+   "semester": 3,
+   "code": "BIS304"
+  },
+  {
+   "path": "/vtu/ise/3rd-semester/digital-design",
+   "branch": "ise",
+   "semester": 3,
+   "code": "BIS302"
+  },
+  {
+   "path": "/vtu/ise/3rd-semester/mathematics-for-ise",
+   "branch": "ise",
+   "semester": 3,
+   "code": "BIS301"
+  },
+  {
+   "path": "/vtu/ise/3rd-semester/oop-java",
+   "branch": "ise",
+   "semester": 3,
+   "code": "BIS306A"
+  },
+  {
+   "path": "/vtu/ise/3rd-semester/operating-systems",
+   "branch": "ise",
+   "semester": 3,
+   "code": "BIS303"
+  },
+  {
+   "path": "/vtu/ise/4th-semester/ada-lab",
+   "branch": "ise",
+   "semester": 4,
+   "code": "BISL404"
+  },
+  {
+   "path": "/vtu/ise/4th-semester/algorithms",
+   "branch": "ise",
+   "semester": 4,
+   "code": "BIS401"
+  },
+  {
+   "path": "/vtu/ise/4th-semester/dbms",
+   "branch": "ise",
+   "semester": 4,
+   "code": "BIS403"
+  },
+  {
+   "path": "/vtu/ise/4th-semester/discrete-mathematics",
+   "branch": "ise",
+   "semester": 4,
+   "code": "BIS402"
+  },
+  {
+   "path": "/vtu/ise/5th-semester/cn-lab",
+   "branch": "ise",
+   "semester": 5,
+   "code": "BISL505"
+  },
+  {
+   "path": "/vtu/ise/5th-semester/computer-networks",
+   "branch": "ise",
+   "semester": 5,
+   "code": "BIS502"
+  },
+  {
+   "path": "/vtu/ise/5th-semester/software-engineering",
+   "branch": "ise",
+   "semester": 5,
+   "code": "BIS501"
+  },
+  {
+   "path": "/vtu/ise/5th-semester/web-technology",
+   "branch": "ise",
+   "semester": 5,
+   "code": "BIS504"
+  },
+  {
+   "path": "/vtu/ise/6th-semester/full-stack",
+   "branch": "ise",
+   "semester": 6,
+   "code": "BIS603"
+  },
+  {
+   "path": "/vtu/ise/6th-semester/information-management",
+   "branch": "ise",
+   "semester": 6,
+   "code": "BIS602"
+  },
+  {
+   "path": "/vtu/ise/6th-semester/machine-learning",
+   "branch": "ise",
+   "semester": 6,
+   "code": "BIS601"
+  },
+  {
+   "path": "/vtu/ise/7th-semester/big-data-analytics",
+   "branch": "ise",
+   "semester": 7,
+   "code": "BIS701"
+  },
+  {
+   "path": "/vtu/ise/7th-semester/internship",
+   "branch": "ise",
+   "semester": 7,
+   "code": "BIS704"
+  },
+  {
+   "path": "/vtu/ise/7th-semester/project-work-phase-1",
+   "branch": "ise",
+   "semester": 7,
+   "code": "BIS714"
+  },
+  {
+   "path": "/vtu/ise/8th-semester/project-work-phase-2",
+   "branch": "ise",
+   "semester": 8,
+   "code": "BIS802"
+  },
+  {
+   "path": "/vtu/ise/8th-semester/technical-seminar",
+   "branch": "ise",
+   "semester": 8,
+   "code": "BIS808"
+  },
+  {
+   "path": "/vtu/me/1st-semester/applied-chemistry",
+   "branch": "me",
+   "semester": 1,
+   "code": "BCHE102"
+  },
+  {
+   "path": "/vtu/me/1st-semester/communicative-english",
+   "branch": "me",
+   "semester": 1,
+   "code": "BENGK106"
+  },
+  {
+   "path": "/vtu/me/1st-semester/mathematics-i",
+   "branch": "me",
+   "semester": 1,
+   "code": "BMAT101"
+  },
+  {
+   "path": "/vtu/me/1st-semester/programming-in-c",
+   "branch": "me",
+   "semester": 1,
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/vtu/me/2nd-semester/applied-physics",
+   "branch": "me",
+   "semester": 2,
+   "code": "BPHY102"
+  },
+  {
+   "path": "/vtu/me/2nd-semester/mathematics-ii",
+   "branch": "me",
+   "semester": 2,
+   "code": "BMAT201"
+  },
+  {
+   "path": "/vtu/me/2nd-semester/python-programming",
+   "branch": "me",
+   "semester": 2,
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/vtu/me/3rd-semester/material-science",
+   "branch": "me",
+   "semester": 3,
+   "code": "BME304"
+  },
+  {
+   "path": "/vtu/me/3rd-semester/mathematics-for-me",
+   "branch": "me",
+   "semester": 3,
+   "code": "BME301"
+  },
+  {
+   "path": "/vtu/me/3rd-semester/mechanics-of-materials",
+   "branch": "me",
+   "semester": 3,
+   "code": "BME302"
+  },
+  {
+   "path": "/vtu/me/3rd-semester/thermodynamics",
+   "branch": "me",
+   "semester": 3,
+   "code": "BME303"
+  },
+  {
+   "path": "/vtu/me/4th-semester/fluid-mechanics",
+   "branch": "me",
+   "semester": 4,
+   "code": "BME401"
+  },
+  {
+   "path": "/vtu/me/4th-semester/kinematics-of-machines",
+   "branch": "me",
+   "semester": 4,
+   "code": "BME403"
+  },
+  {
+   "path": "/vtu/me/4th-semester/manufacturing",
+   "branch": "me",
+   "semester": 4,
+   "code": "BME402"
+  },
+  {
+   "path": "/vtu/me/5th-semester/design-of-machine-elements",
+   "branch": "me",
+   "semester": 5,
+   "code": "BME501"
+  },
+  {
+   "path": "/vtu/me/5th-semester/dynamics-of-machines",
+   "branch": "me",
+   "semester": 5,
+   "code": "BME502"
+  },
+  {
+   "path": "/vtu/me/6th-semester/cad-cam",
+   "branch": "me",
+   "semester": 6,
+   "code": "BME602"
+  },
+  {
+   "path": "/vtu/me/6th-semester/heat-transfer",
+   "branch": "me",
+   "semester": 6,
+   "code": "BME601"
+  },
+  {
+   "path": "/vtu/me/7th-semester/finite-element-method",
+   "branch": "me",
+   "semester": 7,
+   "code": "BME701"
+  },
+  {
+   "path": "/vtu/me/7th-semester/internship",
+   "branch": "me",
+   "semester": 7,
+   "code": "BME704"
+  },
+  {
+   "path": "/vtu/me/7th-semester/project-work-phase-1",
+   "branch": "me",
+   "semester": 7,
+   "code": "BME714"
+  },
+  {
+   "path": "/vtu/me/8th-semester/project-work-phase-2",
+   "branch": "me",
+   "semester": 8,
+   "code": "BME802"
+  },
+  {
+   "path": "/vtu/me/8th-semester/technical-seminar",
+   "branch": "me",
+   "semester": 8,
+   "code": "BME808"
+  }
+ ],
+ "files": [
+  {
+   "path": "/files/cse-ada-lab-lab",
+   "code": "BCSL404"
+  },
+  {
+   "path": "/files/cse-ada-lab-syllabus",
+   "code": "BCSL404"
+  },
+  {
+   "path": "/files/cse-algorithms-iq",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-lab",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-notes-u1",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-notes-u2",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-notes-u3",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-notes-u4",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-notes-u5",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-practice",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-algorithms-syllabus",
+   "code": "BCS401"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-iq",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-lab",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-notes-u1",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-notes-u2",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-notes-u3",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-notes-u4",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-notes-u5",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-practice",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-chemistry-syllabus",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cse-applied-physics-iq",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-lab",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-notes-u1",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-notes-u2",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-notes-u3",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-notes-u4",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-notes-u5",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-practice",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-applied-physics-syllabus",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-iq",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-notes-u1",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-notes-u2",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-notes-u3",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-notes-u4",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-notes-u5",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-practice",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-big-data-analytics-syllabus",
+   "code": "BCS701"
+  },
+  {
+   "path": "/files/cse-cn-lab-lab",
+   "code": "BCSL505"
+  },
+  {
+   "path": "/files/cse-cn-lab-syllabus",
+   "code": "BCSL505"
+  },
+  {
+   "path": "/files/cse-communicative-english-syllabus",
+   "code": "BENGK106"
+  },
+  {
+   "path": "/files/cse-computer-graphics-iq",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-notes-u1",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-notes-u2",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-notes-u3",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-notes-u4",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-notes-u5",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-practice",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-graphics-syllabus",
+   "code": "BCS603"
+  },
+  {
+   "path": "/files/cse-computer-networks-iq",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-lab",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-notes-u1",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-notes-u2",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-notes-u3",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-notes-u4",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-notes-u5",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-practice",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-computer-networks-syllabus",
+   "code": "BCS502"
+  },
+  {
+   "path": "/files/cse-data-communication-iq",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-notes-u1",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-notes-u2",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-notes-u3",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-notes-u4",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-notes-u5",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-practice",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-communication-syllabus",
+   "code": "BCS405A"
+  },
+  {
+   "path": "/files/cse-data-structures-iq",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-lab-lab",
+   "code": "BCSL305"
+  },
+  {
+   "path": "/files/cse-data-structures-lab-syllabus",
+   "code": "BCSL305"
+  },
+  {
+   "path": "/files/cse-data-structures-lab",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-notes-u1",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-notes-u2",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-notes-u3",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-notes-u4",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-notes-u5",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-practice",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-data-structures-syllabus",
+   "code": "BCS304"
+  },
+  {
+   "path": "/files/cse-dbms-iq",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-lab",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-notes-u1",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-notes-u2",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-notes-u3",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-notes-u4",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-notes-u5",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-practice",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-dbms-syllabus",
+   "code": "BCS403"
+  },
+  {
+   "path": "/files/cse-digital-design-iq",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-lab",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-notes-u1",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-notes-u2",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-notes-u3",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-notes-u4",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-notes-u5",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-practice",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-digital-design-syllabus",
+   "code": "BCS302"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-iq",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-notes-u1",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-notes-u2",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-notes-u3",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-notes-u4",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-notes-u5",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-practice",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-discrete-mathematics-syllabus",
+   "code": "BCS402"
+  },
+  {
+   "path": "/files/cse-full-stack-iq",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-lab",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-notes-u1",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-notes-u2",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-notes-u3",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-notes-u4",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-notes-u5",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-practice",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-full-stack-syllabus",
+   "code": "BCS602"
+  },
+  {
+   "path": "/files/cse-information-security-iq",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-notes-u1",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-notes-u2",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-notes-u3",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-notes-u4",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-notes-u5",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-practice",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-information-security-syllabus",
+   "code": "BCS604A"
+  },
+  {
+   "path": "/files/cse-internship-syllabus",
+   "code": "BCS784"
+  },
+  {
+   "path": "/files/cse-machine-learning-iq",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-lab-lab",
+   "code": "BCSL604"
+  },
+  {
+   "path": "/files/cse-machine-learning-lab-syllabus",
+   "code": "BCSL604"
+  },
+  {
+   "path": "/files/cse-machine-learning-lab",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-notes-u1",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-notes-u2",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-notes-u3",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-notes-u4",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-notes-u5",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-practice",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-machine-learning-syllabus",
+   "code": "BCS601"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-iq",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-notes-u1",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-notes-u2",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-notes-u3",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-notes-u4",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-notes-u5",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-practice",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-for-cse-syllabus",
+   "code": "BCS301"
+  },
+  {
+   "path": "/files/cse-mathematics-i-iq",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-notes-u1",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-notes-u2",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-notes-u3",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-notes-u4",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-notes-u5",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-practice",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-i-syllabus",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-iq",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-notes-u1",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-notes-u2",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-notes-u3",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-notes-u4",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-notes-u5",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-practice",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-mathematics-ii-syllabus",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cse-oop-java-iq",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-lab",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-notes-u1",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-notes-u2",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-notes-u3",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-notes-u4",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-notes-u5",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-practice",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-oop-java-syllabus",
+   "code": "BCS306A"
+  },
+  {
+   "path": "/files/cse-operating-systems-iq",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-notes-u1",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-notes-u2",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-notes-u3",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-notes-u4",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-notes-u5",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-practice",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-operating-systems-syllabus",
+   "code": "BCS303"
+  },
+  {
+   "path": "/files/cse-programming-in-c-iq",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-lab",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-notes-u1",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-notes-u2",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-notes-u3",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-notes-u4",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-notes-u5",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-practice",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-programming-in-c-syllabus",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cse-project-work-phase-1-syllabus",
+   "code": "BCS786"
+  },
+  {
+   "path": "/files/cse-project-work-phase-2-syllabus",
+   "code": "BCS888"
+  },
+  {
+   "path": "/files/cse-python-programming-iq",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-lab",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-notes-u1",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-notes-u2",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-notes-u3",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-notes-u4",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-notes-u5",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-practice",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-python-programming-syllabus",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cse-software-engineering-iq",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-notes-u1",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-notes-u2",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-notes-u3",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-notes-u4",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-notes-u5",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-practice",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-software-engineering-syllabus",
+   "code": "BCS501"
+  },
+  {
+   "path": "/files/cse-technical-seminar-syllabus",
+   "code": "BCS808"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-iq",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-notes-u1",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-notes-u2",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-notes-u3",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-notes-u4",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-notes-u5",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-practice",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-theory-of-computation-syllabus",
+   "code": "BCS503"
+  },
+  {
+   "path": "/files/cse-web-technology-iq",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-lab",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-notes-u1",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-notes-u2",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-notes-u3",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-notes-u4",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-notes-u5",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-practice",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cse-web-technology-syllabus",
+   "code": "BCS504"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-iq",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-lab",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-notes-u1",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-notes-u2",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-notes-u3",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-notes-u4",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-notes-u5",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-practice",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-chemistry-syllabus",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/cv-applied-physics-iq",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-lab",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-notes-u1",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-notes-u2",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-notes-u3",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-notes-u4",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-notes-u5",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-practice",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-applied-physics-syllabus",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/cv-communicative-english-syllabus",
+   "code": "BENGK106"
+  },
+  {
+   "path": "/files/cv-concrete-technology-iq",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-lab",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-notes-u1",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-notes-u2",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-notes-u3",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-notes-u4",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-notes-u5",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-practice",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-concrete-technology-syllabus",
+   "code": "BCV402"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-iq",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-notes-u1",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-notes-u2",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-notes-u3",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-notes-u4",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-notes-u5",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-practice",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-design-of-steel-structures-syllabus",
+   "code": "BCV701"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-iq",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-notes-u1",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-notes-u2",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-notes-u3",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-notes-u4",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-notes-u5",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-practice",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-environmental-engineering-syllabus",
+   "code": "BCV503"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-iq",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-lab",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-notes-u1",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-notes-u2",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-notes-u3",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-notes-u4",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-notes-u5",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-practice",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-fluid-mechanics-cv-syllabus",
+   "code": "BCV304"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-iq",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-notes-u1",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-notes-u2",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-notes-u3",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-notes-u4",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-notes-u5",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-practice",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-geotechnical-engineering-syllabus",
+   "code": "BCV502"
+  },
+  {
+   "path": "/files/cv-hydrology-iq",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-notes-u1",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-notes-u2",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-notes-u3",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-notes-u4",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-notes-u5",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-practice",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-hydrology-syllabus",
+   "code": "BCV403"
+  },
+  {
+   "path": "/files/cv-internship-syllabus",
+   "code": "BCV704"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-iq",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-notes-u1",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-notes-u2",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-notes-u3",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-notes-u4",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-notes-u5",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-practice",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-for-cv-syllabus",
+   "code": "BCV301"
+  },
+  {
+   "path": "/files/cv-mathematics-i-iq",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-notes-u1",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-notes-u2",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-notes-u3",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-notes-u4",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-notes-u5",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-practice",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-i-syllabus",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-iq",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-notes-u1",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-notes-u2",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-notes-u3",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-notes-u4",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-notes-u5",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-practice",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-mathematics-ii-syllabus",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/cv-programming-in-c-iq",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-lab",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-notes-u1",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-notes-u2",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-notes-u3",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-notes-u4",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-notes-u5",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-practice",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-programming-in-c-syllabus",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/cv-project-work-phase-1-syllabus",
+   "code": "BCV714"
+  },
+  {
+   "path": "/files/cv-project-work-phase-2-syllabus",
+   "code": "BCV802"
+  },
+  {
+   "path": "/files/cv-python-programming-iq",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-lab",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-notes-u1",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-notes-u2",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-notes-u3",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-notes-u4",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-notes-u5",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-practice",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-python-programming-syllabus",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-iq",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-notes-u1",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-notes-u2",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-notes-u3",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-notes-u4",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-notes-u5",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-practice",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-quantity-surveying-syllabus",
+   "code": "BCV602"
+  },
+  {
+   "path": "/files/cv-rcc-iq",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-notes-u1",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-notes-u2",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-notes-u3",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-notes-u4",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-notes-u5",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-practice",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-rcc-syllabus",
+   "code": "BCV501"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-iq",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-notes-u1",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-notes-u2",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-notes-u3",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-notes-u4",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-notes-u5",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-practice",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-strength-of-materials-syllabus",
+   "code": "BCV302"
+  },
+  {
+   "path": "/files/cv-structural-analysis-iq",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-notes-u1",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-notes-u2",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-notes-u3",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-notes-u4",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-notes-u5",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-practice",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-structural-analysis-syllabus",
+   "code": "BCV401"
+  },
+  {
+   "path": "/files/cv-surveying-iq",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-lab",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-notes-u1",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-notes-u2",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-notes-u3",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-notes-u4",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-notes-u5",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-practice",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-surveying-syllabus",
+   "code": "BCV303"
+  },
+  {
+   "path": "/files/cv-technical-seminar-syllabus",
+   "code": "BCV808"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-iq",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-notes-u1",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-notes-u2",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-notes-u3",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-notes-u4",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-notes-u5",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-practice",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/cv-transportation-engineering-syllabus",
+   "code": "BCV601"
+  },
+  {
+   "path": "/files/ece-analog-communication-iq",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-lab",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-notes-u1",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-notes-u2",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-notes-u3",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-notes-u4",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-notes-u5",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-practice",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-communication-syllabus",
+   "code": "BEC403"
+  },
+  {
+   "path": "/files/ece-analog-electronics-iq",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-lab",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-notes-u1",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-notes-u2",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-notes-u3",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-notes-u4",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-notes-u5",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-practice",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-analog-electronics-syllabus",
+   "code": "BEC303"
+  },
+  {
+   "path": "/files/ece-antennas-iq",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-notes-u1",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-notes-u2",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-notes-u3",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-notes-u4",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-notes-u5",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-practice",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-antennas-syllabus",
+   "code": "BEC602"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-iq",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-lab",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-notes-u1",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-notes-u2",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-notes-u3",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-notes-u4",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-notes-u5",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-practice",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-chemistry-syllabus",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ece-applied-physics-iq",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-lab",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-notes-u1",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-notes-u2",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-notes-u3",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-notes-u4",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-notes-u5",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-practice",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-applied-physics-syllabus",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ece-communicative-english-syllabus",
+   "code": "BENGK106"
+  },
+  {
+   "path": "/files/ece-control-systems-iq",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-notes-u1",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-notes-u2",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-notes-u3",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-notes-u4",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-notes-u5",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-practice",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-control-systems-syllabus",
+   "code": "BEC402"
+  },
+  {
+   "path": "/files/ece-digital-communication-iq",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-notes-u1",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-notes-u2",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-notes-u3",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-notes-u4",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-notes-u5",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-practice",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-communication-syllabus",
+   "code": "BEC501"
+  },
+  {
+   "path": "/files/ece-digital-electronics-iq",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-lab",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-notes-u1",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-notes-u2",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-notes-u3",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-notes-u4",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-notes-u5",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-practice",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-electronics-syllabus",
+   "code": "BEC304"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-iq",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-lab",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-notes-u1",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-notes-u2",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-notes-u3",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-notes-u4",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-notes-u5",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-practice",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-digital-signal-processing-syllabus",
+   "code": "BEC503"
+  },
+  {
+   "path": "/files/ece-electromagnetics-iq",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-notes-u1",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-notes-u2",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-notes-u3",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-notes-u4",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-notes-u5",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-practice",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-electromagnetics-syllabus",
+   "code": "BEC305"
+  },
+  {
+   "path": "/files/ece-embedded-systems-iq",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-lab",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-notes-u1",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-notes-u2",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-notes-u3",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-notes-u4",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-notes-u5",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-practice",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-embedded-systems-syllabus",
+   "code": "BEC701"
+  },
+  {
+   "path": "/files/ece-internship-syllabus",
+   "code": "BEC704"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-iq",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-notes-u1",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-notes-u2",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-notes-u3",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-notes-u4",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-notes-u5",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-practice",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-for-ece-syllabus",
+   "code": "BEC301"
+  },
+  {
+   "path": "/files/ece-mathematics-i-iq",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-notes-u1",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-notes-u2",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-notes-u3",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-notes-u4",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-notes-u5",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-practice",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-i-syllabus",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-iq",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-notes-u1",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-notes-u2",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-notes-u3",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-notes-u4",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-notes-u5",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-practice",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-mathematics-ii-syllabus",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ece-microwave-iq",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-notes-u1",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-notes-u2",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-notes-u3",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-notes-u4",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-notes-u5",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-practice",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-microwave-syllabus",
+   "code": "BEC601"
+  },
+  {
+   "path": "/files/ece-network-analysis-iq",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-notes-u1",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-notes-u2",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-notes-u3",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-notes-u4",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-notes-u5",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-practice",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-network-analysis-syllabus",
+   "code": "BEC302"
+  },
+  {
+   "path": "/files/ece-programming-in-c-iq",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-lab",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-notes-u1",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-notes-u2",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-notes-u3",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-notes-u4",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-notes-u5",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-practice",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-programming-in-c-syllabus",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ece-project-work-phase-1-syllabus",
+   "code": "BEC714"
+  },
+  {
+   "path": "/files/ece-project-work-phase-2-syllabus",
+   "code": "BEC802"
+  },
+  {
+   "path": "/files/ece-python-programming-iq",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-lab",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-notes-u1",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-notes-u2",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-notes-u3",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-notes-u4",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-notes-u5",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-practice",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-python-programming-syllabus",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-iq",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-notes-u1",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-notes-u2",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-notes-u3",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-notes-u4",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-notes-u5",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-practice",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-signals-and-systems-syllabus",
+   "code": "BEC401"
+  },
+  {
+   "path": "/files/ece-technical-seminar-syllabus",
+   "code": "BEC808"
+  },
+  {
+   "path": "/files/ece-vlsi-iq",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-lab",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-notes-u1",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-notes-u2",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-notes-u3",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-notes-u4",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-notes-u5",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-practice",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/ece-vlsi-syllabus",
+   "code": "BEC502"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-iq",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-lab",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-notes-u1",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-notes-u2",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-notes-u3",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-notes-u4",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-notes-u5",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-practice",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-analog-electronics-eee-syllabus",
+   "code": "BEE304"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-iq",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-lab",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-notes-u1",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-notes-u2",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-notes-u3",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-notes-u4",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-notes-u5",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-practice",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-chemistry-syllabus",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/eee-applied-physics-iq",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-lab",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-notes-u1",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-notes-u2",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-notes-u3",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-notes-u4",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-notes-u5",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-practice",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-applied-physics-syllabus",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/eee-communicative-english-syllabus",
+   "code": "BENGK106"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-iq",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-notes-u1",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-notes-u2",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-notes-u3",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-notes-u4",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-notes-u5",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-practice",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-control-systems-eee-syllabus",
+   "code": "BEE502"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-iq",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-notes-u1",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-notes-u2",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-notes-u3",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-notes-u4",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-notes-u5",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-practice",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electric-circuit-analysis-syllabus",
+   "code": "BEE302"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-iq",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-notes-u1",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-notes-u2",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-notes-u3",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-notes-u4",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-notes-u5",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-practice",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-electrical-measurements-syllabus",
+   "code": "BEE403"
+  },
+  {
+   "path": "/files/eee-high-voltage-iq",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-notes-u1",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-notes-u2",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-notes-u3",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-notes-u4",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-notes-u5",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-practice",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-high-voltage-syllabus",
+   "code": "BEE701"
+  },
+  {
+   "path": "/files/eee-induction-motors-iq",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-lab",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-notes-u1",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-notes-u2",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-notes-u3",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-notes-u4",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-notes-u5",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-practice",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-induction-motors-syllabus",
+   "code": "BEE401"
+  },
+  {
+   "path": "/files/eee-internship-syllabus",
+   "code": "BEE704"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-iq",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-notes-u1",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-notes-u2",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-notes-u3",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-notes-u4",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-notes-u5",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-practice",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-for-eee-syllabus",
+   "code": "BEE301"
+  },
+  {
+   "path": "/files/eee-mathematics-i-iq",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-notes-u1",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-notes-u2",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-notes-u3",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-notes-u4",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-notes-u5",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-practice",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-i-syllabus",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-iq",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-notes-u1",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-notes-u2",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-notes-u3",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-notes-u4",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-notes-u5",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-practice",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-mathematics-ii-syllabus",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/eee-power-electronics-iq",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-lab",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-notes-u1",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-notes-u2",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-notes-u3",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-notes-u4",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-notes-u5",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-practice",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-electronics-syllabus",
+   "code": "BEE602"
+  },
+  {
+   "path": "/files/eee-power-generation-iq",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-notes-u1",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-notes-u2",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-notes-u3",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-notes-u4",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-notes-u5",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-practice",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-generation-syllabus",
+   "code": "BEE402"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-iq",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-notes-u1",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-notes-u2",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-notes-u3",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-notes-u4",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-notes-u5",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-practice",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-power-system-analysis-syllabus",
+   "code": "BEE501"
+  },
+  {
+   "path": "/files/eee-programming-in-c-iq",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-lab",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-notes-u1",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-notes-u2",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-notes-u3",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-notes-u4",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-notes-u5",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-practice",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-programming-in-c-syllabus",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/eee-project-work-phase-1-syllabus",
+   "code": "BEE714"
+  },
+  {
+   "path": "/files/eee-project-work-phase-2-syllabus",
+   "code": "BEE802"
+  },
+  {
+   "path": "/files/eee-python-programming-iq",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-lab",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-notes-u1",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-notes-u2",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-notes-u3",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-notes-u4",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-notes-u5",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-practice",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-python-programming-syllabus",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/eee-switchgear-iq",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-notes-u1",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-notes-u2",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-notes-u3",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-notes-u4",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-notes-u5",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-practice",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-switchgear-syllabus",
+   "code": "BEE601"
+  },
+  {
+   "path": "/files/eee-technical-seminar-syllabus",
+   "code": "BEE808"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-iq",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-lab",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-notes-u1",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-notes-u2",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-notes-u3",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-notes-u4",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-notes-u5",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-practice",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/eee-transformers-and-generators-syllabus",
+   "code": "BEE303"
+  },
+  {
+   "path": "/files/ise-ada-lab-lab",
+   "code": "BISL404"
+  },
+  {
+   "path": "/files/ise-ada-lab-syllabus",
+   "code": "BISL404"
+  },
+  {
+   "path": "/files/ise-algorithms-iq",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-lab",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-notes-u1",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-notes-u2",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-notes-u3",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-notes-u4",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-notes-u5",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-practice",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-algorithms-syllabus",
+   "code": "BIS401"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-iq",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-lab",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-notes-u1",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-notes-u2",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-notes-u3",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-notes-u4",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-notes-u5",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-practice",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-chemistry-syllabus",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/ise-applied-physics-iq",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-lab",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-notes-u1",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-notes-u2",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-notes-u3",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-notes-u4",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-notes-u5",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-practice",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-applied-physics-syllabus",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-iq",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-notes-u1",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-notes-u2",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-notes-u3",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-notes-u4",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-notes-u5",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-practice",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-big-data-analytics-syllabus",
+   "code": "BIS701"
+  },
+  {
+   "path": "/files/ise-cn-lab-lab",
+   "code": "BISL505"
+  },
+  {
+   "path": "/files/ise-cn-lab-syllabus",
+   "code": "BISL505"
+  },
+  {
+   "path": "/files/ise-communicative-english-syllabus",
+   "code": "BENGK106"
+  },
+  {
+   "path": "/files/ise-computer-networks-iq",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-notes-u1",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-notes-u2",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-notes-u3",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-notes-u4",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-notes-u5",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-practice",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-computer-networks-syllabus",
+   "code": "BIS502"
+  },
+  {
+   "path": "/files/ise-data-structures-iq",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-lab-lab",
+   "code": "BISL305"
+  },
+  {
+   "path": "/files/ise-data-structures-lab-syllabus",
+   "code": "BISL305"
+  },
+  {
+   "path": "/files/ise-data-structures-lab",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-notes-u1",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-notes-u2",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-notes-u3",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-notes-u4",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-notes-u5",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-practice",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-data-structures-syllabus",
+   "code": "BIS304"
+  },
+  {
+   "path": "/files/ise-dbms-iq",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-lab",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-notes-u1",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-notes-u2",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-notes-u3",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-notes-u4",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-notes-u5",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-practice",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-dbms-syllabus",
+   "code": "BIS403"
+  },
+  {
+   "path": "/files/ise-digital-design-iq",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-lab",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-notes-u1",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-notes-u2",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-notes-u3",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-notes-u4",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-notes-u5",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-practice",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-digital-design-syllabus",
+   "code": "BIS302"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-iq",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-notes-u1",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-notes-u2",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-notes-u3",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-notes-u4",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-notes-u5",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-practice",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-discrete-mathematics-syllabus",
+   "code": "BIS402"
+  },
+  {
+   "path": "/files/ise-full-stack-iq",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-lab",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-notes-u1",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-notes-u2",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-notes-u3",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-notes-u4",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-notes-u5",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-practice",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-full-stack-syllabus",
+   "code": "BIS603"
+  },
+  {
+   "path": "/files/ise-information-management-iq",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-notes-u1",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-notes-u2",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-notes-u3",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-notes-u4",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-notes-u5",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-practice",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-information-management-syllabus",
+   "code": "BIS602"
+  },
+  {
+   "path": "/files/ise-internship-syllabus",
+   "code": "BIS704"
+  },
+  {
+   "path": "/files/ise-machine-learning-iq",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-lab",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-notes-u1",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-notes-u2",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-notes-u3",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-notes-u4",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-notes-u5",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-practice",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-machine-learning-syllabus",
+   "code": "BIS601"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-iq",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-notes-u1",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-notes-u2",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-notes-u3",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-notes-u4",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-notes-u5",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-practice",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-for-ise-syllabus",
+   "code": "BIS301"
+  },
+  {
+   "path": "/files/ise-mathematics-i-iq",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-notes-u1",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-notes-u2",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-notes-u3",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-notes-u4",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-notes-u5",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-practice",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-i-syllabus",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-iq",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-notes-u1",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-notes-u2",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-notes-u3",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-notes-u4",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-notes-u5",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-practice",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-mathematics-ii-syllabus",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/ise-oop-java-iq",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-lab",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-notes-u1",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-notes-u2",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-notes-u3",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-notes-u4",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-notes-u5",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-practice",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-oop-java-syllabus",
+   "code": "BIS306A"
+  },
+  {
+   "path": "/files/ise-operating-systems-iq",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-notes-u1",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-notes-u2",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-notes-u3",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-notes-u4",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-notes-u5",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-practice",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-operating-systems-syllabus",
+   "code": "BIS303"
+  },
+  {
+   "path": "/files/ise-programming-in-c-iq",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-lab",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-notes-u1",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-notes-u2",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-notes-u3",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-notes-u4",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-notes-u5",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-practice",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-programming-in-c-syllabus",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/ise-project-work-phase-1-syllabus",
+   "code": "BIS714"
+  },
+  {
+   "path": "/files/ise-project-work-phase-2-syllabus",
+   "code": "BIS802"
+  },
+  {
+   "path": "/files/ise-python-programming-iq",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-lab",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-notes-u1",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-notes-u2",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-notes-u3",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-notes-u4",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-notes-u5",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-practice",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-python-programming-syllabus",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/ise-software-engineering-iq",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-notes-u1",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-notes-u2",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-notes-u3",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-notes-u4",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-notes-u5",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-practice",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-software-engineering-syllabus",
+   "code": "BIS501"
+  },
+  {
+   "path": "/files/ise-technical-seminar-syllabus",
+   "code": "BIS808"
+  },
+  {
+   "path": "/files/ise-web-technology-iq",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-lab",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-notes-u1",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-notes-u2",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-notes-u3",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-notes-u4",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-notes-u5",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-practice",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/ise-web-technology-syllabus",
+   "code": "BIS504"
+  },
+  {
+   "path": "/files/me-applied-chemistry-iq",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-lab",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-notes-u1",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-notes-u2",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-notes-u3",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-notes-u4",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-notes-u5",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-practice",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-chemistry-syllabus",
+   "code": "BCHE102"
+  },
+  {
+   "path": "/files/me-applied-physics-iq",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-lab",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-notes-u1",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-notes-u2",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-notes-u3",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-notes-u4",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-notes-u5",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-practice",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-applied-physics-syllabus",
+   "code": "BPHY102"
+  },
+  {
+   "path": "/files/me-cad-cam-iq",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-lab",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-notes-u1",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-notes-u2",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-notes-u3",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-notes-u4",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-notes-u5",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-practice",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-cad-cam-syllabus",
+   "code": "BME602"
+  },
+  {
+   "path": "/files/me-communicative-english-syllabus",
+   "code": "BENGK106"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-iq",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-notes-u1",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-notes-u2",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-notes-u3",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-notes-u4",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-notes-u5",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-practice",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-design-of-machine-elements-syllabus",
+   "code": "BME501"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-iq",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-notes-u1",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-notes-u2",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-notes-u3",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-notes-u4",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-notes-u5",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-practice",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-dynamics-of-machines-syllabus",
+   "code": "BME502"
+  },
+  {
+   "path": "/files/me-finite-element-method-iq",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-notes-u1",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-notes-u2",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-notes-u3",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-notes-u4",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-notes-u5",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-practice",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-finite-element-method-syllabus",
+   "code": "BME701"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-iq",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-lab",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-notes-u1",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-notes-u2",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-notes-u3",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-notes-u4",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-notes-u5",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-practice",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-fluid-mechanics-syllabus",
+   "code": "BME401"
+  },
+  {
+   "path": "/files/me-heat-transfer-iq",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-notes-u1",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-notes-u2",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-notes-u3",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-notes-u4",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-notes-u5",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-practice",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-heat-transfer-syllabus",
+   "code": "BME601"
+  },
+  {
+   "path": "/files/me-internship-syllabus",
+   "code": "BME704"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-iq",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-notes-u1",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-notes-u2",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-notes-u3",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-notes-u4",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-notes-u5",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-practice",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-kinematics-of-machines-syllabus",
+   "code": "BME403"
+  },
+  {
+   "path": "/files/me-manufacturing-iq",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-lab",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-notes-u1",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-notes-u2",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-notes-u3",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-notes-u4",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-notes-u5",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-practice",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-manufacturing-syllabus",
+   "code": "BME402"
+  },
+  {
+   "path": "/files/me-material-science-iq",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-notes-u1",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-notes-u2",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-notes-u3",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-notes-u4",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-notes-u5",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-practice",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-material-science-syllabus",
+   "code": "BME304"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-iq",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-notes-u1",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-notes-u2",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-notes-u3",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-notes-u4",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-notes-u5",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-practice",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-for-me-syllabus",
+   "code": "BME301"
+  },
+  {
+   "path": "/files/me-mathematics-i-iq",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-notes-u1",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-notes-u2",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-notes-u3",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-notes-u4",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-notes-u5",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-practice",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-i-syllabus",
+   "code": "BMAT101"
+  },
+  {
+   "path": "/files/me-mathematics-ii-iq",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-notes-u1",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-notes-u2",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-notes-u3",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-notes-u4",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-notes-u5",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-practice",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mathematics-ii-syllabus",
+   "code": "BMAT201"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-iq",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-notes-u1",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-notes-u2",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-notes-u3",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-notes-u4",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-notes-u5",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-practice",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-mechanics-of-materials-syllabus",
+   "code": "BME302"
+  },
+  {
+   "path": "/files/me-programming-in-c-iq",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-lab",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-notes-u1",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-notes-u2",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-notes-u3",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-notes-u4",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-notes-u5",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-practice",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-programming-in-c-syllabus",
+   "code": "BPLCK105"
+  },
+  {
+   "path": "/files/me-project-work-phase-1-syllabus",
+   "code": "BME714"
+  },
+  {
+   "path": "/files/me-project-work-phase-2-syllabus",
+   "code": "BME802"
+  },
+  {
+   "path": "/files/me-python-programming-iq",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-lab",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-notes-u1",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-notes-u2",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-notes-u3",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-notes-u4",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-notes-u5",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-practice",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-python-programming-syllabus",
+   "code": "BPLCK205"
+  },
+  {
+   "path": "/files/me-technical-seminar-syllabus",
+   "code": "BME808"
+  },
+  {
+   "path": "/files/me-thermodynamics-iq",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-notes-u1",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-notes-u2",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-notes-u3",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-notes-u4",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-notes-u5",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-practice",
+   "code": "BME303"
+  },
+  {
+   "path": "/files/me-thermodynamics-syllabus",
+   "code": "BME303"
+  }
+ ]
+}

@@ -37,7 +37,6 @@ const seoDesc = clampDesc(
 <Base
   title={seoTitle}
   description={seoDesc}
-  keywords={`VTU ${branch.shortName} ${semesterName(n)} notes, VTU ${branch.shortName} ${n} sem subjects, VTU ${branch.shortName} ${n} sem syllabus, ${subjects.map((s) => s.code).join(", ")}`}
   path={`/vtu/${branch.slug}/${Astro.params.semester}`}
   crumbs={[
     { label: "VTU", href: "/vtu" },

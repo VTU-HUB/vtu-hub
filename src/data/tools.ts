@@ -37,17 +37,4 @@ export const tools: ToolDef[] = [
   },
 ];
 
-export const GRADE_SCALE = [
-  { letter: "O", label: "Outstanding", min: 90, point: 10 },
-  { letter: "A+", label: "Excellent", min: 80, point: 9 },
-  { letter: "A", label: "Very Good", min: 70, point: 8 },
-  { letter: "B+", label: "Good", min: 60, point: 7 },
-  { letter: "B", label: "Above Average", min: 55, point: 6 },
-  { letter: "C", label: "Average", min: 50, point: 5 },
-  { letter: "P", label: "Pass", min: 40, point: 4 },
-  { letter: "F", label: "Fail", min: 0, point: 0 },
-] as const;
-
-export function gradeFromMarks(total: number) {
-  return GRADE_SCALE.find((g) => total >= g.min) ?? GRADE_SCALE[GRADE_SCALE.length - 1];
-}
+export { GRADE_SCALE, gradeFromMarks } from "@/lib/grades";
