@@ -21,6 +21,11 @@ export default defineConfig({
       filter: (page) => !page.includes("/search"),
       changefreq: "weekly",
       priority: 0.7,
+      // Adds xhtml:link alternates between /, /kn and /hi versions of translated pages.
+      i18n: {
+        defaultLocale: "en",
+        locales: { en: "en-IN", kn: "kn-IN", hi: "hi-IN" },
+      },
     }),
   ],
   vite: {

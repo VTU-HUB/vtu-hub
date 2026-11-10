@@ -1,0 +1,59 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import Steps from "@/components/site/Steps.astro";
+import { branches, SEMESTER_ORD } from "@/data/branches";
+import { countSubjects } from "@/data/subjects";
+import { branchText, SEM_ORD } from "@/i18n/content";
+import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
+
+export function getStaticPaths() {
+  return TRANSLATED_LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
+const d = t(lang);
+const seo = {
+  kn: {
+    title: "VTU ನೋಟ್ಸ್ — ಬ್ರಾಂಚ್ ಮತ್ತು ಸೆಮಿಸ್ಟರ್ ಪ್ರಕಾರ",
+    description: "CSE, ISE, ECE, EEE, ಮೆಕ್ಯಾನಿಕಲ್ ಮತ್ತು ಸಿವಿಲ್ ಬ್ರಾಂಚ್‌ಗಳ ಉಚಿತ VTU ನೋಟ್ಸ್, ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು ಪಠ್ಯಕ್ರಮ ನಕ್ಷೆಗಳು, 1ರಿಂದ 8ನೇ ಸೆಮಿಸ್ಟರ್ (2022 ಸ್ಕೀಮ್).",
+    keywords: "VTU ನೋಟ್ಸ್, VTU ಬ್ರಾಂಚ್, VTU ಸೆಮಿಸ್ಟರ್, VTU ಪಠ್ಯಕ್ರಮ, VTU 2022 ಸ್ಕೀಮ್",
+  },
+  hi: {
+    title: "VTU नोट्स और सिलेबस — ब्रांच और सेमेस्टर के अनुसार",
+    description: "CSE, ISE, ECE, EEE, मैकेनिकल और सिविल ब्रांच के लिए मुफ़्त VTU नोट्स, महत्वपूर्ण प्रश्न और सिलेबस मैप, पहले से 8वें सेमेस्टर तक (2022 स्कीम)।",
+    keywords: "VTU नोट्स, VTU ब्रांच, VTU सेमेस्टर, VTU सिलेबस, VTU 2022 स्कीम",
+  },
+}[lang];
+const crumbs = [{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }];
+---
+
+<Base title={seo.title} description={seo.description} keywords={seo.keywords} path={localePath(lang, "/vtu")} crumbs={crumbs} lang={lang}>
+  <Crumbs items={[{ label: d.nav.notes[0] }]} lang={lang} />
+  <Steps current={1} lang={lang} />
+  <PageHeader title={d.browse.vtuTitle} answer={d.browse.vtuIntro} lang={lang} />
+  <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {branches.map((b) => (
+      <li>
+        <a href={localePath(lang, `/vtu/${b.slug}`)} class="group flex h-full items-center gap-4 rounded-xl border bg-surface p-4 hover:border-primary hover:shadow-sm">
+          <span class="grid size-12 shrink-0 place-items-center rounded-lg bg-primary/10 text-sm font-bold text-primary" aria-hidden="true">{b.shortName}</span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-semibold group-hover:text-primary">{b.shortName}</span>
+            <span class="block text-sm text-muted">{branchText(lang, b.slug, b).name}</span>
+            <span class="mt-1 block text-xs text-faint">{d.landing.subjects(countSubjects(b.slug))}</span>
+          </span>
+          <span class="text-faint group-hover:text-primary" aria-hidden="true">→</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <section class="mt-10 rounded-xl border bg-surface p-5">
+    <h2 class="font-semibold">{d.landing.semTitle}</h2>
+    <p class="mt-1 text-sm text-muted">{d.landing.semText}</p>
+    <ul class="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-8">
+      {SEMESTER_ORD.map((ord, i) => (
+        <li><a class="flex h-12 items-center justify-center rounded-lg border bg-secondary/60 font-semibold hover:border-primary hover:text-primary" href={`/semesters/${ord}-semester`}>{SEM_ORD[lang][i]}</a></li>
+      ))}
+    </ul>
+  </section>
+</Base>

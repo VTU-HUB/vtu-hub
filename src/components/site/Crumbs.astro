@@ -1,8 +1,9 @@
 ---
 import type { Crumb } from "@/lib/seo-doc";
-interface Props { items: Crumb[] }
-const { items } = Astro.props;
-const all = [{ label: "Home", href: "/" }, ...items];
+import { localePath, t, type Lang } from "@/i18n/ui";
+interface Props { items: Crumb[]; lang?: Lang }
+const { items, lang = "en" } = Astro.props;
+const all = [{ label: t(lang).home, href: localePath(lang, "/") }, ...items];
 ---
 
 <nav aria-label="Breadcrumb" class="mb-4 text-sm text-muted">

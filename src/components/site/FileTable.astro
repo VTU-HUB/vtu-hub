@@ -14,15 +14,15 @@ const { files, showSubject = false } = Astro.props;
 
 {files.length > 0 ? (
   <div role="table" aria-label="Study guides" class="text-sm">
-    <div role="row" class="hidden border-b py-2 text-xs font-medium uppercase tracking-wider text-faint md:grid md:grid-cols-[minmax(0,1fr)_72px_88px_108px] md:gap-4">
-      <span>Guide</span><span>Kind</span><span>Read</span><span>Updated</span>
+    <div role="row" class="hidden border-b py-2 text-xs font-medium uppercase tracking-wider text-faint md:grid md:grid-cols-[minmax(0,1fr)_72px_96px_190px] md:gap-4">
+      <span role="columnheader">Guide</span><span role="columnheader">Read</span><span role="columnheader">Updated</span><span role="columnheader">Open</span>
     </div>
     {files.map((file) => {
       const sub = subjectFor(file);
       const type = getResourceType(file.type);
       return (
         <div role="row" class="file-row" data-branch={file.branch}>
-          <div class="min-w-0">
+          <div role="cell" class="min-w-0">
             <p class="truncate font-medium">
               <a class="hover:text-primary" href={`/files/${file.id}`}>{file.title}</a>
             </p>
@@ -35,9 +35,15 @@ const { files, showSubject = false } = Astro.props;
               <p class="mt-0.5 text-xs text-muted md:hidden">Guide · {file.readMinutes} min · {formatMonthYear(file.updated)}</p>
             )}
           </div>
-          <span class="hidden text-muted md:block">{file.fileType}</span>
-          <span class="hidden tabular-nums text-muted md:block">{file.readMinutes} min</span>
-          <span class="hidden text-muted md:block">{formatMonthYear(file.updated)}</span>
+          <span role="cell" class="hidden tabular-nums text-muted md:block">{file.readMinutes} min</span>
+          <span role="cell" class="hidden text-muted md:block">{formatMonthYear(file.updated)}</span>
+          <span role="cell" class="flex gap-2">
+            <a class="inline-flex h-9 items-center rounded-md bg-primary px-3 text-xs font-semibold text-primary-foreground hover:bg-primary-hover" href={`/files/${file.id}#notes`}>Read</a>
+            <a class="inline-flex h-9 items-center gap-1 rounded-md border px-3 text-xs font-semibold hover:border-primary hover:text-primary" href={`/files/${file.id}#download`} aria-label={`Download ${file.title} as PDF`}>
+              <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path><path d="M12 15V3"></path></svg>
+              PDF
+            </a>
+          </span>
         </div>
       );
     })}

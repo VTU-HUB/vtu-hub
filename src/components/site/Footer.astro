@@ -1,35 +1,51 @@
 ---
-import { footerInfo } from "@/data/nav";
+import { hasTranslation, localePath, t, type Lang } from "@/i18n/ui";
+import { TOOL_TEXT } from "@/i18n/content";
+import { tools } from "@/data/tools";
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = "en" } = Astro.props;
+const d = t(lang);
+const L = d.footer.links;
+const loc = (path: string) => (hasTranslation(path) ? localePath(lang, path) : path);
 const year = new Date().getFullYear();
+
 const study = [
-  { label: "Notes by branch", href: "/vtu" },
-  { label: "Notes by semester", href: "/semesters" },
-  { label: "Important questions", href: "/resources/important-questions" },
-  { label: "Syllabus maps", href: "/resources/syllabus" },
-  { label: "Lab guides", href: "/resources/lab-manuals" },
-  { label: "Exam updates", href: "/updates" },
-  { label: "Guides", href: "/articles" },
+  { label: L.byBranch, href: loc("/vtu") },
+  { label: L.bySemester, href: "/semesters" },
+  { label: L.important, href: "/resources/important-questions" },
+  { label: L.syllabus, href: "/resources/syllabus" },
+  { label: L.lab, href: "/resources/lab-manuals" },
+  { label: L.updates, href: "/updates" },
+  { label: L.guides, href: "/articles" },
 ];
-const calculators = [
-  { label: "SGPA calculator", href: "/tools/sgpa" },
-  { label: "CGPA calculator", href: "/tools/cgpa" },
-  { label: "Marks calculator", href: "/tools/marks" },
-  { label: "Attendance calculator", href: "/tools/attendance" },
-  { label: "Percentage calculator", href: "/tools/percentage" },
+const calculators = tools.map((tool) => ({
+  label: lang === "en" ? tool.name : TOOL_TEXT[lang][tool.slug]?.name ?? tool.name,
+  href: loc(tool.href),
+}));
+const about = [
+  { label: L.aboutUs, href: "/about" },
+  { label: L.contact, href: "/contact" },
+  { label: L.faq, href: loc("/faq") },
+  { label: L.privacy, href: "/privacy-policy" },
+  { label: L.terms, href: "/terms" },
+  { label: L.disclaimer, href: "/disclaimer" },
 ];
 const columns = [
-  { title: "Study", links: study },
-  { title: "Calculators", links: calculators },
-  { title: "About", links: footerInfo },
+  { title: d.footer.study, links: study },
+  { title: d.nav.calculators[0], links: calculators },
+  { title: d.footer.about, links: about },
 ];
 ---
 
 <footer class="mt-12 border-t bg-secondary/40">
   <div class="mx-auto grid w-full max-w-[1200px] gap-10 px-4 py-12 sm:px-5 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:px-6 lg:px-8">
     <div>
-      <a href="/" class="text-lg font-semibold tracking-tight">VTU<span class="text-primary">Hub</span></a>
+      <a href={localePath(lang, "/")} class="text-lg font-semibold tracking-tight">VTU<span class="text-primary">Hub</span></a>
       <p class="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-        Free, original study guides and calculators for VTU students in Karnataka. Not an official VTU site. Official dates and results are on
+        {d.footer.blurb}
         <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a>.
       </p>
     </div>
@@ -47,7 +63,7 @@ const columns = [
   <div class="border-t">
     <div class="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-2 px-4 py-4 text-xs text-faint sm:px-5 md:px-6 lg:px-8">
       <p>© {year} VTUHub · Belagavi, Karnataka, India</p>
-      <p><a class="hover:text-foreground" href="/sitemap">Sitemap</a> · <a class="hover:text-foreground" href="/llms.txt">llms.txt</a></p>
+      <p><a class="hover:text-foreground" href="/sitemap">{L.sitemap}</a> · <a class="hover:text-foreground" href="/llms.txt">llms.txt</a></p>
     </div>
   </div>
 </footer>

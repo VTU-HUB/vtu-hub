@@ -6,6 +6,8 @@ import AdSlot from "@/components/site/AdSlot.astro";
 import { adsConfig } from "@/data/ads";
 import { breadcrumbLd, faqLd, graphLd, pageTitle, type Crumb, type FaqItem } from "@/lib/seo-doc";
 import { absUrl, OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
+import type { LangLink } from "@/components/site/Header.astro";
+import { hasTranslation, LANG_META, LANGS, localePath, t, translateProxyUrl, type Lang } from "@/i18n/ui";
 
 interface Props {
   title: string;
@@ -21,6 +23,8 @@ interface Props {
   extraJsonLd?: Record<string, unknown>[];
   /** Override the share image. `imageAlt` is required whenever `image` is set. */
   image?: { path: string; alt: string; width: number; height: number; type?: string };
+  /** Page language. Translated pages pass "kn" or "hi" and a /kn or /hi path. */
+  lang?: Lang;
 }
 
 const {
@@ -36,9 +40,27 @@ const {
   faqs = [],
   extraJsonLd = [],
   image: shareImage = OG_IMAGE,
+  lang = "en",
 } = Astro.props;
 
+// Language versions: English path is the base; /kn and /hi mirror it when translated.
+const basePath = lang === "en" ? path : path.replace(new RegExp(`^/${lang}(?=/|$)`), "") || "/";
+const translated = hasTranslation(basePath);
+const meta = LANG_META[lang];
+const alternates = translated
+  ? LANGS.map((l) => ({ lang: l, href: absUrl(localePath(l, basePath)) }))
+  : [{ lang: "en" as Lang, href: absUrl(basePath) }];
+const langLinks: LangLink[] = LANGS.map((l) =>
+  translated || l === "en"
+    ? { lang: l, href: localePath(l, basePath), external: false }
+    : { lang: l, href: translateProxyUrl(l, basePath), external: true },
+);
+
 const fullTitle = pageTitle(title);
+// Pages without their own keywords still get VTU-focused ones derived from the title.
+const metaKeywords =
+  keywords ??
+  [title.replace(/ · VTUHub$/, ""), "VTU", "Visvesvaraya Technological University", "VTU notes", "VTU 2022 scheme", "VTU Karnataka"].join(", ");
 const url = absUrl(path);
 const image = absUrl(shareImage.path);
 const imageType = shareImage.type ?? "image/jpeg";
@@ -49,7 +71,7 @@ nodes.push({
   url,
   name: fullTitle,
   description,
-  inLanguage: "en-IN",
+  inLanguage: meta.htmlLang,
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: { "@id": `${SITE_URL}/#organization` },
   primaryImageOfPage: {
@@ -63,7 +85,7 @@ nodes.push({
   ...(updated ? { dateModified: updated } : {}),
   speakable: { "@type": "SpeakableSpecification", cssSelector: [".aio-answer", "h1"] },
 });
-if (crumbs.length) nodes.push(breadcrumbLd([{ label: "Home", href: "/" }, ...crumbs]));
+if (crumbs.length) nodes.push(breadcrumbLd([{ label: t(lang).home, href: localePath(lang, "/") }, ...crumbs]));
 if (faqs.length) nodes.push(faqLd(faqs));
 nodes.push(...extraJsonLd);
 const jsonLd = graphLd(nodes);
@@ -72,7 +94,7 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
 ---
 
 <!doctype html>
-<html lang="en-IN">
+<html lang={meta.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -80,7 +102,7 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
-    {keywords ? <meta name="keywords" content={keywords} /> : null}
+    <meta name="keywords" content={metaKeywords} />
     <meta name="author" content={SITE_NAME} />
     <meta name="application-name" content={SITE_NAME} />
     <meta name="theme-color" content="#2563EB" />
@@ -88,9 +110,9 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <meta name="geo.placename" content="Belagavi, Karnataka, India" />
     <meta name="geo.position" content="15.8497;74.4977" />
     <meta name="ICBM" content="15.8497, 74.4977" />
-    <meta name="language" content="English" />
-    <link rel="alternate" hreflang="en-in" href={url} />
-    <link rel="alternate" hreflang="x-default" href={url} />
+    <meta name="language" content={meta.label === "English" ? "English" : lang === "kn" ? "Kannada" : "Hindi"} />
+    {alternates.map((a) => <link rel="alternate" hreflang={LANG_META[a.lang].hreflang.toLowerCase()} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={absUrl(basePath)} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={fullTitle} />
@@ -102,7 +124,8 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <meta property="og:image:width" content={String(shareImage.width)} />
     <meta property="og:image:height" content={String(shareImage.height)} />
     <meta property="og:image:alt" content={shareImage.alt} />
-    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale" content={meta.ogLocale} />
+    {alternates.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={LANG_META[a.lang].ogLocale} />)}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
@@ -130,7 +153,7 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
   </head>
   <body class="min-h-screen bg-background font-sans text-foreground antialiased">
     <a href="#main" class="skip-link">Skip to content</a>
-    <Header />
+    <Header lang={lang} langLinks={langLinks} />
     {adsOn ? (
       <div class="border-b bg-background">
         <div class="mx-auto w-full max-w-[1200px] px-4 py-3 sm:px-5 md:px-6 lg:px-8">
@@ -152,7 +175,7 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
         </aside>
       ) : null}
     </div>
-    <Footer />
+    <Footer lang={lang} />
     <script is:inline>
       var themeBtn = document.getElementById("theme-toggle");
       if (themeBtn) {

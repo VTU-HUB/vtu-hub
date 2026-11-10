@@ -1,0 +1,33 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { FAQ_TEXT } from "@/i18n/content";
+import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
+import { clampDesc } from "@/lib/seo-doc";
+
+export function getStaticPaths() {
+  return TRANSLATED_LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
+const d = t(lang);
+const items = FAQ_TEXT[lang];
+const path = localePath(lang, "/faq");
+const title = lang === "kn" ? "VTU ಪ್ರಶ್ನೋತ್ತರ: SGPA, CGPA, ಸ್ಕೀಮ್, CIE ಮತ್ತು SEE" : "VTU सामान्य प्रश्न: SGPA, CGPA, स्कीम, CIE और SEE";
+---
+
+<Base title={title} description={clampDesc(d.faqIntro + " " + items[0].a)} path={path} crumbs={[{ label: d.footer.links.faq, href: path }]} faqs={items} lang={lang}>
+  <Crumbs items={[{ label: d.footer.links.faq }]} lang={lang} />
+  <PageHeader title={d.faqTitle} answer={d.faqIntro} lang={lang} />
+  <div class="divide-y rounded-xl border bg-surface">
+    {items.map((f) => (
+      <details class="group p-4" open>
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium">
+          <h2 class="text-base">{f.q}</h2>
+          <span class="text-faint transition group-open:rotate-45" aria-hidden="true">+</span>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-muted">{f.a}</p>
+      </details>
+    ))}
+  </div>
+</Base>

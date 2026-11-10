@@ -1,11 +1,13 @@
 ---
+import { t, type Lang } from "@/i18n/ui";
 interface Props {
+  lang?: Lang;
   kicker?: string;
   title: string;
   description?: string;
   answer?: string;
 }
-const { kicker, title, description, answer } = Astro.props;
+const { lang = "en", kicker, title, description, answer } = Astro.props;
 const direct = answer ?? description;
 ---
 
@@ -15,7 +17,7 @@ const direct = answer ?? description;
   <slot name="meta" />
   {direct ? (
     <p class="aio-answer mt-4 text-sm leading-relaxed text-foreground">
-      <span class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted">In short</span>
+      <span class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted">{t(lang).inShort}</span>
       {direct}
     </p>
   ) : null}

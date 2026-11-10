@@ -3,22 +3,25 @@
  * Beginner progress bar for the notes flow: Branch → Semester → Subject.
  * `current` is the step the student is on now; earlier steps show as done and link back.
  */
+import { localePath, t, type Lang } from "@/i18n/ui";
 interface Props {
+  lang?: Lang;
   current: 1 | 2 | 3;
   branch?: { label: string; href: string };
   semester?: { label: string; href: string };
   class?: string;
 }
-const { current, branch, semester, class: className = "" } = Astro.props;
+const { lang = "en", current, branch, semester, class: className = "" } = Astro.props;
+const d = t(lang).steps;
 const steps = [
-  { n: 1, label: "Branch", value: branch?.label, href: branch?.href ?? "/vtu" },
-  { n: 2, label: "Semester", value: semester?.label, href: semester?.href },
-  { n: 3, label: "Subject", value: undefined, href: undefined },
+  { n: 1, label: d.branch, value: branch?.label, href: branch?.href ?? localePath(lang, "/vtu") },
+  { n: 2, label: d.semester, value: semester?.label, href: semester?.href },
+  { n: 3, label: d.subject, value: undefined, href: undefined },
 ];
-const hint = ["Pick your branch", "Now pick your semester", "Now open a subject"][current - 1];
+const hint = d.hints[current - 1];
 ---
 
-<nav aria-label="Your progress" class:list={["mb-6 rounded-lg border bg-secondary/60 p-3", className]}>
+<nav aria-label={d.progress} class:list={["mb-6 rounded-lg border bg-secondary/60 p-3", className]}>
   <ol class="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
     {steps.map((s, i) => {
       const done = s.n < current;

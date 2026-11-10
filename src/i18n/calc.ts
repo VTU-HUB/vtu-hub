@@ -1,0 +1,115 @@
+/** Calculator UI strings. The language comes from <html lang>, set per page by Base.astro. */
+const en = {
+  course: (n: number) => `Course ${n}`,
+  lab: "Lab",
+  addCourse: "Add course",
+  courseName: "Course name",
+  credits: "Credits",
+  letterGrade: "Letter grade",
+  remove: "Remove",
+  sgpaHint: (num: number, den: number) => `Σ CiGi = ${num} · Σ Ci = ${den}`,
+  sgpaNote: 'Formula: SGPA = Σ (Ci × Gi) / Σ Ci. Failed papers keep their credits in the denominator. <a class="text-primary hover:underline" href="/articles/how-vtu-sgpa-is-calculated">Full worked example</a>.',
+  semester: (n: number) => `Semester ${n}`,
+  addSemester: "Add semester",
+  sgpa: "SGPA",
+  creditsCounted: (n: number) => `${n} credits counted`,
+  cgpaNote: (pct: string) =>
+    `Informal percentage conversion (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct}%</span>. Unofficial. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">How CGPA is calculated</a>.`,
+  schemeSplit: "Scheme split",
+  totalGrade: "Total / grade",
+  grading: '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">Grading explained</a>.',
+  cie: (max: number) => `CIE (max ${max})`,
+  see: (max: number) => `SEE (max ${max})`,
+  scheme2022: "2022 scheme · 50 + 50",
+  scheme2018: "2018 scheme · 40 + 60",
+  gradeHint: (label: string, point: number, pass: boolean) =>
+    `${label} · ${point} grade points. ${pass ? "At or above the common 40% total." : "Below the common 40% pass total."}`,
+  attended: "Classes attended",
+  conducted: "Classes conducted",
+  target: "Target %",
+  attendance: "Attendance",
+  canMiss: (n: number, target: number) => `You can miss about ${n} more class${n === 1 ? "" : "es"} and stay at ${target}%.`,
+  need: (n: number, target: number) => `You still need ${n} consecutive class${n === 1 ? "" : "es"} without absence to reach ${target}%.`,
+  obtained: "Obtained",
+  maximum: "Maximum",
+  percentage: "Percentage",
+};
+
+type CalcStrings = typeof en;
+
+const kn: CalcStrings = {
+  course: (n) => `ವಿಷಯ ${n}`,
+  lab: "ಲ್ಯಾಬ್",
+  addCourse: "ವಿಷಯ ಸೇರಿಸಿ",
+  courseName: "ವಿಷಯದ ಹೆಸರು",
+  credits: "ಕ್ರೆಡಿಟ್",
+  letterGrade: "ಗ್ರೇಡ್",
+  remove: "ತೆಗೆದುಹಾಕಿ",
+  sgpaHint: (num, den) => `Σ CiGi = ${num} · Σ Ci = ${den}`,
+  sgpaNote: 'ಸೂತ್ರ: SGPA = Σ (Ci × Gi) / Σ Ci. ಫೇಲ್ ಆದ ವಿಷಯಗಳ ಕ್ರೆಡಿಟ್ ಛೇದದಲ್ಲೇ ಉಳಿಯುತ್ತದೆ. <a class="text-primary hover:underline" href="/articles/how-vtu-sgpa-is-calculated">ಪೂರ್ಣ ಉದಾಹರಣೆ (ಇಂಗ್ಲಿಷ್)</a>.',
+  semester: (n) => `ಸೆಮಿಸ್ಟರ್ ${n}`,
+  addSemester: "ಸೆಮಿಸ್ಟರ್ ಸೇರಿಸಿ",
+  sgpa: "SGPA",
+  creditsCounted: (n) => `${n} ಕ್ರೆಡಿಟ್ ಎಣಿಸಲಾಗಿದೆ`,
+  cgpaNote: (pct) =>
+    `ಅನಧಿಕೃತ ಶೇಕಡಾ ಪರಿವರ್ತನೆ (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct}%</span>. ಅಧಿಕೃತವಲ್ಲ. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">CGPA ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕುತ್ತಾರೆ (ಇಂಗ್ಲಿಷ್)</a>.`,
+  schemeSplit: "ಸ್ಕೀಮ್ ವಿಭಾಗ",
+  totalGrade: "ಒಟ್ಟು / ಗ್ರೇಡ್",
+  grading: '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">ಗ್ರೇಡಿಂಗ್ ವಿವರಣೆ (ಇಂಗ್ಲಿಷ್)</a>.',
+  cie: (max) => `CIE (ಗರಿಷ್ಠ ${max})`,
+  see: (max) => `SEE (ಗರಿಷ್ಠ ${max})`,
+  scheme2022: "2022 ಸ್ಕೀಮ್ · 50 + 50",
+  scheme2018: "2018 ಸ್ಕೀಮ್ · 40 + 60",
+  gradeHint: (label, point, pass) =>
+    `${label} · ${point} ಗ್ರೇಡ್ ಪಾಯಿಂಟ್. ${pass ? "ಸಾಮಾನ್ಯ 40% ಮಿತಿಗೆ ಸಮ ಅಥವಾ ಹೆಚ್ಚು." : "ಸಾಮಾನ್ಯ 40% ಪಾಸ್ ಮಿತಿಗಿಂತ ಕಡಿಮೆ."}`,
+  attended: "ಹಾಜರಾದ ತರಗತಿಗಳು",
+  conducted: "ನಡೆದ ತರಗತಿಗಳು",
+  target: "ಗುರಿ %",
+  attendance: "ಹಾಜರಾತಿ",
+  canMiss: (n, target) => `ನೀವು ಇನ್ನೂ ಸುಮಾರು ${n} ತರಗತಿ ತಪ್ಪಿಸಿದರೂ ${target}% ಉಳಿಯುತ್ತದೆ.`,
+  need: (n, target) => `${target}% ತಲುಪಲು ಇನ್ನೂ ${n} ತರಗತಿಗಳಿಗೆ ಸತತವಾಗಿ ಹಾಜರಾಗಬೇಕು.`,
+  obtained: "ಪಡೆದ ಅಂಕ",
+  maximum: "ಗರಿಷ್ಠ ಅಂಕ",
+  percentage: "ಶೇಕಡಾ",
+};
+
+const hi: CalcStrings = {
+  course: (n) => `विषय ${n}`,
+  lab: "लैब",
+  addCourse: "विषय जोड़ें",
+  courseName: "विषय का नाम",
+  credits: "क्रेडिट",
+  letterGrade: "ग्रेड",
+  remove: "हटाएँ",
+  sgpaHint: (num, den) => `Σ CiGi = ${num} · Σ Ci = ${den}`,
+  sgpaNote: 'सूत्र: SGPA = Σ (Ci × Gi) / Σ Ci। फ़ेल हुए विषयों के क्रेडिट हर में बने रहते हैं। <a class="text-primary hover:underline" href="/articles/how-vtu-sgpa-is-calculated">पूरा उदाहरण (अंग्रेज़ी)</a>।',
+  semester: (n) => `सेमेस्टर ${n}`,
+  addSemester: "सेमेस्टर जोड़ें",
+  sgpa: "SGPA",
+  creditsCounted: (n) => `${n} क्रेडिट गिने गए`,
+  cgpaNote: (pct) =>
+    `अनौपचारिक प्रतिशत रूपांतरण (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct}%</span>। आधिकारिक नहीं। <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">CGPA कैसे निकालें (अंग्रेज़ी)</a>।`,
+  schemeSplit: "स्कीम विभाजन",
+  totalGrade: "कुल / ग्रेड",
+  grading: '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">ग्रेडिंग समझें (अंग्रेज़ी)</a>।',
+  cie: (max) => `CIE (अधिकतम ${max})`,
+  see: (max) => `SEE (अधिकतम ${max})`,
+  scheme2022: "2022 स्कीम · 50 + 50",
+  scheme2018: "2018 स्कीम · 40 + 60",
+  gradeHint: (label, point, pass) =>
+    `${label} · ${point} ग्रेड पॉइंट। ${pass ? "सामान्य 40% सीमा के बराबर या ऊपर।" : "सामान्य 40% पास सीमा से कम।"}`,
+  attended: "उपस्थित कक्षाएँ",
+  conducted: "कुल कक्षाएँ",
+  target: "लक्ष्य %",
+  attendance: "उपस्थिति",
+  canMiss: (n, target) => `आप लगभग ${n} और कक्षाएँ छोड़ सकते हैं और ${target}% बना रहेगा।`,
+  need: (n, target) => `${target}% तक पहुँचने के लिए आपको लगातार ${n} कक्षाओं में उपस्थित रहना होगा।`,
+  obtained: "प्राप्त अंक",
+  maximum: "अधिकतम अंक",
+  percentage: "प्रतिशत",
+};
+
+export function calcStrings(): CalcStrings {
+  const lang = (typeof document !== "undefined" ? document.documentElement.lang : "en").slice(0, 2);
+  return lang === "kn" ? kn : lang === "hi" ? hi : en;
+}

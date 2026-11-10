@@ -1,4 +1,27 @@
 import { GRADE_SCALE, gradeFromMarks } from "@/data/tools";
+import { calcStrings } from "@/i18n/calc";
+
+const S = calcStrings();
+
+/** Calculator inputs persist in this browser only (localStorage); nothing is sent anywhere. */
+const STORE = "vtuhub-calc-";
+function load<T>(key: string, fallback: T): T {
+  try {
+    const raw = localStorage.getItem(STORE + key);
+    if (!raw) return fallback;
+    const value = JSON.parse(raw) as T;
+    return value && typeof value === typeof fallback ? value : fallback;
+  } catch {
+    return fallback;
+  }
+}
+function save(key: string, value: unknown) {
+  try {
+    localStorage.setItem(STORE + key, JSON.stringify(value));
+  } catch {
+    /* storage blocked: calculators still work, just without memory */
+  }
+}
 
 const inputClass = "h-11 w-full rounded-sm border bg-surface px-3 text-foreground";
 
@@ -24,34 +47,34 @@ function resultBox(label: string, value: string, hint?: string) {
 
 function mountSgpa(root: HTMLElement) {
   type Row = { id: number; name: string; credits: number; letter: string };
-  let rows: Row[] = [
-    { id: 1, name: "Course 1", credits: 4, letter: "A" },
-    { id: 2, name: "Course 2", credits: 3, letter: "A+" },
-    { id: 3, name: "Course 3", credits: 3, letter: "B+" },
-    { id: 4, name: "Course 4", credits: 3, letter: "O" },
-    { id: 5, name: "Lab", credits: 1, letter: "A+" },
-  ];
+  let rows: Row[] = load<Row[]>("sgpa", [
+    { id: 1, name: S.course(1), credits: 4, letter: "A" },
+    { id: 2, name: S.course(2), credits: 3, letter: "A+" },
+    { id: 3, name: S.course(3), credits: 3, letter: "B+" },
+    { id: 4, name: S.course(4), credits: 3, letter: "O" },
+    { id: 5, name: S.lab, credits: 1, letter: "A+" },
+  ]);
   const list = el("div", "space-y-3");
   const card = el("div", "rounded-lg border bg-surface p-4 md:p-5");
   card.append(list);
   const add = el(
     "button",
     "mt-4 h-11 rounded-sm border px-3 text-sm font-medium hover:bg-secondary",
-    "Add course",
+    S.addCourse,
   );
   add.type = "button";
   card.append(add);
-  const result = resultBox("SGPA", "0.00", " ");
+  const result = resultBox(S.sgpa, "0.00", " ");
   const wrap = el("div", "grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]");
   const side = el("div", "space-y-4");
   side.append(result.box);
   const note = el("p", "text-sm text-muted");
-  note.innerHTML =
-    'Formula: SGPA = Σ (Ci × Gi) / Σ Ci. Failed papers keep their credits in the denominator. <a class="text-primary hover:underline" href="/articles/how-vtu-sgpa-is-calculated">Full worked example</a>.';
+  note.innerHTML = S.sgpaNote;
   side.append(note);
   wrap.append(card, side);
 
   const paint = () => {
+    save("sgpa", rows);
     list.replaceChildren();
     let num = 0;
     let den = 0;
@@ -64,22 +87,23 @@ function mountSgpa(root: HTMLElement) {
       const line = el("div", "grid grid-cols-1 gap-2 md:grid-cols-[1fr_88px_96px_72px]");
       const name = el("input", inputClass) as HTMLInputElement;
       name.value = row.name;
-      name.setAttribute("aria-label", "Course name");
+      name.setAttribute("aria-label", S.courseName);
       name.addEventListener("input", () => {
         row.name = name.value;
+        save("sgpa", rows);
       });
       const credits = el("input", inputClass) as HTMLInputElement;
       credits.type = "number";
       credits.min = "1";
       credits.max = "12";
       credits.value = String(row.credits);
-      credits.setAttribute("aria-label", "Credits");
+      credits.setAttribute("aria-label", S.credits);
       credits.addEventListener("input", () => {
         row.credits = Number(credits.value);
         paint();
       });
       const letter = el("select", inputClass) as HTMLSelectElement;
-      letter.setAttribute("aria-label", "Letter grade");
+      letter.setAttribute("aria-label", S.letterGrade);
       for (const g of GRADE_SCALE) {
         const opt = el("option", "", g.letter) as HTMLOptionElement;
         opt.value = g.letter;
@@ -90,7 +114,7 @@ function mountSgpa(root: HTMLElement) {
         row.letter = letter.value;
         paint();
       });
-      const remove = el("button", "h-11 text-sm text-muted hover:text-danger", "Remove");
+      const remove = el("button", "h-11 text-sm text-muted hover:text-danger", S.remove);
       remove.type = "button";
       remove.addEventListener("click", () => {
         rows = rows.filter((x) => x.id !== row.id);
@@ -101,14 +125,14 @@ function mountSgpa(root: HTMLElement) {
     }
     const sgpa = den === 0 ? 0 : num / den;
     result.value.textContent = sgpa.toFixed(2);
-    if (result.hint) result.hint.textContent = `Σ CiGi = ${num} · Σ Ci = ${den}`;
+    if (result.hint) result.hint.textContent = S.sgpaHint(num, den);
   };
   add.addEventListener("click", () => {
     rows = [
       ...rows,
       {
         id: (rows.at(-1)?.id ?? 0) + 1,
-        name: `Course ${rows.length + 1}`,
+        name: S.course(rows.length + 1),
         credits: 3,
         letter: "A",
       },
@@ -121,18 +145,18 @@ function mountSgpa(root: HTMLElement) {
 
 function mountCgpa(root: HTMLElement) {
   type Row = { id: number; name: string; credits: number; sgpa: number };
-  let rows: Row[] = [
-    { id: 1, name: "Semester 1", credits: 20, sgpa: 8.2 },
-    { id: 2, name: "Semester 2", credits: 20, sgpa: 8.6 },
-    { id: 3, name: "Semester 3", credits: 21, sgpa: 8.4 },
-  ];
+  let rows: Row[] = load<Row[]>("cgpa", [
+    { id: 1, name: S.semester(1), credits: 20, sgpa: 8.2 },
+    { id: 2, name: S.semester(2), credits: 20, sgpa: 8.6 },
+    { id: 3, name: S.semester(3), credits: 21, sgpa: 8.4 },
+  ]);
   const list = el("div", "space-y-3");
   const card = el("div", "rounded-lg border bg-surface p-4 md:p-5");
   card.append(list);
   const add = el(
     "button",
     "mt-4 h-11 rounded-sm border px-3 text-sm font-medium hover:bg-secondary",
-    "Add semester",
+    S.addSemester,
   );
   add.type = "button";
   card.append(add);
@@ -143,6 +167,7 @@ function mountCgpa(root: HTMLElement) {
   side.append(result.box, note);
   wrap.append(card, side);
   const paint = () => {
+    save("cgpa", rows);
     list.replaceChildren();
     let num = 0;
     let den = 0;
@@ -156,6 +181,7 @@ function mountCgpa(root: HTMLElement) {
       name.value = row.name;
       name.addEventListener("input", () => {
         row.name = name.value;
+        save("cgpa", rows);
       });
       const credits = el("input", inputClass) as HTMLInputElement;
       credits.type = "number";
@@ -175,7 +201,7 @@ function mountCgpa(root: HTMLElement) {
         row.sgpa = Number(sgpa.value);
         paint();
       });
-      const remove = el("button", "h-11 text-sm text-muted hover:text-danger", "Remove");
+      const remove = el("button", "h-11 text-sm text-muted hover:text-danger", S.remove);
       remove.type = "button";
       remove.addEventListener("click", () => {
         rows = rows.filter((x) => x.id !== row.id);
@@ -187,13 +213,13 @@ function mountCgpa(root: HTMLElement) {
     const cgpa = den === 0 ? 0 : num / den;
     const pct = (cgpa - 0.75) * 10;
     result.value.textContent = cgpa.toFixed(2);
-    if (result.hint) result.hint.textContent = `${den} credits counted`;
-    note.innerHTML = `Informal percentage conversion (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct.toFixed(1)}%</span>. Unofficial. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">How CGPA is calculated</a>.`;
+    if (result.hint) result.hint.textContent = S.creditsCounted(den);
+    note.innerHTML = S.cgpaNote(pct.toFixed(1));
   };
   add.addEventListener("click", () => {
     rows = [
       ...rows,
-      { id: (rows.at(-1)?.id ?? 0) + 1, name: `Semester ${rows.length + 1}`, credits: 20, sgpa: 8 },
+      { id: (rows.at(-1)?.id ?? 0) + 1, name: S.semester(rows.length + 1), credits: 20, sgpa: 8 },
     ];
     paint();
   });
@@ -205,9 +231,10 @@ function mountMarks(root: HTMLElement) {
   let scheme: "50" | "40" = "50";
   let cie = 42;
   let see = 38;
+  ({ scheme, cie, see } = load("marks", { scheme, cie, see }));
   const card = el("div", "space-y-4 rounded-lg border bg-surface p-4 md:p-5");
   const split = el("div", "flex flex-wrap gap-2");
-  card.append(el("p", "text-sm font-medium", "Scheme split"), split);
+  card.append(el("p", "text-sm font-medium", S.schemeSplit), split);
   const grid = el("div", "grid gap-4 sm:grid-cols-2");
   const cieInput = el("input", inputClass) as HTMLInputElement;
   const seeInput = el("input", inputClass) as HTMLInputElement;
@@ -225,19 +252,19 @@ function mountMarks(root: HTMLElement) {
   seeWrap.append(seeLabel, seeInput);
   grid.append(cieWrap, seeWrap);
   card.append(grid);
-  const result = resultBox("Total / grade", "0 · F", " ");
+  const result = resultBox(S.totalGrade, "0 · F", " ");
   const note = el("p", "text-sm text-muted");
-  note.innerHTML =
-    '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">Grading explained</a>.';
+  note.innerHTML = S.grading;
   const wrap = el("div", "grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]");
   const side = el("div", "space-y-4");
   side.append(result.box, note);
   wrap.append(card, side);
   const paint = () => {
+    save("marks", { scheme, cie, see });
     const cieMax = scheme === "50" ? 50 : 40;
     const seeMax = scheme === "50" ? 50 : 60;
-    cieLabel.textContent = `CIE (max ${cieMax})`;
-    seeLabel.textContent = `SEE (max ${seeMax})`;
+    cieLabel.textContent = S.cie(cieMax);
+    seeLabel.textContent = S.see(seeMax);
     cieInput.max = String(cieMax);
     seeInput.max = String(seeMax);
     cieInput.value = String(cie);
@@ -247,7 +274,7 @@ function mountMarks(root: HTMLElement) {
       const b = el(
         "button",
         `h-11 rounded-sm border px-3 text-sm font-medium ${scheme === s ? "border-primary bg-secondary" : "hover:bg-secondary"}`,
-        s === "50" ? "2022 scheme · 50 + 50" : "2018 scheme · 40 + 60",
+        s === "50" ? S.scheme2022 : S.scheme2018,
       );
       b.type = "button";
       b.addEventListener("click", () => {
@@ -261,7 +288,7 @@ function mountMarks(root: HTMLElement) {
     const pass = total >= 40 && grade.letter !== "F";
     result.value.textContent = `${total} · ${grade.letter}`;
     if (result.hint) {
-      result.hint.textContent = `${grade.label} · ${grade.point} grade points. ${pass ? "At or above the common 40% total." : "Below the common 40% pass total."}`;
+      result.hint.textContent = S.gradeHint(grade.label, grade.point, pass);
     }
   };
   cieInput.addEventListener("input", () => {
@@ -280,11 +307,12 @@ function mountAttendance(root: HTMLElement) {
   let attended = 42;
   let conducted = 56;
   let target = 85;
+  ({ attended, conducted, target } = load("attendance", { attended, conducted, target }));
   const card = el("div", "grid gap-4 rounded-lg border bg-surface p-4 sm:grid-cols-3 md:p-5");
   const fields: Array<[string, string, () => number, (n: number) => void]> = [
-    ["Classes attended", "att", () => attended, (n) => (attended = n)],
-    ["Classes conducted", "con", () => conducted, (n) => (conducted = n)],
-    ["Target %", "tgt", () => target, (n) => (target = n)],
+    [S.attended, "att", () => attended, (n) => (attended = n)],
+    [S.conducted, "con", () => conducted, (n) => (conducted = n)],
+    [S.target, "tgt", () => target, (n) => (target = n)],
   ];
   const inputs: HTMLInputElement[] = [];
   for (const [label, id, read, write] of fields) {
@@ -305,10 +333,11 @@ function mountAttendance(root: HTMLElement) {
     wrap.append(lab, input);
     card.append(wrap);
   }
-  const result = resultBox("Attendance", "0%", " ");
+  const result = resultBox(S.attendance, "0%", " ");
   const wrap = el("div", "grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]");
   wrap.append(card, result.box);
   const paint = () => {
+    save("attendance", { attended, conducted, target });
     const pct = conducted === 0 ? 0 : (attended / conducted) * 100;
     const t = target / 100;
     let need = 0;
@@ -319,8 +348,8 @@ function mountAttendance(root: HTMLElement) {
     if (result.hint) {
       result.hint.textContent =
         pct >= target
-          ? `You can miss about ${canMiss} more class${canMiss === 1 ? "" : "es"} and stay at ${target}%.`
-          : `You still need ${need} consecutive class${need === 1 ? "" : "es"} without absence to reach ${target}%.`;
+          ? S.canMiss(canMiss, target)
+          : S.need(need, target);
     }
   };
   root.replaceChildren(wrap);
@@ -330,6 +359,7 @@ function mountAttendance(root: HTMLElement) {
 function mountPercentage(root: HTMLElement) {
   let obtained = 78;
   let max = 100;
+  ({ obtained, max } = load("percentage", { obtained, max }));
   const card = el("div", "max-w-lg space-y-4 rounded-lg border bg-surface p-4 md:p-5");
   const grid = el("div", "grid gap-4 sm:grid-cols-2");
   const mk = (id: string, label: string, value: number, write: (n: number) => void) => {
@@ -348,12 +378,13 @@ function mountPercentage(root: HTMLElement) {
     return wrap;
   };
   grid.append(
-    mk("obt", "Obtained", obtained, (n) => (obtained = n)),
-    mk("max", "Maximum", max, (n) => (max = n)),
+    mk("obt", S.obtained, obtained, (n) => (obtained = n)),
+    mk("max", S.maximum, max, (n) => (max = n)),
   );
-  const result = resultBox("Percentage", "0%");
+  const result = resultBox(S.percentage, "0%");
   card.append(grid, result.box);
   const paint = () => {
+    save("percentage", { obtained, max });
     const pct = max === 0 ? 0 : (obtained / max) * 100;
     result.value.textContent = `${pct.toFixed(2)}%`;
   };
