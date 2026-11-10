@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import Steps from "@/components/site/Steps.astro";
 import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
@@ -48,7 +49,7 @@ const faqs = [
   title={seoTitle}
   description={seoDesc}
   path={path}
-  keywords={`${subject.code}, VTU ${branch.shortName}, ${semesterName(n)}, ${subject.scheme} scheme`}
+  keywords={`${subject.code}, ${subject.code} notes, ${subject.name} VTU notes, ${subject.code} previous year question papers, ${subject.code} PYQ, ${subject.code} important questions, ${subject.code} syllabus, VTU ${branch.shortName} ${semesterName(n)} notes, VTU ${subject.scheme} scheme`}
   crumbs={[
     { label: "VTU", href: "/vtu" },
     { label: branch.shortName, href: `/vtu/${branch.slug}` },
@@ -76,6 +77,7 @@ const faqs = [
     { label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` },
     { label: subject.shortName },
   ]} />
+  <Steps current={3} branch={{ label: branch.shortName, href: `/vtu/${branch.slug}` }} semester={{ label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` }} />
   <PageHeader
     kicker={`${subject.code} · ${branch.shortName} · ${semesterName(n)} · Karnataka`}
     title={subject.name}
@@ -96,6 +98,26 @@ const faqs = [
       </li>
     ))}
   </ul>
+  <section class="mt-6 rounded-xl border bg-secondary/60 p-5" aria-labelledby="pyq">
+    <h2 id="pyq" class="text-lg font-semibold">{subject.code} previous year questions (PYQ)</h2>
+    <p class="mt-1 text-sm text-muted">
+      Practise with questions in the VTU SEE pattern for {subject.name}, then check the official {subject.code} papers published by VTU.
+    </p>
+    <div class="mt-4 flex flex-wrap gap-2">
+      {counts["question-papers"] > 0 ? (
+        <a class="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary-hover" href={`${path}/question-papers`}>Practice in exam pattern</a>
+      ) : null}
+      {counts["important-questions"] > 0 ? (
+        <a class="inline-flex h-11 items-center rounded-lg border bg-surface px-4 text-sm font-semibold hover:border-primary hover:text-primary" href={`${path}/important-questions`}>Important questions</a>
+      ) : null}
+      <a
+        class="inline-flex h-11 items-center gap-1 rounded-lg border bg-surface px-4 text-sm font-semibold hover:border-primary hover:text-primary"
+        href={`https://www.google.com/search?q=${encodeURIComponent(`site:vtu.ac.in ${subject.code} question paper`)}`}
+        rel="nofollow noopener"
+        target="_blank"
+      >Official VTU papers <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
   <Notice class="mt-6">Guides on this page are original VTUHub writing. We do not host university question-paper PDFs or scanned faculty notes. Confirm module titles against the official scheme PDF on vtu.ac.in.</Notice>
   {subject.units.length > 0 && subject.kind === "theory" ? (
     <section class="mt-10">

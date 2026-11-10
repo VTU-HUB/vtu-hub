@@ -4,7 +4,8 @@
 
 @theme {
   --font-sans:
-    "Segoe UI", ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    "Segoe UI", ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial,
+    "Nirmala UI", "Noto Sans Kannada", "Noto Sans Devanagari", "Tunga", "Mangal", sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --color-background: var(--vt-background);
@@ -35,9 +36,9 @@
   --vt-surface: #ffffff;
   --vt-border: #e5e7eb;
   --vt-foreground: #111827;
-  --vt-muted: #64748b;
-  --vt-faint: #94a3b8;
-  --vt-primary: #2563eb;
+  --vt-muted: #475569;
+  --vt-faint: #526277;
+  --vt-primary: #1d4ed8;
   --vt-primary-hover: #1d4ed8;
   --vt-primary-foreground: #ffffff;
   --vt-success: #16a34a;
@@ -111,6 +112,13 @@
     text-wrap: pretty;
   }
 
+  /* Inline links need more than color, or they fail the contrast check against surrounding text. */
+  p a,
+  dd a {
+    text-decoration-line: underline;
+    text-underline-offset: 0.18em;
+  }
+
   :focus-visible {
     outline: 2px solid var(--vt-primary);
     outline-offset: 2px;
@@ -147,7 +155,7 @@
   }
   @media (min-width: 768px) {
     .file-row {
-      grid-template-columns: minmax(0, 1fr) 72px 88px 108px;
+      grid-template-columns: minmax(0, 1fr) 72px 96px 190px;
       padding: 10px 0;
     }
   }
@@ -171,6 +179,14 @@
     padding: 12px 14px;
   }
 
+  /* Hero intro keeps the speakable .aio-answer hook without the boxed look. */
+  .aio-answer.aio-plain {
+    border-left: 0;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
   .nav-details > summary {
     list-style: none;
   }
@@ -190,4 +206,48 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Notes "Download PDF" uses the browser's Save as PDF: print only the guide itself. */
+@media print {
+  header,
+  footer,
+  .no-print,
+  .skip-link,
+  nav[aria-label="Breadcrumb"],
+  nav[aria-label="Your progress"],
+  .ad-slot {
+    display: none !important;
+  }
+  :root,
+  .dark {
+    --vt-background: #ffffff;
+    --vt-surface: #ffffff;
+    --vt-secondary: #ffffff;
+    --vt-foreground: #000000;
+    --vt-muted: #1f2937;
+    --vt-faint: #4b5563;
+    --vt-border: #d1d5db;
+    color-scheme: light;
+  }
+  body {
+    font-size: 12pt;
+  }
+  main {
+    padding: 0 !important;
+  }
+  article p,
+  article li {
+    break-inside: avoid;
+  }
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+.print-only {
+  display: none;
 }

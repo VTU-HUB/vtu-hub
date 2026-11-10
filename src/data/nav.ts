@@ -1,22 +1,9 @@
 export const mainNav = [
-  { label: "Browse", href: "/vtu" },
-  { label: "Resources", href: "/resources" },
-  { label: "Tools", href: "/tools" },
-  { label: "Updates", href: "/updates" },
-  { label: "Articles", href: "/articles" },
-] as const;
-
-export const footerResources = [
-  { label: "Semesters", href: "/semesters" },
-  { label: "Notes", href: "/resources/notes" },
-  { label: "Practice questions", href: "/resources/question-papers" },
-  { label: "Syllabus", href: "/resources/syllabus" },
-  { label: "Lab guides", href: "/resources/lab-manuals" },
-  { label: "Important Questions", href: "/resources/important-questions" },
-  { label: "Study Materials", href: "/resources/study-materials" },
-  { label: "Schemes", href: "/schemes" },
-  { label: "VTU Updates", href: "/updates" },
-  { label: "Tools", href: "/tools" },
+  { label: "Notes", href: "/vtu", hint: "Pick your branch" },
+  { label: "Semesters", href: "/semesters", hint: "1st to 8th sem" },
+  { label: "Calculators", href: "/tools", hint: "SGPA, CGPA, attendance" },
+  { label: "Exam updates", href: "/updates", hint: "Timetable, results" },
+  { label: "Guides", href: "/articles", hint: "How-to articles" },
 ] as const;
 
 export const footerInfo = [

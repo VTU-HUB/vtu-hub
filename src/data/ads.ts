@@ -1,11 +1,11 @@
 /**
- * Ad slots render on every page. Paste a Google AdSense publisher id
- * (`ca-pub-…`) into `clientId` to load the network. Until then the slots stay
- * labeled placeholders and no third-party script is fetched.
+ * Paste a Google AdSense publisher id (`ca-pub-…`) into `clientId` to turn ads on.
+ * Until then no ad slots render (set `showPlaceholders` to preview their positions)
+ * and no third-party script is fetched.
  */
 export const adsConfig = {
   enabled: true,
-  showPlaceholders: true,
+  showPlaceholders: false,
   clientId: "",
 };
 

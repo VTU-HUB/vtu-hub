@@ -1,0 +1,77 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import Steps from "@/components/site/Steps.astro";
+import { branches, getBranch, SEMESTER_ORD } from "@/data/branches";
+import { countSubjects, flagshipSubjects, subjectPath } from "@/data/subjects";
+import { branchText, SEM_ORD, semName } from "@/i18n/content";
+import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
+import { clampDesc } from "@/lib/seo-doc";
+
+export function getStaticPaths() {
+  return TRANSLATED_LANGS.flatMap((lang) => branches.map((b) => ({ params: { lang, branch: b.slug } })));
+}
+const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
+const branch = getBranch(Astro.params.branch!)!;
+const bt = branchText(lang, branch.slug, branch);
+const d = t(lang);
+const br = branch.shortName;
+const title =
+  lang === "kn" ? `VTU ${br} ನೋಟ್ಸ್, ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು` : `VTU ${br} नोट्स, सिलेबस और महत्वपूर्ण प्रश्न`;
+const keywords =
+  lang === "kn"
+    ? `VTU ${br} ನೋಟ್ಸ್, ${bt.name}, VTU ${br} ಪಠ್ಯಕ್ರಮ, VTU ${br} 2022 ಸ್ಕೀಮ್`
+    : `VTU ${br} नोट्स, ${bt.name}, VTU ${br} सिलेबस, VTU ${br} 2022 स्कीम`;
+const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
+const path = localePath(lang, `/vtu/${branch.slug}`);
+---
+
+<Base
+  title={title}
+  description={clampDesc(`${bt.name} (${br}): ${bt.about}`)}
+  keywords={keywords}
+  path={path}
+  crumbs={[{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }, { label: br, href: path }]}
+  lang={lang}
+>
+  <Crumbs items={[{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }, { label: br }]} lang={lang} />
+  <Steps current={2} lang={lang} branch={{ label: br, href: path }} />
+  <PageHeader kicker={`${branch.code} · 2022`} title={`VTU ${bt.name} (${br})`} answer={bt.about} lang={lang} />
+  <section>
+    <h2 class="mb-4 text-lg font-semibold">{d.browse.chooseSemester}</h2>
+    <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      {SEMESTER_ORD.map((ord, i) => {
+        const n = i + 1;
+        return (
+          <li>
+            <a class="flex h-full flex-col rounded-xl border bg-surface p-4 hover:border-primary" href={localePath(lang, `/vtu/${branch.slug}/${ord}-semester`)}>
+              <span class="text-xs font-medium text-muted">{d.browse.semester}</span>
+              <span class="mt-1 text-xl font-semibold">{SEM_ORD[lang][i]}</span>
+              <span class="mt-2 text-xs text-faint">{d.landing.subjects(countSubjects(branch.slug, n))}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+  {featured.length > 0 ? (
+    <section class="mt-12">
+      <h2 class="mb-1 text-lg font-semibold">{d.landing.popularSubjects}</h2>
+      <p class="mb-4 text-sm text-muted">{d.browse.englishNote}</p>
+      <ul class="divide-y border-t">
+        {featured.map((s) => (
+          <li>
+            <a class="flex items-center gap-4 py-3.5 hover:bg-secondary/60" href={subjectPath(s)} hreflang="en">
+              <span class="w-24 shrink-0 font-mono text-xs text-muted">{s.code}</span>
+              <span class="min-w-0 flex-1">
+                <span class="block font-medium">{s.name}</span>
+                <span class="block text-xs text-faint">{semName(lang, s.semester)}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ) : null}
+</Base>

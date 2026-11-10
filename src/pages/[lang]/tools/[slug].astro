@@ -1,0 +1,70 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { GRADE_SCALE, tools } from "@/data/tools";
+import { toolText } from "@/i18n/content";
+import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
+import { absUrl, SITE_URL } from "@/lib/site";
+import { clampDesc } from "@/lib/seo-doc";
+
+export function getStaticPaths() {
+  return TRANSLATED_LANGS.flatMap((lang) => tools.map((tool) => ({ params: { lang, slug: tool.slug } })));
+}
+const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
+const tool = tools.find((x) => x.slug === Astro.params.slug)!;
+const tt = toolText(lang, tool.slug, { name: tool.name, description: tool.description, answer: "" });
+const d = t(lang);
+const path = localePath(lang, tool.href);
+const toolsHref = localePath(lang, "/tools");
+const howQ = lang === "kn" ? `VTU ${tt.name} ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?` : `VTU ${tt.name} कैसे काम करता है?`;
+---
+
+<Base
+  title={`VTU ${tt.name} (2022)`}
+  description={clampDesc(`${tt.description} ${tt.answer}`)}
+  keywords={`VTU ${tool.name}, VTU ${tt.name}, ${tool.slug.toUpperCase()} VTU 2022`}
+  path={path}
+  crumbs={[{ label: d.nav.calculators[0], href: toolsHref }, { label: tt.name, href: path }]}
+  faqs={[{ q: howQ, a: tt.answer }]}
+  lang={lang}
+  extraJsonLd={[{
+    "@type": "SoftwareApplication",
+    name: tt.name,
+    description: tt.description,
+    inLanguage: lang === "kn" ? "kn-IN" : "hi-IN",
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+    url: absUrl(path),
+    provider: { "@id": `${SITE_URL}/#organization` },
+  }]}
+>
+  <Crumbs items={[{ label: d.nav.calculators[0], href: toolsHref }, { label: tt.name }]} lang={lang} />
+  <PageHeader title={tt.name} answer={tt.answer} description={tt.description} lang={lang} />
+  <div data-calc={tool.slug} class="min-h-40">
+    <p class="text-sm text-muted">{d.tools.loading}</p>
+  </div>
+  {tool.slug === "sgpa" || tool.slug === "marks" ? (
+    <table class="mt-8 w-full max-w-xl border-collapse text-sm">
+      <caption class="mb-2 text-left text-xs font-medium uppercase tracking-wider text-faint">{d.tools.scale}</caption>
+      <thead><tr class="border-b text-left text-xs uppercase tracking-wider text-faint"><th class="py-2">{d.tools.grade}</th><th>{d.tools.meaning}</th><th>{d.tools.from}</th><th>{d.tools.points}</th></tr></thead>
+      <tbody>
+        {GRADE_SCALE.map((g) => (
+          <tr class="border-b"><td class="py-2 font-medium">{g.letter}</td><td class="text-muted">{g.label}</td><td class="text-muted">{g.min}</td><td class="text-muted">{g.point}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  ) : null}
+  <aside class="mt-10 rounded-md border bg-secondary px-4 py-3 text-sm text-muted">{d.tools.privacy}</aside>
+  <h2 class="mt-8 text-sm font-semibold text-muted">{d.tools.others}</h2>
+  <ul class="mt-2 flex flex-wrap gap-3 text-sm">
+    {tools.filter((x) => x.slug !== tool.slug).map((x) => (
+      <li><a class="text-primary hover:underline" href={localePath(lang, x.href)}>{toolText(lang, x.slug, { name: x.name, description: "", answer: "" }).name}</a></li>
+    ))}
+  </ul>
+  <script>
+    import { mountCalculators } from "@/scripts/calculators.ts";
+    mountCalculators();
+  </script>
+</Base>

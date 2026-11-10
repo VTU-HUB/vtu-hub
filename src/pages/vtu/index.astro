@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import Steps from "@/components/site/Steps.astro";
 import Browse from "@/components/site/Browse.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
@@ -13,6 +14,7 @@ import { schemes } from "@/data/branches";
   crumbs={[{ label: "VTU", href: "/vtu" }]}
 >
   <Crumbs items={[{ label: "VTU" }]} />
+  <Steps current={1} />
   <PageHeader
     title="Browse VTU resources"
     answer="Open a semester to see every VTU branch in Karnataka, or pick CSE, ISE, ECE, EEE, Mechanical or Civil for that programme’s subject codes. Nothing on this page defaults to Computer Science."

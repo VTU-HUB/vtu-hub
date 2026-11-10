@@ -1,0 +1,84 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import Steps from "@/components/site/Steps.astro";
+import { branches, getBranch, parseSemesterSlug, semesterSlug } from "@/data/branches";
+import { getSubjectsBySemester, subjectPath } from "@/data/subjects";
+import { branchText, semName } from "@/i18n/content";
+import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
+import { clampDesc } from "@/lib/seo-doc";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const lang of TRANSLATED_LANGS)
+    for (const b of branches)
+      for (let n = 1; n <= 8; n++)
+        if (getSubjectsBySemester(b.slug, n).length) paths.push({ params: { lang, branch: b.slug, semester: semesterSlug(n) } });
+  return paths;
+}
+const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
+const branch = getBranch(Astro.params.branch!)!;
+const n = parseSemesterSlug(Astro.params.semester!)!;
+const bt = branchText(lang, branch.slug, branch);
+const d = t(lang);
+const br = branch.shortName;
+const sem = semName(lang, n);
+const subjects = getSubjectsBySemester(branch.slug, n);
+const branchHref = localePath(lang, `/vtu/${branch.slug}`);
+const path = localePath(lang, `/vtu/${branch.slug}/${Astro.params.semester}`);
+const codes = subjects.map((s) => `${s.code} ${s.shortName}`).join(", ");
+const title = lang === "kn" ? `VTU ${br} ${sem} ನೋಟ್ಸ್ ಮತ್ತು ವಿಷಯಗಳು` : `VTU ${br} ${sem} नोट्स और विषय`;
+const description = clampDesc(
+  lang === "kn"
+    ? `VTU ${br} ${sem} (2022 ಸ್ಕೀಮ್) ವಿಷಯಗಳು: ${codes}. ಉಚಿತ ಘಟಕವಾರು ನೋಟ್ಸ್ ಮತ್ತು ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು.`
+    : `VTU ${br} ${sem} (2022 स्कीम) के विषय: ${codes}। मुफ़्त यूनिट-वार नोट्स और महत्वपूर्ण प्रश्न।`,
+);
+const keywords =
+  lang === "kn"
+    ? `VTU ${br} ${n} ಸೆಮಿಸ್ಟರ್ ನೋಟ್ಸ್, VTU ${br} ${sem}, ${subjects.map((s) => s.code).join(", ")}`
+    : `VTU ${br} ${n} सेमेस्टर नोट्स, VTU ${br} ${sem}, ${subjects.map((s) => s.code).join(", ")}`;
+---
+
+<Base
+  title={title}
+  description={description}
+  keywords={keywords}
+  path={path}
+  crumbs={[
+    { label: d.nav.notes[0], href: localePath(lang, "/vtu") },
+    { label: br, href: branchHref },
+    { label: sem, href: path },
+  ]}
+  lang={lang}
+>
+  <Crumbs items={[{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }, { label: br, href: branchHref }, { label: sem }]} lang={lang} />
+  <Steps current={3} lang={lang} branch={{ label: br, href: branchHref }} semester={{ label: sem, href: path }} />
+  <PageHeader kicker={`${br} · ${bt.name}`} title={`VTU ${br} ${sem}`} answer={d.browse.viewing(br)} lang={lang} />
+  <section>
+    <h2 class="mb-1 text-lg font-semibold">{d.browse.chooseSubject}</h2>
+    <p class="mb-4 text-sm text-muted">{d.browse.subjectsIn(subjects.length, sem)} · {d.browse.englishNote}</p>
+    <ul class="divide-y border-t">
+      {subjects.map((s) => (
+        <li>
+          <a class="flex items-center gap-4 py-3.5 hover:bg-secondary/60" href={subjectPath(s)} hreflang="en">
+            <span class="w-24 shrink-0 font-mono text-xs text-muted">{s.code}</span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-medium">{s.name}</span>
+              <span class="block text-xs text-faint">{d.browse.credits(s.credits)} · {s.kind === "lab" ? d.browse.lab : d.browse.theory}{s.hasLab ? ` · ${d.browse.hasLab}` : ""}</span>
+            </span>
+            <span class="text-faint" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section class="mt-10">
+    <h2 class="mb-3 text-sm font-semibold text-muted">{d.browse.otherBranches}</h2>
+    <ul class="flex flex-wrap gap-2">
+      {branches.filter((b) => b.slug !== branch.slug).map((b) => (
+        <li><a class="inline-flex h-11 items-center rounded-md border bg-surface px-3 text-sm font-medium hover:border-primary" href={localePath(lang, `/vtu/${b.slug}/${Astro.params.semester}`)}>{b.shortName}</a></li>
+      ))}
+    </ul>
+  </section>
+</Base>

@@ -1,15 +1,34 @@
 ---
-import { mainNav } from "@/data/nav";
+import { hasTranslation, LANG_META, localePath, t, type Lang } from "@/i18n/ui";
+
+export type LangLink = { lang: Lang; href: string; external: boolean };
+interface Props {
+  lang?: Lang;
+  langLinks?: LangLink[];
+}
+const { lang = "en", langLinks = [] } = Astro.props;
+const d = t(lang);
+
+/** Link to the translated page when one exists, else the English page. */
+const loc = (path: string) => (hasTranslation(path) ? localePath(lang, path) : path);
+const nav = [
+  { key: "notes", href: "/vtu" },
+  { key: "semesters", href: "/semesters" },
+  { key: "calculators", href: "/tools" },
+  { key: "updates", href: "/updates" },
+  { key: "guides", href: "/articles" },
+] as const;
+const items = nav.map((n) => ({ href: loc(n.href), label: d.nav[n.key][0], hint: d.nav[n.key][1] }));
 
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 function active(href: string) {
-  return path === href || (href !== "/" && path.startsWith(`${href}/`));
+  return path === href || (href !== "/" && href !== `/${lang}` && path.startsWith(`${href}/`));
 }
 ---
 
 <header class="sticky top-0 z-50 border-b bg-background">
-  <div class="mx-auto flex h-16 w-full max-w-[1200px] items-center gap-3 px-4 sm:px-5 md:px-6 lg:px-8">
-    <a href="/" class="flex items-center gap-2.5 text-foreground no-underline" aria-label="VTUHub home">
+  <div class="mx-auto flex h-16 w-full max-w-[1200px] items-center gap-2 px-4 sm:px-5 md:px-6 lg:px-8">
+    <a href={localePath(lang, "/")} class="flex items-center gap-2.5 text-foreground no-underline" aria-label="VTUHub home">
       <span class="relative grid size-8 place-items-center rounded-md bg-primary" aria-hidden="true">
         <span class="absolute left-1.5 top-1.5 h-4 w-3 rounded-[2px] bg-primary-foreground/50"></span>
         <span class="absolute left-2.5 top-2.5 h-4 w-3 rounded-[2px] bg-primary-foreground"></span>
@@ -17,7 +36,7 @@ function active(href: string) {
       <span class="font-semibold tracking-tight">VTU<span class="text-primary">Hub</span></span>
     </a>
     <nav aria-label="Primary" class="ml-4 hidden items-center gap-0.5 lg:flex">
-      {mainNav.map((item) => (
+      {items.map((item) => (
         <a
           href={item.href}
           class:list={[
@@ -29,18 +48,45 @@ function active(href: string) {
       ))}
     </nav>
     <form action="/search" method="get" role="search" class="ml-auto hidden md:block">
-      <label class="sr-only" for="header-q">Search VTUHub</label>
+      <label class="sr-only" for="header-q">{d.searchLabel}</label>
       <input
         id="header-q"
         name="q"
         type="search"
-        placeholder="Subject, code, tool"
-        class="h-10 w-56 rounded-sm border bg-surface px-3 text-sm"
+        placeholder={d.searchPlaceholder}
+        class="h-10 w-48 rounded-sm border bg-surface px-3 text-sm xl:w-56"
       />
     </form>
     <div class="ml-auto flex items-center gap-1 md:ml-1">
-      <a href="/search" class="inline-flex size-11 items-center justify-center rounded-sm hover:bg-secondary md:hidden" aria-label="Search">Search</a>
-      <button type="button" id="theme-toggle" class="inline-flex size-11 items-center justify-center rounded-sm text-muted hover:bg-secondary hover:text-foreground" aria-label="Toggle color theme">
+      <a href="/search" class="inline-flex size-11 items-center justify-center rounded-sm text-muted hover:bg-secondary hover:text-foreground md:hidden" aria-label={d.search}>
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      </a>
+      {langLinks.length > 0 ? (
+        <details class="nav-details lang-details relative">
+          <summary class="inline-flex h-11 cursor-pointer items-center gap-1.5 rounded-sm px-2.5 text-sm font-medium text-muted hover:bg-secondary hover:text-foreground" aria-label={d.language}>
+            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>{LANG_META[lang].short}</span>
+          </summary>
+          <ul class="absolute right-0 z-50 mt-2 w-56 rounded-xl border bg-background p-1.5 shadow-lg" aria-label={d.language}>
+            {langLinks.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  hreflang={LANG_META[l.lang].hreflang}
+                  lang={LANG_META[l.lang].htmlLang}
+                  rel={l.external ? "nofollow noopener" : undefined}
+                  aria-current={l.lang === lang ? "page" : undefined}
+                  class:list={["flex min-h-11 flex-col justify-center rounded-md px-3 hover:bg-secondary", l.lang === lang && "bg-secondary font-semibold"]}
+                >
+                  <span>{LANG_META[l.lang].label}</span>
+                  {l.external ? <span class="text-xs text-muted">{d.autoTranslated}</span> : null}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      ) : null}
+      <button type="button" id="theme-toggle" class="inline-flex size-11 items-center justify-center rounded-sm text-muted hover:bg-secondary hover:text-foreground" aria-label={d.toggleTheme}>
         <svg class="theme-icon theme-icon-moon size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
@@ -50,16 +96,19 @@ function active(href: string) {
         </svg>
       </button>
       <details class="nav-details relative lg:hidden">
-        <summary class="inline-flex h-11 cursor-pointer items-center rounded-sm px-3 text-sm font-medium hover:bg-secondary">Menu</summary>
-        <nav class="absolute right-0 z-50 mt-2 w-64 rounded-lg border bg-background p-2 shadow-sm" aria-label="Mobile">
-          <a class="flex h-11 items-center border-b px-2 font-medium" href="/">Home</a>
-          {mainNav.map((item) => (
-            <a class="flex h-11 items-center border-b px-2 font-medium" href={item.href}>{item.label}</a>
+        <summary class="inline-flex h-11 cursor-pointer items-center rounded-sm px-3 text-sm font-medium hover:bg-secondary">{d.menu}</summary>
+        <nav class="absolute right-0 z-50 mt-2 w-72 rounded-xl border bg-background p-2 shadow-lg" aria-label="Mobile">
+          <a class="flex min-h-11 items-center rounded-md px-3 font-medium hover:bg-secondary" href={localePath(lang, "/")}>{d.home}</a>
+          {items.map((item) => (
+            <a class="flex min-h-14 flex-col justify-center rounded-md px-3 hover:bg-secondary" href={item.href}>
+              <span class="font-medium">{item.label}</span>
+              <span class="text-xs text-muted">{item.hint}</span>
+            </a>
           ))}
-          <a class="flex h-11 items-center border-b px-2 font-medium" href="/search">Search</a>
-          <a class="flex h-11 items-center border-b px-2 font-medium" href="/faq">FAQ</a>
-          <a class="flex h-11 items-center border-b px-2 font-medium" href="/schemes">Schemes</a>
-          <a class="flex h-11 items-center px-2 font-medium text-muted" href="/about">About</a>
+          <div class="mt-1 flex gap-1 border-t pt-2">
+            <a class="flex h-10 flex-1 items-center justify-center rounded-md text-sm text-muted hover:bg-secondary" href={loc("/faq")}>{d.footer.links.faq}</a>
+            <a class="flex h-10 flex-1 items-center justify-center rounded-md text-sm text-muted hover:bg-secondary" href="/about">{d.footer.links.aboutUs}</a>
+          </div>
         </nav>
       </details>
     </div>

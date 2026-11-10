@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import Steps from "@/components/site/Steps.astro";
 import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Browse from "@/components/site/Browse.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
@@ -36,6 +37,7 @@ const seoDesc = clampDesc(
 <Base
   title={seoTitle}
   description={seoDesc}
+  keywords={`VTU ${branch.shortName} ${semesterName(n)} notes, VTU ${branch.shortName} ${n} sem subjects, VTU ${branch.shortName} ${n} sem syllabus, ${subjects.map((s) => s.code).join(", ")}`}
   path={`/vtu/${branch.slug}/${Astro.params.semester}`}
   crumbs={[
     { label: "VTU", href: "/vtu" },
@@ -49,13 +51,14 @@ const seoDesc = clampDesc(
     { label: branch.shortName, href: `/vtu/${branch.slug}` },
     { label: semesterName(n) },
   ]} />
+  <Steps current={3} branch={{ label: branch.shortName, href: `/vtu/${branch.slug}` }} semester={{ label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` }} />
   <PageHeader kicker={`${branch.shortName} · ${branch.code}`} title={`VTU ${branch.shortName} ${semesterName(n)}`} answer={about} />
   <Notice class="mb-6">
     You are viewing <strong class="text-foreground">{branch.shortName}</strong> for this semester. Other programmes have different subject codes. <a class="text-primary hover:underline" href={semesterPath(n)}>See all branches in {semesterName(n)}</a>.
   </Notice>
   <Browse kind="switcher" semester={n} current={branch.slug} />
   <section class="mt-8">
-    <h2 class="mb-2 text-lg font-semibold">Subjects</h2>
+    <h2 class="mb-2 text-lg font-semibold">Choose your subject</h2>
     <p class="mb-4 text-sm text-muted">{subjects.length} papers on the {branch.shortName} {semesterName(n)} card.</p>
     <Browse kind="subjects" subjects={subjects} />
   </section>

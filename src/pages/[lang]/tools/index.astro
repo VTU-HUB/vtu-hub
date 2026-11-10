@@ -1,0 +1,40 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { tools } from "@/data/tools";
+import { toolText } from "@/i18n/content";
+import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
+
+export function getStaticPaths() {
+  return TRANSLATED_LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params as { lang: (typeof TRANSLATED_LANGS)[number] };
+const d = t(lang);
+const path = localePath(lang, "/tools");
+const title = lang === "kn" ? "VTU SGPA, CGPA ಮತ್ತು ಶೇಕಡಾ ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ಗಳು" : "VTU SGPA, CGPA और प्रतिशत कैलकुलेटर";
+const keywords =
+  lang === "kn"
+    ? "VTU SGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್, VTU CGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್, VTU ಹಾಜರಾತಿ, CGPA ಇಂದ ಶೇಕಡಾ"
+    : "VTU SGPA कैलकुलेटर, VTU CGPA कैलकुलेटर, VTU उपस्थिति, CGPA से प्रतिशत";
+---
+
+<Base title={title} description={d.tools.intro} keywords={keywords} path={path} crumbs={[{ label: d.nav.calculators[0], href: path }]} lang={lang}>
+  <Crumbs items={[{ label: d.nav.calculators[0] }]} lang={lang} />
+  <PageHeader title={d.tools.title} answer={d.tools.intro} lang={lang} />
+  <ul class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+    {tools.map((tool) => {
+      const tt = toolText(lang, tool.slug, { name: tool.name, description: tool.description, answer: "" });
+      return (
+        <li>
+          <a href={localePath(lang, tool.href)} class="group flex h-full flex-col rounded-xl border bg-surface p-5 hover:border-primary hover:shadow-sm">
+            <span class="font-semibold group-hover:text-primary">{tt.name}</span>
+            <span class="mt-2 flex-1 text-sm text-muted">{tt.description}</span>
+            <span class="mt-4 text-sm font-semibold text-primary">{d.landing.openCalc} →</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+  <aside class="mt-10 rounded-md border bg-secondary px-4 py-3 text-sm text-muted">{d.tools.privacy}</aside>
+</Base>
