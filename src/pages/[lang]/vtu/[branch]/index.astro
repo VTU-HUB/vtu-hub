@@ -7,7 +7,7 @@ import { branches, getBranch, SEMESTER_ORD } from "@/data/branches";
 import { countSubjects, flagshipSubjects, subjectPath } from "@/data/subjects";
 import { branchText, SEM_ORD, semName } from "@/i18n/content";
 import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
-import { clampDesc } from "@/lib/seo-doc";
+import { clampDesc, fitTitle } from "@/lib/seo-doc";
 
 export function getStaticPaths() {
   return TRANSLATED_LANGS.flatMap((lang) => branches.map((b) => ({ params: { lang, branch: b.slug } })));
@@ -17,15 +17,24 @@ const branch = getBranch(Astro.params.branch!)!;
 const bt = branchText(lang, branch.slug, branch);
 const d = t(lang);
 const br = branch.shortName;
-const title =
-  lang === "kn" ? `VTU ${br} ನೋಟ್ಸ್, ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು` : `VTU ${br} नोट्स, सिलेबस और महत्वपूर्ण प्रश्न`;
+const title = fitTitle(
+  lang === "kn" ? `VTU ${br} ನೋಟ್ಸ್, ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಪ್ರಮುಖ ಪ್ರಶ್ನೆಗಳು` : `VTU ${br} नोट्स, सिलेबस और महत्वपूर्ण प्रश्न`,
+  lang === "kn" ? `VTU ${br} ನೋಟ್ಸ್ ಮತ್ತು ಪಠ್ಯಕ್ರಮ` : `VTU ${br} नोट्स और सिलेबस`,
+  lang === "kn" ? `VTU ${br} ಪಠ್ಯಕ್ರಮ` : `VTU ${br} सिलेबस`,
+);
+// Each language gets its own description (new programmes have English-only text, which
+// otherwise made the /kn and /hi pages identical).
+const descLead =
+  lang === "kn"
+    ? `VTU ${br} 2022 ಸ್ಕೀಮ್ — ಸೆಮಿಸ್ಟರ್‌ವಾರು ವಿಷಯ ಕೋಡ್, ಕ್ರೆಡಿಟ್ ಮತ್ತು ಅಧಿಕೃತ ಪಠ್ಯಕ್ರಮ.`
+    : `VTU ${br} 2022 स्कीम — सेमेस्टर-वार विषय कोड, क्रेडिट और आधिकारिक सिलेबस।`;
 const featured = flagshipSubjects().filter((s) => s.branch === branch.slug);
 const path = localePath(lang, `/vtu/${branch.slug}`);
 ---
 
 <Base
   title={title}
-  description={clampDesc(`${bt.name} (${br}): ${bt.about}`)}
+  description={clampDesc(`${descLead} ${bt.name}: ${bt.about}`)}
   path={path}
   crumbs={[{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }, { label: br, href: path }]}
   lang={lang}

@@ -9,17 +9,39 @@
 import { branches, semesterName } from "@/data/branches";
 import { legacySubjects } from "@/data/legacy-subjects";
 import type { BranchSlug, Subject, SubjectKind } from "@/data/types";
+import { isPedagogyOutcome } from "@/lib/outcomes.mjs";
 import courseData from "@/data/vtu/courses.json";
 import syllabusData from "@/data/vtu/syllabus.json";
 
 type Syllabus = {
   source: string;
+  sources?: string[];
   modules: { number: number; title: string; topics: string }[];
   outcomes: string[];
   textbooks: string[];
   references: string[];
   links: string[];
 };
+
+function pdfBase(url: string) {
+  try {
+    return decodeURIComponent(new URL(url).pathname.split("/").pop() ?? "");
+  } catch {
+    return "";
+  }
+}
+
+/** Programme PDF when this code is in it. Otherwise name the PDF the text actually came from. */
+function syllabusLinks(code: string, semester: number, programSyllabi: string[], syl: Syllabus | undefined): { syllabusUrl?: string; moduleSourceUrl?: string } {
+  if (!syl) return {};
+  const sources = syl.sources?.length ? syl.sources : syl.source ? [syl.source] : [];
+  const own = programSyllabi.filter((u) => sources.includes(u));
+  const bySemester = own.find((u) => pdfBase(u).startsWith(String(semester)));
+  const perCourse = sources.find((u) => pdfBase(u).toUpperCase().startsWith(code.toUpperCase()));
+  const syllabusUrl = bySemester ?? own[0] ?? perCourse;
+  if (syllabusUrl) return { syllabusUrl };
+  return syl.source ? { moduleSourceUrl: syl.source } : {};
+}
 const syllabi = (syllabusData as { courses: Record<string, Syllabus> }).courses;
 
 type Course = {
@@ -120,6 +142,7 @@ function build(): Subject[] {
     name: string;
     stream: string | null;
     sources: { url: string }[];
+    syllabi?: string[];
     courses: Course[];
   }[];
   const streams = courseData.streams as Record<string, { sources: { url: string }[]; courses: Course[] }>;
@@ -144,6 +167,7 @@ function build(): Subject[] {
       // Modules from VTU's official syllabus win; a hand-written outline is the fallback.
       const syl = syllabi[c.code];
       const officialUnits = syl && syl.modules.length >= 3 ? syl.modules : null;
+      const links = syllabusLinks(c.code, c.semester, p.syllabi ?? [], syl);
       const hasOutline = Boolean(officialUnits) || Boolean(legacy && legacy.units[0]?.title !== GENERIC_UNIT);
       out.push({
         branch: p.slug as BranchSlug,
@@ -158,10 +182,11 @@ function build(): Subject[] {
         hasLab: kind === "lab" || c.type === "IPCC",
         flagship: Boolean(legacy?.flagship) && !c.elective,
         description: describe(c, branch.name) + (officialUnits ? ` Its ${officialUnits.length} modules cover ${officialUnits.map((u) => u.title).slice(0, 3).join(", ")}${officialUnits.length > 3 ? " and more" : ""}.` : ""),
-        outcomes: syl?.outcomes ?? [],
+        outcomes: (syl?.outcomes ?? []).filter((o) => !isPedagogyOutcome(o)),
         units: officialUnits ?? (hasOutline ? legacy!.units : []),
         hasUnitOutline: hasOutline,
-        syllabusUrl: syl?.source,
+        syllabusUrl: links.syllabusUrl,
+        moduleSourceUrl: links.moduleSourceUrl,
         textbooks: syl?.textbooks ?? [],
         references: syl?.references ?? [],
         links: syl?.links ?? [],

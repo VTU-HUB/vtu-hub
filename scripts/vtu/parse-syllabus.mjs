@@ -1,5 +1,6 @@
 // Parses a VTU 2022-scheme syllabus PDF (one or many courses) into, per course code:
 // five module topic summaries and the course outcomes, exactly as VTU prints them.
+import { isPedagogyOutcome } from "../../src/lib/outcomes.mjs";
 import { pdfRows } from "./pdf-rows.mjs";
 
 const CODE_LINE = /Course\s*Code\s*:?\s*(B[A-Z]{2,5}\d{3}[A-Z]?)\b/i;
@@ -68,7 +69,8 @@ function bookEntries(lines) {
     .slice(0, 5);
 }
 
-function summarise(text, max = 420) {
+/** Keep the module as VTU printed it. Ellipsis only past a safety cap, not at 420 characters. */
+function summarise(text, max = 6000) {
   const t = tidy(text);
   if (t.length <= max) return t;
   return `${t.slice(0, max).replace(/\s+\S*$/, "").replace(/[,;:]$/, "")}…`;
@@ -102,6 +104,7 @@ export async function parseSyllabus(file) {
     let stopped = false;
     const outcomes = [];
     let inOutcomes = false;
+    let skipGlue = false;
     // Book and web-link sections, collected independently of the module walk.
     const texts = [];
     const refs = [];
@@ -140,11 +143,15 @@ export async function parseSyllabus(file) {
         continue;
       }
       if (inOutcomes) {
-        const co = /^(?:CO\s*-?\s*\d+[.:)]?|\d+[.)]|•|-)?\s*(.{8,})$/.exec(line);
+        const co = /^(?:CO\s*-?\s*\d+[.:)]?|\d+[.)]|[•●▪◦*-])?\s*(.{8,})$/.exec(line);
         const text = co ? tidy(co[1]) : "";
         const teachingNote = /video|animation|lecture|teaching|chalk|\bmarks?\b|experiment|critical thinking|viva|record/i;
-        if (text && OUTCOME_VERB.test(text) && !teachingNote.test(text)) outcomes.push(text);
-        else if (outcomes.length && /^[a-z(]/.test(line)) outcomes[outcomes.length - 1] += ` ${tidy(line)}`;
+        const pedagogy = text && (isPedagogyOutcome(text) || teachingNote.test(text));
+        if (text && OUTCOME_VERB.test(text) && !pedagogy) {
+          outcomes.push(text);
+          skipGlue = false;
+        } else if (pedagogy) skipGlue = true;
+        else if (!skipGlue && outcomes.length && /^[a-z(]/.test(line)) outcomes[outcomes.length - 1] += ` ${tidy(line)}`;
         else if (STOP.test(line) && !/^Course\s*outcome/i.test(line)) inOutcomes = false;
         if (outcomes.length >= 8) inOutcomes = false;
         continue;
@@ -171,7 +178,7 @@ export async function parseSyllabus(file) {
     if (!prev || clean.length > prev.modules.length) {
       result.set(code, {
         modules: clean,
-        outcomes: [...new Set(outcomes)].slice(0, 6).map((o) => o.replace(/[.;,]$/, "") + "."),
+        outcomes: [...new Set(outcomes)].filter((o) => !isPedagogyOutcome(o)).slice(0, 6).map((o) => o.replace(/[.;,]$/, "") + "."),
         textbooks: bookEntries(texts),
         references: bookEntries(refs),
         links: [...links].slice(0, 6),

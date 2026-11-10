@@ -45,6 +45,11 @@ const seoTitle = fitTitle(
   `${subject.name} (${subject.code}) – VTU ${br} Notes`,
   `${subject.code} ${subject.shortName} – VTU ${br} Notes & Questions`,
   `${subject.code} ${subject.shortName} – VTU ${br} Notes`,
+  `${subject.code} ${subject.name} – VTU ${br}`,
+  `${subject.code} ${subject.name} – VTU`,
+  `${subject.code} ${subject.shortName} – VTU ${br}`,
+  `${subject.code} ${subject.name}`,
+  `${subject.code} ${subject.shortName}`,
 );
 const seoDesc = clampDesc(
   `${subject.code} ${subject.name}, VTU ${br} ${semesterName(n)} (${subject.scheme} scheme)${credits ? `, ${credits}` : ""}. ${subject.description}`,
@@ -123,14 +128,14 @@ const faqs = [
       </li>
     ))}
   </ul>
-  <section class="mt-6 rounded-xl border bg-secondary/60 p-5" aria-labelledby="pyq">
-    <h2 id="pyq" class="text-lg font-semibold">{subject.code} previous year questions (PYQ)</h2>
+  <section class="mt-6 rounded-xl border bg-secondary/60 p-5" aria-labelledby="practice">
+    <h2 id="practice" class="text-lg font-semibold">Practice for the SEE</h2>
     <p class="mt-1 text-sm text-muted">
-      Practise with questions in the VTU SEE pattern for {subject.name}, then check the official {subject.code} papers published by VTU.
+      Work the original practice questions for {subject.name}. Official {subject.code} papers stay on vtu.ac.in — the link below is a search, not a paper hosted here.
     </p>
     <div class="mt-4 flex flex-wrap gap-2">
       {counts["question-papers"] > 0 ? (
-        <a class="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary-hover" href={`${path}/question-papers`}>Practice in exam pattern</a>
+        <a class="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary-hover" href={`${path}/question-papers`}>Practice questions</a>
       ) : null}
       {counts["important-questions"] > 0 ? (
         <a class="inline-flex h-11 items-center rounded-lg border bg-surface px-4 text-sm font-semibold hover:border-primary hover:text-primary" href={`${path}/important-questions`}>Important questions</a>
@@ -140,7 +145,7 @@ const faqs = [
         href={`https://www.google.com/search?q=${encodeURIComponent(`site:vtu.ac.in ${subject.code} question paper`)}`}
         rel="nofollow noopener"
         target="_blank"
-      >Official VTU papers <span aria-hidden="true">↗</span></a>
+      >Search official papers on vtu.ac.in <span aria-hidden="true">↗</span></a>
     </div>
   </section>
   <Notice class="mt-6">
@@ -151,6 +156,7 @@ const faqs = [
       <div class="flex flex-wrap items-end justify-between gap-2">
         <h2 id="modules" class="text-lg font-semibold">{subject.code} syllabus — {subject.units.length} modules</h2>
         {subject.syllabusUrl ? <a class="text-sm font-medium text-primary hover:underline" href={subject.syllabusUrl} rel="noopener" target="_blank">Official syllabus PDF ↗</a> : null}
+        {!subject.syllabusUrl && subject.moduleSourceUrl ? <a class="text-sm font-medium text-primary hover:underline" href={subject.moduleSourceUrl} rel="noopener" target="_blank">Read from {subject.moduleSourceUrl.split("/").pop()} ↗</a> : null}
       </div>
       <ol class="mt-4 space-y-3">
         {subject.units.map((u) => (
@@ -162,6 +168,7 @@ const faqs = [
         ))}
       </ol>
       {subject.syllabusUrl ? <p class="mt-2 text-xs text-faint">Module topics as listed in VTU's official {subject.scheme}-scheme syllabus. Check the PDF for lab programs, CIE/SEE split and question-paper pattern.</p> : null}
+      {!subject.syllabusUrl && subject.moduleSourceUrl ? <p class="mt-2 text-xs text-faint">These modules were read from {subject.moduleSourceUrl.split("/").pop()}. That file is not this programme’s syllabus PDF. Check the scheme PDF for {subject.code} before you rely on a title.</p> : null}
     </section>
   ) : null}
   {subject.outcomes.length > 0 ? (

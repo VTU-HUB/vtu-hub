@@ -17,15 +17,49 @@ const SCHEME_PAGE = "https://vtu.ac.in/en/b-e-scheme-syllabus/";
 const CONCURRENCY = 4;
 
 const courses = JSON.parse(fs.readFileSync(COURSES, "utf8"));
-const urls = new Set(courses.programs.flatMap((p) => p.syllabi ?? []));
 
-// First-year course syllabi are one PDF per course: /pdf/2022syll/<CODE>.pdf
-const page = await (await fetch(SCHEME_PAGE, { headers: UA })).text();
-for (const m of page.matchAll(/https?:\/\/vtu\.ac\.in\/pdf\/2022syll\/(B[A-Z0-9]+)\.pdf/gi)) urls.add(m[0].replace(/^http:/, "https:"));
+/** Guess a missing semester file from the names VTU already uses for that programme. */
+function syllabusCandidates(program) {
+  const existing = new Set(program.syllabi ?? []);
+  const stems = new Map();
+  const covered = new Set();
+  for (const url of existing) {
+    let base = "";
+    try {
+      base = decodeURIComponent(new URL(url).pathname.split("/").pop() ?? "");
+    } catch {
+      continue;
+    }
+    const m = /^(\d)([a-z0-9]+)syll\.pdf$/i.exec(base);
+    if (!m) continue;
+    covered.add(Number(m[1]));
+    const stem = m[2].toLowerCase();
+    stems.set(stem, (stems.get(stem) ?? 0) + 1);
+  }
+  const stem = [...stems.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0];
+  if (!stem) return [];
+  const sems = new Set((program.courses ?? []).map((c) => c.semester).filter((n) => n >= 3 && n <= 8));
+  const out = [];
+  for (const n of [...sems].sort()) {
+    if (covered.has(n)) continue;
+    const url = `https://vtu.ac.in/pdf/2022_3to8/${n}${stem}syll.pdf`;
+    if (!existing.has(url)) out.push(url);
+  }
+  return out;
+}
+
+const probes = [];
+for (const program of courses.programs) {
+  for (const url of syllabusCandidates(program)) probes.push({ program, url });
+}
 
 async function fetchPdf(url) {
   fs.mkdirSync(CACHE, { recursive: true });
   const file = path.join(CACHE, path.basename(new URL(url).pathname));
+  if (fs.existsSync(file)) {
+    const cached = fs.readFileSync(file);
+    if (cached.subarray(0, 5).toString() === "%PDF-") return file;
+  }
   const res = await fetch(url, { headers: UA });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
@@ -33,6 +67,33 @@ async function fetchPdf(url) {
   fs.writeFileSync(file, buf);
   return file;
 }
+
+let foundSyllabi = 0;
+async function probeWorker() {
+  while (probes.length) {
+    const item = probes.shift();
+    if (!item) return;
+    try {
+      await fetchPdf(item.url);
+      item.program.syllabi = [...new Set([...(item.program.syllabi ?? []), item.url])];
+      foundSyllabi++;
+      console.log(`found ${item.url}`);
+    } catch {
+      /* VTU does not publish this semester file */
+    }
+  }
+}
+await Promise.all(Array.from({ length: CONCURRENCY }, probeWorker));
+if (foundSyllabi) {
+  fs.writeFileSync(COURSES, JSON.stringify(courses, null, 2) + "\n");
+  console.log(`courses.json: added ${foundSyllabi} syllabus PDFs`);
+}
+
+const urls = new Set(courses.programs.flatMap((p) => p.syllabi ?? []));
+
+// First-year course syllabi are one PDF per course: /pdf/2022syll/<CODE>.pdf
+const page = await (await fetch(SCHEME_PAGE, { headers: UA })).text();
+for (const m of page.matchAll(/https?:\/\/vtu\.ac\.in\/pdf\/2022syll\/(B[A-Z0-9]+)\.pdf/gi)) urls.add(m[0].replace(/^http:/, "https:"));
 
 const out = {};
 const failed = [];
@@ -46,8 +107,13 @@ async function worker() {
       for (const [code, s] of parsed) {
         if (s.modules.length < 3 && !s.outcomes.length) continue; // labs/activity courses with no module text
         const prev = out[code];
-        if (prev && prev.modules.length >= s.modules.length) continue;
-        out[code] = { source: url, ...s };
+        if (!prev) {
+          out[code] = { source: url, sources: [url], ...s };
+          continue;
+        }
+        const sources = [...new Set([...(prev.sources ?? [prev.source]), url])];
+        if (prev.modules.length >= s.modules.length) out[code] = { ...prev, sources };
+        else out[code] = { source: url, sources, ...s };
       }
     } catch (e) {
       failed.push(`${url}: ${e.message}`);

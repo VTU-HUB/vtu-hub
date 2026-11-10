@@ -61,8 +61,10 @@ export type Subject = {
   courseType?: string;
   /** Official scheme PDF this course was read from. */
   sourceUrl?: string;
-  /** Official syllabus PDF the modules / outcomes / books were read from. */
+  /** This programme's own syllabus PDF, when the course code appears in it. */
   syllabusUrl?: string;
+  /** PDF the module text was read from, when it is not this programme's syllabus file. */
+  moduleSourceUrl?: string;
   /** Prescribed textbooks and reference books, as printed in the VTU syllabus. */
   textbooks?: string[];
   references?: string[];
