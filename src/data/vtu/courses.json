@@ -19028,11 +19028,11 @@
     },
     {
       "slug": "electronics-communication-advanced-communication",
-      "name": "Electronics Communication (Advanced Communication Technology)",
+      "name": "Electronics & Communication (Advanced Communication Technology)",
       "printedName": "Electronics Communication (Advanced Communication Technology)",
       "code": null,
-      "short": null,
-      "stream": null,
+      "short": "ECE-ACT",
+      "stream": "ee",
       "sources": [
         {
           "url": "https://vtu.ac.in/pdf/2022_3to8/actsch.pdf",

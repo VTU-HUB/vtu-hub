@@ -41,6 +41,9 @@ export const OFFICIAL_PROGRAMS = [
   { name: "Medical Electronics Engineering", code: "ML", stream: "ee", slug: "medical-electronics", short: "ML" },
   { name: "Electronics Engineering (VLSI Design and Technology)", code: "VL", stream: "ee", slug: "vlsi", short: "VLSI" },
   { name: "Electronics & Computer Engineering", code: "UE", stream: "ee", slug: "electronics-computer", short: "ECE (Comp)" },
+  // Not in the 2022-23 stream list (added to VTU's scheme page later). Its courses are
+  // ECE (BEC…) courses, so it belongs to the electrical & electronics stream.
+  { name: "Electronics & Communication (Advanced Communication Technology)", code: null, stream: "ee", slug: "electronics-communication-advanced-communication", short: "ECE-ACT" },
   // Mechanical stream
   { name: "Aeronautical Engineering", code: "AE", stream: "me", slug: "aeronautical", short: "Aero" },
   { name: "Aerospace Engineering", code: "AS", stream: "me", slug: "aerospace", short: "Aerospace" },

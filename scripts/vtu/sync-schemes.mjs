@@ -138,6 +138,27 @@ function normalise(parsed, { firstYear }) {
   return [...byCode.values()].sort((a, b) => a.semester - b.semester || a.code.localeCompare(b.code));
 }
 
+/** A programme VTU adds that is not in programs.mjs: infer its stream from its own course codes. */
+function streamFromCodes(courses) {
+  const PREFIX = { cs: /^B(CS|IS|AI|AD|DS|CI|CD|CY|CG|CB|CO|IC|CE)\d/, ee: /^B(EC|EE|EI|ET|ML|BM|VL|IO|UE)\d/, me: /^B(ME|AE|AS|AU|AG|CH|IP|IM|MR|MT|RA|RI|ST|TX)\d/, cv: /^B(CV|EV|CT|MI)\d/ };
+  const votes = Object.fromEntries(Object.keys(PREFIX).map((k) => [k, 0]));
+  for (const c of courses) for (const [k, re] of Object.entries(PREFIX)) if (re.test(c.code)) votes[k]++;
+  const [best, n] = Object.entries(votes).sort((a, b) => b[1] - a[1])[0];
+  return n >= 3 ? best : null;
+}
+
+/** "Electronics Communication (Advanced Communication Technology)" → "EC (ACT)". */
+function shortLabel(name) {
+  const initials = (s) =>
+    s
+      .split(/\s+/)
+      .filter((w) => /^[A-Z]/.test(w) && !/^(And|Of|The|In|For|Engineering)$/i.test(w))
+      .map((w) => w[0])
+      .join("");
+  const m = /^(.*?)\s*\((.*)\)\s*$/.exec(name);
+  return m ? `${initials(m[1])} (${initials(m[2])})` : initials(name) || name.slice(0, 12);
+}
+
 function check(slug, courses, sems) {
   for (const s of sems) {
     const core = courses.filter((c) => c.semester === s && !c.elective);
@@ -189,8 +210,8 @@ for (const row of await discoverPrograms()) {
       name: official?.name ?? row.name,
       printedName: row.name,
       code: official?.code ?? null,
-      short: official?.short ?? null,
-      stream: official?.stream ?? null,
+      short: official?.short ?? shortLabel(row.name),
+      stream: official?.stream ?? streamFromCodes(courses),
       sources,
       syllabi: row.syllabi,
       semesters: sems.sort((a, b) => a - b),

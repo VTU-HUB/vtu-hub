@@ -84,11 +84,11 @@ const featuredTools = tools
             <span class="grid size-5 place-items-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground" aria-hidden="true">1</span>
             {L.yourBranch}
           </label>
-          <select id="qf-branch" name="branch" required class="h-12 w-full rounded-lg border bg-surface px-3 text-base">
+          <select id="qf-branch" name="branch" required class="h-12 w-full rounded-lg border bg-surface px-3 text-base" data-search-placeholder={L.searchBranch} data-search-empty={L.noBranch}>
             <option value="" disabled selected>{L.selectBranch}</option>
             {streams.map((s) => (
               <optgroup label={s.short}>
-                {s.branches.map((b) => <option value={b.slug}>{b.shortName} · {branchText(lang, b.slug, b).name}</option>)}
+                {s.branches.map((b) => <option value={b.slug} data-badge={b.shortName}>{branchText(lang, b.slug, b).name}</option>)}
               </optgroup>
             ))}
           </select>
@@ -118,7 +118,15 @@ const featuredTools = tools
         e.preventDefault();
         var b = f.elements.namedItem("branch").value;
         var s = f.elements.namedItem("semester").value;
-        if (b && s) location.href = (f.getAttribute("data-base") || "") + "/vtu/" + b + "/" + s;
+        // Open the first empty dropdown instead of failing silently.
+        var missing = !b ? "qf-branch" : !s ? "qf-sem" : null;
+        if (missing) {
+          var trigger = document.querySelector('[data-ss-for="' + missing + '"]');
+          if (trigger) { trigger.closest(".ss").classList.add("is-invalid"); trigger.click(); }
+          else document.getElementById(missing).focus();
+          return;
+        }
+        location.href = (f.getAttribute("data-base") || "") + "/vtu/" + b + "/" + s;
       });
     })();
   </script>
