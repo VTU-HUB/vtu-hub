@@ -9,5 +9,7 @@
     // /vtu/cse serves dist/vtu/cse.html directly (200, no redirect); /vtu/cse/ redirects to /vtu/cse.
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
-  }
+  },
+  // Required by `wrangler preview`, which Workers Builds runs for non-production branches.
+  "previews": {}
 }
