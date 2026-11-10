@@ -138,7 +138,17 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     {siteVerification.bing ? <meta name="msvalidate.01" content={siteVerification.bing} /> : null}
     {siteVerification.yandex ? <meta name="yandex-verification" content={siteVerification.yandex} /> : null}
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    {analyticsConfig.ga4MeasurementId ? (
+    {analyticsConfig.ga4MeasurementId.startsWith("GTM-") ? (
+      <>
+        {/* Google tag exactly as Google Analytics provides it for the VTUHub property. */}
+        <script async is:inline src={`https://www.googletagmanager.com/gtm.js?id=${analyticsConfig.ga4MeasurementId}`}></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag("js", new Date());
+        </script>
+      </>
+    ) : analyticsConfig.ga4MeasurementId ? (
       <>
         <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.ga4MeasurementId}`}></script>
         <script is:inline define:vars={{ gaId: analyticsConfig.ga4MeasurementId }}>

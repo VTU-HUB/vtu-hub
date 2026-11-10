@@ -8,7 +8,8 @@
  */
 export const analyticsConfig = {
   cloudflareToken: "",
-  ga4MeasurementId: "",
+  // Google tag for the "VTUHub" GA4 property (stream "VTUHub website", id 16315241681).
+  ga4MeasurementId: "GTM-5L4TQMT3",
 };
 
 /**
