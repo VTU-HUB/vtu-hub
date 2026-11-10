@@ -11,7 +11,10 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   compressHTML: true,
-  build: { inlineStylesheets: "auto" },
+  // "file" emits /vtu/cse.html (not /vtu/cse/index.html) so Cloudflare serves
+  // /vtu/cse with a 200 instead of a 307 redirect to /vtu/cse/. That keeps the
+  // served URL identical to the canonical and sitemap URLs (trailingSlash: "never").
+  build: { inlineStylesheets: "auto", format: "file" },
   prefetch: { prefetchAll: false, defaultStrategy: "hover" },
   integrations: [
     sitemap({
