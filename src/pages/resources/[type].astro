@@ -17,7 +17,7 @@ if (!isResourceType(type.slug)) throw new Error("bad type");
 const files = resourcesByType(type.slug).slice(0, 120);
 ---
 <Base
-  title={`VTU ${type.label}`}
+  title={`VTU ${type.label} for All Branches and Semesters`}
   description={type.description}
   path={`/resources/${type.slug}`}
   crumbs={[{ label: "Resources", href: "/resources" }, { label: type.label, href: `/resources/${type.slug}` }]}

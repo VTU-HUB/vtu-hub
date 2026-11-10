@@ -1,4 +1,4 @@
-import { absUrl, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { absUrl, CONTACT_EMAIL, LOGO, OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export type Crumb = { label: string; href?: string };
 export type FaqItem = { q: string; a: string };
@@ -15,6 +15,22 @@ export function organizationLd() {
     url: SITE_URL,
     email: CONTACT_EMAIL,
     description: SITE_DESCRIPTION,
+    logo: {
+      "@type": "ImageObject",
+      "@id": `${SITE_URL}/#logo`,
+      url: absUrl(LOGO.path),
+      contentUrl: absUrl(LOGO.path),
+      width: LOGO.width,
+      height: LOGO.height,
+      caption: LOGO.alt,
+    },
+    image: {
+      "@type": "ImageObject",
+      url: absUrl(OG_IMAGE.path),
+      width: OG_IMAGE.width,
+      height: OG_IMAGE.height,
+      caption: OG_IMAGE.alt,
+    },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Karnataka" },
       { "@type": "Country", name: "India" },
@@ -85,4 +101,22 @@ export function graphLd(nodes: Record<string, unknown>[]) {
     "@context": "https://schema.org",
     "@graph": [organizationLd(), websiteLd(), ...nodes],
   };
+}
+
+/** Longest title body that still fits ~65 chars once " · VTUHub" is appended. */
+const TITLE_BUDGET = 65 - ` · ${SITE_NAME}`.length;
+
+/** Returns the first candidate that fits the SERP title budget (falls back to the last one). */
+export function fitTitle(...candidates: string[]) {
+  return candidates.find((c) => c.length <= TITLE_BUDGET) ?? candidates[candidates.length - 1];
+}
+
+/** Trims a meta description to <= max chars at a sentence or word boundary. */
+export function clampDesc(text: string, max = 158) {
+  const s = text.replace(/\s+/g, " ").trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const sentence = cut.lastIndexOf(". ");
+  if (sentence > max * 0.6) return cut.slice(0, sentence + 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:—–-]$/, "")}…`;
 }

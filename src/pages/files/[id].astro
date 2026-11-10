@@ -8,7 +8,8 @@ import { getBranch, semesterName, semesterSlug } from "@/data/branches";
 import { getResourceType } from "@/data/resource-types";
 import { getResource, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
 import { subjectPath } from "@/data/subjects";
-import { absUrl, OFFICIAL_VTU_URL, SITE_URL } from "@/lib/site";
+import { absUrl, OFFICIAL_VTU_URL, OG_IMAGE, SITE_URL } from "@/lib/site";
+import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import { formatFullDate } from "@/lib/utils";
 
 export function getStaticPaths() {
@@ -22,35 +23,56 @@ const subject = subjectFor(file);
 const related = relatedFiles(file);
 const sem = semesterSlug(file.semester);
 const path = `/files/${file.id}`;
+const br = branch?.shortName ?? file.branch.toUpperCase();
+const code = subject?.code ?? "";
+const hasCode = code !== "" && file.title.includes(code);
+const seoTitle = fitTitle(
+  `${file.title}${code && !hasCode ? ` (${code})` : ""} – VTU ${br} Sem ${file.semester}`,
+  `${file.title}${code && !hasCode ? ` (${code})` : ""} – VTU ${br}`,
+  `${file.title} – VTU ${br}`,
+  `${file.title.replace(" — Introduction and fundamentals", ": Introduction")} – VTU ${br}`,
+  `${file.title} – ${br}`,
+);
+const seoDesc = clampDesc(
+  `VTU ${br} ${semesterName(file.semester)}${subject ? `, ${subject.code}` : ""}: ${file.description} ${subject ? `${subject.name}, ` : ""}${subject?.scheme ?? "2022"} scheme. Free original study guide.`,
+);
+const crumbTrail = subject
+  ? [
+      { label: "VTU", href: "/vtu" },
+      { label: br, href: `/vtu/${file.branch}` },
+      { label: semesterName(file.semester), href: `/vtu/${file.branch}/${sem}` },
+      { label: subject.shortName, href: subjectPath(subject) },
+      { label: file.title, href: path },
+    ]
+  : [
+      { label: "Resources", href: "/resources" },
+      { label: type?.label ?? file.type, href: `/resources/${file.type}` },
+      { label: file.title, href: path },
+    ];
 ---
 <Base
-  title={file.title}
-  description={file.description}
+  title={seoTitle}
+  description={seoDesc}
   path={path}
   ogType="article"
   published={file.updated}
   updated={file.updated}
-  crumbs={[
-    { label: "Resources", href: "/resources" },
-    { label: type?.label ?? file.type, href: `/resources/${file.type}` },
-    { label: file.title, href: path },
-  ]}
+  crumbs={crumbTrail}
   extraJsonLd={[{
     "@type": "Article",
     headline: file.title,
-    description: file.description,
+    description: seoDesc,
+    image: { "@type": "ImageObject", url: absUrl(OG_IMAGE.path), width: OG_IMAGE.width, height: OG_IMAGE.height, caption: OG_IMAGE.alt },
+    datePublished: file.updated,
     dateModified: file.updated,
+    ...(subject ? { about: { "@type": "Course", name: subject.name, courseCode: subject.code, provider: { "@type": "CollegeOrUniversity", name: "Visvesvaraya Technological University", sameAs: OFFICIAL_VTU_URL } } } : {}),
     inLanguage: "en-IN",
     mainEntityOfPage: absUrl(path),
     author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
   }]}
 >
-  <Crumbs items={[
-    { label: "Resources", href: "/resources" },
-    { label: type?.label ?? file.type, href: `/resources/${file.type}` },
-    { label: file.title },
-  ]} />
+  <Crumbs items={crumbTrail.map((c, i) => (i === crumbTrail.length - 1 ? { label: c.label } : c))} />
   <PageHeader
     kicker={`${type?.label ?? file.type} · original guide`}
     title={file.title}
