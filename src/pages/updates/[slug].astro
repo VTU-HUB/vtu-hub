@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { clampDesc } from "@/lib/seo-doc";
 import Crumbs from "@/components/site/Crumbs.astro";
 import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
@@ -16,7 +17,7 @@ const path = `/updates/${update.slug}`;
 ---
 <Base
   title={update.title}
-  description={update.summary}
+  description={clampDesc(update.summary)}
   path={path}
   ogType="article"
   published={update.date}

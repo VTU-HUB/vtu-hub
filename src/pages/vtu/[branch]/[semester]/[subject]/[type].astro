@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
 import Notice from "@/components/site/Notice.astro";
@@ -33,11 +34,21 @@ const subject = subjects.find((s) => s.branch === branch.slug && s.semester === 
 const type = resourceTypes.find((t) => t.slug === Astro.params.type)!;
 const files = resourcesFor(subject.branch, subject.semester, subject.slug, type.slug);
 const path = `${subjectPath(subject)}/${type.slug}`;
+const br = branch.shortName;
+const seoTitle = fitTitle(
+  `${subject.name} ${type.label} (${subject.code}) – VTU ${br}`,
+  `${subject.code} ${subject.shortName} ${type.label} – VTU ${br} Sem ${n}`,
+  `${subject.code} ${subject.shortName} ${type.label} – VTU ${br}`,
+  `${subject.code} ${type.label} – VTU ${br}`,
+);
+const seoDesc = clampDesc(
+  `${type.label} for ${subject.name} (${subject.code}), VTU ${br} ${semesterName(n)}, ${subject.scheme} scheme. ${type.description}`,
+);
 ---
 
 <Base
-  title={`${subject.shortName} ${type.label}`}
-  description={`${type.label} for ${subject.name} — VTU ${branch.shortName} ${semesterName(n)} in Karnataka.`}
+  title={seoTitle}
+  description={seoDesc}
   path={path}
   crumbs={[
     { label: "VTU", href: "/vtu" },
@@ -55,7 +66,7 @@ const path = `${subjectPath(subject)}/${type.slug}`;
     { label: subject.shortName, href: subjectPath(subject) },
     { label: type.label },
   ]} />
-  <PageHeader kicker={subject.code} title={`${subject.shortName} ${type.label}`} answer={type.description} />
+  <PageHeader kicker={subject.code} title={`${subject.name} ${type.label}`} answer={type.description} />
   <Notice class="mb-6">Original study guides. Official SEE papers and college manuals are issued by VTU and your department — we do not host those PDFs.</Notice>
   {files.length === 0 ? (
     <p class="text-sm text-muted">No {type.label.toLowerCase()} yet. <a class="text-primary hover:underline" href={subjectPath(subject)}>Back to subject</a></p>

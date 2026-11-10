@@ -20,7 +20,7 @@ export const updates: VtuUpdate[] = [
   },
   {
     slug: "see-results-how-revaluation-works",
-    title: "SEE results, photocopies and revaluation — student checklist",
+    title: "VTU SEE results, photocopies and revaluation checklist",
     date: "2026-08-14",
     type: "results",
     summary:
@@ -37,7 +37,7 @@ export const updates: VtuUpdate[] = [
   },
   {
     slug: "academic-calendar-odd-even-2026",
-    title: "Reading the VTU academic calendar (odd and even semester)",
+    title: "How to read the VTU academic calendar (odd and even sem)",
     date: "2026-07-30",
     type: "academic-calendar",
     summary:

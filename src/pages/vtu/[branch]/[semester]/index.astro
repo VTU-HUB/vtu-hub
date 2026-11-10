@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Browse from "@/components/site/Browse.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import Notice from "@/components/site/Notice.astro";
@@ -23,11 +24,18 @@ const branch = getBranch(Astro.params.branch)!;
 const n = parseSemesterSlug(Astro.params.semester)!;
 const subjects = getSubjectsBySemester(branch.slug, n);
 const about = semesterAbout(n, branch);
+const seoTitle = fitTitle(
+  `VTU ${branch.shortName} ${semesterName(n)} Notes, Subjects & Syllabus`,
+  `VTU ${branch.shortName} ${semesterName(n)} Notes & Syllabus`,
+);
+const seoDesc = clampDesc(
+  `VTU ${branch.shortName} ${semesterName(n)} (2022 scheme) subjects: ${subjects.map((s) => `${s.code} ${s.shortName}`).join(", ")}. Free unit-wise notes and important questions.`,
+);
 ---
 
 <Base
-  title={`${branch.shortName} ${semesterName(n)}`}
-  description={`Subjects, notes and question papers for VTU ${branch.shortName} ${semesterName(n)} (2022 scheme) in Karnataka.`}
+  title={seoTitle}
+  description={seoDesc}
   path={`/vtu/${branch.slug}/${Astro.params.semester}`}
   crumbs={[
     { label: "VTU", href: "/vtu" },
@@ -41,7 +49,7 @@ const about = semesterAbout(n, branch);
     { label: branch.shortName, href: `/vtu/${branch.slug}` },
     { label: semesterName(n) },
   ]} />
-  <PageHeader kicker={`${branch.shortName} · ${branch.code}`} title={`${branch.shortName} · ${semesterName(n)}`} answer={about} />
+  <PageHeader kicker={`${branch.shortName} · ${branch.code}`} title={`VTU ${branch.shortName} ${semesterName(n)}`} answer={about} />
   <Notice class="mb-6">
     You are viewing <strong class="text-foreground">{branch.shortName}</strong> for this semester. Other programmes have different subject codes. <a class="text-primary hover:underline" href={semesterPath(n)}>See all branches in {semesterName(n)}</a>.
   </Notice>

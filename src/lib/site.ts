@@ -15,3 +15,14 @@ export function absUrl(path: string) {
   const p = path.startsWith("/") ? path : `/${path}`;
   return `${SITE_URL}${p}`;
 }
+
+/** Default social share image. Every page that sets an image must also set alt text. */
+export const OG_IMAGE = {
+  path: "/og.jpg",
+  width: 1200,
+  height: 675,
+  type: "image/jpeg",
+  alt: "VTUHub logo above a stack of ruled study cards with a blue tab, captioned Notes, Papers, Syllabus for VTU students",
+} as const;
+
+export const LOGO = { path: "/icon-512.png", width: 512, height: 512, alt: "VTUHub logo: two blue and white study pages" } as const;

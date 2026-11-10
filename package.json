@@ -9,12 +9,14 @@
     "preview": "astro preview",
     "typecheck": "astro check",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check:seo": "node scripts/check-seo.mjs",
+    "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "^7.4.2",
+    "astro": "^7.4.8",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {

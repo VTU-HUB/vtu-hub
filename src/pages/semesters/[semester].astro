@@ -18,7 +18,7 @@ const list = branchesForSemester(n);
 const about = semesterAbout(n);
 ---
 <Base
-  title={`${semesterName(n)} · all VTU branches`}
+  title={`VTU ${semesterName(n)} Notes and Subjects, All Branches`}
   description={`Pick a branch for ${semesterName(n)}: ${list.map((b) => b.shortName).join(", ")}. Subjects, notes and question papers follow the branch you choose.`}
   path={`/semesters/${Astro.params.semester}`}
   crumbs={[{ label: "Semesters", href: "/semesters" }, { label: semesterName(n), href: `/semesters/${Astro.params.semester}` }]}

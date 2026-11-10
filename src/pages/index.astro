@@ -7,7 +7,7 @@ import { latestQuestionPapers, popularNotes } from "@/data/resources";
 import { popularSubjectsMixed, subjectPath } from "@/data/subjects";
 import { tools } from "@/data/tools";
 import { updates } from "@/data/updates";
-import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 import { formatFullDate } from "@/lib/utils";
 
 const popular = popularSubjectsMixed(8);
@@ -23,15 +23,15 @@ const catalog = [
 ---
 
 <Base
-  title={`${SITE_NAME} · VTU study guides, calculators and scheme explainers`}
-  description={SITE_DESCRIPTION}
+  title={`VTU Notes, Syllabus & SGPA Calculator · ${SITE_NAME}`}
+  description="Free VTU notes, unit-wise study guides, important questions, syllabus maps and SGPA/CGPA calculators for CSE, ISE, ECE, EEE, ME and Civil (2022 scheme)."
   path="/"
-  keywords="VTU study guides, VTU SGPA calculator, CSE syllabus, 2022 scheme, Karnataka engineering"
+  keywords="VTU notes, VTU CSE notes, VTU syllabus, VTU important questions, VTU SGPA calculator, VTU CGPA calculator, 2022 scheme"
   faqs={homeFaqs}
 >
   <section class="max-w-3xl">
     <p class="text-xs font-medium uppercase tracking-wider text-muted">Independent VTU resource platform · Karnataka</p>
-    <h1 class="mt-2 text-3xl font-semibold leading-tight md:text-4xl">Study guides, calculators and scheme explainers — organised the way you study</h1>
+    <h1 class="mt-2 text-3xl font-semibold leading-tight md:text-4xl">VTU notes, study guides and SGPA calculators, organised by branch and semester</h1>
     <p class="aio-answer mt-4 text-sm leading-relaxed">
       <span class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted">Quick answer</span>
       VTUHub is an independent site for Visvesvaraya Technological University students in Karnataka. Open a semester to see every branch, then a subject for original unit guides, practice questions and the 2022-scheme code. Official dates and PDFs stay on vtu.ac.in.
