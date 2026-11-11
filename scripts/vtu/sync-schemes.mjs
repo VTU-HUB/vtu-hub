@@ -96,6 +96,8 @@ function cleanTitle(code, raw) {
   let t = raw
     .replace(/(\s+\d{1,2})+(\s*\(?\d+\s*-\s*\d+\s*weeks\)?)?\s*$/i, "") // trailing L-T-P / hours
     .replace(/\s\d \d \d\s/g, " ") // L-T-P that landed mid-title
+    // Note: words pdfjs splits after one letter ("L ogic") are fixed per course in
+    // title-fixes.json — a blanket rule also merged real ones ("R programming", "I for").
     .replace(/^(#\s*|(ME|EEE|AV|Dept)\s+|Civil\/[A-Za-z/]+(\s+Engg)?\s+)/, "")
     .replace(/\bfor(?=[A-Z])/g, "for ");
   // Department / paper-setting-board words that pdfjs placed on the title line.

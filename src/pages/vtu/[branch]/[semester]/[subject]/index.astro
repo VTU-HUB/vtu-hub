@@ -5,7 +5,9 @@ import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
 import Notice from "@/components/site/Notice.astro";
+import NotesPdf from "@/components/site/NotesPdf.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
+import { notesFilename, type NotesInput } from "@/lib/notes-doc";
 import { getBranch, parseSemesterSlug, semesterName, semesterSlug } from "@/data/branches";
 import { resourceTypes } from "@/data/resource-types";
 import { resourceCounts, resourcesFor } from "@/data/resources";
@@ -54,6 +56,20 @@ const seoTitle = fitTitle(
 const seoDesc = clampDesc(
   `${subject.code} ${subject.name}, VTU ${br} ${semesterName(n)} (${subject.scheme} scheme)${credits ? `, ${credits}` : ""}. ${subject.description}`,
 );
+const notes: NotesInput = {
+  filename: notesFilename(subject.code, subject.slug),
+  code: subject.code,
+  name: subject.name,
+  programme: branch.name,
+  semester: semesterName(n),
+  scheme: subject.scheme,
+  credits: subject.credits,
+  description: subject.description,
+  textbooks: subject.textbooks ?? [],
+  references: subject.references ?? [],
+  outcomes: subject.outcomes,
+  units: subject.units,
+};
 const faqs = [
   { q: `What is ${subject.name} (${subject.code})?`, a: subject.description },
   ...(subject.credits != null
@@ -119,6 +135,10 @@ const faqs = [
       {slotOptions.length > 0 ? <> Other options: {slotOptions.map((s, i) => <>{i > 0 ? ", " : ""}<a class="text-primary hover:underline" href={subjectPath(s)}>{s.name}</a></>)}.</> : null}
     </Notice>
   ) : null}
+  <div class="mb-4 flex flex-wrap items-center gap-3">
+    <NotesPdf notes={notes} />
+    <p class="max-w-xl text-sm text-muted">Every module, every textbook VTU names for {subject.code}, and a study frame for each topic. The file downloads in your browser.</p>
+  </div>
   <ul class="flex flex-wrap gap-2">
     {resourceTypes.filter((t) => counts[t.slug] > 0).map((t) => (
       <li>

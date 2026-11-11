@@ -2,8 +2,10 @@
 import Base from "@/layouts/Base.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
+import NotesPdf from "@/components/site/NotesPdf.astro";
 import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
+import { notesFilename, type NotesInput } from "@/lib/notes-doc";
 import { getBranch, semesterName, semesterSlug } from "@/data/branches";
 import { getResourceType } from "@/data/resource-types";
 import { getResource, isIndexable, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
@@ -36,6 +38,22 @@ const seoTitle = fitTitle(
 const seoDesc = clampDesc(
   `VTU ${br} ${semesterName(file.semester)}${subject ? `, ${subject.code}` : ""}: ${file.description} ${subject ? `${subject.name}, ` : ""}${subject?.scheme ?? "2022"} scheme. Free original study guide.`,
 );
+const notes: NotesInput | null = subject
+  ? {
+      filename: notesFilename(subject.code, subject.slug),
+      code: subject.code,
+      name: subject.name,
+      programme: branch?.name ?? br,
+      semester: semesterName(file.semester),
+      scheme: subject.scheme,
+      credits: subject.credits,
+      description: subject.description,
+      textbooks: subject.textbooks ?? [],
+      references: subject.references ?? [],
+      outcomes: subject.outcomes,
+      units: subject.units,
+    }
+  : null;
 const crumbTrail = subject
   ? [
       { label: "VTU", href: "/vtu" },
@@ -100,11 +118,12 @@ const crumbTrail = subject
       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"></path></svg>
       Read online
     </a>
+    {notes ? <NotesPdf notes={notes} /> : null}
     <button type="button" data-print-guide class="inline-flex h-11 items-center gap-2 rounded-lg border bg-surface px-4 font-semibold hover:border-primary hover:text-primary">
       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
-      Print / save as PDF
+      Print
     </button>
-    <span class="self-center text-xs text-muted">Opens your browser’s print dialog — pick “Save as PDF” to keep a copy of this guide</span>
+    <span class="self-center text-xs text-muted">The PDF includes every module and the prescribed textbooks. Print keeps this page only.</span>
   </div>
   <Notice class="mt-8">Original VTUHub writing. Not an official VTU circular and not a scanned university paper. Confirm module titles on <a class="text-primary hover:underline" href={OFFICIAL_VTU_URL}>vtu.ac.in</a>.</Notice>
   <article id="notes" class="mt-8 max-w-3xl scroll-mt-24 space-y-4 text-[15px] leading-relaxed text-muted">
@@ -118,7 +137,7 @@ const crumbTrail = subject
     (function () {
       function save() { window.print(); }
       document.querySelectorAll("[data-print-guide]").forEach(function (b) { b.addEventListener("click", save); });
-      if (location.hash === "#print" || location.hash === "#download") setTimeout(save, 400);
+      if (location.hash === "#print") setTimeout(save, 400);
     })();
   </script>
   {subject ? (

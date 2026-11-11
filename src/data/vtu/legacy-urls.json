@@ -941,6 +941,84 @@
    "branch": "me",
    "semester": 8,
    "code": "BME808"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/applied-physics-for-c-ivil-phy-engineering-stream",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BPHYC102"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/engineering-mechanics-eng-ineering",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BCIVC103"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/mathematics-i-for-civil-eng-g-stream",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BMATC101"
+  },
+  {
+   "path": "/vtu/cv/1st-semester/smart-m-aterials-and-systems",
+   "branch": "cv",
+   "semester": 1,
+   "code": "BETCK105A"
+  },
+  {
+   "path": "/vtu/ece/4th-semester/programmable-l-ogic-c-ontrollers",
+   "branch": "ece",
+   "semester": 4,
+   "code": "BEC456B"
+  },
+  {
+   "path": "/vtu/electronics-communication-advanced-communication/4th-semester/programmable-l-ogic-c-ontrollers",
+   "branch": "electronics-communication-advanced-communication",
+   "semester": 4,
+   "code": "BEC456B"
+  },
+  {
+   "path": "/vtu/ete/4th-semester/programmable-l-ogic-c-ontrollers",
+   "branch": "ete",
+   "semester": 4,
+   "code": "BEC456B"
+  },
+  {
+   "path": "/vtu/marine/3rd-semester/intro-duction-to-modeling-and-design-for-manufacturing",
+   "branch": "marine",
+   "semester": 3,
+   "code": "BMR305"
+  },
+  {
+   "path": "/vtu/mining/1st-semester/applied-physics-for-c-ivil-phy-engineering-stream",
+   "branch": "mining",
+   "semester": 1,
+   "code": "BPHYC102"
+  },
+  {
+   "path": "/vtu/mining/1st-semester/engineering-mechanics-eng-ineering",
+   "branch": "mining",
+   "semester": 1,
+   "code": "BCIVC103"
+  },
+  {
+   "path": "/vtu/mining/1st-semester/mathematics-i-for-civil-eng-g-stream",
+   "branch": "mining",
+   "semester": 1,
+   "code": "BMATC101"
+  },
+  {
+   "path": "/vtu/mining/1st-semester/smart-m-aterials-and-systems",
+   "branch": "mining",
+   "semester": 1,
+   "code": "BETCK105A"
+  },
+  {
+   "path": "/vtu/robotics-automation/4th-semester/s-ignal-conditionin-supervisory-control-g-and-data-acquisiti",
+   "branch": "robotics-automation",
+   "semester": 4,
+   "code": "BRA456C"
   }
  ],
  "files": [

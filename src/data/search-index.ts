@@ -4,44 +4,29 @@ import { resourceTypes } from "@/data/resource-types";
 import { subjectPath, subjects } from "@/data/subjects";
 import { tools } from "@/data/tools";
 import { updates } from "@/data/updates";
-import type { ResourceType, Subject } from "@/data/types";
+import { resources } from "@/data/resources";
+import type { SearchEntry, SearchKind } from "@/lib/search";
 
-export type SearchKind = "subject" | "resource" | "article" | "update" | "tool" | "branch" | "page";
-
-export type SearchHit = {
-  title: string;
-  href: string;
-  kind: SearchKind;
-  subtitle: string;
-  haystack: string;
-};
-
-function hit(
-  title: string,
-  href: string,
-  kind: SearchKind,
-  subtitle: string,
-  extra = "",
-): SearchHit {
-  return {
-    title,
-    href,
-    kind,
-    subtitle,
-    haystack: `${title} ${subtitle} ${extra}`.toLowerCase(),
-  };
+/**
+ * Build-time search index, served compactly at /search-index.json and fetched by
+ * the search page (importing this file client-side would ship every subject).
+ */
+function hit(title: string, href: string, kind: SearchKind, subtitle: string, extra = ""): SearchEntry {
+  // Unique words only: title, subtitle and extra repeat a lot, and this ships to browsers.
+  const words = `${title} ${subtitle} ${extra}`.toLowerCase().split(/[\s·()]+/).filter(Boolean);
+  return { t: title, h: href, k: kind, s: subtitle, x: [...new Set(words)].join(" ") };
 }
 
-function typesFor(s: Subject): ResourceType[] {
-  if (s.kind === "project") return [];
-  if (s.kind === "lab") return ["lab-manuals", "syllabus"];
-  if (s.kind === "ability") return ["syllabus"];
-  const types: ResourceType[] = ["notes", "question-papers", "syllabus", "important-questions"];
-  if (s.hasLab) types.push("lab-manuals");
-  return types;
+const branchShort = (slug: string) => branches.find((b) => b.slug === slug)?.shortName ?? slug.toUpperCase();
+
+/** Resource-type pages that were actually built, per subject. */
+const builtTypes = new Map<string, Set<string>>();
+for (const r of resources) {
+  const key = `${r.branch}/${r.semester}/${r.subjectSlug}`;
+  builtTypes.set(key, (builtTypes.get(key) ?? new Set()).add(r.type));
 }
 
-export const searchIndex: SearchHit[] = [
+export const searchIndex: SearchEntry[] = [
   hit("Home", "/", "page", "VTUHub", "vtuhub guides calculators syllabus"),
   hit("Browse VTU resources", "/vtu", "page", "Branches and schemes", "browse vtu"),
   hit("Schemes", "/schemes", "page", "2018 2021 2022", "scheme cie see"),
@@ -88,18 +73,18 @@ export const searchIndex: SearchHit[] = [
       `${s.name} (${s.code})`,
       subjectPath(s),
       "subject",
-      `${s.branch.toUpperCase()} · ${semesterName(s.semester)} · ${s.scheme} scheme`,
+      `${branchShort(s.branch)} · ${semesterName(s.semester)} · ${s.scheme} scheme`,
       `${s.slug} ${s.shortName} ${s.code} ${s.branch}`,
     ),
   ),
   ...subjects.flatMap((s) =>
-    typesFor(s).map((t) => {
+    [...(builtTypes.get(`${s.branch}/${s.semester}/${s.slug}`) ?? [])].map((t) => {
       const label = resourceTypes.find((x) => x.slug === t)?.label ?? t;
       return hit(
         `${s.shortName} ${label}`,
         `${subjectPath(s)}/${t}`,
         "resource",
-        `${s.code} · ${s.branch.toUpperCase()} · ${semesterName(s.semester)}`,
+        `${s.code} · ${branchShort(s.branch)} · ${semesterName(s.semester)}`,
         `${s.slug} ${s.code} ${t} ${label}`,
       );
     }),
@@ -108,58 +93,3 @@ export const searchIndex: SearchHit[] = [
   ...updates.map((u) => hit(u.title, `/updates/${u.slug}`, "update", u.type, u.summary)),
   ...tools.map((t) => hit(t.name, t.href, "tool", "Calculator", t.description)),
 ];
-
-const KIND_ORDER: SearchKind[] = [
-  "subject",
-  "resource",
-  "article",
-  "tool",
-  "update",
-  "branch",
-  "page",
-];
-
-export function search(query: string, limit = 40): SearchHit[] {
-  const q = query.trim().toLowerCase();
-  if (q.length < 1) return [];
-  const terms = q.split(/\s+/).filter(Boolean);
-  const scored: { hit: SearchHit; score: number }[] = [];
-  for (const item of searchIndex) {
-    let score = 0;
-    const title = item.title.toLowerCase();
-    if (title === q) score += 50;
-    if (title.includes(q)) score += 20;
-    if (item.haystack.includes(q)) score += 8;
-    let termsOk = true;
-    for (const t of terms) {
-      if (!item.haystack.includes(t)) {
-        termsOk = false;
-        break;
-      }
-      score += title.includes(t) ? 4 : 1;
-    }
-    if (!termsOk) continue;
-    score += 6 - KIND_ORDER.indexOf(item.kind);
-    scored.push({ hit: item, score });
-  }
-  scored.sort((a, b) => b.score - a.score);
-  const seen = new Set<string>();
-  const out: SearchHit[] = [];
-  for (const s of scored) {
-    if (seen.has(s.hit.href)) continue;
-    seen.add(s.hit.href);
-    out.push(s.hit);
-    if (out.length >= limit) break;
-  }
-  return out;
-}
-
-export const KIND_LABEL: Record<SearchKind, string> = {
-  subject: "Subject",
-  resource: "Resource",
-  article: "Article",
-  update: "Update",
-  tool: "Tool",
-  branch: "Branch",
-  page: "Page",
-};

@@ -373,7 +373,7 @@
         },
         {
           "code": "BETCK205A",
-          "title": "Smart materials and Systems",
+          "title": "Smart Materials and Systems",
           "semester": 2,
           "credits": null,
           "type": null,
@@ -1064,7 +1064,7 @@
         },
         {
           "code": "BETCK205A",
-          "title": "Smart materials and Systems",
+          "title": "Smart Materials and Systems",
           "semester": 2,
           "credits": null,
           "type": null,
@@ -1665,7 +1665,7 @@
         },
         {
           "code": "BETCK205A",
-          "title": "Smart materials and Systems",
+          "title": "Smart Materials and Systems",
           "semester": 2,
           "credits": null,
           "type": null,
@@ -1886,7 +1886,7 @@
       "courses": [
         {
           "code": "BCIVC103",
-          "title": "Engineering Mechanics Eng ineering",
+          "title": "Engineering Mechanics",
           "semester": 1,
           "credits": 3,
           "type": "ESC",
@@ -1956,7 +1956,7 @@
         },
         {
           "code": "BETCK105A",
-          "title": "Smart M aterials and Systems",
+          "title": "Smart Materials and Systems",
           "semester": 1,
           "credits": null,
           "type": "PLC",
@@ -2086,7 +2086,7 @@
         },
         {
           "code": "BMATC101",
-          "title": "Mathematics - I for Civil Eng g stream",
+          "title": "Mathematics-I for Civil Engineering Stream",
           "semester": 1,
           "credits": 4,
           "type": "ASC",
@@ -2096,7 +2096,7 @@
         },
         {
           "code": "BPHYC102",
-          "title": "Applied Physics for C ivil PHY Engineering Stream",
+          "title": "Applied Physics for Civil Engineering Stream",
           "semester": 1,
           "credits": 4,
           "type": "ASC",
@@ -2216,7 +2216,7 @@
         },
         {
           "code": "BETCK205A",
-          "title": "Smart materials and Systems",
+          "title": "Smart Materials and Systems",
           "semester": 2,
           "credits": null,
           "type": "ETC",
@@ -2349,6 +2349,16 @@
           "title": "Mathematics - II for Civil Engg Stream",
           "semester": 2,
           "credits": 4,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BPHYC202",
+          "title": "Applied Physics for Civil Engineering Stream",
+          "semester": 2,
+          "credits": null,
           "type": null,
           "category": "core",
           "elective": false,
@@ -15170,7 +15180,7 @@
         },
         {
           "code": "BEC456B",
-          "title": "Programmable L ogic C ontrollers",
+          "title": "Programmable Logic Controllers",
           "semester": 4,
           "credits": 1,
           "type": "AEC",
@@ -17576,7 +17586,7 @@
         },
         {
           "code": "BEC456B",
-          "title": "Programmable L ogic C ontrollers",
+          "title": "Programmable Logic Controllers",
           "semester": 4,
           "credits": 1,
           "type": "AEC",
@@ -19279,7 +19289,7 @@
         },
         {
           "code": "BEC456B",
-          "title": "Programmable L ogic C ontrollers",
+          "title": "Programmable Logic Controllers",
           "semester": 4,
           "credits": 1,
           "type": "AEC",
@@ -23739,7 +23749,7 @@
         },
         {
           "code": "BMR305",
-          "title": "Intro duction to Modeling and Design for Manufacturing",
+          "title": "Introduction to Modeling and Design for Manufacturing",
           "semester": 3,
           "credits": 1,
           "type": "PCCL",
@@ -26557,7 +26567,7 @@
         },
         {
           "code": "BRA456C",
-          "title": "S ignal Conditionin Supervisory Control g & Data Acquisition System (SCADA)",
+          "title": "Signal Conditioning, Supervisory Control & Data Acquisition System (SCADA)",
           "semester": 4,
           "credits": 1,
           "type": "AEC",

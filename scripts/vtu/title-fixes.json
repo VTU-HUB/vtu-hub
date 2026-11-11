@@ -9,7 +9,17 @@
     "BCV702": "Estimation and Contract Management",
     "BDSL456C": "MERN",
     "BCEDK103": "Computer-Aided Engineering Drawing",
-    "BCEDK203": "Computer-Aided Engineering Drawing"
+    "BCEDK203": "Computer-Aided Engineering Drawing",
+    "BCIVC103": "Engineering Mechanics",
+    "BCIVC203": "Engineering Mechanics",
+    "BMATC101": "Mathematics-I for Civil Engineering Stream",
+    "BPHYC102": "Applied Physics for Civil Engineering Stream",
+    "BPHYC202": "Applied Physics for Civil Engineering Stream",
+    "BMR305": "Introduction to Modeling and Design for Manufacturing",
+    "BEC456B": "Programmable Logic Controllers",
+    "BETCK105A": "Smart Materials and Systems",
+    "BETCK205A": "Smart Materials and Systems",
+    "BRA456C": "Signal Conditioning, Supervisory Control & Data Acquisition System (SCADA)"
   },
   "codes": {
     "BPWKS206": "BPWSK206",
