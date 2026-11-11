@@ -78,3 +78,38 @@ describe("notesFilename", () => {
     assert.equal(notesFilename("BCS403", "dbms"), "bcs403-dbms-notes.pdf");
   });
 });
+
+describe("hand-written notes in the PDF", () => {
+  const md = [
+    "## Module 1 — Stacks",
+    "",
+    "A **stack** is LIFO; `push` adds at the top.",
+    "",
+    "- Overflow when full",
+    "",
+    "```c",
+    "stack[++top] = x;",
+    "```",
+    "",
+    "### Postfix",
+    "Scan left to right.",
+  ].join("\n");
+
+  it("turns headings, paragraphs, bullets and code into blocks without Markdown symbols", () => {
+    const blocks = notesBlocks({ ...dbms, notesMarkdown: md });
+    const texts = blocks.map((b) => `${b.kind}:${b.text}`);
+    assert.ok(texts.includes("h2:Module 1 — Stacks"));
+    assert.ok(texts.includes("p:A stack is LIFO; push adds at the top."));
+    assert.ok(texts.includes("li:Overflow when full"));
+    assert.ok(texts.includes("li:stack[++top] = x;"));
+    assert.ok(texts.includes("h3:Postfix"));
+    // The generic per-topic study frame is replaced by the real notes.
+    assert.ok(!texts.some((t) => t.startsWith("p:Practice:")));
+  });
+
+  it("renders a valid PDF from the notes", async () => {
+    const bytes = await renderNotesPdf(notesBlocks({ ...dbms, notesMarkdown: md }), { title: "t", code: "BCS403", name: "DBMS" });
+    const doc = await PDFDocument.load(bytes);
+    assert.ok(doc.getPageCount() >= 1);
+  });
+});

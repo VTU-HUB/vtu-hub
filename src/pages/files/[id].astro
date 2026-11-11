@@ -6,6 +6,7 @@ import NotesPdf from "@/components/site/NotesPdf.astro";
 import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import { notesFilename, type NotesInput } from "@/lib/notes-doc";
+import { notesFor } from "@/data/notes";
 import { getBranch, semesterName, semesterSlug } from "@/data/branches";
 import { getResourceType } from "@/data/resource-types";
 import { getResource, isIndexable, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
@@ -52,6 +53,7 @@ const notes: NotesInput | null = subject
       references: subject.references ?? [],
       outcomes: subject.outcomes,
       units: subject.units,
+      notesMarkdown: notesFor(subject.code)?.rawContent(),
     }
   : null;
 const crumbTrail = subject

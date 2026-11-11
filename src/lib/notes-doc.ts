@@ -19,7 +19,50 @@ export type NotesInput = {
   references: string[];
   outcomes: string[];
   units: NotesUnit[];
+  /** Raw Markdown of the hand-written notes, when the course has them. */
+  notesMarkdown?: string;
 };
+
+/** Turns the notes Markdown (## / ### headings, lists, paragraphs, code) into PDF blocks. */
+export function markdownBlocks(md: string): NotesBlock[] {
+  const out: NotesBlock[] = [];
+  const inline = (s: string) =>
+    s
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .trim();
+  let para: string[] = [];
+  const flush = () => {
+    if (para.length) out.push({ kind: "p", text: inline(para.join(" ")) });
+    para = [];
+  };
+  let inCode = false;
+  for (const raw of md.replace(/\r\n/g, "\n").split("\n")) {
+    const line = raw.trimEnd();
+    if (line.startsWith("```")) {
+      flush();
+      inCode = !inCode;
+      continue;
+    }
+    if (inCode) {
+      if (line.trim()) out.push({ kind: "li", text: line.trim() });
+      continue;
+    }
+    const h = /^(#{2,3})\s+(.*)$/.exec(line);
+    const li = /^\s*(?:[-*]|\d+\.)\s+(.*)$/.exec(line);
+    if (h) {
+      flush();
+      out.push({ kind: h[1].length === 2 ? "h2" : "h3", text: inline(h[2]) });
+    } else if (li) {
+      flush();
+      out.push({ kind: "li", text: inline(li[1]) });
+    } else if (!line.trim()) flush();
+    else para.push(line.trim());
+  }
+  flush();
+  return out.filter((b) => b.text);
+}
 
 export type NotesBlock = { kind: "h1" | "h2" | "h3" | "p" | "li"; text: string };
 
@@ -129,6 +172,15 @@ export function notesBlocks(input: NotesInput): NotesBlock[] {
   if (!input.units.length) {
     push("h2", "Modules");
     push("p", `The parsed syllabus has no module text for ${input.code}. Check the scheme PDF on vtu.ac.in before you rely on a title.`);
+  }
+
+  // Hand-written notes (src/data/notes/<CODE>.md) replace the generic study frame.
+  if (input.notesMarkdown) {
+    blocks.push(...markdownBlocks(input.notesMarkdown));
+    push("h2", "Before the exam");
+    push("li", "Rewrite one module from memory, then check it against these notes and the textbook.");
+    push("p", "Official papers stay on vtu.ac.in. VTUHub does not host them.");
+    return blocks;
   }
 
   for (const unit of input.units) {
