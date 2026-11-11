@@ -24,7 +24,11 @@ listed.
 ### Added (notes)
 
 - New notes: BCS501 Software Engineering & Project Management, BCS602 Machine
-  Learning and BCS402 Microcontrollers (10 subjects in total).
+  Learning and BCS402 Microcontrollers.
+- New notes: BPOPS103 Principles of Programming Using C (first year), BCS601
+  Cloud Computing and BCS301 Mathematics for CSE (13 subjects in total).
+- Syllabus parser: removes "16-2-2023" revision stamps and empty "( of
+  Pedagogy)" module titles, so first-year modules get real titles.
 - Every module of every note now has an "In short" box and at least one flow
   diagram; the notes test enforces both for new notes.
 - PDF keeps accented letters and bar/hat marks (x̄ → "x-bar", ŷ → "y-hat").

@@ -21,6 +21,8 @@ const STAMPS = [
   /(?:^|\s)(?:-!\s*)+(?:\d{1,3}\s+)?/g,
   /\bNo\.?\s*of\s*Hours\s*:?\s*\d+/gi,
   /\b\d{2}\.\d{2}\.\d{4}\b/g,
+  // Revision date stamp "16-2-2023" printed in page headers.
+  /\b\d{1,2}-\d{1,2}-20\d{2}\b/g,
 ];
 const unstamp = (s) => STAMPS.reduce((t, re) => t.replace(re, " "), s);
 
@@ -34,6 +36,10 @@ const tidy = (s) =>
     .replace(/\s+([,.;:)])/g, "$1")
     .replace(/\(\s+/g, "(")
     .replace(/\b\d+\s*(Hours?|Hrs?)\b\.?/gi, "")
+    // "(8 hours of Pedagogy)" once the hours are gone, and brackets left empty.
+    .replace(/\(\s*(?:of\s+)?Pedagogy\s*\)/gi, "")
+    .replace(/\(\s*\)/g, "")
+    .replace(/\s+/g, " ")
     .trim();
 
 function titleCase(s) {
