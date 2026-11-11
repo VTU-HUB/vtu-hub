@@ -80,10 +80,15 @@ for (const file of htmlFiles) {
     if (attr(tag, "width") === null || attr(tag, "height") === null) add("WARN img missing width/height (CLS)", route, attr(tag, "src") ?? "");
   }
   // svg: either hidden from AT, or labelled as an image
-  for (const tag of html.match(/<svg\b[^>]*>/gi) ?? []) {
+  // Look at each whole <svg>…</svg>, so a <title> only counts when it is inside that SVG
+  // (the page's own <title> used to make every role=img SVG pass).
+  for (const svg of html.match(/<svg\b[\s\S]*?<\/svg>/gi) ?? []) {
+    const tag = /^<svg\b[^>]*>/i.exec(svg)[0];
     svgs++;
     const hidden = attr(tag, "aria-hidden") === "true";
-    const labelled = attr(tag, "role") === "img" && (attr(tag, "aria-label") || /<title>/i.test(html));
+    const labelled =
+      attr(tag, "role") === "img" &&
+      (attr(tag, "aria-label") || attr(tag, "aria-labelledby") || /<title\b[^>]*>[^<]+<\/title>/i.test(svg));
     if (!hidden && !labelled) add("ERROR svg neither aria-hidden nor role=img+label", route);
   }
   for (const tag of html.match(/<(input)\b[^>]*type=["']image["'][^>]*>/gi) ?? []) {

@@ -123,7 +123,7 @@ function importantBody(sub: Subject): { body: string[]; bullets: string[] } {
   return {
     body: [
       `These important questions for ${sub.name} (${sub.code}) are compiled by VTUHub from the module list — not copied from a paid “question bank” PDF and not a paper leak.`,
-      `High-frequency SEE themes in ${sub.shortName} follow the unit titles. If you can answer the list below in full sentences, you have coverage. If you can only recognise the title, you do not.`,
+      `They are syllabus-derived prompts, one per module topic. They are not previous-year VTU questions and are not ranked by how often a topic was asked. If you can answer the list below in full sentences, you have covered the syllabus. If you can only recognise the title, you have not.`,
       `Drill plan: two questions a night in the last ten days before SEE, handwritten, then compared with class notes. Do not highlight a PDF.`,
     ],
     bullets: (() => {

@@ -7,6 +7,7 @@ import {
   courseResult,
   gradeFromMarks,
   percentage,
+  percentageError,
   sgpa,
 } from "../src/lib/grades.ts";
 
@@ -115,5 +116,20 @@ describe("percentage", () => {
   it("divides and guards a zero maximum", () => {
     assert.equal(percentage(78, 100), 78);
     assert.equal(percentage(5, 0), 0);
+  });
+});
+
+describe("input validation", () => {
+  it("flags attended > conducted and caps the percentage at 100", () => {
+    const r = attendance(60, 50, 85);
+    assert.equal(r.error, "attended-gt-conducted");
+    assert.equal(r.pct, 100);
+  });
+  it("flags negative attendance input", () => assert.equal(attendance(-1, 10, 85).error, "negative"));
+  it("accepts valid attendance input", () => assert.equal(attendance(42, 56, 85).error, null));
+  it("flags obtained > max and negative marks", () => {
+    assert.equal(percentageError(110, 100), "obtained-gt-max");
+    assert.equal(percentageError(-5, 100), "negative");
+    assert.equal(percentageError(78, 100), null);
   });
 });

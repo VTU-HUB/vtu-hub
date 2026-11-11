@@ -23,8 +23,10 @@ function isIndexedPage(page) {
     // is a duplicate — list only the canonical copy.
     const canon = /<link rel="canonical" href="([^"]+)"/.exec(html)?.[1];
     return !canon || canon === page.replace(/\/$/, "") || canon === page;
-  } catch {
-    return true;
+  } catch (err) {
+    // Fail closed: a page we cannot read must not be advertised to search engines.
+    console.warn(`[sitemap] left out ${pathname}: could not read ${file} (${err.message})`);
+    return false;
   }
 }
 

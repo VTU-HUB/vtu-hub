@@ -68,9 +68,53 @@ function bookEntries(lines) {
       out[out.length - 1] += ` ${line}`;
   }
   return out
-    .map((b) => b.replace(/\s+/g, " ").trim())
+    .map(cleanBook)
     .filter((b) => /[A-Za-z]{3}/.test(b) && b.length < 260 && !/https?:/.test(b))
     .slice(0, 5);
+}
+
+const ordinal = (n) => {
+  const v = n % 100;
+  if (v >= 11 && v <= 13) return `${n}th`;
+  return `${n}${{ 1: "st", 2: "nd", 3: "rd" }[n % 10] ?? "th"}`;
+};
+
+/**
+ * VTU prints edition ordinals as superscripts ("9ᵗʰ edition"); pdf.js returns the
+ * "th" on its own line position, so it lands elsewhere ("& th Statistics … 9 edition").
+ * Drop the stray suffix words and rebuild the ordinal from the edition number, which
+ * is the value printed in the PDF. Also close the spaces pdf.js puts inside quotes.
+ */
+export function cleanBook(text) {
+  return text
+    .replace(/\s+/g, " ")
+    .replace(/(^|\s)(st|nd|rd|th)(?=\s|[.,;]|$)/g, "$1")
+    .replace(/\b(\d{1,3})\s*(?:st|nd|rd|th)?\s+(edition|ed\.?)(?=[\s,.;)]|$)/gi, (_, n, word) => `${ordinal(Number(n))} ${word}`)
+    .replace(/“\s+/g, "“")
+    .replace(/\s+”/g, "”")
+    .replace(/(\w)\s+’\s*(?=\w)/g, "$1’")
+    .replace(/\s+([,.;:])/g, "$1")
+    .replace(/\s+/g, " ")
+    .replace(/[\s.]*\bth$/, "")
+    .trim();
+}
+
+/** A web link as printed, or null if the PDF text broke it (cut-off host, stray "(" tail). */
+export function cleanLink(raw) {
+  let url = raw.replace(/[.,;:]+$/, "");
+  // "…/math(MOOCs)" in the PDF: the bracketed note isn't part of the URL.
+  const open = url.indexOf("(");
+  if (open > 0 && !url.slice(open).includes(")")) url = url.slice(0, open);
+  // Text fragments (#:~:text=…) are browser highlights, not part of the page address.
+  url = url.replace(/#:~:text=.*$/, "");
+  let host = "";
+  try {
+    host = new URL(url).hostname;
+  } catch {
+    return null;
+  }
+  if (!/\.[a-z]{2,}$/i.test(host) || /^www\.?$/i.test(host)) return null;
+  return url;
 }
 
 /** Keep the module as VTU printed it. Ellipsis only past a safety cap, not at 420 characters. */
@@ -123,9 +167,9 @@ export async function parseSyllabus(file) {
       else if (section === "text") texts.push(line);
       else if (section === "ref") refs.push(line);
       for (const u of line.matchAll(/https?:\/\/[^\s<>"')]+/g)) {
-        const url = u[0].replace(/[.,;]+$/, "");
+        const url = cleanLink(u[0]);
         // Links split across a line break in the PDF are unusable — drop them.
-        if (/[-_=?&/]$/.test(url) || /youtube\.com\/watch\?v=(?![\w-]{11}\b)/.test(url)) continue;
+        if (!url || /[-_=?&/]$/.test(url) || /youtube\.com\/watch\?v=(?![\w-]{11}\b)/.test(url)) continue;
         if (section === "web" || /nptel|swayam|youtube|youtu\.be|coursera|edx|geeksforgeeks|w3schools|tutorialspoint|ocw\.mit/i.test(url)) links.add(url);
       }
     }

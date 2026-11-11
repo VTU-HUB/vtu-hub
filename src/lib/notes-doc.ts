@@ -46,46 +46,60 @@ export function markdownBlocks(md: string): NotesBlock[] {
   const inline = (s: string) =>
     s
       .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/\\\*/g, "*")
       .replace(/`([^`]+)`/g, "$1")
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .trim();
   let para: string[] = [];
+  let quote = false;
   const flush = () => {
-    if (para.length) out.push({ kind: "p", text: inline(para.join(" ")) });
+    if (para.length) out.push({ kind: quote ? "quote" : "p", text: inline(para.join(" ")) });
     para = [];
+    quote = false;
   };
   let inCode = false;
   let flow = false;
   for (const raw of md.replace(/\r\n/g, "\n").split("\n")) {
-    let line = raw.trimEnd();
-    if (line.startsWith("```")) {
+    const line = raw.trimEnd();
+    if (line.trimStart().startsWith("```") || line.trimStart().startsWith("~~~")) {
       flush();
-      flow = !inCode && line.slice(3).trim() === "flow";
+      flow = !inCode && line.trim().slice(3).trim() === "flow";
       inCode = !inCode;
       continue;
     }
     if (inCode) {
-      if (line.trim()) out.push({ kind: "li", text: flow ? `Flow: ${line.trim()}` : line.trim() });
+      // Code keeps its indentation and blank lines; flow lines stay one row each.
+      if (flow) {
+        if (line.trim()) out.push({ kind: "flow", text: line.trim() });
+      } else out.push({ kind: "code", text: line.replace(/\t/g, "  ") || " " });
       continue;
     }
-    // Tables: skip the |---| rule and print each row as "cell | cell".
+    // Tables: skip the |---| rule; each row becomes a "row" block with " | " between cells.
     if (/^\s*\|[\s:|-]+\|\s*$/.test(line)) continue;
     if (/^\s*\|.*\|\s*$/.test(line)) {
       flush();
-      const cells = line.trim().slice(1, -1).split("|").map((c) => inline(c)).filter(Boolean);
-      out.push({ kind: "li", text: cells.join("  |  ") });
+      const cells = line.trim().slice(1, -1).split("|").map((c) => inline(c));
+      out.push({ kind: "row", text: cells.join("  |  ") });
       continue;
     }
-    // Callout boxes ("> **In short:** …") print as plain paragraphs.
-    line = line.replace(/^\s*>\s?/, "");
+    // Callout boxes ("> **In short:** …").
+    const q = /^\s*>\s?(.*)$/.exec(line);
+    if (q) {
+      if (!quote) flush();
+      quote = true;
+      if (q[1].trim()) para.push(q[1].trim());
+      continue;
+    }
+    if (quote) flush();
     const h = /^(#{2,3})\s+(.*)$/.exec(line);
-    const li = /^\s*(?:[-*]|\d+\.)\s+(.*)$/.exec(line);
+    const li = /^(\s*)(?:[-*]|(\d+)\.)\s+(.*)$/.exec(line);
     if (h) {
       flush();
       out.push({ kind: h[1].length === 2 ? "h2" : "h3", text: inline(h[2]) });
     } else if (li) {
       flush();
-      out.push({ kind: "li", text: inline(li[1]) });
+      const depth = Math.min(2, Math.floor(li[1].replace(/\t/g, "  ").length / 2));
+      out.push({ kind: "li", text: `${li[2] ? `${li[2]}. ` : ""}${inline(li[3])}`, depth, ordered: Boolean(li[2]) });
     } else if (!line.trim()) flush();
     else para.push(line.trim());
   }
@@ -93,7 +107,14 @@ export function markdownBlocks(md: string): NotesBlock[] {
   return out.filter((b) => b.text);
 }
 
-export type NotesBlock = { kind: "h1" | "h2" | "h3" | "p" | "li"; text: string };
+export type NotesBlock = {
+  kind: "h1" | "h2" | "h3" | "p" | "li" | "code" | "quote" | "flow" | "row";
+  text: string;
+  /** List nesting level (0 = top). */
+  depth?: number;
+  /** Numbered list item: the number is already in `text`, so no bullet is drawn. */
+  ordered?: boolean;
+};
 
 export function notesFilename(code: string, slug: string) {
   const safe = `${code}-${slug}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

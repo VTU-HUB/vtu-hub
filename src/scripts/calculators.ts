@@ -6,6 +6,7 @@ import {
   GRADE_SCALE,
   MARK_SPLITS,
   percentage,
+  percentageError,
   sgpa as sgpaOf,
 } from "@/lib/grades";
 import { calcStrings } from "@/i18n/calc";
@@ -82,8 +83,15 @@ function mountSgpa(root: HTMLElement) {
   side.append(note);
   wrap.append(card, side);
 
-  const paint = () => {
+  // Results refresh on every keystroke; the rows are rebuilt only on add/remove,
+  // so the field being typed in is never destroyed.
+  const update = () => {
     save("sgpa", rows);
+    const s = sgpaOf(rows);
+    result.value.textContent = s.value.toFixed(2);
+    if (result.hint) result.hint.textContent = S.sgpaHint(s.points, s.credits);
+  };
+  const paint = () => {
     list.replaceChildren();
     for (const row of rows) {
       const line = el("div", "grid grid-cols-1 gap-2 md:grid-cols-[1fr_88px_96px_72px]");
@@ -102,7 +110,7 @@ function mountSgpa(root: HTMLElement) {
       credits.setAttribute("aria-label", S.credits);
       credits.addEventListener("input", () => {
         row.credits = Number(credits.value);
-        paint();
+        update();
       });
       const letter = el("select", inputClass) as HTMLSelectElement;
       letter.setAttribute("aria-label", S.letterGrade);
@@ -114,7 +122,7 @@ function mountSgpa(root: HTMLElement) {
       }
       letter.addEventListener("change", () => {
         row.letter = letter.value;
-        paint();
+        update();
       });
       const remove = el("button", "h-11 text-sm text-muted hover:text-danger", S.remove);
       remove.type = "button";
@@ -125,9 +133,7 @@ function mountSgpa(root: HTMLElement) {
       line.append(name, credits, letter, remove);
       list.append(line);
     }
-    const s = sgpaOf(rows);
-    result.value.textContent = s.value.toFixed(2);
-    if (result.hint) result.hint.textContent = S.sgpaHint(s.points, s.credits);
+    update();
   };
   add.addEventListener("click", () => {
     rows = [
@@ -168,8 +174,14 @@ function mountCgpa(root: HTMLElement) {
   const note = el("p", "text-sm text-muted");
   side.append(result.box, note);
   wrap.append(card, side);
-  const paint = () => {
+  const update = () => {
     save("cgpa", rows);
+    const c = cgpaOf(rows);
+    result.value.textContent = c.value.toFixed(2);
+    if (result.hint) result.hint.textContent = S.creditsCounted(c.credits);
+    note.innerHTML = S.cgpaNote(cgpaToPercentage(c.value).toFixed(1));
+  };
+  const paint = () => {
     list.replaceChildren();
     for (const row of rows) {
       const line = el("div", "grid grid-cols-1 gap-2 md:grid-cols-[1fr_88px_96px_72px]");
@@ -185,7 +197,7 @@ function mountCgpa(root: HTMLElement) {
       credits.value = String(row.credits);
       credits.addEventListener("input", () => {
         row.credits = Number(credits.value);
-        paint();
+        update();
       });
       const sgpa = el("input", inputClass) as HTMLInputElement;
       sgpa.type = "number";
@@ -195,7 +207,7 @@ function mountCgpa(root: HTMLElement) {
       sgpa.value = String(row.sgpa);
       sgpa.addEventListener("input", () => {
         row.sgpa = Number(sgpa.value);
-        paint();
+        update();
       });
       const remove = el("button", "h-11 text-sm text-muted hover:text-danger", S.remove);
       remove.type = "button";
@@ -206,10 +218,7 @@ function mountCgpa(root: HTMLElement) {
       line.append(name, credits, sgpa, remove);
       list.append(line);
     }
-    const c = cgpaOf(rows);
-    result.value.textContent = c.value.toFixed(2);
-    if (result.hint) result.hint.textContent = S.creditsCounted(c.credits);
-    note.innerHTML = S.cgpaNote(cgpaToPercentage(c.value).toFixed(1));
+    update();
   };
   add.addEventListener("click", () => {
     rows = [
@@ -261,8 +270,9 @@ function mountMarks(root: HTMLElement) {
     seeLabel.textContent = S.see(seeMax);
     cieInput.max = String(cieMax);
     seeInput.max = String(seeMax);
-    cieInput.value = String(cie);
-    seeInput.value = String(see);
+    // Don't overwrite a field while the user is typing in it (clearing it would snap back to 0).
+    if (document.activeElement !== cieInput) cieInput.value = String(cie);
+    if (document.activeElement !== seeInput) seeInput.value = String(see);
     split.replaceChildren();
     for (const s of ["50", "40"] as const) {
       const b = el(
@@ -332,9 +342,12 @@ function mountAttendance(root: HTMLElement) {
   const paint = () => {
     save("attendance", { attended, conducted, target });
     const a = attendance(attended, conducted, target);
-    result.value.textContent = `${a.pct.toFixed(1)}%`;
+    result.value.textContent = a.error ? "–" : `${a.pct.toFixed(1)}%`;
     if (result.hint) {
-      result.hint.textContent = a.onTrack ? S.canMiss(a.canMiss, a.target) : S.need(a.need, a.target);
+      result.hint.textContent =
+        a.error === "negative" ? S.negative
+        : a.error ? S.attendedTooHigh
+        : a.onTrack ? S.canMiss(a.canMiss, a.target) : S.need(a.need, a.target);
     }
   };
   root.replaceChildren(wrap);
@@ -367,10 +380,14 @@ function mountPercentage(root: HTMLElement) {
     mk("max", S.maximum, max, (n) => (max = n)),
   );
   const result = resultBox(S.percentage, "0%");
-  card.append(grid, result.box);
+  const hint = el("p", "text-sm text-danger");
+  hint.setAttribute("aria-live", "polite");
+  card.append(grid, result.box, hint);
   const paint = () => {
     save("percentage", { obtained, max });
-    result.value.textContent = `${percentage(obtained, max).toFixed(2)}%`;
+    const err = percentageError(obtained, max);
+    result.value.textContent = err ? "–" : `${percentage(obtained, max).toFixed(2)}%`;
+    hint.textContent = err === "negative" ? S.negative : err ? S.obtainedTooHigh : "";
   };
   root.replaceChildren(card);
   paint();

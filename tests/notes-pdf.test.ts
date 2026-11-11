@@ -101,7 +101,8 @@ describe("hand-written notes in the PDF", () => {
     assert.ok(texts.includes("h2:Module 1 — Stacks"));
     assert.ok(texts.includes("p:A stack is LIFO; push adds at the top."));
     assert.ok(texts.includes("li:Overflow when full"));
-    assert.ok(texts.includes("li:stack[++top] = x;"));
+    // Code lines stay code (monospace in the PDF), not bullets.
+    assert.ok(texts.includes("code:stack[++top] = x;"));
     assert.ok(texts.includes("h3:Postfix"));
     // The generic per-topic study frame is replaced by the real notes.
     assert.ok(!texts.some((t) => t.startsWith("p:Practice:")));

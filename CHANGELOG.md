@@ -23,6 +23,41 @@ listed.
 
 ### Fixed
 
+- Notes accuracy review (all 7 subjects):
+  - BCS304: memory-safe `malloc`/`realloc`/`free` example; Optimal BST recurrence
+    now states its index convention; circular-queue capacity and sentinel caveats.
+  - BCS303: deadlock detection algorithm (Request matrix, wait-for graph) separated
+    from Banker's avoidance; Swap vs compare-and-swap; blocking semaphore; Peterson's
+    memory-model caveat.
+  - BCS403: correct BCNF/3NF decomposition (R − (Y − X)) with a worked example;
+    isolation-level table; CAP and `CREATE ASSERTION` caveats.
+  - BCS503: ε-NFA start state, ε in CNF, full pumping-lemma proof for 0ⁿ1ⁿ2ⁿ, TM
+    accept/reject/loop, Church–Turing wording, "+ means union" notation.
+  - BCS401: Master theorem assumptions, Θ(n + k) distribution counting, DP base
+    cases, subset-sum and knapsack-bound assumptions, approximation ratio, TSP count.
+  - BCS502: checksum scope by protocol, 0.0.0.0, SMTP submission ports, FTP
+    active/passive, HTTP/3, stop-and-wait assumptions with a worked example.
+  - BCS302: AMAT definitions with an example, carry look-ahead expansion, cache-hit
+    vs miss in pipelines, instruction-hazard terminology.
+- SGPA/CGPA calculators no longer lose the field you are typing in; the marks
+  calculator no longer snaps a cleared field back to 0.
+- Attendance and percentage calculators reject impossible input (attended >
+  conducted, marks > maximum, negatives) with a message.
+- PDF export: code blocks in monospace with indentation, tables as rows, "In short"
+  boxes, flow rows and numbered/nested lists; Θ, Ω, ⌊⌋, ⋈ and other symbols no
+  longer vanish.
+- Syllabus books: edition ordinals ("9th edition") and quotes cleaned; 29 broken
+  web links (cut at "(" or at "https://www") fixed or dropped.
+- Google Tag Manager snippet now sends the `gtm.js` start event.
+- Sitemap filter fails closed when a built page cannot be read; the SEO checker
+  only accepts an SVG `<title>` inside that SVG.
+- Generated "important questions" no longer claim to be high-frequency SEE topics.
+
+### Added (tests)
+
+- `tests/notes-files.test.ts`: checks every notes file (frontmatter, module order,
+  In short boxes, code fences, PDF symbols, a PDF per module). 76 tests in total.
+
 - PDF text lost maths symbols (→, ≤, ε, Σ, ⊕, superscripts). They are now spelled
   out (`->`, `<=`, `eps`, `^n`).
 - Page stamps from VTU's syllabus PDFs (`@#@#@ 1 12082024`, `-! -! 1`) leaked

@@ -140,13 +140,15 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     {analyticsConfig.ga4MeasurementId.startsWith("GTM-") ? (
       <>
-        {/* Google tag exactly as Google Analytics provides it for the VTUHub property. */}
-        <script async is:inline src={`https://www.googletagmanager.com/gtm.js?id=${analyticsConfig.ga4MeasurementId}`}></script>
+        {/* Google Tag Manager container. The gtm.start / gtm.js event is what GTM's
+            "All Pages" trigger listens for, so it must be pushed before gtm.js loads. */}
         <script is:inline>
           window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
           function gtag() { dataLayer.push(arguments); }
           gtag("js", new Date());
         </script>
+        <script async is:inline src={`https://www.googletagmanager.com/gtm.js?id=${analyticsConfig.ga4MeasurementId}`}></script>
       </>
     ) : analyticsConfig.ga4MeasurementId ? (
       <>

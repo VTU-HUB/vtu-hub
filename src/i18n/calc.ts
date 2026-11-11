@@ -42,6 +42,9 @@ const en = {
   obtained: "Obtained",
   maximum: "Maximum",
   percentage: "Percentage",
+  attendedTooHigh: "Classes attended cannot be more than classes conducted.",
+  obtainedTooHigh: "Marks obtained cannot be more than the maximum marks.",
+  negative: "Enter a number that is 0 or more.",
 };
 
 type CalcStrings = typeof en;
@@ -87,6 +90,9 @@ const kn: CalcStrings = {
   obtained: "ಪಡೆದ ಅಂಕ",
   maximum: "ಗರಿಷ್ಠ ಅಂಕ",
   percentage: "ಶೇಕಡಾ",
+  attendedTooHigh: "ಹಾಜರಾದ ತರಗತಿಗಳು ನಡೆದ ತರಗತಿಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇರಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+  obtainedTooHigh: "ಪಡೆದ ಅಂಕಗಳು ಗರಿಷ್ಠ ಅಂಕಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇರಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+  negative: "0 ಅಥವಾ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.",
 };
 
 const hi: CalcStrings = {
@@ -130,6 +136,9 @@ const hi: CalcStrings = {
   obtained: "प्राप्त अंक",
   maximum: "अधिकतम अंक",
   percentage: "प्रतिशत",
+  attendedTooHigh: "उपस्थित कक्षाएँ आयोजित कक्षाओं से अधिक नहीं हो सकतीं।",
+  obtainedTooHigh: "प्राप्त अंक अधिकतम अंकों से अधिक नहीं हो सकते।",
+  negative: "0 या उससे अधिक संख्या दर्ज करें।",
 };
 
 export function calcStrings(): CalcStrings {

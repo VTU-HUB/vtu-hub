@@ -84,13 +84,23 @@ export function courseResult(split: keyof typeof MARK_SPLITS, cie: number, see: 
  * reach the target, or how many can be missed while staying at or above it.
  */
 export function attendance(attended: number, conducted: number, target: number) {
-  const a = Math.max(0, finite(attended));
+  // Validation result for the UI; the numbers below are still computed (clamped) so
+  // the page never shows NaN, but `error` says the input itself is wrong.
+  const error: "negative" | "attended-gt-conducted" | null =
+    finite(attended) < 0 || finite(conducted) < 0
+      ? "negative"
+      : finite(attended) > finite(conducted)
+        ? "attended-gt-conducted"
+        : null;
   const c = Math.max(0, finite(conducted));
+  const a = Math.min(c, Math.max(0, finite(attended)));
+  // A 100% target is excluded: after a single absence it can never be reached again.
   const tgt = Math.min(99, Math.max(1, finite(target)));
   const t = tgt / 100;
   const pct = c === 0 ? 0 : (a / c) * 100;
   const onTrack = pct >= tgt;
   return {
+    error,
     pct,
     target: tgt,
     onTrack,
@@ -102,4 +112,11 @@ export function attendance(attended: number, conducted: number, target: number) 
 export function percentage(obtained: number, max: number) {
   const m = finite(max);
   return m === 0 ? 0 : (finite(obtained) / m) * 100;
+}
+
+/** Input problem for the percentage calculator, or null when the inputs make sense. */
+export function percentageError(obtained: number, max: number): "negative" | "obtained-gt-max" | null {
+  if (finite(obtained) < 0 || finite(max) < 0) return "negative";
+  if (finite(obtained) > finite(max)) return "obtained-gt-max";
+  return null;
 }
