@@ -18,7 +18,7 @@ const SYMBOLS: Record<string, string> = {
   "\u2208": " in ", "\u2209": " not in ", "\u2286": " subset of ", "\u2282": " proper subset of ", "\u222a": " U ", "\u22c3": " U ", "\u2229": " n ", "\u2205": "{}",
   "\u03b5": "eps", "\u03a3": "Sigma", "\u03c3": "sigma", "\u03b4": "delta", "\u0394": "Delta", "\u03b3": "gamma", "\u0393": "Gamma", "\u03b1": "alpha",
   "\u03b2": "beta", "\u03bb": "lambda", "\u03bc": "mu", "\u03c0": "pi", "\u03b8": "theta", "\u03a0": "Pi",
-  "\u0302": "^",
+  "\u0302": "-hat", "\u0304": "-bar", "\u00d8": "(none)",
   "\u0398": "Theta", "\u03a9": "Omega", "\u03c9": "omega", "\u03c1": "rho", "\u03c4": "tau", "\u03c6": "phi", "\u03a6": "Phi", "\u03c8": "psi",
   "\u03b7": "eta", "\u03ba": "kappa", "\u03c7": "chi", "\u2131": "F",
   "\u230a": "floor(", "\u230b": ")", "\u2308": "ceil(", "\u2309": ")", "\u27e8": "<", "\u27e9": ">",
@@ -26,8 +26,8 @@ const SYMBOLS: Record<string, string> = {
   "\u00ac": "NOT ", "\u2227": " AND ", "\u2228": " OR ", "\u2211": "Sum", "\u220f": "Product", "\u2261": "==", "\u221d": " proportional to ",
   "\u2713": "yes", "\u2717": "no", "\u00b0": " deg",
 };
-const SUPER: Record<string, string> = { "\u1d3f": "R", "\u1d40": "T", "\u2070": "0", "\u00b9": "1", "\u00b2": "2", "\u00b3": "3", "\u2074": "4", "\u2075": "5", "\u2076": "6", "\u2077": "7", "\u2078": "8", "\u2079": "9", "\u207f": "n", "\u1d4f": "k", "\u2071": "i", "\u02b2": "j", "\u1d50": "m", "\u207a": "+", "\u207b": "-", "\u207d": "(", "\u207e": ")" };
-const SUB: Record<string, string> = { "\u2080": "0", "\u2081": "1", "\u2082": "2", "\u2083": "3", "\u2084": "4", "\u2085": "5", "\u2086": "6", "\u2087": "7", "\u2088": "8", "\u2089": "9", "\u1d62": "i", "\u2c7c": "j", "\u2096": "k", "\u2099": "n", "\u2098": "m", "\u2093": "x", "\u208a": "+", "\u208b": "-", "\u2097": "l", "\u1d63": "r", "\u2090": "a", "\u2091": "e", "\u2092": "o", "\u209a": "p", "\u209b": "s", "\u209c": "t" };
+const SUPER: Record<string, string> = { "\u1d3f": "R", "\u1d40": "T", "\u1d57": "t", "\u1d9c": "c", "\u1d56": "p", "\u2070": "0", "\u00b9": "1", "\u00b2": "2", "\u00b3": "3", "\u2074": "4", "\u2075": "5", "\u2076": "6", "\u2077": "7", "\u2078": "8", "\u2079": "9", "\u207f": "n", "\u1d4f": "k", "\u2071": "i", "\u02b2": "j", "\u1d50": "m", "\u207a": "+", "\u207b": "-", "\u207d": "(", "\u207e": ")" };
+const SUB: Record<string, string> = { "\u2080": "0", "\u2081": "1", "\u2082": "2", "\u2083": "3", "\u2084": "4", "\u2085": "5", "\u2086": "6", "\u2087": "7", "\u2088": "8", "\u2089": "9", "\u1d62": "i", "\u2c7c": "j", "\u2096": "k", "\u2099": "n", "\u2098": "m", "\u2093": "x", "\u208a": "+", "\u208b": "-", "\u2097": "l", "\u1d63": "r", "\u2090": "a", "\u2091": "e", "\u2092": "o", "\u209a": "p", "\u209b": "s", "\u209c": "t", "\u1d67": "y", "\u1d65": "v" };
 const charClass = (map: Record<string, string>) => new RegExp(`[${Object.keys(map).join("")}]+`, "gu");
 const SUPER_RE = charClass(SUPER);
 const SUB_RE = charClass(SUB);
@@ -42,6 +42,9 @@ export function droppedGlyphs(text: string) {
 /** Standard PDF fonts only encode WinAnsi. Fold everything else into plain text. */
 export function pdfText(value: string) {
   return value
+    // Split accented letters (ï, ȳ, ŷ) into letter + mark, so the letter survives and
+    // bar/hat marks become "-bar" / "-hat"; other accents are then dropped.
+    .normalize("NFD")
     .replace(SUPER_RE, (m) => "^" + [...m].map((c) => SUPER[c] ?? "").join(""))
     .replace(SUB_RE, (m) => [...m].map((c) => SUB[c] ?? "").join(""))
     .replace(/[^\x20-\x7e\n]/g, (c) => SYMBOLS[c] ?? c)

@@ -48,6 +48,7 @@ describe("notes files", () => {
           const section = moduleMarkdown(fm!.body, n);
           assert.ok(section.split("\n").length > 5, `Module ${n} is empty`);
           assert.match(section, /^> \*\*In short:\*\*/m, `Module ${n} has no "> **In short:**" box`);
+          assert.match(section, /^```flow$/m, `Module ${n} has no \`\`\`flow diagram`);
         }
       });
 

@@ -21,6 +21,14 @@ listed.
   CODE_OF_CONDUCT, SECURITY, issue and pull-request templates, and `docs/`.
 - "Edit this page on GitHub" links on notes, plus a `/contribute` page.
 
+### Added (notes)
+
+- New notes: BCS501 Software Engineering & Project Management, BCS602 Machine
+  Learning and BCS402 Microcontrollers (10 subjects in total).
+- Every module of every note now has an "In short" box and at least one flow
+  diagram; the notes test enforces both for new notes.
+- PDF keeps accented letters and bar/hat marks (x̄ → "x-bar", ŷ → "y-hat").
+
 ### Fixed
 
 - Notes accuracy review (all 7 subjects):
