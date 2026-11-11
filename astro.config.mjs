@@ -33,6 +33,9 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   compressHTML: true,
+  // Study notes (src/data/notes/*.md): plain code blocks styled by .notes-prose, so they
+  // read well in both light and dark mode.
+  markdown: { syntaxHighlight: false },
   // The floating dev toolbar covers mobile footers in local preview; it never ships to production.
   devToolbar: { enabled: false },
   // "file" emits /vtu/cse.html (not /vtu/cse/index.html) so Cloudflare serves

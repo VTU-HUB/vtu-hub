@@ -13,7 +13,9 @@ import { resourceTypes } from "@/data/resource-types";
 import { resourceCounts, resourcesFor } from "@/data/resources";
 import { canonicalSubject, creditsLabel, getSubjectsBySemester, subjectPath, subjects } from "@/data/subjects";
 import { branches } from "@/data/branches";
+import { notesFor } from "@/data/notes";
 import { absUrl, SITE_URL } from "@/lib/site";
+import { formatFullDate } from "@/lib/utils";
 
 export function getStaticPaths() {
   return subjects.map((subject) => ({
@@ -41,6 +43,7 @@ const slotOptions = subject.electiveGroup
   ? getSubjectsBySemester(branch.slug, n).filter((s) => s.electiveGroup === subject.electiveGroup && s.slug !== subject.slug)
   : [];
 const credits = creditsLabel(subject.credits);
+const studyNotes = notesFor(subject.code);
 const br = branch.shortName;
 const seoTitle = fitTitle(
   `${subject.name} (${subject.code}) VTU ${br} Notes & Questions`,
@@ -171,6 +174,25 @@ const faqs = [
   <Notice class="mt-6">
     Course code, title and credits are read from VTU's official scheme PDF{subject.sourceUrl ? <> (<a class="text-primary hover:underline" href={subject.sourceUrl} rel="noopener" target="_blank">open the scheme PDF on vtu.ac.in</a>)</> : null} and re-checked daily. Guides are original VTUHub writing — we do not host question-paper PDFs or scanned notes.
   </Notice>
+  {studyNotes ? (
+    <section class="mt-10" aria-labelledby="notes">
+      <div class="flex flex-wrap items-end justify-between gap-2">
+        <h2 id="notes" class="text-xl font-semibold">{subject.code} {subject.name} — notes</h2>
+        <p class="text-xs text-faint">Updated {formatFullDate(studyNotes.frontmatter.updated)}</p>
+      </div>
+      <p class="mt-1 text-sm text-muted">
+        Module-wise notes written by VTUHub against the official {subject.scheme}-scheme syllabus{studyNotes.frontmatter.textbook ? <>, following {studyNotes.frontmatter.textbook}</> : null}. Read the textbook for full proofs, figures and exercises.
+      </p>
+      <nav class="mt-4 flex flex-wrap gap-2 text-sm" aria-label="Jump to module">
+        {studyNotes.getHeadings().filter((h) => h.depth === 2).map((h) => (
+          <a class="inline-flex min-h-9 items-center rounded-md border bg-surface px-3 hover:border-primary hover:text-primary" href={`#${h.slug}`}>{h.text.replace(/\s+—.*$/, "")}</a>
+        ))}
+      </nav>
+      <article class="notes-prose mt-6">
+        <studyNotes.Content />
+      </article>
+    </section>
+  ) : null}
   {subject.units.length > 0 ? (
     <section class="mt-10" aria-labelledby="modules">
       <div class="flex flex-wrap items-end justify-between gap-2">

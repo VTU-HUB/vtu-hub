@@ -290,6 +290,91 @@
     }
   }
 
+  /* ---- Study notes (src/data/notes/*.md) ---- */
+  .notes-prose {
+    max-width: 48rem;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--vt-foreground);
+  }
+  .notes-prose h2 {
+    margin: 2.5rem 0 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--vt-border);
+    font-size: 1.3rem;
+    font-weight: 700;
+    scroll-margin-top: 5rem;
+  }
+  .notes-prose h2:first-child {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+  .notes-prose h3 {
+    margin: 1.6rem 0 0.4rem;
+    font-size: 1.05rem;
+    font-weight: 650;
+    scroll-margin-top: 5rem;
+  }
+  .notes-prose p,
+  .notes-prose ul,
+  .notes-prose ol,
+  .notes-prose pre {
+    margin: 0.65rem 0;
+  }
+  .notes-prose p,
+  .notes-prose li {
+    color: var(--vt-muted);
+  }
+  .notes-prose strong {
+    color: var(--vt-foreground);
+    font-weight: 650;
+  }
+  .notes-prose ul {
+    list-style: disc;
+    padding-left: 1.4rem;
+  }
+  .notes-prose ol {
+    list-style: decimal;
+    padding-left: 1.4rem;
+  }
+  .notes-prose li + li {
+    margin-top: 0.3rem;
+  }
+  .notes-prose code {
+    padding: 0.1rem 0.35rem;
+    border-radius: 5px;
+    background: var(--vt-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    color: var(--vt-foreground);
+  }
+  .notes-prose pre {
+    overflow-x: auto;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--vt-border);
+    border-radius: var(--radius-md);
+    background: var(--vt-secondary) !important;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .notes-prose pre code {
+    padding: 0;
+    background: transparent;
+  }
+  .notes-prose table {
+    width: 100%;
+    margin: 0.9rem 0;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .notes-prose th,
+  .notes-prose td {
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--vt-border);
+    text-align: left;
+  }
+
   /* ---- Searchable dropdown (src/scripts/select-search.ts) ---- */
   .ss {
     position: relative;
