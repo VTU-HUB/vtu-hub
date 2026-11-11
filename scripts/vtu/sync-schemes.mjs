@@ -230,6 +230,16 @@ for (const required of ["cse", "ise", "ece", "eee", "me", "cv"]) {
   if (!programs.some((p) => p.slug === required)) throw new Error(`required programme ${required} did not sync`);
 }
 
+// Keep syllabus PDFs that sync-syllabus.mjs discovered on earlier runs (VTU's page does
+// not link every semester file); otherwise the daily scheme sync would drop them.
+if (fs.existsSync(OUT)) {
+  const previous = JSON.parse(fs.readFileSync(OUT, "utf8"));
+  for (const p of programs) {
+    const old = previous.programs?.find((q) => q.slug === p.slug);
+    if (old?.syllabi?.length) p.syllabi = [...new Set([...(p.syllabi ?? []), ...old.syllabi])];
+  }
+}
+
 // The same common course (e.g. BENGK106) appears in several stream PDFs; when one PDF's
 // credits cell did not parse, take the value another official PDF gives for that code.
 const creditsByCode = new Map();
