@@ -1,0 +1,76 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { notesCodes } from "@/data/notes";
+import { DISCUSSIONS_URL, GITHUB_URL, NEW_ISSUE_URL } from "@/lib/site";
+
+const docs = `${GITHUB_URL}/blob/main/docs`;
+const card = "rounded-xl border bg-surface p-5";
+const btn =
+  "inline-flex h-10 items-center rounded-lg border bg-background px-3 text-sm font-semibold hover:border-primary hover:text-primary";
+---
+<Base
+  title="Contribute to VTUHub: Open-Source VTU Notes"
+  description="VTUHub is open source. Fix or write module-wise VTU notes in simple Markdown, report wrong course data, or improve the code on GitHub."
+  path="/contribute"
+  crumbs={[{ label: "Contribute", href: "/contribute" }]}
+>
+  <Crumbs items={[{ label: "Contribute" }]} />
+  <PageHeader
+    title="Contribute to VTUHub"
+    answer="VTUHub is open source. Every note on the site is a Markdown file on GitHub, so any student can fix a mistake or write notes for a subject, and no coding is needed."
+  />
+
+  <div class="grid gap-4 md:grid-cols-3">
+    <div class={card}>
+      <h2 class="font-semibold">Fix a note</h2>
+      <p class="mt-1 text-sm text-muted">Under every notes section, click <strong class="text-foreground">Edit this page on GitHub</strong>, change the text and choose <em>Propose changes</em>.</p>
+    </div>
+    <div class={card}>
+      <h2 class="font-semibold">Write notes</h2>
+      <p class="mt-1 text-sm text-muted">On a subject without notes, click <strong class="text-foreground">Write notes for this subject</strong>. GitHub opens a template with VTU's modules already filled in.</p>
+    </div>
+    <div class={card}>
+      <h2 class="font-semibold">Report a problem</h2>
+      <p class="mt-1 text-sm text-muted">Wrong course title, module or link? <a class="text-primary hover:underline" href={NEW_ISSUE_URL} rel="noopener" target="_blank">Open an issue</a> with the official vtu.ac.in source.</p>
+    </div>
+  </div>
+
+  <div class="mt-10 max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-xl font-semibold text-foreground">How a note is written</h2>
+    <p>One file per VTU course code, for example <code class="rounded bg-secondary px-1.5 py-0.5 text-sm text-foreground">src/data/notes/BCS502.md</code>. It has one section per official module:</p>
+    <pre class="overflow-x-auto rounded-lg border bg-secondary p-4 text-[13px] leading-relaxed text-foreground"><code>## Module 1 — Introduction
+
+&gt; **In short:** two or three simple sentences for the whole module.
+
+### Topic name
+
+- One idea per bullet, **key terms in bold**.
+
+```flow
+Step one -&gt; Step two -&gt; Step three
+```</code></pre>
+    <p>The <code class="rounded bg-secondary px-1.5 py-0.5 text-sm text-foreground">flow</code> block becomes a diagram, and the quote becomes a highlighted box. The site makes the PDFs and the read-aloud version from the same file.</p>
+
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Three rules</h2>
+    <ol class="list-decimal space-y-1.5 pl-5">
+      <li><strong class="text-foreground">Your own words.</strong> Never paste from textbooks, other websites, slides or question-paper solutions.</li>
+      <li><strong class="text-foreground">Follow VTU's modules.</strong> Use the official module list shown on the subject page.</li>
+      <li><strong class="text-foreground">No files.</strong> No PDFs, scanned notes or question papers. Point to vtu.ac.in for official documents.</li>
+    </ol>
+
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Notes written so far</h2>
+    <p>{notesCodes.length} subjects have notes: {notesCodes.join(", ")}. Pick any other subject and start.</p>
+
+    <h2 class="mt-10 text-xl font-semibold text-foreground">Licence</h2>
+    <p>The code is MIT-licensed and the notes are shared under CC BY-SA 4.0, so anyone may reuse them with credit. By contributing you agree to release your work under these licences.</p>
+  </div>
+
+  <div class="mt-8 flex flex-wrap gap-2">
+    <a class="inline-flex h-10 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary-hover" href={GITHUB_URL} rel="noopener" target="_blank">VTUHub on GitHub</a>
+    <a class={btn} href={`${docs}/writing-notes.md`} rel="noopener" target="_blank">Guide to writing notes</a>
+    <a class={btn} href={`${GITHUB_URL}/blob/main/CONTRIBUTING.md`} rel="noopener" target="_blank">Contributing guide</a>
+    <a class={btn} href={DISCUSSIONS_URL} rel="noopener" target="_blank">Ask in Discussions</a>
+  </div>
+</Base>

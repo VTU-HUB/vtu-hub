@@ -374,6 +374,64 @@
     border: 1px solid var(--vt-border);
     text-align: left;
   }
+  .notes-prose th {
+    background: var(--vt-secondary);
+    color: var(--vt-foreground);
+  }
+  @media (max-width: 640px) {
+    .notes-prose table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+  /* "> **In short:** …" and "> **Exam tip:** …" become highlighted boxes. */
+  .notes-prose blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid color-mix(in oklab, var(--vt-primary) 35%, var(--vt-border));
+    border-left: 4px solid var(--vt-primary);
+    border-radius: var(--radius-md);
+    background: color-mix(in oklab, var(--vt-primary) 7%, var(--vt-surface));
+  }
+  .notes-prose blockquote p {
+    margin: 0.25rem 0;
+    color: var(--vt-foreground);
+  }
+  /* ```flow blocks (src/lib/remark-notes.mjs) */
+  .notes-prose .flow {
+    display: grid;
+    gap: 0.6rem;
+    margin: 1rem 0;
+    padding: 0.9rem;
+    border: 1px dashed var(--vt-border);
+    border-radius: var(--radius-md);
+    background: var(--vt-secondary);
+  }
+  .notes-prose .flow-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .notes-prose .flow-node {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid color-mix(in oklab, var(--vt-primary) 45%, var(--vt-border));
+    border-radius: 0.5rem;
+    background: var(--vt-surface);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--vt-foreground);
+  }
+  .notes-prose .flow-arrow {
+    font-weight: 700;
+    color: var(--vt-primary);
+  }
+  /* Block being read aloud (src/components/site/ReadAloud.astro) */
+  .notes-prose .ra-current {
+    border-radius: 0.375rem;
+    background: color-mix(in oklab, var(--vt-primary) 14%, transparent);
+    outline: 4px solid color-mix(in oklab, var(--vt-primary) 14%, transparent);
+  }
 
   /* ---- Searchable dropdown (src/scripts/select-search.ts) ---- */
   .ss {
@@ -711,4 +769,75 @@
 }
 .print-only {
   display: none;
+}
+
+/* ---- In-page PDF viewer (src/scripts/pdf-viewer.ts) ---- */
+dialog.pdfv {
+  width: min(960px, 100vw);
+  max-width: 100vw;
+  height: min(100dvh, 100vh);
+  max-height: 100dvh;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: var(--vt-background);
+  color: var(--vt-foreground);
+  display: none;
+  flex-direction: column;
+}
+dialog.pdfv[open] {
+  display: flex;
+}
+dialog.pdfv::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+.pdfv-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--vt-border);
+  background: var(--vt-surface);
+}
+.pdfv-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.pdfv-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 0.85rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--vt-border);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--vt-background);
+  color: var(--vt-foreground);
+}
+.pdfv-btn:hover {
+  border-color: var(--vt-primary);
+  color: var(--vt-primary);
+}
+.pdfv-pages {
+  flex: 1;
+  overflow: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--vt-secondary, #e5e7eb);
+}
+.pdfv-pages canvas {
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
 }

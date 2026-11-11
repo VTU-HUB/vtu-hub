@@ -1,86 +1,105 @@
+<div align="center">
+
 # VTUHub
 
-Independent study site for Visvesvaraya Technological University (VTU) students: original subject guides, scheme explainers and in-browser SGPA / CGPA / marks / attendance calculators, organised by branch, semester and subject. Live at [vtuhub.site](https://vtuhub.site).
+**Free, open-source study hub for VTU students**
 
-VTUHub does not host university question papers, scanned notes or any VTU documents. Everything on the site is original writing that points students back to [vtu.ac.in](https://vtu.ac.in) for official material.
+Every programme, semester and subject on the 2022 scheme: official syllabus, module-wise
+notes, PDFs, read-aloud, calculators and VTU notices, all in one place.
 
-## Stack
+[**vtuhub.site**](https://vtuhub.site) ·
+[Docs](docs/README.md) ·
+[Contribute](CONTRIBUTING.md) ·
+[Discussions](https://github.com/nishanth-kj/vtu-hub/discussions) ·
+[Report a problem](https://github.com/nishanth-kj/vtu-hub/issues/new/choose)
 
-- [Astro 7](https://astro.build), fully static (`output: "static"`, `build.format: "file"`)
-- Tailwind CSS 4
-- Deployed as static assets on Cloudflare Workers ([wrangler.jsonc](wrangler.jsonc))
-- English, Kannada (`/kn`) and Hindi (`/hi`) for the main pages
+[![CI](https://github.com/nishanth-kj/vtu-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/nishanth-kj/vtu-hub/actions/workflows/ci.yml)
+[![VTU data sync](https://github.com/nishanth-kj/vtu-hub/actions/workflows/sync-vtu.yml/badge.svg)](https://github.com/nishanth-kj/vtu-hub/actions/workflows/sync-vtu.yml)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Notes: CC BY-SA 4.0](https://img.shields.io/badge/notes-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE)
 
-## Getting started
+</div>
 
-Requires Node 22.18 or newer (the tests use Node's built-in TypeScript support).
+## Features
+
+- **All programmes and subjects**: course codes, titles, credits and elective slots,
+  read from VTU's official scheme PDFs.
+- **Official syllabus**: modules, course outcomes, textbooks and reference books for
+  every course.
+- **Module-wise notes**: simple notes with "In short" boxes, flow diagrams and tables,
+  written in our own words.
+- **PDFs**: view or download the whole course or a single module, inside the site.
+- **Read aloud**: listen to the notes, with play/pause, speed and "start at module".
+- **Calculators**: SGPA, CGPA, marks needed and attendance.
+- **VTU notices**: exam timetables, results and calendars, synced from vtu.ac.in.
+- **Kannada and Hindi** versions of the main pages.
+
+VTUHub never hosts question papers, scanned notes or textbook PDFs. Official material
+stays on [vtu.ac.in](https://vtu.ac.in).
+
+## Quick start
+
+Requires Node.js 22.18 or newer.
 
 ```sh
+git clone https://github.com/nishanth-kj/vtu-hub.git
+cd vtu-hub
 npm install
 npm run dev        # http://localhost:8080
 ```
 
-| Command             | What it does                                           |
-| ------------------- | ------------------------------------------------------ |
-| `npm run dev`       | Dev server on port 8080                                |
-| `npm run build`     | Static build into `dist/` (about 2,000 pages)          |
-| `npm run preview`   | Serve the built `dist/`                                |
-| `npm test`          | Unit tests for the grading maths (`tests/`)            |
-| `npm run typecheck` | `astro check`                                          |
-| `npm run lint`      | ESLint                                                 |
-| `npm run check:seo` | Audits every page in `dist/` (titles, meta, links)     |
-| `npm run icons`     | Regenerates favicons and app icons                     |
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server on port 8080 |
+| `npm run build` | Static build into `dist/` |
+| `npm run preview` | Serve the built site |
+| `npm test` | Unit tests |
+| `npm run lint` / `npm run typecheck` | ESLint / `astro check` |
+| `npm run check:seo` | Audit every built page |
 
-CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs lint, typecheck, tests, build and the SEO check on every pull request.
+## Project structure
 
-## Where things live
+```text
+src/
+  data/notes/      Study notes, one Markdown file per course code   ← start here
+  data/vtu/        Course, syllabus and notice data (generated, don't edit)
+  data/            Subjects, programmes, search index
+  pages/           Routes (Astro)
+  components/      UI components
+  lib/             Grading maths and the PDF builder
+  scripts/         Browser scripts (PDF viewer, dropdown search)
+  i18n/            English, Kannada and Hindi strings
+scripts/vtu/       Sync scripts that read vtu.ac.in
+docs/              Documentation
+```
 
-| Path                         | Contents                                                                 |
-| ---------------------------- | ------------------------------------------------------------------------ |
-| `src/data/branches.ts`       | Branches and semester helpers                                            |
-| `src/data/subjects.ts`       | Every subject: code, credits, scheme, units                              |
-| `src/data/resources.ts`      | Generates the `/files/*` study guides from subjects + templates          |
-| `src/data/reviewed-guides.json` | Guide IDs a person has reviewed — only these are indexed by search engines |
-| `src/data/articles.ts`       | Hand-written articles under `/articles`                                  |
-| `src/data/updates.ts`        | Exam / results / calendar explainers under `/updates`                   |
-| `src/lib/grades.ts`          | Pure grading maths (SGPA, CGPA, pass rules, attendance) — tested         |
-| `src/scripts/calculators.ts` | Calculator UI, uses `src/lib/grades.ts`                                  |
-| `src/i18n/`                  | UI strings and translations                                              |
-| `src/data/ads.ts`            | AdSense config — paste a `ca-pub-…` id to enable                         |
-| `src/data/analytics.ts`      | Cloudflare Web Analytics token — empty means off                         |
+More detail: [Architecture](docs/architecture.md) · [Data pipeline](docs/data-pipeline.md) ·
+[Features](docs/features.md) · [Deployment](docs/deployment.md)
 
-## Live VTU data (automatic)
+## Contributing
 
-The site's course and notice data comes straight from vtu.ac.in and refreshes itself:
+Contributions are welcome, and you don't need to be a programmer.
 
-| Data | Script | Source | Output |
-| --- | --- | --- | --- |
-| Every 2022-scheme programme, course code, title, credits, elective slot | `scripts/vtu/sync-schemes.mjs` | Scheme PDFs discovered on [vtu.ac.in/en/b-e-scheme-syllabus](https://vtu.ac.in/en/b-e-scheme-syllabus/) | `src/data/vtu/courses.json` |
-| Exam timetables, results/revaluation, calendars, circulars | `scripts/vtu/sync-notices.mjs` | vtu.ac.in WordPress REST API | `src/data/vtu/notices.json` |
+- **Fix or improve notes:** click **Edit this page on GitHub** under any notes section
+  on vtuhub.site, edit the Markdown, and propose the change.
+- **Write notes for a subject:** follow [Writing notes](docs/writing-notes.md).
+- **Report a wrong title, module or link:** [open an issue](https://github.com/nishanth-kj/vtu-hub/issues/new/choose).
+- **Ask or suggest:** [Discussions](https://github.com/nishanth-kj/vtu-hub/discussions).
 
-[`.github/workflows/sync-vtu.yml`](.github/workflows/sync-vtu.yml) runs notices every 6 hours and schemes daily, builds and checks the site, and commits only when VTU's data actually changed — which triggers the Cloudflare deploy. Run either script by hand with `node scripts/vtu/sync-notices.mjs` / `node scripts/vtu/sync-schemes.mjs`.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, and follow the
+[Code of Conduct](CODE_OF_CONDUCT.md). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
 
-- A programme whose PDF parses badly is **skipped and reported**, never guessed. CSE, ISE, ECE, EEE, ME and Civil must always sync or the run fails without writing.
-- Known PDF typos and unreadable title cells are corrected in `scripts/vtu/title-fixes.json` (only with the value printed in the official PDF).
-- Official programme names, codes and first-year streams: `scripts/vtu/programs.mjs`. Never change an existing `slug` — it is the URL.
-- Old URLs from before the switch are kept alive by 301s generated from `src/data/vtu/legacy-urls.json` into `dist/_redirects` at build time.
-- A course shared by several programmes (e.g. BCS301) has one canonical page (the programme that owns the code prefix); copies point their canonical there and stay out of the sitemap.
+## Contributors
 
-## Search engines, analytics and ads
+Thanks to everyone who has helped build VTUHub.
 
-- `/sitemap.xml` (and `/sitemap-index.xml`) list every indexable page; both are in `robots.txt`.
-- Verification codes for Google Search Console, Bing and Yandex: `siteVerification` in `src/data/analytics.ts`.
-- Google Analytics 4 / Cloudflare Web Analytics: `analyticsConfig` in the same file (empty = off; the privacy policy updates itself).
-- IndexNow (Bing, Yandex…): `.github/workflows/indexnow.yml` submits every sitemap URL after each deploy of `main`. Key file: `public/0f64dbc213419a25149e73d56cf9b2ec.txt`.
-- AdSense: put the `ca-pub-…` id in `src/data/ads.ts`; `/ads.txt` is generated from it.
+<a href="https://github.com/nishanth-kj/vtu-hub/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nishanth-kj/vtu-hub" alt="VTUHub contributors" />
+</a>
 
-## Content and indexing rules
+## License
 
-- **Generated guides are `noindex` by default.** The `/files/*` pages and the subject resource-type pages are built from templates, so they stay out of search and out of the sitemap until reviewed. To publish one: rewrite or review it, then add its id to `src/data/reviewed-guides.json`. The sitemap reads each built page's robots tag, so it always matches.
-- **Dates are real.** Generated guides show the last git commit that touched `resources.ts` or `subjects.ts`. Articles and updates carry hand-set dates — change them only when the text actually changes.
-- **No official documents.** Never add VTU question papers, scheme PDFs or third-party notes. Link to vtu.ac.in instead.
-- **Subject data must be verified** against the official VTU scheme PDF before it is added.
-
-## Deploying
-
-Cloudflare Workers Builds deploys `main` automatically (`npm run build`, then serves `dist/`). Preview builds run for other branches.
+Code is released under the [MIT License](LICENSE). Study notes in `src/data/notes/` are
+released under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+VTUHub is an independent project and is not affiliated with Visvesvaraya
+Technological University.

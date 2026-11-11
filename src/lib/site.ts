@@ -11,6 +11,35 @@ export const CORRECTIONS_EMAIL = CONTACT_EMAIL;
 
 export const OFFICIAL_VTU_URL = "https://vtu.ac.in";
 
+/** Open-source repository: anyone can edit notes through GitHub. */
+export const GITHUB_URL = "https://github.com/nishanth-kj/vtu-hub";
+export const DISCUSSIONS_URL = `${GITHUB_URL}/discussions`;
+export const NEW_ISSUE_URL = `${GITHUB_URL}/issues/new/choose`;
+
+/** GitHub's web editor for one notes file (forks automatically for non-members). */
+export function notesEditUrl(code: string) {
+  return `${GITHUB_URL}/edit/main/src/data/notes/${code.toUpperCase()}.md`;
+}
+
+/** GitHub's "create file" page, pre-filled with a notes skeleton for a new course. */
+export function notesNewUrl(code: string, title: string, modules: { number: number; title: string }[]) {
+  const body = [
+    "---",
+    `code: ${code.toUpperCase()}`,
+    `title: ${title}`,
+    "updated: YYYY-MM-DD   # today's date",
+    "---",
+    "",
+    ...modules.flatMap((m) => [`## Module ${m.number} — ${m.title}`, "", "> **In short:** ", "", "### ", "", ""]),
+    "## Exam tips",
+    "",
+    "- ",
+    "",
+  ].join("\n");
+  const q = new URLSearchParams({ filename: `${code.toUpperCase()}.md`, value: body });
+  return `${GITHUB_URL}/new/main/src/data/notes?${q.toString()}`;
+}
+
 export function absUrl(path: string) {
   if (path.startsWith("http")) return path;
   const p = path.startsWith("/") ? path : `/${path}`;

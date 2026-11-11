@@ -1,0 +1,24 @@
+name: Wrong course data
+description: A course code, title, credits, module or book does not match VTU's official PDF.
+labels: ["data"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page link
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source
+      description: Link to the vtu.ac.in PDF that shows the correct value.
+      placeholder: https://vtu.ac.in/pdf/...
+    validations:
+      required: true

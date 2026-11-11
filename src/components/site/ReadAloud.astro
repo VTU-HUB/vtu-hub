@@ -1,0 +1,201 @@
+---
+/**
+ * Read-aloud player for the study notes. Uses the browser's built-in speech
+ * synthesis (no audio files, nothing sent anywhere). Reads the notes block by
+ * block, highlights the block being read, and supports play/pause, stop, speed
+ * and "start from module".
+ */
+interface Props {
+  /** CSS selector of the notes article to read. */
+  target: string;
+  modules?: { label: string; slug: string }[];
+}
+
+const { target, modules = [] } = Astro.props;
+---
+
+<div class="read-aloud no-print" data-read-aloud data-target={target} hidden>
+  <div class="flex flex-wrap items-center gap-2 rounded-xl border bg-surface p-3">
+    <button type="button" data-ra-play class="inline-flex h-10 min-w-28 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">
+      <svg data-ra-icon-play class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+      <svg data-ra-icon-pause class="hidden size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"></path></svg>
+      <span data-ra-label>Listen</span>
+    </button>
+    <button type="button" data-ra-stop class="inline-flex h-10 items-center gap-1.5 rounded-lg border bg-background px-3 text-sm font-semibold hover:border-primary hover:text-primary disabled:opacity-50" disabled>
+      <svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"></path></svg>
+      Stop
+    </button>
+    <label class="inline-flex items-center gap-1.5 text-sm text-muted">
+      Speed
+      <select data-ra-rate class="h-10 rounded-lg border bg-background px-2 text-sm">
+        <option value="0.8">0.8×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="2">2×</option>
+      </select>
+    </label>
+    {modules.length > 0 ? (
+      <label class="inline-flex items-center gap-1.5 text-sm text-muted">
+        Start at
+        <select data-ra-from class="h-10 rounded-lg border bg-background px-2 text-sm">
+          <option value="">Beginning</option>
+          {modules.map((m) => <option value={m.slug}>{m.label}</option>)}
+        </select>
+      </label>
+    ) : null}
+    <p data-ra-status class="w-full text-xs text-faint sm:ml-auto sm:w-auto" aria-live="polite">Reads these notes aloud in your browser.</p>
+  </div>
+</div>
+
+<script>
+  const BLOCKS = "h2, h3, h4, p, li, tr, pre";
+
+  function speakable(el: Element) {
+    return (el.textContent ?? "")
+      .replace(/[|*_`#>]/g, " ")
+      .replace(/→/g, " to ")
+      .replace(/←/g, " gets ")
+      .replace(/≤/g, " at most ")
+      .replace(/≥/g, " at least ")
+      .replace(/≠/g, " not equal to ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-read-aloud]")) {
+    if (!("speechSynthesis" in window)) continue;
+    const article = document.querySelector<HTMLElement>(root.dataset.target ?? "");
+    if (!article) continue;
+    root.hidden = false;
+
+    const all = [...article.querySelectorAll<HTMLElement>(BLOCKS)];
+    const set = new Set(all);
+    // Skip blocks nested in another block (a <p> inside an <li>), so nothing is read twice.
+    const blocks = all.filter((el) => {
+      for (let p = el.parentElement; p && p !== article; p = p.parentElement) if (set.has(p)) return false;
+      return speakable(el) !== "";
+    });
+
+    const play = root.querySelector<HTMLButtonElement>("[data-ra-play]")!;
+    const stop = root.querySelector<HTMLButtonElement>("[data-ra-stop]")!;
+    const rate = root.querySelector<HTMLSelectElement>("[data-ra-rate]")!;
+    const from = root.querySelector<HTMLSelectElement>("[data-ra-from]");
+    const label = root.querySelector<HTMLElement>("[data-ra-label]")!;
+    const status = root.querySelector<HTMLElement>("[data-ra-status]")!;
+    const iconPlay = root.querySelector("[data-ra-icon-play]")!;
+    const iconPause = root.querySelector("[data-ra-icon-pause]")!;
+
+    let index = 0;
+    let playing = false;
+    let started = false;
+    let token = 0;
+
+    const voice = () => {
+      const voices = speechSynthesis.getVoices();
+      return voices.find((v) => v.lang === "en-IN") ?? voices.find((v) => v.lang.startsWith("en")) ?? null;
+    };
+
+    function mark(i: number | null) {
+      article!.querySelector(".ra-current")?.classList.remove("ra-current");
+      if (i == null) return;
+      const el = blocks[i];
+      el.classList.add("ra-current");
+      const r = el.getBoundingClientRect();
+      if (r.top < 80 || r.bottom > window.innerHeight - 40) window.scrollBy({ top: r.top - window.innerHeight / 3, behavior: "smooth" });
+    }
+
+    function ui() {
+      label.textContent = playing ? "Pause" : started ? "Resume" : "Listen";
+      iconPlay.classList.toggle("hidden", playing);
+      iconPause.classList.toggle("hidden", !playing);
+      stop.disabled = !started;
+      status.textContent = started ? `Reading ${Math.min(index + 1, blocks.length)} of ${blocks.length}` : "Reads these notes aloud in your browser.";
+    }
+
+    function speak() {
+      if (index >= blocks.length) {
+        reset();
+        status.textContent = "Finished reading the notes.";
+        return;
+      }
+      const mine = ++token;
+      const u = new SpeechSynthesisUtterance(speakable(blocks[index]));
+      u.rate = Number(rate.value) || 1;
+      u.lang = "en-IN";
+      const v = voice();
+      if (v) u.voice = v;
+      u.onend = () => {
+        if (mine !== token || !playing) return;
+        index++;
+        speak();
+      };
+      u.onerror = u.onend;
+      mark(index);
+      ui();
+      speechSynthesis.speak(u);
+    }
+
+    // Pause cancels speech and remembers the block: speechSynthesis.pause() is
+    // unreliable on Android Chrome, and this resumes cleanly at the same block.
+    function pause() {
+      playing = false;
+      token++;
+      speechSynthesis.cancel();
+      ui();
+    }
+
+    function reset() {
+      playing = false;
+      started = false;
+      token++;
+      speechSynthesis.cancel();
+      index = 0;
+      mark(null);
+      ui();
+    }
+
+    play.addEventListener("click", () => {
+      if (playing) return pause();
+      if (!started && from?.value) {
+        const i = blocks.findIndex((b) => b.id === from.value);
+        index = i >= 0 ? i : 0;
+      }
+      started = true;
+      playing = true;
+      speechSynthesis.cancel();
+      speak();
+    });
+    stop.addEventListener("click", reset);
+    rate.addEventListener("change", () => {
+      if (playing) {
+        token++;
+        speechSynthesis.cancel();
+        speak();
+      }
+    });
+    from?.addEventListener("change", () => {
+      const i = blocks.findIndex((b) => b.id === from.value);
+      index = i >= 0 ? i : 0;
+      if (playing) {
+        token++;
+        speechSynthesis.cancel();
+        speak();
+      } else if (started) ui();
+    });
+    // Tap any paragraph while the player is active to continue from there.
+    article.addEventListener("click", (e) => {
+      if (!started) return;
+      const el = (e.target as HTMLElement).closest<HTMLElement>(BLOCKS);
+      const i = el ? blocks.indexOf(el) : -1;
+      if (i < 0) return;
+      index = i;
+      playing = true;
+      token++;
+      speechSynthesis.cancel();
+      speak();
+    });
+    window.addEventListener("pagehide", () => speechSynthesis.cancel());
+    speechSynthesis.getVoices();
+  }
+</script>

@@ -1,0 +1,21 @@
+name: Request notes for a subject
+description: Ask for module-wise notes for a subject that has none yet.
+labels: ["notes-request"]
+body:
+  - type: input
+    id: code
+    attributes:
+      label: Course code
+      placeholder: BCS602
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Subject page link
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      options:
+        - label: I can help write these notes (see docs/writing-notes.md)

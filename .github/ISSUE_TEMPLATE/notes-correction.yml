@@ -1,0 +1,23 @@
+name: Notes correction
+description: Something in the study notes is wrong, unclear or missing.
+labels: ["notes"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page link
+      placeholder: https://vtuhub.site/vtu/cse/5th-semester/computer-networks
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: Module and topic
+      placeholder: Module 2, CRC
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong, and what should it say?
+      description: If you can, name the textbook page or official source.
+    validations:
+      required: true

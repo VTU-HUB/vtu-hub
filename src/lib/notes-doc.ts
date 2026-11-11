@@ -21,7 +21,24 @@ export type NotesInput = {
   units: NotesUnit[];
   /** Raw Markdown of the hand-written notes, when the course has them. */
   notesMarkdown?: string;
+  /** When set, the PDF holds only this module (1-based), not the whole course. */
+  module?: number;
 };
+
+/** The "## Module N" section of the notes Markdown, heading included, or "" if absent. */
+export function moduleMarkdown(md: string, n: number): string {
+  const lines = md.split(/\r?\n/);
+  const head = new RegExp(`^##\\s+Module\\s+${n}\\b`, "i");
+  const start = lines.findIndex((l) => head.test(l));
+  if (start < 0) return "";
+  let end = lines.findIndex((l, i) => i > start && /^##\s/.test(l));
+  if (end < 0) end = lines.length;
+  return lines.slice(start, end).join("\n").trim();
+}
+
+export function moduleFilename(code: string, slug: string, n: number) {
+  return notesFilename(code, slug).replace(/-notes\.pdf$/, `-module-${n}-notes.pdf`);
+}
 
 /** Turns the notes Markdown (## / ### headings, lists, paragraphs, code) into PDF blocks. */
 export function markdownBlocks(md: string): NotesBlock[] {
@@ -38,17 +55,29 @@ export function markdownBlocks(md: string): NotesBlock[] {
     para = [];
   };
   let inCode = false;
+  let flow = false;
   for (const raw of md.replace(/\r\n/g, "\n").split("\n")) {
-    const line = raw.trimEnd();
+    let line = raw.trimEnd();
     if (line.startsWith("```")) {
       flush();
+      flow = !inCode && line.slice(3).trim() === "flow";
       inCode = !inCode;
       continue;
     }
     if (inCode) {
-      if (line.trim()) out.push({ kind: "li", text: line.trim() });
+      if (line.trim()) out.push({ kind: "li", text: flow ? `Flow: ${line.trim()}` : line.trim() });
       continue;
     }
+    // Tables: skip the |---| rule and print each row as "cell | cell".
+    if (/^\s*\|[\s:|-]+\|\s*$/.test(line)) continue;
+    if (/^\s*\|.*\|\s*$/.test(line)) {
+      flush();
+      const cells = line.trim().slice(1, -1).split("|").map((c) => inline(c)).filter(Boolean);
+      out.push({ kind: "li", text: cells.join("  |  ") });
+      continue;
+    }
+    // Callout boxes ("> **In short:** …") print as plain paragraphs.
+    line = line.replace(/^\s*>\s?/, "");
     const h = /^(#{2,3})\s+(.*)$/.exec(line);
     const li = /^\s*(?:[-*]|\d+\.)\s+(.*)$/.exec(line);
     if (h) {
@@ -138,7 +167,8 @@ export function notesBlocks(input: NotesInput): NotesBlock[] {
   };
 
   const credit = input.credits != null ? `${input.credits} credit${input.credits === 1 ? "" : "s"}` : "";
-  push("h1", `${input.code} ${input.name}`);
+  const only = input.module != null ? input.units.find((u) => u.number === input.module) : undefined;
+  push("h1", only ? `${input.code} ${input.name} — Module ${only.number}` : `${input.code} ${input.name}`);
   push(
     "p",
     [input.programme, input.semester, `${input.scheme} scheme`, credit].filter(Boolean).join(" · ") + ".",
@@ -162,7 +192,7 @@ export function notesBlocks(input: NotesInput): NotesBlock[] {
     input.references.forEach((book, i) => push("li", `${i + 1}. ${book}`));
   }
 
-  if (input.outcomes.length) {
+  if (input.outcomes.length && !only) {
     push("h2", "Course outcomes");
     push("p", "The semester-end paper is set against these outcomes.");
     input.outcomes.forEach((outcome) => push("li", outcome));
@@ -175,7 +205,16 @@ export function notesBlocks(input: NotesInput): NotesBlock[] {
   }
 
   // Hand-written notes (src/data/notes/<CODE>.md) replace the generic study frame.
-  if (input.notesMarkdown) {
+  const section = only && input.notesMarkdown ? moduleMarkdown(input.notesMarkdown, only.number) : "";
+  if (only && section) {
+    push("p", `Official topic text: ${only.topics}`);
+    blocks.push(...markdownBlocks(section));
+    push("h2", "Before the exam");
+    push("li", `Rewrite Module ${only.number} from memory, then check it against these notes and the textbook.`);
+    push("p", "Official papers stay on vtu.ac.in. VTUHub does not host them.");
+    return blocks;
+  }
+  if (input.notesMarkdown && !only) {
     blocks.push(...markdownBlocks(input.notesMarkdown));
     push("h2", "Before the exam");
     push("li", "Rewrite one module from memory, then check it against these notes and the textbook.");
@@ -183,7 +222,7 @@ export function notesBlocks(input: NotesInput): NotesBlock[] {
     return blocks;
   }
 
-  for (const unit of input.units) {
+  for (const unit of only ? [only] : input.units) {
     push("h2", `Module ${unit.number} — ${unit.title}`);
     if (unit.topics) push("p", `Official topic text: ${unit.topics}`);
     const clauses = topicClauses(unit.topics);

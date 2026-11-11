@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { PDFDocument } from "pdf-lib";
-import { notesBlocks, notesFilename, type NotesInput } from "../src/lib/notes-doc.ts";
+import { moduleFilename, moduleMarkdown, notesBlocks, notesFilename, type NotesInput } from "../src/lib/notes-doc.ts";
 import { pdfText, renderNotesPdf } from "../src/lib/notes-pdf.ts";
 
 const dbms: NotesInput = {
@@ -111,5 +111,30 @@ describe("hand-written notes in the PDF", () => {
     const bytes = await renderNotesPdf(notesBlocks({ ...dbms, notesMarkdown: md }), { title: "t", code: "BCS403", name: "DBMS" });
     const doc = await PDFDocument.load(bytes);
     assert.ok(doc.getPageCount() >= 1);
+  });
+});
+
+describe("per-module notes PDF", () => {
+  const md = ["## Module 1 — Basics", "One text.", "", "## Module 2 — More", "Two text.", "", "## Exam tips", "Tip."].join("\n");
+
+  it("extracts only the requested module section", () => {
+    assert.equal(moduleMarkdown(md, 1), "## Module 1 — Basics\nOne text.");
+    assert.equal(moduleMarkdown(md, 2), "## Module 2 — More\nTwo text.");
+    assert.equal(moduleMarkdown(md, 9), "");
+  });
+
+  it("builds a PDF with just that module and a module filename", () => {
+    const units = [...dbms.units, { number: 2, title: "More", topics: "More topics." }];
+    const texts = notesBlocks({ ...dbms, units, notesMarkdown: md, module: 2 }).map((b) => `${b.kind}:${b.text}`);
+    assert.ok(texts.some((t) => t.startsWith("h1:") && t.endsWith("Module 2")));
+    assert.ok(texts.includes("p:Two text."));
+    assert.ok(!texts.includes("p:One text."));
+    assert.equal(moduleFilename("BCS403", "dbms", 2), "bcs403-dbms-module-2-notes.pdf");
+  });
+
+  it("falls back to the study frame for one module when there are no notes", () => {
+    const texts = notesBlocks({ ...dbms, module: 1 }).map((b) => b.text);
+    assert.ok(texts.some((t) => t.startsWith("Module 1")));
+    assert.ok(!texts.some((t) => t.startsWith("Module 2")));
   });
 });

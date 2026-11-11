@@ -1,0 +1,21 @@
+name: Website bug
+description: Something on the site is broken (a button, the PDF, search, layout).
+labels: ["bug"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page link
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      placeholder: Android, Chrome

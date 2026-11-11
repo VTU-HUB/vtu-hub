@@ -1,0 +1,24 @@
+name: Feature request
+description: Suggest a new feature or an improvement to the site.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      placeholder: As a 5th-semester CSE student, I want to … so that …
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How should it work? Screenshots or links to similar sites help.
+    validations:
+      required: true
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help build it?
+      options:
+        - label: I'd like to work on this

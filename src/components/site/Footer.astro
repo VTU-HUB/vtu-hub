@@ -2,6 +2,7 @@
 import { hasTranslation, localePath, t, type Lang } from "@/i18n/ui";
 import { TOOL_TEXT } from "@/i18n/content";
 import { tools } from "@/data/tools";
+import { DISCUSSIONS_URL, GITHUB_URL } from "@/lib/site";
 
 interface Props {
   lang?: Lang;
@@ -71,7 +72,12 @@ const columns = [
   <div class="border-t">
     <div class="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-1.5 px-4 py-5 text-center text-xs text-faint sm:px-5 md:flex-row md:justify-between md:py-4 md:text-left md:px-6 lg:px-8">
       <p>© {year} VTUHub · Belagavi, Karnataka, India</p>
-      <p><a class="hover:text-foreground" href="/sitemap">{L.sitemap}</a> · <a class="hover:text-foreground" href="/llms.txt">llms.txt</a></p>
+      <p>
+        <a class="hover:text-foreground" href="/contribute">{L.contribute}</a> ·
+        <a class="hover:text-foreground" href={GITHUB_URL} rel="noopener" target="_blank">GitHub</a> ·
+        <a class="hover:text-foreground" href={DISCUSSIONS_URL} rel="noopener" target="_blank">{L.discussions}</a> ·
+        <a class="hover:text-foreground" href="/sitemap">{L.sitemap}</a> · <a class="hover:text-foreground" href="/llms.txt">llms.txt</a>
+      </p>
     </div>
   </div>
 </footer>

@@ -9,9 +9,26 @@ const BOTTOM = 52;
 const INK = rgb(0.12, 0.14, 0.18);
 const MUTED = rgb(0.38, 0.4, 0.45);
 
+// Maths and logic symbols used in the notes, spelled out so they survive the
+// ASCII-only standard fonts instead of silently disappearing.
+const SYMBOLS: Record<string, string> = {
+  "\u2192": "->", "\u2190": "<-", "\u21d2": "=>", "\u21d4": "<=>", "\u2194": "<->", "\u22a2": "|-",
+  "\u2264": "<=", "\u2265": ">=", "\u2260": "!=", "\u2248": "~", "\u00d7": "x", "\u00f7": "/", "\u00b7": ".", "\u2212": "-", "\u00b1": "+/-",
+  "\u2295": " XOR ", "\u2032": "'", "\u221e": "infinity", "\u221a": "sqrt",
+  "\u2208": " in ", "\u2209": " not in ", "\u2286": " subset of ", "\u2282": " proper subset of ", "\u222a": " U ", "\u22c3": " U ", "\u2229": " n ", "\u2205": "{}",
+  "\u03b5": "eps", "\u03a3": "Sigma", "\u03c3": "sigma", "\u03b4": "delta", "\u0394": "Delta", "\u03b3": "gamma", "\u0393": "Gamma", "\u03b1": "alpha",
+  "\u03b2": "beta", "\u03bb": "lambda", "\u03bc": "mu", "\u03c0": "pi", "\u03b8": "theta", "\u03a0": "Pi",
+  "\u0302": "^",
+};
+const SUPER: Record<string, string> = { "\u2070": "0", "\u00b9": "1", "\u00b2": "2", "\u00b3": "3", "\u2074": "4", "\u2075": "5", "\u2076": "6", "\u2077": "7", "\u2078": "8", "\u2079": "9", "\u207f": "n", "\u1d4f": "k", "\u2071": "i", "\u02b2": "j", "\u1d50": "m", "\u207a": "+", "\u207b": "-", "\u207d": "(", "\u207e": ")" };
+const SUB: Record<string, string> = { "\u2080": "0", "\u2081": "1", "\u2082": "2", "\u2083": "3", "\u2084": "4", "\u2085": "5", "\u2086": "6", "\u2087": "7", "\u2088": "8", "\u2089": "9", "\u1d62": "i", "\u2c7c": "j", "\u2096": "k", "\u2099": "n", "\u2098": "m", "\u2093": "x", "\u208a": "+", "\u208b": "-" };
+
 /** Standard PDF fonts only encode WinAnsi. Fold everything else into plain text. */
 export function pdfText(value: string) {
   return value
+    .replace(/[\u2070\u00b9\u00b2\u00b3\u2074-\u2079\u207f\u1d4f\u2071\u02b2\u1d50\u207a\u207b\u207d\u207e]+/g, (m) => "^" + [...m].map((c) => SUPER[c] ?? "").join(""))
+    .replace(/[\u2080-\u2089\u1d62\u2c7c\u2096\u2099\u2098\u2093\u208a\u208b]+/g, (m) => [...m].map((c) => SUB[c] ?? "").join(""))
+    .replace(/[^\x20-\x7e\n]/g, (c) => SYMBOLS[c] ?? c)
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201c\u201d]/g, '"')
     .replace(/[\u2013\u2014]/g, "-")

@@ -1,0 +1,32 @@
+VTUHub is licensed in two parts.
+
+1. Code (everything except the study notes and guide text) — MIT License
+2. Study notes in src/data/notes/ — Creative Commons Attribution-ShareAlike 4.0
+   (CC BY-SA 4.0), https://creativecommons.org/licenses/by-sa/4.0/
+
+Data in src/data/vtu/ is read from vtu.ac.in. It is facts about VTU courses
+(codes, titles, credits, module lists) and remains subject to VTU's own terms.
+
+-------------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2026 VTUHub contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

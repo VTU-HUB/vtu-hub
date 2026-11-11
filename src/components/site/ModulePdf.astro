@@ -1,0 +1,37 @@
+---
+/**
+ * "View" and "Download" buttons for one module's notes PDF. They read the notes
+ * JSON that the page's <NotesPdf> already embeds, so a page with five modules
+ * carries the notes once.
+ */
+interface Props {
+  module: number;
+}
+
+const { module } = Astro.props;
+---
+
+<button
+  type="button"
+  data-download-notes
+  data-view="1"
+  data-module={module}
+  class="inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary px-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover disabled:opacity-60"
+>
+  <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+  View Module {module} PDF
+</button>
+<button
+  type="button"
+  data-download-notes
+  data-module={module}
+  aria-label={`Download Module ${module} PDF`}
+  class="inline-flex h-10 items-center gap-1.5 rounded-lg border bg-background px-3 text-sm font-semibold hover:border-primary hover:text-primary disabled:opacity-60"
+>
+  <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+  Download
+</button>
+<script>
+  import { mountNotesDownload } from "@/scripts/download-notes.ts";
+  mountNotesDownload();
+</script>

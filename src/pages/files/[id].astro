@@ -3,15 +3,16 @@ import Base from "@/layouts/Base.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import FileTable from "@/components/site/FileTable.astro";
 import NotesPdf from "@/components/site/NotesPdf.astro";
+import ReadAloud from "@/components/site/ReadAloud.astro";
 import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import { notesFilename, type NotesInput } from "@/lib/notes-doc";
-import { notesFor } from "@/data/notes";
+import { notesFor, notesHtml } from "@/data/notes";
 import { getBranch, semesterName, semesterSlug } from "@/data/branches";
 import { getResourceType } from "@/data/resource-types";
 import { getResource, isIndexable, relatedFiles, resources, subjectFor, typePath } from "@/data/resources";
 import { subjectPath } from "@/data/subjects";
-import { absUrl, OFFICIAL_VTU_URL, OG_IMAGE, SITE_URL } from "@/lib/site";
+import { absUrl, notesEditUrl, OFFICIAL_VTU_URL, OG_IMAGE, SITE_URL } from "@/lib/site";
 import { clampDesc, fitTitle } from "@/lib/seo-doc";
 import { formatFullDate } from "@/lib/utils";
 
@@ -39,6 +40,8 @@ const seoTitle = fitTitle(
 const seoDesc = clampDesc(
   `VTU ${br} ${semesterName(file.semester)}${subject ? `, ${subject.code}` : ""}: ${file.description} ${subject ? `${subject.name}, ` : ""}${subject?.scheme ?? "2022"} scheme. Free original study guide.`,
 );
+const studyNotes = subject ? notesFor(subject.code) : undefined;
+const studyHtml = subject && studyNotes ? await notesHtml(subject.code) : "";
 const notes: NotesInput | null = subject
   ? {
       filename: notesFilename(subject.code, subject.slug),
@@ -53,7 +56,7 @@ const notes: NotesInput | null = subject
       references: subject.references ?? [],
       outcomes: subject.outcomes,
       units: subject.units,
-      notesMarkdown: notesFor(subject.code)?.rawContent(),
+      notesMarkdown: studyNotes?.rawContent(),
     }
   : null;
 const crumbTrail = subject
@@ -125,13 +128,22 @@ const crumbTrail = subject
       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
       Print
     </button>
-    <span class="self-center text-xs text-muted">The PDF includes every module and the prescribed textbooks. Print keeps this page only.</span>
+    <span class="self-center text-xs text-muted">{studyNotes ? "The PDF has the full module-wise notes and the prescribed textbooks." : "The PDF has every official module and the prescribed textbooks."} Print saves this page as shown.</span>
   </div>
   <Notice class="mt-8">Original VTUHub writing. Not an official VTU circular and not a scanned university paper. Confirm module titles on <a class="text-primary hover:underline" href={OFFICIAL_VTU_URL}>vtu.ac.in</a>.</Notice>
   <article id="notes" class="mt-8 max-w-3xl scroll-mt-24 space-y-4 text-[15px] leading-relaxed text-muted">
     {file.body.map((p) => <p>{p}</p>)}
     {file.bullets && file.bullets.length > 0 ? (
       <ul class="list-disc space-y-1.5 pl-5">{file.bullets.map((b) => <li>{b}</li>)}</ul>
+    ) : null}
+    {studyNotes && subject ? (
+      <section class="mt-8 border-t pt-6">
+        <h2 class="text-xl font-semibold text-foreground">{subject.code} study notes</h2>
+        <p class="mt-1 text-sm">Module-wise notes written by VTUHub{studyNotes.frontmatter.textbook ? <>, following {studyNotes.frontmatter.textbook}</> : null}. Also on the <a class="text-primary hover:underline" href={`${subjectPath(subject)}#notes`}>{subject.shortName} subject page</a>.</p>
+        <div class="mt-4"><ReadAloud target="#guide-notes" /></div>
+        <div id="guide-notes" class="notes-prose mt-6 text-foreground"><Fragment set:html={studyHtml} /></div>
+        <p class="no-print mt-6 text-sm"><a class="font-semibold text-primary hover:underline" href={notesEditUrl(subject.code)} rel="noopener" target="_blank">Edit these notes on GitHub</a> · <a class="text-primary hover:underline" href="/contribute">How to contribute</a></p>
+      </section>
     ) : null}
     <p class="print-only mt-8 border-t pt-3 text-xs">Source: vtuhub.site/files/{file.id} · Free VTU study guide · Check official dates on vtu.ac.in</p>
   </article>

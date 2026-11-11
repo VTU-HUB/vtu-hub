@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/nishanth-kj/vtu-hub/discussions
+    about: Ask a question or suggest an idea in Discussions.
+  - name: Official VTU documents
+    url: https://vtu.ac.in
+    about: Question papers, schemes and circulars are on vtu.ac.in. VTUHub does not host them.

@@ -14,7 +14,11 @@ const STAMPS = [
   /MKV-?TEMPLATE[^)]*\)?/gi,
   /\bIPCC\s*\(\d{2}\.\d{2}\.\d{4}\)/gi,
   /\bAnnexure-?\s*[IVX]+\b(\s+\d+\b)?/gi,
-  /@#\s*\d+\s*\d*/g,
+  // Page stamp "@#@#@ <page> <ddmmyyyy>" (the page/date part is sometimes missing).
+  // and "@# <ddmmyyyy> <page>".
+  /(?:@#)+@?(?:\s*\d+(?:\s+\d+)?\b)?/g,
+  // Page stamp "-! -! <page>".
+  /(?:^|\s)(?:-!\s*)+(?:\d{1,3}\s+)?/g,
   /\bNo\.?\s*of\s*Hours\s*:?\s*\d+/gi,
   /\b\d{2}\.\d{2}\.\d{4}\b/g,
 ];

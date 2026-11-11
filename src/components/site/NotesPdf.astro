@@ -15,8 +15,9 @@ const cls =
     : "inline-flex h-11 items-center gap-2 rounded-lg border bg-surface px-4 text-sm font-semibold hover:border-primary hover:text-primary disabled:opacity-60";
 ---
 
-<div data-notes-pdf-root class="inline-flex">
+<div data-notes-pdf-root class="inline-flex flex-wrap gap-2">
   <button type="button" class={cls} data-download-notes data-label={label}>{label}</button>
+  <button type="button" class="inline-flex h-11 items-center gap-2 rounded-lg border bg-surface px-4 text-sm font-semibold hover:border-primary hover:text-primary disabled:opacity-60" data-download-notes data-view="1">View PDF</button>
   <script type="application/json" data-notes-pdf set:html={json} />
 </div>
 <script>

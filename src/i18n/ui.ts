@@ -78,6 +78,8 @@ const en = {
       terms: "Terms",
       disclaimer: "Disclaimer",
       sitemap: "Sitemap",
+      contribute: "Contribute",
+      discussions: "Discussions",
     },
   },
   landing: {
@@ -210,6 +212,8 @@ const kn: Dict = {
       terms: "ನಿಯಮಗಳು",
       disclaimer: "ಹಕ್ಕು ನಿರಾಕರಣೆ",
       sitemap: "ಸೈಟ್‌ಮ್ಯಾಪ್",
+      contribute: "ಕೊಡುಗೆ ನೀಡಿ",
+      discussions: "ಚರ್ಚೆಗಳು",
     },
   },
   landing: {
@@ -340,6 +344,8 @@ const hi: Dict = {
       terms: "शर्तें",
       disclaimer: "अस्वीकरण",
       sitemap: "साइटमैप",
+      contribute: "योगदान करें",
+      discussions: "चर्चाएँ",
     },
   },
   landing: {
