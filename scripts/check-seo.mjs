@@ -119,14 +119,18 @@ for (const file of htmlFiles) {
     if (!noindex) descs.set(desc, [...(descs.get(desc) ?? []), route]);
   }
   const canonical = html.match(/<link[^>]*rel=["']canonical["'][^>]*>/i);
+  const canonicalHref = canonical ? attr(canonical[0], "href") : null;
   if (!canonical) add("ERROR missing canonical", route);
-  else if (route !== "/404" && attr(canonical[0], "href") !== SITE + (route === "/" ? "" : route) && attr(canonical[0], "href") !== `${SITE}/`) {
+  else if (route !== "/404" && canonicalHref !== SITE + (route === "/" ? "" : route) && canonicalHref !== `${SITE}/`) {
     // A canonical may deliberately point at another page (the same VTU course shared by
     // several programmes) — fine as long as that page exists.
-    const target = attr(canonical[0], "href").replace(SITE, "") || "/";
+    const target = canonicalHref.replace(SITE, "") || "/";
     if (!target.startsWith("/") || !existing.has(target === "/" ? "/index.html" : `${target}.html`))
-      add("ERROR canonical points to a missing page", route, attr(canonical[0], "href"));
+      add("ERROR canonical points to a missing page", route, canonicalHref);
   }
+  const ogUrl = meta(html, "property", "og:url");
+  if (!ogUrl) add("ERROR missing og:url", route);
+  else if (canonicalHref && ogUrl !== canonicalHref) add("ERROR og:url differs from canonical", route, `${ogUrl} != ${canonicalHref}`);
 
   const h1s = (html.match(/<h1\b/gi) ?? []).length;
   if (h1s !== 1) add("ERROR h1 count != 1", route, `(${h1s})`);
