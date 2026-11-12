@@ -1,5 +1,6 @@
 ---
-import { SEMESTER_ORD, semesterSlug } from "@/data/branches";
+import Base from "@/layouts/Base.astro";
+import { SEMESTER_ORD, semesterName, semesterSlug } from "@/data/branches";
 
 export function getStaticPaths() {
   return SEMESTER_ORD.map((_, index) => ({
@@ -7,5 +8,23 @@ export function getStaticPaths() {
   }));
 }
 
-return Astro.redirect("/vtu", 301);
+const semester = SEMESTER_ORD.findIndex((_, index) => semesterSlug(index + 1) === Astro.params.semester) + 1;
+const label = semesterName(semester);
+const destination = "/vtu";
 ---
+
+<Base
+  title={`${label} — Browse VTU Branches`}
+  description={`The semester-first VTU browser has moved. Choose your VTU branch first, then select ${label}.`}
+  path={Astro.url.pathname}
+  canonical={destination}
+  noindex
+>
+  <meta http-equiv="refresh" content={`0;url=${destination}`} slot="head" />
+  <section class="mx-auto max-w-2xl text-center">
+    <h1 class="text-2xl font-bold">Choose your VTU branch first</h1>
+    <p class="mt-3 text-muted">The semester-first browser has been replaced. Select your branch, then choose {label}.</p>
+    <p class="mt-6"><a class="text-primary underline" href={destination}>Browse VTU branches</a></p>
+  </section>
+  <script is:inline>window.location.replace("/vtu");</script>
+</Base>
