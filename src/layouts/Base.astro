@@ -59,7 +59,7 @@ const langLinks: LangLink[] = LANGS.map((l) =>
 );
 
 const fullTitle = pageTitle(title);
-const url = absUrl(path);
+const url = absUrl(canonical ?? path);
 const image = absUrl(shareImage.path);
 const imageType = shareImage.type ?? "image/jpeg";
 const nodes: Record<string, unknown>[] = [];
@@ -98,15 +98,11 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical ? absUrl(canonical) : url} />
+    <link rel="canonical" href={url} />
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
     <meta name="author" content={SITE_NAME} />
     <meta name="application-name" content={SITE_NAME} />
     <meta name="theme-color" content="#2563EB" />
-    <meta name="geo.region" content="IN-KA" />
-    <meta name="geo.placename" content="Belagavi, Karnataka, India" />
-    <meta name="geo.position" content="15.8497;74.4977" />
-    <meta name="ICBM" content="15.8497, 74.4977" />
     <meta name="language" content={meta.label === "English" ? "English" : lang === "kn" ? "Kannada" : "Hindi"} />
     {alternates.map((a) => <link rel="alternate" hreflang={LANG_META[a.lang].hreflang.toLowerCase()} href={a.href} />)}
     <link rel="alternate" hreflang="x-default" href={absUrl(basePath)} />
