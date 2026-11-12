@@ -121,6 +121,7 @@ for (const file of htmlFiles) {
   const canonical = html.match(/<link[^>]*rel=["']canonical["'][^>]*>/i);
   const canonicalHref = canonical ? attr(canonical[0], "href") : null;
   if (!canonical) add("ERROR missing canonical", route);
+  else if (!canonicalHref) add("ERROR canonical missing href", route);
   else if (route !== "/404" && canonicalHref !== SITE + (route === "/" ? "" : route) && canonicalHref !== `${SITE}/`) {
     // A canonical may deliberately point at another page (the same VTU course shared by
     // several programmes) — fine as long as that page exists.
