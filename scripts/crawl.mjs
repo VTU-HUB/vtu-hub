@@ -57,7 +57,10 @@ const norm = (href, base) => {
 
 const seen = new Map(); // url -> result
 const linkedFrom = new Map(); // url -> first referrer
-const queue = [SITE];
+// Crawl every sitemap URL as well as every internally linked page. This makes the
+// status/noindex/canonical checks cover the full declared index, including pages that
+// are accidentally orphaned from navigation.
+const queue = [...new Set([SITE, ...sitemapUrls])];
 linkedFrom.set(SITE, "(start)");
 const issues = { broken: [], redirects: [], noindexInSitemap: [], canonicalElsewhereInSitemap: [], missingTitle: [], slow: [], blocked: [], serverErrors: [] };
 
@@ -128,13 +131,14 @@ await new Promise((resolve) => {
 });
 
 const crawled = [...seen.entries()].filter(([, s]) => s === 200).map(([u]) => u);
-const orphans = [...sitemapUrls].filter((u) => !seen.has(u));
+const orphans = [...sitemapUrls].filter((u) => !linkedFrom.has(u));
 const report = {
   site: SITE,
   seconds: Math.round((Date.now() - t0) / 1000),
   robotsDisallow: disallow,
   sitemapUrls: sitemapUrls.size,
   pagesReached: crawled.length,
+  sitemapPagesChecked: [...sitemapUrls].filter((u) => seen.has(u)).length,
   inSitemapButNotLinked: orphans.length,
   broken: issues.broken.length,
   redirectsFollowed: issues.redirects.length,
