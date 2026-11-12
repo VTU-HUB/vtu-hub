@@ -14,15 +14,10 @@ import { schemes } from "@/data/branches";
 >
   <Crumbs items={[{ label: "VTU" }]} />
   <PageHeader
-    title="Browse VTU resources"
-    answer="Open a semester to see every VTU branch in Karnataka, or pick your programme below — grouped by first-year stream — for its subject codes, credits and syllabus. Nothing on this page defaults to Computer Science."
-    description="Open a semester to see every branch, or pick a programme for subject codes. Semesters do not default to CSE."
+    title="Choose your VTU branch"
+    answer="Choose your B.E./B.Tech programme first. Each branch page lists the semesters and subjects available for that programme."
+    description="Choose your programme first, then select your semester and subject."
   />
-  <section class="mt-8">
-    <h2 class="mb-4 text-lg font-semibold">Semesters</h2>
-    <p class="mb-4 max-w-2xl text-sm text-muted">Each semester lists every programme that runs that term. It does not open Computer Science automatically.</p>
-    <Browse kind="semesters" />
-  </section>
   <section class="mt-14">
     <h2 class="mb-4 text-lg font-semibold">Branches</h2>
     <Browse kind="branches" />
