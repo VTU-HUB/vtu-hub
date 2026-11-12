@@ -9,7 +9,7 @@ export function pageTitle(title: string) {
 
 export function organizationLd() {
   return {
-    "@type": "EducationalOrganization",
+    "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
@@ -35,12 +35,6 @@ export function organizationLd() {
       { "@type": "AdministrativeArea", name: "Karnataka" },
       { "@type": "Country", name: "India" },
     ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Belagavi",
-      addressRegion: "Karnataka",
-      addressCountry: "IN",
-    },
     knowsAbout: [
       "Visvesvaraya Technological University",
       "VTU 2022 scheme",
