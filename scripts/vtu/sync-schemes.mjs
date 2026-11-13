@@ -11,12 +11,12 @@ import os from "node:os";
 import path from "node:path";
 import { parseScheme } from "./parse-scheme.mjs";
 import { matchProgram, slugify } from "./programs.mjs";
+import { fetchRetry } from "./net.mjs";
 
 const OUT = path.resolve("src/data/vtu/courses.json");
 const PREVIOUS = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : null;
 const FIXES = JSON.parse(fs.readFileSync(new URL("./title-fixes.json", import.meta.url), "utf8"));
 const CACHE = path.join(os.tmpdir(), "vtuhub-scheme-pdfs");
-const UA = { "User-Agent": "vtuhub-sync/1.0 (+https://vtuhub.site/about)" };
 const BASE = "https://vtu.ac.in/pdf";
 
 /** First-year (I & II sem) scheme per engineering stream. */
@@ -77,17 +77,6 @@ const NON_CREDIT = /^B(NSK|PEK|YOK|IKS)\d{3}$/;
 const JUNK_TITLE = /^(shall have|see shall|[-,]|bos will publish|th th to be completed|to be announced|cie marks|course code|teaching hours)/i;
 
 /** vtu.ac.in sometimes times out; one slow response must not fail the whole daily sync. */
-async function fetchRetry(url, tries = 4) {
-  for (let i = 1; ; i++) {
-    try {
-      return await fetch(url, { headers: UA, signal: AbortSignal.timeout(60_000) });
-    } catch (e) {
-      if (i >= tries) throw new Error(`${url} → ${e.cause?.code ?? e.message} after ${tries} tries`);
-      await new Promise((r) => setTimeout(r, 2000 * i));
-    }
-  }
-}
-
 async function download(url) {
   fs.mkdirSync(CACHE, { recursive: true });
   const file = path.join(CACHE, path.basename(new URL(url).pathname));

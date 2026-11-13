@@ -135,7 +135,11 @@ function summarise(text, max = 6000) {
  *   textbooks:string[], references:string[], links:string[]}>>}
  */
 export async function parseSyllabus(file) {
-  const pages = await pdfRows(file);
+  return parseSyllabusRows(await pdfRows(file));
+}
+
+/** Parses rows already read by pdfRows(); used directly by the regression fixtures. */
+export function parseSyllabusRows(pages) {
   const lines = [];
   for (const { rows } of pages) for (const r of rows) lines.push(r.items.map((i) => i.s).join(" "));
 

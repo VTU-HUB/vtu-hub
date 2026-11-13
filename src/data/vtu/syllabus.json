@@ -7,8 +7,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf"
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf"
       ],
       "modules": [
         {
@@ -399,6 +399,2118 @@
       "textbooks": [],
       "references": [],
       "links": []
+    },
+    "BAE301": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Mechanical Behavior of Engineering Materials",
+          "topics": "Mechanical Behavior of Engineering Materials: Introduction to aerospace materials and their classification, Linear and non-linear elastic properties- Stress and Strain Curves-Yielding and strain Hardening, Toughness-Modules of resilience-Bauchinger's effect-Effect of notches-Testing and flaw detection of materials and components, knowledge of various material testing machines."
+        },
+        {
+          "number": 2,
+          "title": "Non-ferrous materials in aircraft construction",
+          "topics": "Non-ferrous materials in aircraft construction: Aluminium and its alloys: Types and identification. Properties -Castings-Heat treatment processes – Surface treatments. Magnesium and its alloys: Cast and Wrought alloys-Aircraft application, features specification, fabrication problems, Special treatments. Titanium and its alloys: Applications, machining, forming, welding and heat treatment, Copper Alloys. Wood and fabric in aircraft construction and specifications- Glues Use of glass, plastics & rubber in aircraft, Introduction to glass & carbon composite."
+        },
+        {
+          "number": 3,
+          "title": "Ferrous materials in aircraft construction",
+          "topics": "Ferrous materials in aircraft construction: Steels: Plain and low carbon steels, various low alloy steels, aircraft steel specifications, corrosion and heat resistant steels, structural applications. Maraging Steels: Properties and Applications. Super Alloys: Use -Nickel base- Cobalt base- Iron base -Forging and Casting of Super alloys-Welding, Heat treatment."
+        },
+        {
+          "number": 4,
+          "title": "Ceramics and Composites",
+          "topics": "Ceramics and Composites: Introduction, modern ceramic materials, cermets, glass ceramic, production of semi-fabricated forms, Carbon/Carbon composites, Fabrication processes and its aerospace applications involved in metal matrix composites, polymer composites."
+        },
+        {
+          "number": 5,
+          "title": "Material Testing",
+          "topics": "Material Testing: Corrosion, its detection and prevention. Protective finishes. Testing: Destructive and non - destructive testing techniques. Crack detection, inspection of parts by hot oil and chalk, dye-penetrate, fluorescent and magnetic particles, X-ray, ultrasonic, eddy current and acoustic emission methods."
+        }
+      ],
+      "outcomes": [
+        "Apply the knowledge about the mechanical behaviour of different aircraft & aerospace materials.",
+        "Explain the applications of Aluminium alloys, Ceramics and Composites Materials.",
+        "Evaluate the importance of high temperature materials and their characterization."
+      ],
+      "textbooks": [],
+      "references": [
+        "Balram Gupta, Aerospace material Vol.1,2,3,4 ARDB, S Chand & Co, 2009, ISBN-13: 978-8121922005.",
+        "Parker ER, Materials for Missiles and Space, McGraw-Hill Inc., US, 1963.",
+        "Hill ET, The Materials of Aircraft Construction, Pitman London.",
+        "CG Krishnadas Nair, Hand book of Aircraft materials, Interline publishers, Bangalore, 1993",
+        "King and Butler, Principles of Engineering Inspection, Clever Humes Press."
+      ],
+      "links": [
+        "https://www.soaneemrana.org/onewebmedia/AIRCRAFT%20MATERIALS%20AND%20PROCESSES",
+        "https://nptel.ac.in/courses/101104010"
+      ]
+    },
+    "BAE302": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to Aircrafts History of aviation",
+          "topics": "Introduction to Aircrafts History of aviation; Atmosphere and its properties; Classification of aircrafts; Basic components of an aircraft; aircraft axis system; aircraft motions; control surfaces and high lift devices; conventional design configurations; principle of operation of each major part; Helicopters, their parts and functions. Aircraft Structures and Materials: Introduction; structural members; general types of construction; monocoque, semi-monocoque and geodesic structures; typical wing and fuselage structure; metallic and non-metallic materials for aircraft application."
+        },
+        {
+          "number": 2,
+          "title": "Basic principles of flight – significance of speed of sound",
+          "topics": "Basic principles of flight – significance of speed of sound; airspeed and groundspeed; standard atmosphere; Bernoulli’s theorem and its application for generation of lift and measurement of airs peed; forces over wing section, airfoil nomenclature, pressure distribution over a wing section. Lift and drag components – generation of lift and drag; lift curve, drag curve, types of drag, factors affecting lift and drag; center of pressure and its significance; aerodynamic center, aspect ratio, Mach number and supersonic flight effects; simple problems on lift and drag."
+        },
+        {
+          "number": 3,
+          "title": "Aircraft Propulsion",
+          "topics": "Aircraft Propulsion: Aircraft power plants, classification based on power plant and location and principle of operation. Turboprop, turbojet and turbofan engines; ramjets and scramjets; performance characteristics. Aircraft power plants – basic principles of piston, turboprop and jet engines; Brayton cycle and its application to gas turbine engines; use of propellers and jets for production of thrust; comparative merits and limitations of different types of propulsion engines; principle of thrust augmentation."
+        },
+        {
+          "number": 4,
+          "title": "Aircraft Stability",
+          "topics": "Aircraft Stability: Forces on an aircraft in flight; static and dynamic stability; longitudinal, lateral and roll stability; necessary conditions for longitudinal stability; basics of aircraft control systems. Effect of flaps and slats on lift, control tabs, stalling, gliding, landing, turning, aircraft maneuvers; stalling, gliding, turning. Simple problems on these. Performance of aircraft – power curves, maximum and minimum speeds for horizontal flight at a given altitude; effect of changes in engine power and altitude on performance; correct and incorrect angles of bank; aerobatics, inverted maneuvers, maneuverability. Simple problems."
+        },
+        {
+          "number": 5,
+          "title": "Introduction to Aircraft Systems",
+          "topics": "Introduction to Aircraft Systems: Aircraft systems (Mechanical) – hydraulic and pneumatic systems and their applications; environment control system; fuel system, oxygen system. Aircraft systems (Electrical) – flight control system, cockpit instrumentation and displays; communication systems; navigation systems; power generation systems – engine driven alternators, auxiliary power Module, ram air turbine; power conversion, distribution and management."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "A.C. Kermode, “Flight without formulae”, Pearson Education India, 1989. ISBN: 9788131713891.",
+        "Nelson R.C., “Flight stability and automatic control”, McGraw -Hill International Editions, 1998. ISBN 9780071158381.",
+        "Ian Moir, Allan Seabridge, “Aircraft Systems: Mechanical, Electrical and Avionics Subsystems Integration”, John Wiley & Sons, 2011, ISBN: 978111965006."
+      ],
+      "links": [
+        "https://www.digimat.in/nptel/courses/video/101104061/L01.html"
+      ]
+    },
+    "BAE303": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Basic Considerations",
+          "topics": "Basic Considerations: Introduction, Dimensions- Modules and physical quantities, Continuum view of gases and liquids, Pressure and Temperature scales, Physical properties of fluids. Fluid Statics: Pressure distribution in a static fluid, Pressure and its measurement, hydrostatic forces on plane and curved surfaces, buoyancy, illustration by examples."
+        },
+        {
+          "number": 2,
+          "title": "Fluids in motion",
+          "topics": "Fluids in motion: Methods of describing fluid motion, types of fluid flow, continuity equation in 3 dimensions, velocity potential function and stream function. Types of motion, Source sink, doublet, plotting of stream lines and potential lines Numerical problems. Fluid Kinematics: Kinematics of fluid motion and the constitutive equations, Integral (global) form of conservation equations (mass, momentum, energy) and applications, Differential form of conservation equations (continuity, Navier-Stokes equations, energy equation)."
+        },
+        {
+          "number": 3,
+          "title": "Fluid Dynamics",
+          "topics": "Fluid Dynamics: Equations of motion: Euler’s and Bernoulli’s equation of motion for ideal and real fluids. Momentum equation, Fluid flow measurements. Numerical problems. Dimensional analysis and similarity: Dimensional homogeneity, methods of dimensional analysis, model analysis, types of similarity and similitude. Dimensionless numbers. Model laws. Numerical problems."
+        },
+        {
+          "number": 4,
+          "title": "Flow past Immersed bodies",
+          "topics": "Flow past Immersed bodies: Introduction to boundary layer, boundary layer thickness, Karman’s integral momentum theory, drag on a flat plate for laminar and turbulent flow, Drag on immersed bodies. Expression for drag and lift. Kutta – Joukowsky theorem; Fundamentals of aerofoil theory, Numerical problems."
+        },
+        {
+          "number": 5,
+          "title": "Compressible flow and Boundary Layers theory",
+          "topics": "Compressible flow and Boundary Layers theory: Steady, one-dimensional gas dynamics, Propagation of pressure waves in a compressible medium, velocity of sound, Mach number, Mach cone, Stagnation properties, Bernoulli’s equation for isentropic flow, normal shock waves. Numerical Problem; Laminar and turbulent boundary layers."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "Yunus A. Cengel& John M Cimbala, Fluid Mechanics and Applications, McGraw Hill Education; 3rd edition, 2013, ISBN-13: 978-0073380322.",
+        "Ramamritham. S “Hydraulic Fluid Mechanics and Fluid Machines”, Dhanpat Rai&Sons, Delhi, 1988, ISBN 13: 9788187433804.",
+        "Kumar. K.L., “Engineering Fluid Mechanics” (VII Ed.) Eurasia Publishing House (P) Ltd., New Delhi, 1995, ISBN 13: 9788121901000.",
+        "Streeter. V. L., and Wylie, E.B., “Fluid Mechanics”, McGraw Hill, 1983, ISBN 13: 9780070665781"
+      ],
+      "links": [
+        "https://home.iitk.ac.in/~nikhilk/Book.pdf",
+        "https://nptel.ac.in/courses/112104118",
+        "https://nptel.ac.in/courses/105101082"
+      ]
+    },
+    "BAE304": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Basics of linear elasticity",
+          "topics": "Basics of linear elasticity: The concept of stress& strain, state of stress & Strain at a point, Equilibrium equations, The state of plane stress and plane strain. Compatibility equations, Constitutive Laws (Hooke’s Law), Stress-strain curves for brittle and ductile materials, Allowable stress, Material selection for structural performance. Simple & Compound Stresses: Extension / Shortening of a bar, bars with cross sections varying in steps, bars with continuously varying cross sections. Elongation due to self-weight. Volumetric strain, expression for volumetric strain, elastic constants, simple shear stress, shear strain, temperature stresses, Introduction to Plane stress, stresses on inclined sections, principal stresses & strains, Analytical & graphical method (Mohr’s Circle) to find principal stresses & strains."
+        },
+        {
+          "number": 2,
+          "title": "Bending Moment and Shear Force in Beams",
+          "topics": "Bending Moment and Shear Force in Beams: Introduction, Types of beams, loads and reactions, shear forces and bending moments, rate of loading, sign conventions, relationship between shear force and bending moments. Shear force and bending moment diagrams for different beams subjected to concentrated loads, uniformly distributed load, (UDL) uniformly varying load (UVL) and couple for different types of beams. Euler-Bernoulli beam theory: The Euler-Bernoulli assumptions, Implications of the Euler-Bernoulli assumptions, the Euler-Bernoulli Beam theory derivation, Bending stress equation, Moment carrying capacity of a section. Shearing stresses in beams, shear stress across rectangular, circular, symmetrical I and T sections (Only Numerical)."
+        },
+        {
+          "number": 3,
+          "title": "Deflection of Beams",
+          "topics": "Deflection of Beams: Introduction, Differential equation for deflection. Equations for deflection, slope and bending moment. Double integration method for cantilever and simply supported beams for point load, UDL, UVL and Couple. Macaulay’s method. Torsion of Circular Shafts and Elastic Stability of Columns: Introduction. Pure torsion, assumptions, derivation of torsional equations, polar modulus, torsional rigidity / stiffness of shafts. Power transmitted by solid and hollow circular shafts."
+        },
+        {
+          "number": 4,
+          "title": "Virtual work principles",
+          "topics": "Virtual work principles: Introduction, Equilibrium and work fundamentals, Principle of virtual work, Principle of virtual work applied to mechanical systems, Principle of virtual work applied to truss structures, Principle of virtual work applied to beams. Principle of complementary virtual work, internal virtual work in beams and solids. Energy methods: Conservative forces, Principle of minimum total potential energy, Strain energy in springs, Strain energy in beams, Strain energy in solids, Applications to trusses, Development of a finite element formulation for trusses, Principle of minimum complementary, Energy theorems, Reciprocity theorems, Saint- Venant’s principle."
+        },
+        {
+          "number": 5,
+          "title": "Mechanical Properties of materials",
+          "topics": "Mechanical Properties of materials: Fracture: Type I, Type II and Type III. Creep: Description of the phenomenon with examples. Three stages of creep, creep properties, stress relaxation. Fatigue: Types of fatigue loading with examples, Mechanism of fatigue, fatigue properties, fatigue testing and S-N diagram."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic concepts of strength of materials.",
+        "Compute stress, strain under different loadings.",
+        "Distinguish the different failure theories."
+      ],
+      "textbooks": [
+        "S.S. Bhavaikatii, “Strength of Materials”, Vikas Publications House, New Delhi, 2012, ISBN -13: 978- 8125927914.",
+        "S. Ramamrutham, R Narayanan, “Strength of Materials”, Dhanapath Rai Publishing Company, New Delhi, 13 09082023 04.08.23 2012, ISBN 13: 9789384378264"
+      ],
+      "references": [
+        "T.H.G Megson “Introduction to Aircraft Structural Analysis”, Butterworth -Heinemann Publications, 2007, ISBN 13: 9781856179324",
+        "Beer.F.P. and Johnston.R, “Mechanics of Materials”, McGraw Hill Publishers, 2006, ISBN -13:978- 0073380285.",
+        "Timoshenko and Young “Elements of Strength of Materials ’, East -West Press, 1976, ISBN 10: 8176710199.",
+        "O.A. Bauchau and J.I. Craig “Structural Analysis” Springer Dordrecht Heidelberg London New York,ISBN 978-90-481-2515-9, e-ISBN 978-90-481-2516-6"
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/105106172"
+      ]
+    },
+    "BAE306A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Basics",
+          "topics": "Basics: Introduction, History, UV types: UGV, UAV, USV, UUWV, Drones in India, Future scope. Introduction to nano drones and Swarm Drones Principles, Newton’s Laws, Degrees of Freedom, Stick Movements, Flight Modes, Basic Manoeuvres, Take -off, Pitch, Roll, Yaw, Landing."
+        },
+        {
+          "number": 2,
+          "title": "Components and Systems",
+          "topics": "Components and Systems: Basic components, Micro controllers, microprocessors, Sensors, Pre-Flight Checks, Flight Planning, Transmitter, Receiver. Introduction to Arduino Sensors, Program Structures, Flight Controllers, Telemetry, Mission Planning, Camera, Binding, etc"
+        },
+        {
+          "number": 3,
+          "title": "Air Worthiness",
+          "topics": "Air Worthiness: DGCA Rules and Regulations, Pilot Licensing requirements, NPNT Compliance. Certifications."
+        },
+        {
+          "number": 4,
+          "title": "Basics of Structures",
+          "topics": "Basics of Structures: Configurations, Payload Configurations, Design Considerations. Basics of Propulsion: Batteries, Hybrid Propulsions, IC Engines, Mini Turbines, Solar,"
+        },
+        {
+          "number": 5,
+          "title": "Tuning, Testing, Manufacturing Constraints, Simulator Training, Applications…",
+          "topics": "Tuning, Testing, Manufacturing Constraints, Simulator Training, Applications CASE Studies: Construction and testing of a basic drone."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic concepts of UAV systems.",
+        "Explain the basic aerodynamics, performance, stability and control required for UAV.",
+        "Select the propulsion system and materials for structures.",
+        "Understand Regulatory and Certification aspects."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://onlinecourses.nptel.ac.in/noc22_ae15/preview",
+        "https://onlinecourses.nptel.ac.in/noc22_ae16/preview"
+      ]
+    },
+    "BAE306B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to Mechanisms",
+          "topics": "Introduction to Mechanisms: Types of constrained motion, Link and its types, joints and its types, kinematic pair and its types, degrees of freedom, Grubler’s criterion, Types of kinematic chains and inversions: Inversions of Four bar chain: Beam engine, coupling rod of a locomotive, Watt’s indicator mechanism. Inversions of Single Slider Crank Chain: Pendulum pump or Bull engine, Oscillating cylinder engine, Rotary internal combustion engine, Crank and slotted lever quick return motion mechanism, Whitworth quick return motion mechanism. Inversions of Double Slider Crank Chain: Elliptical trammels, Scotch yoke mechanism, Oldham’s coupling. Straight line motion mechanisms: Peaucellier’s mechanism and Robert’s mechanism. Intermittent Motion mechanisms: Geneva wheel mechanism and Ratchet and Pawl mechanism, Ackerman steering gear mechanism."
+        },
+        {
+          "number": 2,
+          "title": "Velocity, Acceleration and static force analysis of Mechanisms (Graphical…",
+          "topics": "Velocity, Acceleration and static force analysis of Mechanisms (Graphical Methods): Velocity and acceleration analysis of Four Bar mechanism, slider crank mechanism and Simple Mechanisms by vector polygons. Static force analysis: Introduction: Static equilibrium, Equilibrium of two and three force members. Members with two forces and torque. Free body diagrams, principle of virtual work. Static force analysis of four bar mechanism and slider-crank mechanism with and without friction."
+        },
+        {
+          "number": 3,
+          "title": "Spur Gears and Gear Trains Spur Gears",
+          "topics": "Spur Gears and Gear Trains Spur Gears: Gear terminology, law of gearing, Path of contact, Arc of contact, contact ratio of spur gear, Interference in involute gears, Methods of avoiding interference. Gear Trains: Simple gear trains, Compound gear trains, Reverted gear trains, Epicyclic gear trains, Analysis of epicyclic gear train (Algebraic and tabular methods), torques in epicyclic trains."
+        },
+        {
+          "number": 4,
+          "title": "Balancing of Rotating and Reciprocating Masses Balancing of Rotating Masses",
+          "topics": "Balancing of Rotating and Reciprocating Masses Balancing of Rotating Masses: Balancing of Several Masses Rotating in the Same Plane, Balancing of Several Masses Rotating in Different Planes (only Graphical Methods). Balancing of Reciprocating Masses: Primary and Secondary Unbalanced Forces of Reciprocating Masses, Partial Balancing of Unbalanced Primary Force in a Reciprocating Engine, Balancing of Primary and secondary Forces of Multi-cylinder In-line Engines, Balancing of Radial Engines (only Graphical Methods)"
+        },
+        {
+          "number": 5,
+          "title": "Governors and Gyroscope Governors",
+          "topics": "Governors and Gyroscope Governors: Types of governors; force analysis of Porter and Hartnell governors, Controlling force, stability, sensitiveness, isochronism, effort and power of Porter and Hartnell governors. Gyroscopes: Vectorial representation of angular motion, gyroscopic couple, effect of gyroscopic couple on plane disc and aeroplane"
+        }
+      ],
+      "outcomes": [
+        "Apply the theory of velocity, acceleration and static force analysis to design of mechanisms.",
+        "Design spur gears, gear train, balancing of rotating and reciprocating masses.",
+        "Apply governors and gyroscope."
+      ],
+      "textbooks": [],
+      "references": [
+        "R. S. Khurmi, J.K. Gupta, “Theory of Machines”, Eurasia Publishing House, 2008, ISBN 13: 9788121925242.",
+        "Robert L Norton, “Design of Machinery” by McGraw Hill, 2001, ISBN -13: 978-0077421717.",
+        "Ambekar, “Mechanism and Machine theory”, PHI Learning Pvt. Ltd., 2007, ISBN 13: 9788120331341. 21 09082023 04.08.23"
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/112105268"
+      ]
+    },
+    "BAE306C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Welding In Aircraft Structural Components Equipment’s used in welding shop…",
+          "topics": "Welding In Aircraft Structural Components Equipment’s used in welding shop and their maintenance – Ensuring qualitywelds – Welding jigs and fixtures – Soldering and brazing. Sheet Metal Repair And Maintenance Inspection of damage – Classification – Repair or replacement – Sheet metal inspection – N.D.T. Testing – Riveted repair design, Damage investigation – reverse technology."
+        },
+        {
+          "number": 2,
+          "title": "Plastics and Composites in Aircraft Review of types of plastics used in…",
+          "topics": "Plastics and Composites in Aircraft Review of types of plastics used in airplanes – Maintenance and repair of plastic components – Repair of cracks, holes etc., various repair schemes – Scopes. Inspection and Repair of Composite Components: Inspection and Repair of composite components – Special precautions – Autoclaves."
+        },
+        {
+          "number": 3,
+          "title": "Aircraft Jacking, Assembly And Rigging Airplane jacking and weighing and C",
+          "topics": "Aircraft Jacking, Assembly And Rigging Airplane jacking and weighing and C.G. Location. Balancing of control surfaces – Inspection maintenance. Helicopter flight controls. Tracking and balancing of main rotor. Review of Hydraulic and Pneumatic System Trouble shooting and maintenance practices – Service and inspection. – Inspection and maintenance of landing gear systems. – Inspection and maintenance of air-conditioning and pressurisation system, water and waste system. Installation and maintenance of Instruments – handling – Testing – Inspection."
+        },
+        {
+          "number": 4,
+          "title": "Inspection And Maintenance Of Auxiliary Systems",
+          "topics": "Inspection And Maintenance Of Auxiliary Systems: Inspection and maintenance of auxiliary systems – Fire protection systems – Ice protection system – Rain removal system – Position and warning system – Auxiliary Power Units (APUs) Safety Practices Hazardous materials storage and handling, Aircraft furnishing practices – Equipment’s. Trouble shooting - Theory and practices."
+        },
+        {
+          "number": 5,
+          "title": "Documentation for Maintenance Manufacturers documentation, Airplane…",
+          "topics": "Documentation for Maintenance Manufacturers documentation, Airplane maintenance manual, Fault insulation manual, Illustrated parts catalogue, structural repair manual, wiring diagram manual, Master minimum equipment, Federal Aviation regulation (FAR), Advisory circulars, Airworthiness direction ATA document standards, Technical policies and procedure manuals (TPPM) Fundamentals of Maintenance & Certification Types of maintenance, Redesign, Failure rate pattern, Other maintenance considerations. Aviation industry certification requirements, Type certificate (FAA form 8110.9), Airworthiness certificate (FAA form 8100-2), Aviation maintenance certifications, General, Airframe, Power plant, Avionics courses."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "Larry Reithmaier \" Aircraft Repair Manual\" Palmar Books, Marquette, 1992.",
+        "Brimm. DJ, Bogges, HE, Aircraft Maintenance, Pitman publishing corp, London, 1952."
+      ],
+      "links": [
+        "https://onlinecourses.nptel.ac.in/noc20_ae03/preview"
+      ]
+    },
+    "BAE306D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to Internet of Things",
+          "topics": "Introduction to Internet of Things: Evolution of Internet of Things – Enabling Technologies – IoT Architectures: oneM2M, IoT World Forum (IoTWF) and Alternative IoT Models – Simplified IoT Architecture and Core IoT Functional Stack – Fog, Edge and Cloud in IoT. Components in Internet of Things: Functional Blocks of an IoT Ecosystem – Sensors, Actuators, and Smart Objects – Control Units - Communication modules (Bluetooth, Zigbee, Wifi, GPS, GSM Modules)"
+        },
+        {
+          "number": 2,
+          "title": "Protocols and Technologies Behind IoT",
+          "topics": "Protocols and Technologies Behind IoT: IOT Protocols - IPv6, 6LoWPAN, MQTT, CoAP - RFID, Wireless Sensor Networks, Big Data Analytics, Cloud Computing, Embedded Systems."
+        },
+        {
+          "number": 3,
+          "title": "Open Platforms and Programming",
+          "topics": "Open Platforms and Programming: IOT deployment for Raspberry Pi /Arduino platform-Architecture – Programming – Interfacing – Accessing GPIO Pins – Sending and Receiving Signals Using GPIO Pins – Connecting to the Cloud."
+        },
+        {
+          "number": 4,
+          "title": "Introduction to Algorithms",
+          "topics": "Introduction to Algorithms: Algorithm analysis: Time and space complexity - Asymptotic Notations and its properties Best case, Worst case and average case analysis – Recurrence relation: substitution method - Lower bounds – searching: linear search, binary search and Interpolation Search, Pattern search: The naïve string- matching algorithm - Rabin-Karp algorithm - Knuth-Morris-Pratt algorithm. Sorting: Insertion sort – heap sort"
+        },
+        {
+          "number": 5,
+          "title": "Graph Algorithms",
+          "topics": "Graph Algorithms: Graph algorithms: Representations of graphs - Graph traversal: DFS – BFS - applications - Connectivity, strong connectivity, bi-connectivity - Minimum spanning tree: Kruskal’s and Prim’s algorithm - Shortest path: Bellman-Ford algorithm - Dijkstra’s algorithm - Floyd-Warshall algorithm Network flow: Flow networks - Ford-Fulkerson method – Matching: Maximum bipartite matching"
+        }
+      ],
+      "outcomes": [
+        "Explain the concept of IoT.",
+        "Design portable IoT using Arduino/Raspberry Pi /open platform.",
+        "Apply data analytics and use cloud offerings related to IoT.",
+        "Analyze the efficiency of algorithms using various frameworks.",
+        "Apply graph algorithms to solve problems and analyze their efficiency."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://www.arduino.cc/https://www.ibm.com/smarterplanet/us/en/?ca=v_smarterplanet"
+      ]
+    },
+    "BAE358A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Foundations of everyday leadership, Emotional intelligence, Leadership and…",
+          "topics": "Foundations of everyday leadership, Emotional intelligence, Leadership and collaborative abilities, Listening skills, Research and analytical skills"
+        },
+        {
+          "number": 2,
+          "title": "Verbal and non-verbal communication, Stress Management and Tolerance, Email…",
+          "topics": "Verbal and non-verbal communication, Stress Management and Tolerance, Email Writing, Public speaking and presentation"
+        },
+        {
+          "number": 3,
+          "title": "Negotiation skills, and diffusing project conflict, managing project risks…",
+          "topics": "Negotiation skills, and diffusing project conflict, managing project risks and changes, scope, time and cost management, Strategic Planning"
+        },
+        {
+          "number": 4,
+          "title": "Creativity and vision, Problem-solving, writing code and cross-functional…",
+          "topics": "Creativity and vision, Problem-solving, writing code and cross-functional skill, digital product management"
+        },
+        {
+          "number": 5,
+          "title": "Adaptability and staying positive, Applications of everyday leadership,…",
+          "topics": "Adaptability and staying positive, Applications of everyday leadership, Teamwork and people skills"
+        }
+      ],
+      "outcomes": [
+        "Apply soft skills for engineering profession.",
+        "Practise both verbal and non-verbal communication skills effectively.",
+        "Use personal and professional leadership skills."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://www.ktit.pf.ukf.sk/images/clanky/Dokumenty/Desire/Softskillsforengineers.pdf"
+      ]
+    },
+    "BAE358B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Moral sensibility",
+          "topics": "Moral sensibility: the ability to recognize social and ethical issues in engineering"
+        },
+        {
+          "number": 2,
+          "title": "Moral analysis skills",
+          "topics": "Moral analysis skills: the ability to analyse moral problems in terms of facts, values, stakeholders and their interests;"
+        },
+        {
+          "number": 3,
+          "title": "Moral creativity",
+          "topics": "Moral creativity: the ability to think out different options for action in the light of (conflicting) moral values and the relevant facts;"
+        },
+        {
+          "number": 4,
+          "title": "Moral judgement skills",
+          "topics": "Moral judgement skills: the ability to give a moral judgement on the basis of different ethical theories or frameworks including professional ethics and common sense morality;"
+        },
+        {
+          "number": 5,
+          "title": "Moral decision-making skills",
+          "topics": "Moral decision-making skills: the ability to reflect on different ethical theories and frameworks and to make a decision based on that reflection."
+        }
+      ],
+      "outcomes": [
+        "Develop Ethical values in engineering and Technology."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://cdn.prexams.com/6229/BOOK.pdf",
+        "https://www.coursera.org/learn/ethics-technology-engineering"
+      ]
+    },
+    "BAE358C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Digitalisation and the Future of the Aerospace Industry, Digitization in…",
+          "topics": "Digitalisation and the Future of the Aerospace Industry, Digitization in Production, Human Factors 4.0: Requirements and challenges for humans, teams and organizations"
+        },
+        {
+          "number": 2,
+          "title": "Managing Maintenance, Repair and Overhaul for Civil Aircraft, The…",
+          "topics": "Managing Maintenance, Repair and Overhaul for Civil Aircraft, The psycho-social implications of digitalization, Collaborative Aircraft Design"
+        },
+        {
+          "number": 3,
+          "title": "The Significance of Testing concerning Maintenance of Aircraft, Maintenance…",
+          "topics": "The Significance of Testing concerning Maintenance of Aircraft, Maintenance in the Age of Digitalisation"
+        },
+        {
+          "number": 4,
+          "title": "Digital Avionics Networks, Mil-STD, Modeling and Simulation of Aerospace…",
+          "topics": "Digital Avionics Networks, Mil-STD, Modeling and Simulation of Aerospace Systems, Digital Models"
+        },
+        {
+          "number": 5,
+          "title": "Efficient Order Reduction of Parametric Models, Parametric Model Order…",
+          "topics": "Efficient Order Reduction of Parametric Models, Parametric Model Order Reduction for Structural Analysis"
+        }
+      ],
+      "outcomes": [
+        "Apply digitalization in Aeronautics.",
+        "Implement digitalization in collaborative design, maintenance, repair and overhaul."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://www.repository.cam.ac.uk/bitstream/handle/1810/278896/CDBB_REP_002_Lamb_Final.pdf"
+      ]
+    },
+    "BAE358D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction, How Computer Programming Is Changing Writing, Why is coding…",
+          "topics": "Introduction, How Computer Programming Is Changing Writing, Why is coding literacy important? devices and software, digital environments, rules of code."
+        },
+        {
+          "number": 2,
+          "title": "Core coding concepts including statement, variable, flow control, and…",
+          "topics": "Core coding concepts including statement, variable, flow control, and functions through digital media, such as graphics, animation, and sound, and interaction."
+        },
+        {
+          "number": 3,
+          "title": "Coding versus programming, develop a code, read a code, run a code, find…",
+          "topics": "Coding versus programming, develop a code, read a code, run a code, find high-level logic, use/know tools, know the language/conventions, Read best practices/design patterns"
+        },
+        {
+          "number": 4,
+          "title": "Code Review, Simple Codes using Java script, MATLAB, R and Python",
+          "topics": "Code Review, Simple Codes using Java script, MATLAB, R and Python"
+        },
+        {
+          "number": 5,
+          "title": "Critical thinking and evaluation, functional skills, Advanced communication,…",
+          "topics": "Critical thinking and evaluation, functional skills, Advanced communication, collaboration, cultural and social understanding, Capstone project using codes"
+        }
+      ],
+      "outcomes": [
+        "Develop literacy so as to understand any code."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://static.realpython.com/python-basics-sample-chapters.pdf",
+        "http://www.uop.edu.pk/ocontents/A%20Guide%20to%20MATALB.pdf",
+        "https://matfuvit.github.io/UVIT/predavanja/literatura/TutorialsPoint%20JavaScript.pdf",
+        "https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf"
+      ]
+    },
+    "BAE401": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Fundamental Concepts & Definitions",
+          "topics": "Fundamental Concepts & Definitions: Thermodynamics definition and scope, Microscopic and Macroscopic approaches. Some practical applications of engineering thermodynamic Systems, Characteristics of system boundary and control surface, examples. Thermodynamic properties; definition and Modules, intensive and extensive properties. Thermodynamic state, state point, state diagram, path and process, quasi-static process, cyclic and non-cyclic processes; Thermodynamic equilibrium; definition, mechanical equilibrium; diathermic wall, thermal equilibrium, chemical equilibrium. Zeroth law of thermodynamics, Temperature; concepts, scales, fixed points and measurements. Work and Heat: Mechanics-definition of work and its limitations. Thermodynamic definition of work; examples, sign convention. Displacement work; as a part of a system boundary, as a whole of a system boundary, expressions for displacement work in various processes through p-v diagrams. Shaft work; Electrical work. Other types of work. Heat"
+        },
+        {
+          "number": 2,
+          "title": "First Law of Thermodynamics",
+          "topics": "First Law of Thermodynamics: Joules experiments, equivalence of heat and work. Statement of the First law of thermodynamics, extension of the First law to non - cyclic processes, energy, energy as a property, modes of energy, pure substance; definition, two-property rule, Specific heat at constant volume, enthalpy, specific heat at constant pressure. Extension of the First law to control volume; steady state-steady flow energy equation, important applications,"
+        },
+        {
+          "number": 3,
+          "title": "Second Law of Thermodynamics",
+          "topics": "Second Law of Thermodynamics: Devices converting heat to work; (a) in a thermodynamic cycle, (b) in a mechanical cycle. Thermal reservoir. Direct heat engine; schematic representation and efficiency. Devices converting work to heat in a thermodynamic cycle; reversed heat engine, schematic representation, coefficients of performance. Kelvin - Planck statement of the Second law of Thermodynamics; PMM I and PMM II, Clausius statement of Second law of Thermodynamics, Equivalence of the two statements; Reversible and Irreversible processes; factors that make a process irreversible, reversible heat engine, Carnot cycle, Carnot principles. Entropy: Clasius inequality; Statement, proof, application to a reversible cycle. Entropy; definition, a property, change of entropy, principle of increase in entropy, calculation of entropy using Tds relations. Available and unavailable energy."
+        },
+        {
+          "number": 4,
+          "title": "Pure Substances & Ideal Gases",
+          "topics": "Pure Substances & Ideal Gases: Mixture of ideal gases and real gases, ideal gas equation, compressibility factor use of charts. P-T and P-V diagrams, triple point and critical points. Sub-cooled liquid, Saturated liquid, mixture of saturated liquid and vapour, saturated vapour and superheated vapour states of pure substance with water as example. Enthalpy of change of phase (Latent heat). Dryness fraction (quality), T-S and H-S diagrams, representation of various processes on these diagrams. Thermodynamic relations Maxwell’s equations, Tds relations, ratio of heat capacities, evaluation of thermodynamic properties from an equation of state."
+        },
+        {
+          "number": 5,
+          "title": "Gas Power Cycles",
+          "topics": "Gas Power Cycles: Efficiency of air standard cycles, Carnot, Otto, Diesel cycles, P-V & T-S diagram, calculation of efficiency. Vapour power cycle: Simple Rankine cycle, Analysis and performance of Rankine Cycle, Ideal and practical regenerative Rankine cycles – Reheat and Regenerative Cycles, Binary vapour cycle."
+        }
+      ],
+      "outcomes": [
+        "Apply the concepts and definitions of thermodynamics.",
+        "Differentiate thermodynamic work and heat and apply I law and II law of thermodynamics to different process.",
+        "Apply the principles of various gas cycles."
+      ],
+      "textbooks": [],
+      "references": [
+        "Michael Moran, J., and Howard Shapiro, N., “Fundamentals of Engineering Thermodynamics”, 4th Edition, John Wiley & Sons, New York, 2010.",
+        "Rayner Joel, “Basic Engineering Thermodynamics”, 5th Edition, Addison Wesley, New York, 2016.",
+        "Holman, J. P., “Thermodynamics”, 4th Edition Tata McGraw Hill, New Delhi, 2015.",
+        "Rathakrishnan. E, “Fundamentals of Engineering Thermodynamics”, Prentice – Hall, India, 2005."
+      ],
+      "links": [
+        "https://www.edx.org/course/thermodynamics",
+        "https://www.coursera.org/learn/thermodynamics",
+        "https://onlinecourses.nptel.ac.in/noc18_ch03/preview"
+      ]
+    },
+    "BAE402": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Two Dimensional Flows & Incompressible Flow Over Airfoil Uniform flow,…",
+          "topics": "Two Dimensional Flows & Incompressible Flow Over Airfoil Uniform flow, Source flow, Sink flow, Combination of a uniform flow with source and sink. Doublet flow. Non- lifting flow over a circular cylinder. Vortex flow. Lifting flow over a circular cylinder. Kutta-Joukowski theorem and generation of Lift, D- Alembert’s p aradox, Numericals. Incompressible flow over airfoils: Kelvin’s circulation theorem and the starting vortex, vortex sheet, Kutta condition, Classical thin airfoil theory for symmetric and cambered airfoils. Numericals."
+        },
+        {
+          "number": 2,
+          "title": "Incompressible Flow Over Finite Wings Biot- Savart law and Helmholtz’s…",
+          "topics": "Incompressible Flow Over Finite Wings Biot- Savart law and Helmholtz’s theorems, Vortex filament: Infinite and semi -infinite vortex filament, Induced velocity. Prandtl’s classical lifting line theory: Downwash and induced drag. Elliptical and modified elliptical lift distrib ution. Lift distribution on wings. Limitations of Prandtl’s lifting line theory. Extended lifting line theory - lifting surface theory, vortex lattice method for wings. Lift, drag and moment characteristics of complete airplane."
+        },
+        {
+          "number": 3,
+          "title": "Applications of Finite Wing Theory & High Lift Systems Simplified horse-shoe…",
+          "topics": "Applications of Finite Wing Theory & High Lift Systems Simplified horse-shoe vortex model, formation flight, influence of downwash on tail plane, ground effects. Swept wings: Introduction to sweep effects, swept wings, pressure coefficient, typical aerodynamic characteristics, Subsonic and Supersonic leading edges. Introduction to high-lift systems, flaps, leading-edge slats and typical high – lift characteristics. Critical Mach numbers, Lift and drag divergence, shock induced separation, Effects of thickness, camber and aspect ratio of wings, Transonic area rule, Tip effects. Introduction to Source panel & vortex lattice method."
+        },
+        {
+          "number": 4,
+          "title": "Basics of Compressible Flow Basics of thermodynamics-definition and basic…",
+          "topics": "Basics of Compressible Flow Basics of thermodynamics-definition and basic relation, Energy Equation- For flow and non-flow process, adiabatic energy equation, stagnation pressure, temperature, density, reference velociti es, Bernoulli’s equation, Effect of Mach number on Compressibility, Isentropic flow with variable area-Area ratio as a function of Mach number, Impulse function, Mass flow rate, Flow through nozzles and diffusers"
+        },
+        {
+          "number": 5,
+          "title": "Normal, Oblique Shocks and Expansion Waves Governing Equations of Normal…",
+          "topics": "Normal, Oblique Shocks and Expansion Waves Governing Equations of Normal Shock Wave. Prandtl relation and Rankine - Hugoniot equation. Oblique shocks and corresponding relations. Shock polar & Hodograph plane. Supersonic flow over a wedge. Supersonic compression and supersonic expansion. Detached shocks. Mach reflection. Intersection of waves of same and opposite families."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "Clancy L. J. “Aerodynamics”, Sterling book house, New Delhi. (2006), ISBN 13: 9780582988804",
+        "Louis M. Milne-Thomson, “Theoretical Aerodynamics”, Imported Edition, Dover Publications, USA (2011), ISBN 9780486619804.",
+        "Radhakrishnan, E., “Gas Dynamics”, Prentice Hall of India.1995 edition.",
+        "E. L. Houghton, P.W. Carpenter, “Aerodynamics for Engineering Students”, 5th edition, Elsevier, New York. (2010), ISBN-13: 978-0080966328 44 09082023 04.08.23"
+      ],
+      "links": [
+        "https://www.mooc",
+        "http://nptel.ac.in/courses/112105171/1"
+      ]
+    },
+    "BAE403": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction",
+          "topics": "Introduction: Review of thermodynamic principles, Principles of aircraft propulsion, Types of power plants, Working principles of internal combustion engine, Two – stroke and four – stroke piston engines, Gas- turbine engines, Cycle analysis of reciprocating engines and jet engines, advantages and disadvantages."
+        },
+        {
+          "number": 2,
+          "title": "Propeller Theories & Jet propulsion",
+          "topics": "Propeller Theories & Jet propulsion: Propeller Theories: Types of propeller, Propeller thrust: momentum theory, Blade element theories, propeller blade design, propeller selection. Jet Propulsion: Illustration of working of gas turbine engine – The thrust equation – Factors affecting thrust – Effect of pressure, velocity and temperature changes of air entering compressor – Methods of thrust augmentation – Characteristics of turboprop, turbofan and turbojet – Performance characteristics."
+        },
+        {
+          "number": 3,
+          "title": "Inlets & Nozzles Internal flow and Stall in Subsonic inlets, Boundary layer…",
+          "topics": "Inlets & Nozzles Internal flow and Stall in Subsonic inlets, Boundary layer separation. Major features of external flow near a subsonic inlet. Relation between minimum area ratio and eternal deceleration ratio. Diffuser performance. Supersonic inlets: Supersonic inlets, starting problem in supersonic inlets, Shock swallowing by area variation, External deceleration. Modes of inlet operation. Nozzles: Theory of flow in isentropic nozzles, Convergent nozzles and nozzle choking, Nozzle throat conditions. Nozzle efficiency, Losses in nozzles. Over-expanded and under-expanded nozzles, Ejector and variable area nozzles, Thrust reversal."
+        },
+        {
+          "number": 4,
+          "title": "Gas Turbine Engine Compressors Centrifugal compressors",
+          "topics": "Gas Turbine Engine Compressors Centrifugal compressors: Principle of operation of centrifugal compressors. Work done and pressure rise - Velocity diagrams, Diffuser vane design considerations. performance characteristics. Concept of Pre-whirl, Rotating stall. Axial flow compressors: Elementary theory of axial flow compressor, Velocity triangles, Degree of reaction, three-dimensional flow. Air angle distribution for free vortex and constant reaction designs, Compressor blade design. Axial compressor performance characteristics."
+        },
+        {
+          "number": 5,
+          "title": "Combustion chambers and Turbines Classification of combustion chambers,…",
+          "topics": "Combustion chambers and Turbines Classification of combustion chambers, important factors affecting combustion chamber design, Combustion process, Combustion chamber performance Effect of operating variables on performance – Flame tube cooling – Flame stabilization – Use of flame holders Axial Flow Turbines: Introduction, Turbine stage, Multi-staging of turbine, Exit flow conditions, Turbine cooling, Heat transfer in turbine cooling. Radial turbine: Introduction, Thermodynamics of radial turbines, Losses and efficiency."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "Hill, P.G. & Peterson, C.R., “Mechanics & Thermodynamics of Propulsion” Addison – Wesley Longman INC, 1999, ISBN-13: 978-0201146592.",
+        "Cohen, H. Rogers, G.F.C. and Saravanamuttoo, H.I.H., “Gas Turbine Theory”, Longman, 1989, ISBN 13: 9780582236325.",
+        "Irwin E. Treager, “Gas Turbine Engine Technology” GLENCOE Aviation Technology Series, 7th Edition, Tata 48 09082023 04.08.23 McGraw Hill Publishing Co. Ltd. Print 2003, ISBN-13: 978-0028018287.",
+        "S. M. Yahya, “Fundamentals of Compressible Flow with Aircraft and Rocket propulsion”, 4th Edition, New Age International Publications, New Delhi 2014, ISBN 13: 9788122426687."
+      ],
+      "links": []
+    },
+    "BAE405A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction and basic principles",
+          "topics": "Introduction and basic principles: Need for Additive Manufacturing, Generic AM process, stereo lithography or 3dprinting, rapid proto typing, the benefits of AM, distinction between AM and CNC machining, other related technologies- reverse engineering technology. Development of Additive Manufacturing Technology: Introduction, computers, computer-aided design technology, other associated technologies, the use of layers, classification of AM processes, metals systems, hybrid systems, milestones in AM development. Additive Manufacturing Process chain: Introduction, the eight steps in additive manufacture, variations from one AM machine to another,metal systems, maintenance of equipment, materials handling issues, design for AM, and application areas."
+        },
+        {
+          "number": 2,
+          "title": "Photo polymerization processes",
+          "topics": "Photo polymerization processes: Stereo lithography (SL), Materials, SL resin curing process, Micro-stereo lithography, Process Benefits and Drawbacks, Applications of Photo polymerization Processes. Powder bed fusion processes: Introduction, Selective laser Sintering (SLS), Materials, Powder fusion mechanism, SLS Metal and ceramic part creation, Electron Beam melting (EBM), Process Benefits and Drawbacks, Applications of Powder Bed Fusion Processes. Extrusion-based systems: Fused Deposition Modelling (FDM), Principles, Materials, Plotting and path control, Bio-Extrusion, Process Benefits and Drawbacks, Applications of Extrusion-Based Processes."
+        },
+        {
+          "number": 3,
+          "title": "Printing Processes",
+          "topics": "Printing Processes: evolution of printing as an additive manufacturing process, research achievements in printing deposition, technical challenges of printing, printing process modeling, material modification methods, three- dimensional printing, advantages of binder printing sheet Lamination Processes: Materials, Laminated Object Manufacturing (LOM), Ultrasonic Consolidation (UC), Gluing, Thermal bonding, LOM and UC applications. Beam Deposition Processes: introduction, general beam deposition process, description material delivery, BD systems, process parameters, typical materials and microstructure, processing – structure – properties relationships, BD benefits and drawbacks. Direct Write Technologies: Background, ink – based DW, laser transfer, DW thermals pray, DW beam deposition, DW liquid-phase direct deposition."
+        },
+        {
+          "number": 4,
+          "title": "Guidelines for Process Selection",
+          "topics": "Guidelines for Process Selection: Introduction, selection methods for apart, challenges of selection, example system for preliminary selection, production planning and control. Software issues for Additive Manufacturing: Introduction, preparation of cad models – the STL file, problems with STL files, STL file manipulation. Post- Processing: Support material removal, surface texture improvements, preparation for use as a pattern, property enhancements using non-thermal techniques and thermal techniques."
+        },
+        {
+          "number": 5,
+          "title": "The use of multiple materials in additive manufacturing",
+          "topics": "The use of multiple materials in additive manufacturing: Introduction, multiple material approaches, discrete multiple material processes, porous multiple material processes, blended multiple material processes, commercial applications using multiple materials, future directions. AM Applications: Functional models, Pattern for investment and vacuum casting, Medical models, art models, Engineering analysis models, Rapid tooling, new materials development, Bi-metallic parts, Remanufacturing. Application: Examples for Aerospace and defence, Direct digital manufacturing: Align Technology, siemens and phonak, DDM drivers, manufacturing vs. prototyping, life- cycle costing, future of direct digital manufacturing."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [
+        "Additive Manufacturing Technologies Rapid Prototyping to Direct Digital Manufacturing. Gibson l D. W. Rosen l B. Stucker, Springer New York Heidelberg Dordrecht, London, ISBN: 978-1- 4419-1119-3 e-ISBN: 978- 1-4419- 1120-9 DOI"
+      ],
+      "references": [
+        "“Rapid Prototyping: Principles & Applications Chua Chee Kai, Leong Kah Fai World Scientific 2003 Edition.",
+        "Rapid Prototyping: Theory & Practice Ali K. Kamrani, Springer 2006 Edition",
+        "Rapid Manufacturing: The Technologies and Applications of Rapid Prototyping and Rapid Tooling” D.T. Pham, S.S. Dimov Springer 2001Edition",
+        "Rapid Prototyping: Principles and Applications in Manufacturing Rafiq Nooran John Wiley & Sons 2006 Edition",
+        "Additive Manufacturing Technology Hari Prasad, A.V.Suresh Cengage 2019 Edition"
+      ],
+      "links": [
+        "https://www.digimat.in/nptel/courses/video/112103306/L20.html",
+        "https://onlinecourses.nptel.ac.in/noc22_me130/preview"
+      ]
+    },
+    "BAE405B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to turbomachines",
+          "topics": "Introduction to turbomachines: Classification and parts of a turbo machines; comparison with positive displacement machines; dimensionless parameters and their physical significance; specific speed; illustrative examples on dimensional analysis and model studies. Energy transfer in turbomachines: Basic Euler turbine equation and its alternate form; components of energy transfer; general expression for degree of reaction; construction of velocity triangles for different values of degree of reaction."
+        },
+        {
+          "number": 2,
+          "title": "Compression process",
+          "topics": "Compression process: Overall isentropic efficiency of compression; stage efficiency; comparison and relation between overall efficiency and stage efficiency; polytropic efficiency; pre heat factor. Expansion process: Overall isentropic efficiency for a turbine; stage efficiency for a turbine; comparison and relation between stage efficiency and overall efficiency, polytropic efficiency; reheat factor for expansion process."
+        },
+        {
+          "number": 3,
+          "title": "Design and performance analysis of Centrifugal compressors",
+          "topics": "Design and performance analysis of Centrifugal compressors: Types, design parameters, flow analysis in impeller blades, volutes and diffusers, losses, slip factor, characteristic curves, surging, choking. Construction details. Design and performance analysis of axial fans and compressors: Stage velocity diagrams, enthalpy- entropy diagrams, stage losses and efficiency, work done, simple stage design problems, performance characteristics, instability in axial compressors. Construction details."
+        },
+        {
+          "number": 4,
+          "title": "Design and performance analysis of axial flow turbines",
+          "topics": "Design and performance analysis of axial flow turbines: Turbine stage, work done, degree of reaction, losses and efficiency, flow passage; subsonic, transonic and supersonic turbines, multi-staging of turbine; exit flow conditions; turbine cooling Design and performance analysis of radial turbines: Thermodynamics and aerodynamics of radial turbines; radial turbine characteristics; losses and efficiency; design of radial turbine."
+        },
+        {
+          "number": 5,
+          "title": "Hydraulic pumps",
+          "topics": "Hydraulic pumps: Centrifugal and axial pumps. Manometric head, suction head, delivery head; manometric efficiency, hydraulic efficiency, volumetric efficiency, overall efficiency; multi stage pumps. Characteristics of pumps. Hydraulic turbines: Classification; Module quantities; Pelton wheel, Francis turbine, Kaplan turbine and their velocity triangles. Draft tubes and their function. Characteristics of hydraulic turbines."
+        }
+      ],
+      "outcomes": [
+        "Compute the energy transfer and energy transformation in turbomachines.",
+        "Analyze the design of turbomachine blades.",
+        "Apply hydraulic pumps and turbines for specific requirements."
+      ],
+      "textbooks": [],
+      "references": [
+        "V. Kadambi and Manohar Prasad, “An introduction to Energy conversion, Volume III, Turbo machinery “, Wiley Eastern Ltd, 1977, ISBN: 9780852264539",
+        "Govinde Gowda and Nagaraj, “Turbomachines”, 9th Edition, MM Publishers, 2016.",
+        "B.K.Venkanna, “Fundamentals of Turbomachinery, Prentice Hall India, 2009."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/112106303"
+      ]
+    },
+    "BAE405C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Fundamentals of Aerospace Propulsion, Space Environment, fundamentals of…",
+          "topics": "Fundamentals of Aerospace Propulsion, Space Environment, fundamentals of solid propellant rockets, Fundamentals of liquid propellant rockets, Rocket equation, Tsiolkovsky rocket equation, Concepts of Specific Impulse."
+        },
+        {
+          "number": 2,
+          "title": "Atmospheric Re-entry",
+          "topics": "Atmospheric Re-entry: Introduction-Steep Ballistic Re-entry, Ballistic Orbital Re-entry, Skip Re-entry, “Double - Dip” Re -entry, Skip reentry, glide reentry"
+        },
+        {
+          "number": 3,
+          "title": "Fundamentals of Orbit Mechanics, Orbit Manoeuvre,",
+          "topics": "Fundamentals of Orbit Mechanics, Orbit Manoeuvre,: Two-body motion, Basic Orbital Elements, Hohmann Transfer, Bielliptical Transfer"
+        },
+        {
+          "number": 4,
+          "title": "Satellite Attitude Dynamics",
+          "topics": "Satellite Attitude Dynamics: Attitude Control for Spinning Spacecraft, Attitude Control for Non-spinning Spacecraft, The Yo-Yo Mechanism, Gravity – Gradient Satellite,"
+        },
+        {
+          "number": 5,
+          "title": "Space Mission Operations",
+          "topics": "Space Mission Operations: Supporting Ground Systems Architecture and Team interfaces, Mission phases and Core operations, Command, Planning, Tracking, Telemetry."
+        }
+      ],
+      "outcomes": [
+        "Distinguish the types of aerospace propulsion.",
+        "Determine the attitude of the satellites."
+      ],
+      "textbooks": [],
+      "references": [
+        "Vincet L. Pisacane, “Fundamentals of Space Systems”, Oxford University Press, 2005.",
+        "J.Sellers,“Understanding Space: An Introduction to Astronautics”, McGraw Hill, 2nd edition,2000,ISBN- 13: 978-0072424683",
+        "Francis J Hale,“Introduction to Space Flight”, Pearson, 1993, ISBN-13: 978-0134819129.",
+        "ChariesD.Brown,“Spacecraft Mission Design”, AIAA education Series, 1998.",
+        "Meyer Rudolph X,“Elements of Space Technology for aerospace Engineers”, Meyer Rudolph X, Academic Press, 1999."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101101079"
+      ]
+    },
+    "BAE405D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Review of Basic Concepts",
+          "topics": "Review of Basic Concepts: Laws of thermodynamics, simple thermo chemical equations, and heat of combustion, properties of real gases, Rankine-Hugoniot curves, ideas of deflagration and detonation. Chemical Equilibrium And Kinetics: Concept of chemical equilibrium, Elements of adiabatic flame temperature calculation, Chemical kinetics – rates and order of reactions, Reaction mechanism and chain reactions"
+        },
+        {
+          "number": 2,
+          "title": "Combustion thermodynamics",
+          "topics": "Combustion thermodynamics: Theoretical (Stoichiometric) air and excess air for combustion of fuels. Mass balance, actual combustion. Exhaust gas analysis. A./ F ratio, Energy balance for a chemical reaction, enthalpy of formation, enthalpy and internal energy of combustion, Combustion efficiency, adiabatic flow temperature."
+        },
+        {
+          "number": 3,
+          "title": "Premixed Flames",
+          "topics": "Premixed Flames: Mechanistic description of premixed flames, Burning velocity and parametric dependences, Experimental methods of measuring burning velocity, One dimensional Conservation Equations, Simple one-dimensional thermal theory of flame, concepts of minimum ignition energy, quenching distance, stability limits and flame stabilization. Diffusion Flames: Differences between premixed and diffusion flames, gas diffusion flames in parallel flow – jet flames and Burke Schumann flames, Liquid droplet combustion."
+        },
+        {
+          "number": 4,
+          "title": "Combustion in Piston Engines",
+          "topics": "Combustion in Piston Engines: Review of operation of reciprocating engines, Description of the combustion process in piston engines, Combustion efficiency and factors affecting it, detonation in reciprocating engines and preventive methods. Combustion in Gas-Turbine Engines: Description of different types of combustion chambers in gas-turbine engines, primary requirements of the combustor, Flow structure, recirculation and flame stabilization in main combustion chamber, afterburners."
+        },
+        {
+          "number": 5,
+          "title": "Combustion in Rocket Engines",
+          "topics": "Combustion in Rocket Engines: Combustion of carbon particle, boundary layer combustion, basic principles of combustion solid propellants, extension of droplet combustion to liquid propellant rockets. Emissions: Flame radiation, pollutants - unburnt hydrocarbons, oxides of nitrogen and carbon monoxide, methods of reducing pollutants, Principle of exhaust gas analysis."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "Industrial Combustion by Charles E. Baukal.",
+        "Heat Transfer in Industrial Combustion by CE BaukalJr",
+        "Combustion, Fossil Power Systems by G. Singer. 4th Ed. 1966 Ed Pub.",
+        "Fuels and Combustion, Sharma, S.P., and Chandra Mohan, Tata Mc.Graw Hill Publishing Co.,Ltd., New Delhi, 1987.",
+        "Gas Turbine, Jet and Rocket Propulsion, Mathur, M.L., and Sharma,R.P.,,’ Standard Publishers and Distributors, Delhi, 1988"
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101106037/2"
+      ]
+    },
+    "BAE456B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Regulations of DGCA, Basic Principles of Flight, ATC Procedures & Radio…",
+          "topics": "Regulations of DGCA, Basic Principles of Flight, ATC Procedures & Radio Telephony"
+        },
+        {
+          "number": 2,
+          "title": "Fixed wing Operations/Aerodynamics, Multi rotor Operations/Aerodynamics",
+          "topics": "Fixed wing Operations/Aerodynamics, Multi rotor Operations/Aerodynamics"
+        },
+        {
+          "number": 3,
+          "title": "Weather &Meteorology, Drone equipment and maintenance, Emergency…",
+          "topics": "Weather &Meteorology, Drone equipment and maintenance, Emergency Identification & handling"
+        },
+        {
+          "number": 4,
+          "title": "Payload installation & utilization, Image/video interpretation, Final Test…",
+          "topics": "Payload installation & utilization, Image/video interpretation, Final Test Theory"
+        },
+        {
+          "number": 5,
+          "title": "Flight Simulator training, Practical lessons in Lab, Practical flying lessons",
+          "topics": "Flight Simulator training, Practical lessons in Lab, Practical flying lessons"
+        }
+      ],
+      "outcomes": [
+        "Apply the principles of Drone flying."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://www.youtube.com/watch?v=ixYnzcZZu9g"
+      ]
+    },
+    "BAE456C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to Augmented Reality (A.R)",
+          "topics": "Introduction to Augmented Reality (A.R): Defining augmented reality, history of augmented reality, The Relationship between Augmented Reality and Other Technologies-Media, Technologies, Other Ideas Related to the Spectrum between Real and Virtual Worlds, applications of augmented reality Augmented Reality Concepts - Concepts Related to Augmented Reality, Ingredients of an Augmented Reality Experience."
+        },
+        {
+          "number": 2,
+          "title": "Augmented Reality Hardware",
+          "topics": "Augmented Reality Hardware: Augmented Reality Hardware – Displays – Audio Displays, Haptic Displays, Visual Displays, Other sensory displays, Visual Perception, Requirements and Characteristics, Spatial Display Model. Processors – Role of Processors, Processor System Architecture, Processor Specifications. Tracking & Sensors - Tracking, Calibration, and Registration, Characteristics of Tracking Technology, Stationary Tracking Systems, Mobile Sensors, Optical Tracking, Sensor Fusion."
+        },
+        {
+          "number": 3,
+          "title": "Computer Vision for Augmented Reality & A.R. Software",
+          "topics": "Computer Vision for Augmented Reality & A.R. Software: Computer Vision for Augmented Reality - Marker Tracking, Multiple-Camera Infrared Tracking, Natural Feature Tracking by Detection, Simultaneous Localization and Mapping, Outdoor Tracking Augmented Reality Software - Introduction, Major Software Components for Augmented Reality Systems, Software used to Create Content for the Augmented Reality Application."
+        },
+        {
+          "number": 4,
+          "title": "AR Techniques- Marker based & Markerless tracking",
+          "topics": "AR Techniques- Marker based & Markerless tracking: Marker-based approach- Introduction to marker-based tracking, types of markers, marker camera pose and identification, visual tracking, mathematical representation of matrix multiplication Marker types- Template markers, 2D barcode markers, imperceptible markers. Marker-less approach - Localization based augmentation, real world examples Tracking methods- Visual tracking, feature based tracking, hybrid tracking, and initialization and recovery."
+        },
+        {
+          "number": 5,
+          "title": "AR Devices & Components",
+          "topics": "AR Devices & Components: AR Components – Scene Generator, Tracking system, monitoring system, display, Game scene AR Devices – Optical See- through HMD, Virtual retinal systems, Monitor bases systems, Projection displays, and Video see-through systems"
+        }
+      ],
+      "outcomes": [
+        "Describe how AR systems work and list the applications of AR.",
+        "Understand and analyse the hardware requirement of AR.",
+        "Use computer vision concepts for AR and describe AR techniques.",
+        "Analyse and understand the working of various state of the art AR devices.",
+        "Acquire knowledge of mixed reality."
+      ],
+      "textbooks": [],
+      "references": [
+        "Designing for Mixed Reality, Kharis O'Connell Published by O'Reilly Media, Inc., 2016, ISBN: 9781491962381",
+        "Sanni Siltanen- Theory and applications of marker-based augmented reality. Julkaisija – Utgivare Publisher. 2012. ISBN 978-951-38-7449-0"
+      ],
+      "links": [
+        "https://www.vttresearch.com/sites/default/files/pdf/science/2012/S3.pdf"
+      ]
+    },
+    "BAE501": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Leadership",
+          "topics": "Leadership: Definition, characteristics of quality leaders, leadership concept, characteristics of effective people, ethics, the Deming philosophy, role of TQM leaders, implementation, core values, concepts and framework, strategic planning communication, decision making,"
+        },
+        {
+          "number": 2,
+          "title": "Continuous Process Improvement",
+          "topics": "Continuous Process Improvement: Process, the Juran trilogy, improvement strategies, types of problems, the PDSA Cycle, problem- solving methods, Kaizen, reengineering, six sigma, case studies. Tools and Techniques: Benching marking, information technology, quality management systems, environmental management system, quality function deployment, quality by design, failure mode and effect analysis, product liability, total productive maintenance."
+        },
+        {
+          "number": 3,
+          "title": "Customer Satisfaction and Employee Involvement",
+          "topics": "Customer Satisfaction and Employee Involvement: Customer Satisfaction: customer and customer perception of quality, feedback, using customer complaints, service quality, translating needs into requirements, customer retention, Case studies. Employee Involvement – Motivation, employee surveys, empowerment, teams, suggestion system, recognition and reward, gain sharing, performance appraisal, unions and employee involvement, case studies."
+        },
+        {
+          "number": 4,
+          "title": "Airline and Airport Management, Airline Operation and Scheduling, Data…",
+          "topics": "Airline and Airport Management, Airline Operation and Scheduling, Data Analysis for Business Decisions, Economic Analysis for Business Decisions, Aircraft Rules and Regulation, Airline Business in the 21st Century. Human Resources Management, Organizational Behaviour, Accounting for Management, Airline Economics,"
+        },
+        {
+          "number": 5,
+          "title": "Business Application Software, Communication Skills and Business…",
+          "topics": "Business Application Software, Communication Skills and Business Correspondence, Research Methods in Business, International Business Management, Aviation Systems: Management of the Integrated Aviation Value Chain Aviation Law, Aviation Safety Management and Accident Investigations, Emerging Trends in Management - Case Study Analysis, Entrepreneurship Development, Airline Advertising and Sales Promotion"
+        }
+      ],
+      "outcomes": [
+        "Analyse customer need and perceptions of design feedback systems.",
+        "Infer the customer perception of quality.",
+        "Apply the foundational knowledge of airline and airport operation, scheduling and management.",
+        "Implement the general aviation management practices.",
+        "Prepare for the management at different levels of aviation industry."
+      ],
+      "textbooks": [],
+      "references": [
+        "Aviation Management: Global And National Perspectives Hardcover – 1 January 2008 by Ratandeep Singh (Author) 12.07.24",
+        "Aviation Leadership: The Accountable Manager by Mark J. Pierotti Airline Management Finance -The Essentials By Victor Hughes",
+        "A New American TQM, four revolutions in management, Shoji Shiba, Alan Graham, David Walden, Productivity press, Oregon, 1990"
+      ],
+      "links": [
+        "https://www.youtube.com/watch?v=6Uk8F3_9ywY"
+      ]
+    },
+    "BAE502": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Design for Static Strength",
+          "topics": "Design for Static Strength: Introduction: Normal, shear, biaxial and tri-axial stresses, Stress tensor, Principal Stresses, Stress Analysis, Design considerations, Codes and Standards. Static Strength: Static loads and factor of safety, Theories of failure: Maximum normal stress theory, Maximum shear stress theory, Maximum strain theory, Strain energy theory, and Distortion energy theory, failure of brittle and ductile materials."
+        },
+        {
+          "number": 2,
+          "title": "Design for Impact and Fatigue Strength Impact Strength",
+          "topics": "Design for Impact and Fatigue Strength Impact Strength: Introduction, Impact stresses due to axial, bending and torsional loads, effect of inertia. Fatigue Strength: Endurance limit, modifying factors: size effect, surface effect, Stress concentration effects, Fluctuating stresses, Goodman and Soderberg relationship, stresses due to combined loading, cumulative fatigue damage. Stress concentration, and Determination of Stress concentration factor."
+        },
+        {
+          "number": 3,
+          "title": "Columns",
+          "topics": "Columns: Columns with various end conditions, Euler’s Column curve, Rankine’s formula, Column with initial curvature, Eccentric loading, south-well plot. Loads on Aircraft: Structural nomenclature, Types of loads, load factor, Aerodynamics loads, Symmetric manoeuvre loads, Velocity diagram, Function of structural components."
+        },
+        {
+          "number": 4,
+          "title": "Structures Statically Determinate and Indeterminate structures, Analysis of…",
+          "topics": "Structures Statically Determinate and Indeterminate structures, Analysis of plane truss, Method of joints, 3D Truss, Plane frames, Composite beam, Clapeyron’s Three Moment Equation. Moment Distribution Methods. Unit Load Methods- Application to beams, trusses, frames, etc."
+        },
+        {
+          "number": 5,
+          "title": "Unsymmetrical Bending",
+          "topics": "Unsymmetrical Bending: Bending Stresses in beams of unsymmetrical sections-bending of symmetric sections with skew loads."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [],
+      "references": [
+        "Robert L. Norton, Machine Design, Pearson Education Asia, 2001.",
+        "Donaldson, B.K., “Analysis of Aircraft Structu res – An Introduction”, McGraw -Hill, 1993.",
+        "Timoshenko, S., “Strength of Materials”, Vol. I and II, Princeton D Von Nostrand Co, 1990."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101105084"
+      ]
+    },
+    "BAE503": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction Aviation History and Overview of UAV systems, Classes and…",
+          "topics": "Introduction Aviation History and Overview of UAV systems, Classes and Missions of UAVs, Definitions and Terminology, UAV fundamentals, Examples of UAV systems-very small, small, Medium and Large UAV."
+        },
+        {
+          "number": 2,
+          "title": "The Air Vehicle Basic Aerodynamics",
+          "topics": "The Air Vehicle Basic Aerodynamics: Basic Aerodynamics equations, Aircraft polar, the real wing and Airplane, Induced drag, the boundary layer, Flapping wings, Total Air-Vehicle Drag Performance: Overview, Climbing flight, Range and Endurance – for propeller driven aircraft, range- a jet-driven aircraft, Guiding Flight"
+        },
+        {
+          "number": 3,
+          "title": "Stability and Control Overview, Stability, longitudinal, lateral, dynamic…",
+          "topics": "Stability and Control Overview, Stability, longitudinal, lateral, dynamic stability, Aerodynamics control, pitch control, lateral control, Autopilots, sensor, controller, actuator, airframe control, inner and outer loops, Flight-Control Classification, Overall Modes of Operation, Sensors Supporting the Autopilot."
+        },
+        {
+          "number": 4,
+          "title": "Propulsion Overview, Thrust Generation, Powered Lift, Sources of Power, The…",
+          "topics": "Propulsion Overview, Thrust Generation, Powered Lift, Sources of Power, The Two-Cycle Engine, The Rotary Engine, The Gas Turbine, Electric Motors, Sources of Electrical Power Loads and Structures Loads, Dynamic Loads, Materials, Sandwich Construction, Skin or Reinforcing Materials, Resin Materials, Core Materials, Construction Techniques"
+        },
+        {
+          "number": 5,
+          "title": "Mission Planning and Control",
+          "topics": "Mission Planning and Control: Air Vehicle and Payload Control, Reconnaissance/Surveillance Payloads, Weapon Payloads, Other Payloads, Data-Link Functions and Attributes, Data-Link Margin, Data-Rate Reduction, Launch Systems, Recovery Systems, Launch and Recovery Tradeoffs"
+        }
+      ],
+      "outcomes": [
+        "Apply the basic concepts of UAV systems.",
+        "Explain the basic aerodynamics, performance, stability and control required for UAV.",
+        "Select the propulsion system and materials for structures."
+      ],
+      "textbooks": [
+        "Paul Gerin Fahlstrom, Thomas James Gleason, Introduction To UAV Systems, 4th Edition, Wiley Publication, 2012 John Wiley & Sons, Ltd",
+        "Landen Rosen, Unmanned Aerial Vehicle, Publisher: Alpha Editions, ISBN13: 9789385505034."
+      ],
+      "references": [
+        "Unmanned Aerial Vehicles: DOD’s Acquisition Efforts, Publisher: Alpha Editions, ISBN13: 9781297017544.",
+        "Valavanis, Kimon P., Unmanned Aerial Vehicles, Springer, 2011.",
+        "Valavanis, K., Vachtsevanos, George J., Handbook of Unmanned Aerial Vehicles, Springer, 2015."
+      ],
+      "links": [
+        "https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle"
+      ]
+    },
+    "BAE515A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction",
+          "topics": "Introduction: Basic Concepts, Background Review: Stresses and Equilibrium, Plane stress, Plane strain, Potential energy and Equilibrium. Rayleigh - Ritz Method, Galerkin’s Method, Simple applications in structural Analysis. Construction or discrete models - sub domains and nodes - simple elements for the FEM - Simplex, complex and multiples elements Polynomial selection -illustrative examples Elements and shape functions and natural coordinates, Use of local and natural coordinates, compatibility and convergence requirements of shape functions."
+        },
+        {
+          "number": 2,
+          "title": "Fundamentals of Finite Element Method",
+          "topics": "Fundamentals of Finite Element Method: Construction of shape functions for bar element and beam element, Bar elements, uniform bar elements, uniform section, mechanical and thermal loading, varying section, truss analysis, Frame element, Beam element, problems for various loadings and boundary conditions."
+        },
+        {
+          "number": 3,
+          "title": "Analysis of Two and Three dimensional Elements",
+          "topics": "Analysis of Two and Three dimensional Elements: Shape functions of Triangular, Rectangular and Quadrilateral elements, different types of higher order elements, constant and linear strain triangular elements, stiffness matrix Four-Noded Tetrahedral Element (TET 4), Eight-Noded Hexahedral Element (HEXA 8), Tetrahedral elements, Hexahedral elements: Serendipity family, Hexahedral elements: Lagrange family."
+        },
+        {
+          "number": 4,
+          "title": "Theory of Isoparametric Elements and Axisymmetric",
+          "topics": "Theory of Isoparametric Elements and Axisymmetric: Isoparametric, sub parametric and super-parametric elements, characteristics of Isoparametric quadrilateral elements, structure of computer program for FEM analysis, description of different modules, pre and post processing, Axisymmetric formulation finite element modeling of triangular and quadrilateral element."
+        },
+        {
+          "number": 5,
+          "title": "Field Problems",
+          "topics": "Field Problems: Heat transfer problems, Steady state fin problems, 1D heat conduction governing equation, Derivation of element matrices for two dimensional problems, Dynamic consideration- Formulation- Hamilton’s principle, Element mass matrices."
+        }
+      ],
+      "outcomes": [
+        "Apply discretisation technique for domain decomposition.",
+        "Evaluate the effects of different loading and boundary conditions.",
+        "Analyze the governing equations of finite element analysis."
+      ],
+      "textbooks": [],
+      "references": [
+        "1.Rajasekharan. S - \"Finite element analysis in engineering design\", Wheeler Publishers",
+        "2.Bathe. KJ, \"Finite Element Procedures\", PHI Pvt. Ltd., New Delhi,1996, ISBN-13: 978-8126529988",
+        "3.Zienkiewicz. O.C. - \"The Finite Element Method\", Elsevier,7th edition,2013, ISBN-13: 978-9351071587",
+        "4.Rao S. S., “Finite Elements Method in Engineering”, Elsevier,5th edition, 2008, ISBN -13: 978-9380931555",
+        "5.C.S. Krishnamurthy - \"Finite Element analysis - Theory and Programming\", Tata McGraw Hill Co. Ltd, New Delhi,2nd edition,2011,ISBN-13: 978-0074622100."
+      ],
+      "links": [
+        "https://archive.nptel.ac.in/content/syllabus_pdf/105105041.pdf"
+      ]
+    },
+    "BAE515B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction",
+          "topics": "Introduction: Space launch Vehicles and military missiles, function, types, role, mission, mission profile, thrust profile, propulsion system, payload, staging, control and guidance requirements, performance measures, design, construction, operation, similarities and differences. Some famous space launch vehicles and strategic missiles."
+        },
+        {
+          "number": 2,
+          "title": "Solid Propellant Rocket Motor Systems",
+          "topics": "Solid Propellant Rocket Motor Systems: Solid Propellant rocket motors, principal features, applications. Solid propellants, types, composition, properties, performance. Propellant grain, desirable properties, grain configuration, preparation, loading, structural design of grain. Liners, insulators and inhibitors, function, requirements, materials. Rocket motor casing – materials. Nozzles, types, design, construction, thermal protection. Igniters, types, construction. Description of modern solid boosters I) Space Shuttle SRB, II)the Arienne SRB Liquid Propellant Rocket Motor Systems: Liquid propellants, types, composition, properties, performance. Propellant tanks, feed systems, pressurization, turbo-pumps, valves and feed lines, injectors, starting and ignition. Engine cooling, support structure. Control of engine starting and thrust build up, system calibration, integration and optimisation – safety and environmental concerns. Description of the space shuttle main engine. Propellant slosh, propellant hammer, geysering effect in cryogenic rocket engines."
+        },
+        {
+          "number": 3,
+          "title": "Aerodynamics of Rockets and Missiles",
+          "topics": "Aerodynamics of Rockets and Missiles: Classification of missiles. Airframe components of rockets and missiles, Forces acting on a missile while passing through atmosphere, method of describing aerodynamic forces and moments, lateral aerodynamic moment, lateral damping moment, longitudinal moment of a rocket, lift and drag forces, drag estimation, body upwash and downwash in missiles. Rocket dispersion, re-entry body design considerations."
+        },
+        {
+          "number": 4,
+          "title": "Launch Vehicle Dynamics",
+          "topics": "Launch Vehicle Dynamics: Tsiolskovsky’s rocket equation, range in the absence of gravity, vertical motion in the earth’s gravitational field, inclined motion, flight path at constant pitch angle, motion in the atmosphere, the gravity turn – the culmination altitude, multi staging. Earth launch trajectories – vertical segment, the gravity turn, constant pitch trajectory, orbital injection. Actual launch vehicle trajectories, types. Examples, the Mu 3-S-II, Ariane, Pegasus launchers. Reusable launch vehicles, future launchers, launch assist technologies. Attitude Control of Rockets and Missiles: Rocket Thrust Vector Control – Methods of Thrusts Vector Control for solid and liquid propulsion systems, thrust magnitude control, thrust termination; stage separation dynamics, separation techniques."
+        },
+        {
+          "number": 5,
+          "title": "Rocket Testing",
+          "topics": "Rocket Testing: Ground Testing and Flight Testing, Types of Tests facilities and safeguards, monitoring and control of toxic materials, instrumentation and data management. Ground Testing, Flight Testing, Trajectory monitoring, post -accident procedures. Description of a typical space launch vehicle launch procedure. Materials: Criteria for selection of materials for rockets and missiles, requirements for choice of materials for propellant tanks, liners, insulators, inhibitors, at cryogenic temperatures, requirements of materials at extremely high temperatures, requirements of materials for thermal protection and for pressure vessels."
+        }
+      ],
+      "outcomes": [
+        "Identify the types of space launch vehicles and missiles.",
+        "Distinguish the solid and liquid propellant motors.",
+        "Classify different types of materials used for rockets and missies."
+      ],
+      "textbooks": [],
+      "references": [
+        "S S Chin, ‘Missile Configuration Design’. 2",
+        "Cornelisse, J.W., Schoyer H.F.R. and Wakker,. K.F., Rocket Propulsion and Space-Flight Dynamics, Pitman, 1979,ISBN-13: 978-0273011415",
+        "Turner, M.J.L., Rocket and Spacecraft propulsion, Springer,3rd edition,2010,ISBN-13: 978- 3642088698.",
+        "Ball, K.J., Osborne, G.F., Space Vehicle Dynamics, Oxford University Press, 1967,ISBN-13:978- 0198561071",
+        "Parker, E.R., Materials for Missiles and Spacecraft, McGraw Hill, 1982."
+      ],
+      "links": [
+        "https://www.britannica.com/technology/rocket-and-missile-system",
+        "https://aticourses.arlo.co/w/courses/101-rockets-missiles-fundamentals",
+        "https://www.nasa.gov/pdf/635963main_RocketsPeopleVolume2‐ebook.pdf"
+      ]
+    },
+    "BAE515C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction",
+          "topics": "Introduction: History of helicopter flight. Fundamentals of Rotor Aerodynamics; Momentum theory analysis in hovering flight. Disk loading, power loading, thrust and power coefficients. Figure of merit, rotor solidity and blade loading coefficient. Power required in flight. Axial climb, descent, and autorotation. Blade Element Analysis: Blade element analysis in hovering and forward flight. Rotating blade motion. Types of rotors. Concept of blade flapping, lagging and coning angle. Equilibrium about the flapping hinge, lead/lag hinge, and drag hinge."
+        },
+        {
+          "number": 2,
+          "title": "Basic Helicopter Performance",
+          "topics": "Basic Helicopter Performance: Forces acting on helicopters in forward flight. Methods of achieving translatory flight. Controlling cyclic pitch: Swash-plate system. Lateral tilt with and without conning. Lateral and longitudinal asymmetry of lift in forward flight. Forward flight performance- total power required, effects of gross weight, effect of density altitude. Speed for minimum power, and speed for maximum range. Factors affecting forward speed, and ground effects."
+        },
+        {
+          "number": 3,
+          "title": "Rotor Airfoil Aerodynamics",
+          "topics": "Rotor Airfoil Aerodynamics: Rotor airfoil requirements, effects of Reynolds number and Mach number. Airfoil shape definition, Airfoil pressure distribution. Pitching moment. Maximum lift and stall characteristics, high angle of attack range. Rotor Wakes and Blade Tip Vortices: Flow visualization techniques, Characteristics of rotor wake in hover, and forward flight. Other characteristics of rotor wake."
+        },
+        {
+          "number": 4,
+          "title": "Helicopter Stability and Control",
+          "topics": "Helicopter Stability and Control: Introductory concepts of stability. Forward speed disturbance, vertical speed disturbance, pitching angular velocity disturbance, side-slip disturbance, yawing disturbance. Static stability of helicopters: longitudinal, lateral-directional and directional. Dynamic stability aspects. Main rotor and tail rotor control. Flight and Ground Handling Qualities-General requirements and definitions. Control characteristics, Levels of handling qualities. Flight Testing: General handing flight test requirements and, basis of limitations."
+        },
+        {
+          "number": 5,
+          "title": "Standards, and Specifications",
+          "topics": "Standards, and Specifications: Scope of requirements. General and operational requirements. Military derivatives of civil rotorcraft. Structural strength and design for operation on specified surfaces. Rotorcraft vibration classification. Conceptual Design of Helicopters: Overall design requirements. Design of main rotors-rotor diameter, tip speed, rotor solidity, blade twist and aerofoil selection, Fuselage design, Empennage design, Design of tail rotors, High speed rotorcraft."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic concepts of helicopter dynamics.",
+        "Compute the critical speed by using various methods.",
+        "Distinguish the turbo rotor system stability by using transfer matrix and finite element formulation."
+      ],
+      "textbooks": [],
+      "references": [
+        "W Z Stepniewski and C N Keys, Rotary Wing Aerodynamics, Dover Publications, Inc, New York, 1984.",
+        "ARS Bramwell, George Done, and David Balmford, Helicopter Dynamics, 2nd Edition, Butterworth- Heinemann Publication, 2001.",
+        "John, M. Seddon and Simon Newman, Basic Helicopter Aerodynamics, Wiley, 2011.",
+        "Gareth D. Padfield, Helicopter Flight Dynamics, 2nd Edition, Wiley, 2011."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101104017"
+      ]
+    },
+    "BAE515D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Wind Energy Collectors",
+          "topics": "Wind Energy Collectors: Horizontal axis and vertical axis machines. Power coefficient. Betz coefficient by momentum theory. Vehicle Aerodynamics: Power requirements and drag coefficients of automobiles. Effects of cut back angle. Aerodynamics of Trains and Hovercraft."
+        },
+        {
+          "number": 2,
+          "title": "Building Aerodynamics",
+          "topics": "Building Aerodynamics: Pressure distribution on low rise buildings, wind forces on buildings. Environmental winds in city blocks, Special problems of tall buildings, building codes, building ventilation and architectural aerodynamics. Flow Induced Vibrations: Effects of Reynolds number on wake formation of bluff shapes, Vortex induced vibrations, Galloping and stall flutter."
+        },
+        {
+          "number": 3,
+          "title": "Model Measurements",
+          "topics": "Model Measurements: Balances: - design, installation and, calibration. Internal balances. Mounting of models, rigidity. Measurement of interference. Lift and drag measurements through various techniques. Testing procedures. Testing:- 3-D wings, controls, complete model, power effects, aero elasticity, dynamic stability. Testing with ground plane, testing wind mill generator. Testing for local loads. Testing of rotor. Testing engines, Jettison tests. Data reduction. Data correction."
+        },
+        {
+          "number": 4,
+          "title": "Aerodynamics of Slender and Blunt Bodies",
+          "topics": "Aerodynamics of Slender and Blunt Bodies: Aerodynamics of slender and blunt bodies, wing‐body interference effects‐Asymmetric flow separation and vortex shedding‐unsteady flow characteristics of launch vehicles‐ determination of aero ela stic effects."
+        },
+        {
+          "number": 5,
+          "title": "Wind Tunnel Boundary Corrections and Scale Effects",
+          "topics": "Wind Tunnel Boundary Corrections and Scale Effects: Effects of lateral boundaries. Method of images. Wall corrections. Effects of Buoyancy, Solid Blocking, Wake Blocking. General downwash correction. Lift interference correction. Corrections for reflection plane models. Scale effects on aerodynamic characteristics and stability derivatives"
+        }
+      ],
+      "outcomes": [
+        "Distinguish the building and vehicle aerodynamics.",
+        "Evaluate the boundary corrections and scale effects.",
+        "Evaluate the aerodynamics of different shaped bodies & wind tunnel correction techniques."
+      ],
+      "textbooks": [
+        "Jewel B. Barlow, William H RAE, Jr. and Alan Pope, ‘ Low speed Wind Tunnel Testing‘, John Wiley & Sons,3rd edition,2010,ISBN-13: 978-8126525683",
+        "M. Sovran (Ed), “Aerodynamics and drag mechanisms of bluff bodies and road Text Vehicles”, Plenum press, New York, 1978."
+      ],
+      "references": [
+        "P. Sachs, “Winds forces in engineering”, Pergamon Press, 2nd edition, 2013.",
+        "R.D. Blevins, “Flow induced vibrations”, Van Nostrand, 1990.",
+        "N.G. Calvent, “Win d Power Princ iples”, Calvert Technical Press, 2nd edition, 2004, ISBN-13: 978- 0951362068.",
+        "Anderson Jr., D., – “Modern compressible flows”, McGraw‐Hill Book Co., New York 1999"
+      ],
+      "links": [
+        "http://acl.digimat.in/nptel/courses/video/101105088/L01.html"
+      ]
+    },
+    "BAE601": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Stress and Strain Relation",
+          "topics": "Stress and Strain Relation: Introduction, Classification and Application to composite materials, Generalised Hooke's Law ‐ Elastic constants for anisotropic, orthotropic and isotropic materials."
+        },
+        {
+          "number": 2,
+          "title": "Method of Analysis",
+          "topics": "Method of Analysis: Micro mechanics ‐ Mechanics of materials approach, elasticity approach to determine material properties ‐ Macro Mechanics ‐ Stress‐strain relations with respect to natural axis, arbitrary axis."
+        },
+        {
+          "number": 3,
+          "title": "Laminate Plates",
+          "topics": "Laminate Plates: Governing differential equation for a general laminate, Stacking sequences in laminate ‐ Failure criteria for composites."
+        },
+        {
+          "number": 4,
+          "title": "Sandwich Structures",
+          "topics": "Sandwich Structures: Basic design concepts of sandwich construction ‐ Failure modes o f sandwich panels – Application and testing of sandwich structures."
+        },
+        {
+          "number": 5,
+          "title": "Fabrication Process",
+          "topics": "Fabrication Process: Hand layup Process, Vacuum Bagging Process, Post Curing Process, Filament winding, Pultrusion, Pulforming, Autoclave Process Extrusion process, Injection Moulding Process, Thermo-forming process. Post Processing of Composites – Adhesive bonding, drilling, cutting processes. Netting analysis."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [
+        "Calcote, L R. \"The Analysis of laminated Composite Structures\", Von ‐ Nostrand Reinhold Company, New York 1991.",
+        "Jones, R.M., \"Mechanics of Composite Materials\", 2nd Edition McGraw‐Hill, 1999.",
+        "Ronald F. Gibson., “Principles of composite material and mechanics” 2nd Edition Taylor and Francis group 2007."
+      ],
+      "references": [
+        "Agarwal, B.D., and Broutman, L.J., \"Analysis and Performance of Fibre Composites\", John Wiley and sons.Inc., New York, 1995.",
+        "Lubin, G., \"Handbook on Advanced Plastics and Fibre Glass\", Von Nostrand Reinhold Co., New York, 1991"
+      ],
+      "links": [
+        "https://www.springer.com/in/book/9780387743646",
+        "http://www.engbrasil.eng.br/artigos/art19.pdf",
+        "https://www.mooc‐list.com/tags/composite‐structures"
+      ]
+    },
+    "BAE602": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "The Equations of Motion Steady Unaccelerated Flight Introduction, four…",
+          "topics": "The Equations of Motion Steady Unaccelerated Flight Introduction, four forces of flight, General equation of motion, Power available and power required curves. Thrust available and thrust required curves. Conditions for power required and thrust required minimum. Thrust available and maximum velocity, Power available and maximum velocity, Altitude effects on power available and power required; thrust available and thrust required. Steady Performance – Level Flight, Climb & Glide Performance: Equation of motion for Rate of climb- graphical and analytical approach -Absolute ceiling, Service ceiling, Time to climb – graphical and analytical approach, climb performance graph (hodograph diagram); maximum climb angle and rate of climb Gliding flight, Range during glide, minimum rate of sink and shallowest angle of glide."
+        },
+        {
+          "number": 2,
+          "title": "Fundamental Airplane Performance Parameters The fundamental Parameters",
+          "topics": "Fundamental Airplane Performance Parameters The fundamental Parameters: Thrust – to – weight ratio, Wing loading, Drag polar, and lift-to – drag ratio. Minimum velocity. Aerodynamic relations associated with lift-to-drag ratio. Range and Endurance: Propeller driven Airplane: Physical consideration, Quantitative formulation, Breguet equation for Range and Endurance, Conditions for maximum range and endurance. Jet Airplane: Physical consideration, Quantitative formulation, Equation for Range and Endurance, Conditions for maximum range and endurance, Effect of head wind tail wind."
+        },
+        {
+          "number": 3,
+          "title": "Aircraft Performance in Accelerated Flight Take-off Performance",
+          "topics": "Aircraft Performance in Accelerated Flight Take-off Performance: Calculation of Ground roll, Calculation of distance while airborne to clear obstacle, Balanced field length Landing Performance and Accelerated Climb: Calculation of approach distance, Calculation of flare distance, Calculation of ground roll, ground effects. Acceleration in climb. Maneuvers Performance Turning performance: Level turn, load factor, Constraints on load factor, Minimum turn radius, Maximum turn rate. Pull-up and Pull-down maneuvers: (Turning rate, turn radius). Limiting case for large load factor. The V-n diagram. Limitations of pull up and push over."
+        },
+        {
+          "number": 4,
+          "title": "Static Longitudinal Stability and Control-Stick Fixed Historical…",
+          "topics": "Static Longitudinal Stability and Control-Stick Fixed Historical perspective, Aerodynamic Nomenclature, Equilibrium conditions, Definition of static stability, Definition of longitudinal static stability, stability criteria, Contribution of airframe components: Wing contribution, Tail contribution, Fuselage contribution, Power effects- Propeller airplane and Jet airplane Introduction, Trim condition. Static margin. Stick fixed neutral points. Longitudinal control, Elevator power, Elevator angle versus equilibrium lift coefficient, Elevator required for landing, Restriction on forward C.G. range."
+        },
+        {
+          "number": 5,
+          "title": "Static Longitudinal Stability& Static Directional Stability and…",
+          "topics": "Static Longitudinal Stability& Static Directional Stability and Control-Stick free Introduction, Hinge moment parameters, Control surface floating characteristics and aerodynamic balance, Estimation of hinge moment parameters, The trim tabs, Stick-free Neutral point, Stick force gradient in unaccelerated flight, Restriction on aft C.G. Introduction, Definition of directional stability, Static directional stability rudder fixed, Contribution of airframe components, Directional control. Rudder power, Stick-free directional stability, Requirements for directional control, Rudder lock, Dorsal fin. One engine inoperative condition. Weather cocking effect."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic airplane performance parameters.",
+        "Differentiate the aircraft performance in steady unaccelerated and accelerated flight.",
+        "Apply the basic concepts of aircraft stability and control.",
+        "Differentiate the static longitudinal and static directional stability."
+      ],
+      "textbooks": [
+        "John D. Anderson, Jr. “Aircraft Performance and Design”, McGraw -Hill International Editions, Aerospace Science/ Technology Editions, 1999.",
+        "John D. Anderson, Jr., “Introduction to flight” McGraw -Hill International Editions, Aerospace Science/ Technology Editions, 2000.",
+        "Perkins, C.D., and Hage, R.E., “Airplane Performance stability and Control”, John Wiley Son Inc, New York, 1988.",
+        "Nelson, R.C. “Flight Stability and Automatic Control”, McGraw -Hill Book Co., 2007."
+      ],
+      "references": [
+        "Perkins, C.D., and Hage, R.E., “Airplane Performance stability and Control”, John Wiley Son Inc, New York, 1988.",
+        "Barnes W. McCormick, ` Aerodynamics, Aeronautics, and Flight Mechanics`, John Wiley& Sons, Inc. 1995.",
+        "Bandu N. Pamadi, `Performance, Stability, Dynamics and Control of Airplanes`, AIAA 2nd Edition Series, 2004.",
+        "John D. Anderson, Jr., “Introduction to flight” McGraw -Hill, International Editions, Aerospace Science Technology Editions, 2000.",
+        "W.J. Duncan, The Principles of the Control and Stability of Aircraft, Cambridge University Press, 2016."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101104062",
+        "https://nptel.ac.in/courses/101104007"
+      ]
+    },
+    "BAE613A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Overview of Design Process",
+          "topics": "Overview of Design Process: Introduction, Requirements, Phases of design, Conceptual Design Process, Initial Sizing, Take-off weight build up, Empty weight estimation, Fuel fraction estimation, Take- off weight calculation. Thrust to Weight Ratio & Wing Loading: Thrust to Weight Definitions, Statistical Estimate of T/W. Thrust matching, Spread sheet in design, Wing Loading and its effect on Stall speed, Take-off Distance, Catapult take- off, and Landing Distance. Wing Loading for Cruise, Loiter, Endurance, Instantaneous Turn rate, Sustained Turn rate, Climb, & Glide, Maximum ceiling."
+        },
+        {
+          "number": 2,
+          "title": "Configuration Layout & loft",
+          "topics": "Configuration Layout & loft: Conic Lofting, Conic Fuselage Development, Conic Shape Parameter, Wing-Tail Layout & Loft. Aerofoil Linear Interpolation. Aerofoil Flat-wrap Interpolation. Wing aerofoil layout-flap wrap. Wetted area determination. Special considerations in Configuration Layout: Aerodynamic, Structural, Detectability. Crew station, Passenger, and Payload arrangements. Design of Structural Components: Fuselage, Wing, Horizontal & Vertical Tail. Spreadsheet for fuselage design. Tail arrangements, Horizontal & Vertical Tail Sizing. Tail Placement. Loads on Structure. V-n Diagram, Gust Envelope. Loads distribution, Shear and Bending Moment analysis."
+        },
+        {
+          "number": 3,
+          "title": "Engine Selection & Flight Vehicle Performance Turbojet Engine Sizing,…",
+          "topics": "Engine Selection & Flight Vehicle Performance Turbojet Engine Sizing, Installed Thrust Correction, Spread Sheet for Turbojet Engine Sizing. Propeller Propulsive System. Propeller design for cruise. Take-off, Landing & Enhanced Lift Devices: - Ground Roll, Rotation, Transition, Climb, Balanced Field Length, Landing Approach, Braking, Spread Sheet for Take-off and Landing. Enhanced lift design -Passive & Active. Spread Sheet."
+        },
+        {
+          "number": 4,
+          "title": "Static Stability & Control Longitudinal Static Stability, Pitch Trim Equation",
+          "topics": "Static Stability & Control Longitudinal Static Stability, Pitch Trim Equation. Effect of Airframe components on Static Stability. Lateral stability. Contribution of Airframe components. Directional Static stability. Contribution of Airframe components. Aileron Sizing, Rudder Sizing. Spread Sheets. Flying qualities. Cooper Harper Scale. Environmental constraints, Aerodynamic requirements."
+        },
+        {
+          "number": 5,
+          "title": "Design Aspects of Subsystems Flight Control system, Landing Gear and…",
+          "topics": "Design Aspects of Subsystems Flight Control system, Landing Gear and subsystem, Propulsion and Fuel System Integration, Air Pressurization and Air Conditioning System, Electrical & Avionic Systems, Structural loads, Safety constraints, Material selection criteria."
+        }
+      ],
+      "outcomes": [
+        "Calculate the thrust to weight ratio and wing loading.",
+        "Compute the flight vehicle performance.",
+        "Select the subsystems as per vehicle design."
+      ],
+      "textbooks": [
+        "Daniel P. Raymer, Aircraft Design - A Conceptual Approach- AIAA Education Series, IV Edition, 2006.",
+        "Thomas C Corke, Design of Aircraft- Pearson Edition. Inc. © 2003."
+      ],
+      "references": [
+        "J Roskam, Aeroplane Design – Vol: 1 to 9.",
+        "John Fielding, Introduction to Aircraft Design - Cambridge University Press, 2009.",
+        "Standard Handbook for Aeronautical & Astronautical Engineers, Editor Mark Davies, Tata McGraw Hill, 2010."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101104069"
+      ]
+    },
+    "BAE613B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Shear and Torsion of Open and Closed Thin Walled Beams- General stress,…",
+          "topics": "Shear and Torsion of Open and Closed Thin Walled Beams- General stress, strain, and displacement relationship for open and single-cell closed section thin-walled beams, shear of open section beams, shear centre, shear of closed section beams. Torsion of close section beam, and displacement associated with the Bredt-Batho shear flow. Torsion of open section beam. Combined bending, shear, torsion."
+        },
+        {
+          "number": 2,
+          "title": "Buckling of Plates, Joints and Fittings Buckling of Isotropic flat plates in…",
+          "topics": "Buckling of Plates, Joints and Fittings Buckling of Isotropic flat plates in compression, ultimate compressive strength of Isotropic flat sheet, plastic buckling of flat sheet, columns subjected to local crippling failure, Needham & Gerard method for determining crippling stress, curved sheets in compression, elastic buckling of curved rectangular plates. Pure tension field beams, angle of diagonal tension in web. Joints and Fittings - bolted or riveted joints, accuracy of fitting analysis, eccentrically loaded connections, welded joints, and concept of effective width."
+        },
+        {
+          "number": 3,
+          "title": "Design Criteria and Structural Idealization Design Criteria, Safety Factor,…",
+          "topics": "Design Criteria and Structural Idealization Design Criteria, Safety Factor, Design life criteria, Analysis method, Life Assessment procedures, Design Principle, Two bay crack criteria, Widespread Fatigue damage. Structural Idealization Structural idealization Principle, Idealization of a panel, effect of idealization on the analysis of open and closed section beams. Bending of open and closed section idealized beams, shear of open section and closed section idealized beams. Deflection of open and closed section idealized beams."
+        },
+        {
+          "number": 4,
+          "title": "Stress Analysis in Wing Spars and Box beams Tapered wing spar, open and…",
+          "topics": "Stress Analysis in Wing Spars and Box beams Tapered wing spar, open and closed section beams, beams having variable stringer areas, three- boom shell, torsion and shear, tapered wings, cut-outs in wings. Stress Analysis in Fuselage Frames Bending, shear, torsion, cut-outs in fuselages, principles of stiffeners construction, fuselage frames, shear flow distribution."
+        },
+        {
+          "number": 5,
+          "title": "Introduction to Structural Impact Introduction to Structural Impact, Rigid…",
+          "topics": "Introduction to Structural Impact Introduction to Structural Impact, Rigid Body Impact Mechanics, Coefficient of Restitution, Oblique Impact, One Dimensional Impact Mechanics of Deformable Bodies,1‐D Wave Propagation in Solids Induced by Impact."
+        }
+      ],
+      "outcomes": [
+        "Utilize the concepts of thin walled beams.",
+        "Calculate the buckling of plates.",
+        "Comprehend the structural impact of rigid bodies."
+      ],
+      "textbooks": [],
+      "references": [
+        "Bruhn E. F, Analysis & Design of Flight Vehicles Structures, Tri-State offset Co, USA, 1985",
+        "Megson, T. H. G, Introduction to Aircraft Structural Analysis, Elsevier, 2nd Edition, 2014"
+      ],
+      "links": [
+        "https://www.mooc‐list.com/course/engineering‐mechanics‐coursera"
+      ]
+    },
+    "BAE613C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction Concepts of navigation, guidance and control",
+          "topics": "Introduction Concepts of navigation, guidance and control. Introduction to basic principles. Air data information. Radar Systems Principle of working of radar. MTI and Pulse Doppler radar. Moving target detector. Limitation of MTI performance. MTI from a moving platform (AMTI)."
+        },
+        {
+          "number": 2,
+          "title": "Tracking with Radar Mono pulse tracking",
+          "topics": "Tracking with Radar Mono pulse tracking. Conical scan and sequential lobbing. Automatic tracking with surveillance radar (ADT). Other Guidance Systems Gyros and stabilized platforms. Inertial guidance and Laser based guidance. Components of Inertial Navigation System. Imaging Infrared guidance. Satellite navigation. GPS."
+        },
+        {
+          "number": 3,
+          "title": "Transfer Functions Input-output Transfer function",
+          "topics": "Transfer Functions Input-output Transfer function. Basic altitude reference. Concepts of Open loop and Close Loop. Missile Control System Guided missile concept. Roll stabilization. Control of aerodynamic missile. Missile parameters for dynamic analysis. Missile autopilot schematics. Acceleration command and root locus."
+        },
+        {
+          "number": 4,
+          "title": "Missile Guidance Proportional navigation guidance",
+          "topics": "Missile Guidance Proportional navigation guidance; command guidance. Comparison of guidance system performance. Bank to turn missile guidance"
+        },
+        {
+          "number": 5,
+          "title": "Integrated Flight/Fire Control System Director fire control system",
+          "topics": "Integrated Flight/Fire Control System Director fire control system. Tracking control laws. Longitudinal flight control system. Lateral flight control system. Rate of change of Euler angle, Auto Pilot."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic concepts of navigation, guidance and control.",
+        "Compare the different types of missile guidance system performance."
+      ],
+      "textbooks": [
+        "P.T. Kabamba and A.R. Girard, Fundamentals of Aerospace Navigation and Guidance, Cambridge Aerospace Series, 2014",
+        "Merrilh I. Skolnik,‘ Introduction to Radar Systems‘, 3rd edition, Tata Mc Graw Hill, 2001.",
+        "John H Blakelock,‘ Automatic control of Aircraft & Missiles‘, Wile – Inter Science Publication, 2nd edition, May 1990.",
+        "R.B. Underdown & Tony Palmer, ‘Navigation‘, Black Well Publishing; 2001."
+      ],
+      "references": [],
+      "links": []
+    },
+    "BAE613D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Basic Notions",
+          "topics": "Basic Notions: Simple harmonic motion ‐ Terminologies ‐ Newton's Law ‐ D' Alembert's principle ‐ Energy Methods"
+        },
+        {
+          "number": 2,
+          "title": "Single Degree of Freedom Systems Free vibrations ‐ Damped vibrations ‐…",
+          "topics": "Single Degree of Freedom Systems Free vibrations ‐ Damped vibrations ‐ Forced Vibrations, wit h and without damping ‐ support excitation ‐ Vibration measuring instruments."
+        },
+        {
+          "number": 3,
+          "title": "Multi Degrees of Freedom Systems Two degrees of freedom systems ‐ Static and…",
+          "topics": "Multi Degrees of Freedom Systems Two degrees of freedom systems ‐ Static and Dynamic couplings vibration absorber‐ Principal coordinates, Principal modes and orthogonal condition ‐ Eigen value problems. Hamilton's principle‐ Lagrangean equation and application ‐ Vibration of elastic bodies‐ Vibration of strings‐ Longitudinal, Lateral and Torsional vibrations."
+        },
+        {
+          "number": 4,
+          "title": "Approximate Methods Method of matrix iteration-Method of determination of…",
+          "topics": "Approximate Methods Method of matrix iteration-Method of determination of all the natural frequencies using sweeping matrix and Orthogonality principle. Holzer’s method, Stodola method."
+        },
+        {
+          "number": 5,
+          "title": "Elements of Aeroelasticity",
+          "topics": "Elements of Aeroelasticity: Concepts ‐ Coupling ‐ Aero elastic instabilities and their p revention ‐ Basic ideas on wing divergence, loss and reversal of aileron control ‐ Flutter and its prevention."
+        }
+      ],
+      "outcomes": [
+        "Apply the principle of super position to Simple Harmonic Motions.",
+        "Determine the types of vibrations according to dampness and particle motion.",
+        "Analyze the need of a multi degree of freedom particle and its characteristics.",
+        "Apply various methods to find natural frequency of an object.",
+        "Analyze the formation of Aileron reversal, flutter and wing divergence."
+      ],
+      "textbooks": [
+        "TIMOSHENKO S., \"Vibration Problems in Engineering\"‐ John Wiley and Sons, New York, 1993.",
+        "FUNG Y.C., \"An Introduction to the Theory of Aeroelasticity\" ‐ John Wiley & Sons, New York, 1995"
+      ],
+      "references": [
+        "BISPLINGHOFF R.L., ASHELY H and HOGMAN R.L., \"Aeroelasticity\" ‐ Addision Wesley Publication, New York.",
+        "TSE. F.S., MORSE, I.F., HUNKLE, R.T., \"Mechanical Vibrations\", ‐ Prentice Hall, New York,",
+        "SCANLAN R.H. & ROSENBAUM R., \"Introduction to the study of Aircraft Vibration &Flutter”, John Wiley and Sons. New York.",
+        "BENSON H.TONGUE, \"Principles of Vibration\", Oxford University Press, 2000."
+      ],
+      "links": []
+    },
+    "BAE654A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Aerospace History, The first decade, World War I, Between the Wars, the…",
+          "topics": "Aerospace History, The first decade, World War I, Between the Wars, the advent of jets and missiles, the space age, growth of the aircraft industry, cooperation and consolidation in a global economy, The First Aeronautical Engineers, Internationalization, Mergers and divestitures"
+        },
+        {
+          "number": 2,
+          "title": "The Aeronautical Triangle, The problem of Propulsion, Fundamental Physical…",
+          "topics": "The Aeronautical Triangle, The problem of Propulsion, Fundamental Physical Quantities of Flowing Gas, The source of all aerodynamics forces, Anatomy of Airplane, The NACA and NASA, The Standard Atmosphere, Basic Aerodynamics, Continuity, Momentum and Energy Equations"
+        },
+        {
+          "number": 3,
+          "title": "Elementary Thermodynamics, Introduction to viscous flow, Historical Notes-…",
+          "topics": "Elementary Thermodynamics, Introduction to viscous flow, Historical Notes- Reynolds and His Number, Airfoils, Wings and Other Aerodynamic shapes"
+        },
+        {
+          "number": 4,
+          "title": "Elements of Airplane Performance, Rate of Climb, Range and Endurance-…",
+          "topics": "Elements of Airplane Performance, Rate of Climb, Range and Endurance- Propeller-driven Airplane and Jet Airplane"
+        },
+        {
+          "number": 5,
+          "title": "Principles of Stability and Control, History Note",
+          "topics": "Principles of Stability and Control, History Note: The development of Flight Controls, Jet Propulsion"
+        }
+      ],
+      "outcomes": [
+        "Appreciate the history and chronology of aviation and its development.",
+        "Apply the basic flight mechanics.",
+        "Prepare for the new developments in aviation."
+      ],
+      "textbooks": [
+        "Flight: The Complete History of Aviation by R.G. Grant (Author), Smithsonian Institution (Contributor)",
+        "Introduction to Flight: Its Engineering and History by JD Anderson"
+      ],
+      "references": [
+        "Aviation History by Anne Marie Millbrooke",
+        "A Chronology of Aviation: A Day-by-day History of a Century by Jim Winchester"
+      ],
+      "links": []
+    },
+    "BAE654B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction, Elements of a helicopter, Performance, Components, Vectors and…",
+          "topics": "Introduction, Elements of a helicopter, Performance, Components, Vectors and Vector Resolutions."
+        },
+        {
+          "number": 2,
+          "title": "Axis Systems, Kinematics and Flight Dynamics, Quaternions, Mass Properties,…",
+          "topics": "Axis Systems, Kinematics and Flight Dynamics, Quaternions, Mass Properties, Equations of Motion."
+        },
+        {
+          "number": 3,
+          "title": "Applied forces and moments, Longitudinal Equations of Motion, Atmosphere,…",
+          "topics": "Applied forces and moments, Longitudinal Equations of Motion, Atmosphere, Bernoulli’s Equation, Compressibility and Wing lift, Wing Drag."
+        },
+        {
+          "number": 4,
+          "title": "Aerodynamic Velocity, Inertial Velocity, Wash Velocity, and Gusts,…",
+          "topics": "Aerodynamic Velocity, Inertial Velocity, Wash Velocity, and Gusts, Aerodynamics of Airfoils, Wings, and Fins."
+        },
+        {
+          "number": 5,
+          "title": "Aerodynamics of Propellers, Propeller Analysis, Introduction to Aeroelastic…",
+          "topics": "Aerodynamics of Propellers, Propeller Analysis, Introduction to Aeroelastic Rotor Models, Rotor Downwash Modelling, Aerodynamic Interference, Engines Drive Trains, Controls, Landing Gear, Trimming."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic elements, kinematics of helicopter.",
+        "Analyse the equations of motions for helicopter.",
+        "Implement aerodynamics of propeller."
+      ],
+      "textbooks": [
+        "Introduction to Helicopter Aerodynamics by Wieslaw Zenon Stepniewski.",
+        "Fundamentals of Helicopter Dynamics by C. Venkatesan."
+      ],
+      "references": [
+        "Basic Helicopter Aerodynamics by J Seddon."
+      ],
+      "links": []
+    },
+    "BAE654C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Basics",
+          "topics": "Basics: I ntroduction, History, UV types: UGV, UAV, USV, UUWV, Drones in India, Future scope. Introduction to nano drones and Swarm Drones Principles, Newton’s Laws, Degrees of Freedom, Stick Movements, Flight Modes, Basic Manoeuvres, Take -off, Pitch, Roll, Yaw, Landing."
+        },
+        {
+          "number": 2,
+          "title": "Components and Systems",
+          "topics": "Components and Systems: Basic components, Micro controllers, microprocessors, Sensors, Pre-Flight Checks, Flight Planning, Transmitter, Receiver. Introduction to Arduino Sensors, Program Structures, Flight Controllers, Telemetry, Mission Planning, Camera, Binding, etc"
+        },
+        {
+          "number": 3,
+          "title": "Air Worthiness",
+          "topics": "Air Worthiness: DGCA Rules and Regulations, Pilot Licensing requirements, NPNT Compliance. Certifications."
+        },
+        {
+          "number": 4,
+          "title": "Basics of Structures",
+          "topics": "Basics of Structures: Configurations, Payload Configurations, Design Considerations. Basics of Propulsion: Batteries, Hybrid Propulsions, IC Engines, Mini Turbines, Solar,"
+        },
+        {
+          "number": 5,
+          "title": "Tuning, Testing, Manufacturing Constraints, Simulator Training, Applications…",
+          "topics": "Tuning, Testing, Manufacturing Constraints, Simulator Training, Applications CASE Studies: Construction and testing of a basic drone."
+        }
+      ],
+      "outcomes": [
+        "Apply the basic concepts of UAV systems.",
+        "Explain the basic aerodynamics, performance, stability and control required for UAV.",
+        "Select the propulsion system and materials for structures.",
+        "Understand Regulatory and Certification aspects."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://onlinecourses.nptel.ac.in/noc22_ae15/preview",
+        "https://onlinecourses.nptel.ac.in/noc22_ae16/preview"
+      ]
+    },
+    "BAE654D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Historical Perspectives, The case for simulation, Engineering Flight…",
+          "topics": "Historical Perspectives, The case for simulation, Engineering Flight Simulation, The changing role of simulation,"
+        },
+        {
+          "number": 2,
+          "title": "The organisation of flight simulator, Equation of Motion, Aerodynamic model,…",
+          "topics": "The organisation of flight simulator, Equation of Motion, Aerodynamic model, Engine Model, Engine model, data acquisition model, Gear Model, weather model, Visual System, Sound System, Motion System, Controls, Instrument Display, Navigation Systems, Maintenance"
+        },
+        {
+          "number": 3,
+          "title": "Principles of Flight Modeling, Newtonian Mechanics, Differential Equations,…",
+          "topics": "Principles of Flight Modeling, Newtonian Mechanics, Differential Equations, Numerical Integration, Real-time computing, Flight Data"
+        },
+        {
+          "number": 4,
+          "title": "The atmosphere, forces, moments, Axes System, Quaternions, Equations of…",
+          "topics": "The atmosphere, forces, moments, Axes System, Quaternions, Equations of Motions, propulsion-Piston Engine, Jet Engine, the landing gear"
+        },
+        {
+          "number": 5,
+          "title": "Simulation of flight control systems, the Laplace transform, PID control…",
+          "topics": "Simulation of flight control systems, the Laplace transform, PID control systems, Trimming, Aircraft Displays, Attitude Indicator, Altimeter, Airspeed Indicator, compass card, Automatic Direction Finding(ADF), VHF omnidirectional Range(VOR), Distance Measuring Equipment(DME),Instrument Landing Systems(ILS), GPS, Inertial Navigation System"
+        }
+      ],
+      "outcomes": [
+        "Apply the basic principle of working of flight components.",
+        "Practise the names of components and their functions.",
+        "Simulate a flight."
+      ],
+      "textbooks": [
+        "Principles of Flight Simulation by David Allerton, Wiley Publisher",
+        "Flight Dynamics, Simulation, and Control by Ranjan Vepa, CRC press"
+      ],
+      "references": [
+        "Flight Simulation by JM Rolfe and K J Staples, Cambridge University Press",
+        "In-flight Simulation-theory and Application by Edwin A. Kidd, Gifford Bull, Robert P. Harper"
+      ],
+      "links": [
+        "http://helijah.free.fr/dev/Principles-of-Flight-Simulation.pdf",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA173875.pdf"
+      ]
+    },
+    "BAE657A": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Definitions of Probability, Basic Laws of Probability, Probability…",
+          "topics": "Definitions of Probability, Basic Laws of Probability, Probability Distributions, Distribution (Population) Parameters,"
+        },
+        {
+          "number": 2,
+          "title": "Chebyshev's Theorem, Simulation (Monte Carlo Methods)",
+          "topics": "Chebyshev's Theorem, Simulation (Monte Carlo Methods). Estimation Theory, Point Estimation."
+        },
+        {
+          "number": 3,
+          "title": "Curve Fitting, Regression, and Correlation, Goodness-of-Fit Tests,",
+          "topics": "Curve Fitting, Regression, and Correlation, Goodness-of-Fit Tests,"
+        },
+        {
+          "number": 4,
+          "title": "Hypothesis/Significance Testing, Reliability and Life Testing, Error…",
+          "topics": "Hypothesis/Significance Testing, Reliability and Life Testing, Error Propagation Law."
+        },
+        {
+          "number": 5,
+          "title": "Application of Probability and Statistics in Aerospace Engineering – Various…",
+          "topics": "Application of Probability and Statistics in Aerospace Engineering – Various Examples."
+        }
+      ],
+      "outcomes": [
+        "Elucidate the basic principles of statistics.",
+        "Apply the correlation and regression analysis to engineering problem.",
+        "Apply the principles of probability to engineering problems."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://ntrs.nasa.gov/api/citations/19980045313/downloads/19980045313.pdf"
+      ]
+    },
+    "BAE657B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to virtual Aviation, Aviation rules and Organisation",
+          "topics": "Introduction to virtual Aviation, Aviation rules and Organisation"
+        },
+        {
+          "number": 2,
+          "title": "Air Traffic Control, Radio Communication from Pilot",
+          "topics": "Air Traffic Control, Radio Communication from Pilot"
+        },
+        {
+          "number": 3,
+          "title": "Flight Mode Annunciator mode English, Flight Instruments and their working…",
+          "topics": "Flight Mode Annunciator mode English, Flight Instruments and their working principles"
+        },
+        {
+          "number": 4,
+          "title": "Flight Instrument Essentials, Aviation Meteorology",
+          "topics": "Flight Instrument Essentials, Aviation Meteorology"
+        },
+        {
+          "number": 5,
+          "title": "Practice of Flight Simulator X installation and Settings",
+          "topics": "Practice of Flight Simulator X installation and Settings"
+        }
+      ],
+      "outcomes": [
+        "Use the settings and controls of virtual aircraft simulation.",
+        "Plan the new flying path for a specific situation."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://www.youtube.com/watch?v=EOeDTr1x3XI"
+      ]
+    },
+    "BAE657C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction of swarm or fleet of Unmanned Aerial Vehicles (UAVs),…",
+          "topics": "Introduction of swarm or fleet of Unmanned Aerial Vehicles (UAVs), Classification, Fully autonomous, semi- autonomous, single layered, multi-layered"
+        },
+        {
+          "number": 2,
+          "title": "Vertically hover, take-off, and land (VTOL), remote control operations, or…",
+          "topics": "Vertically hover, take-off, and land (VTOL), remote control operations, or autonomously by using processors deployed on the drones, Military and Civil Application, Innovative Research and commercial application of Swarm"
+        },
+        {
+          "number": 3,
+          "title": "Application Areas, Security, Survey, Monitoring, and Surveillance, Leisure…",
+          "topics": "Application Areas, Security, Survey, Monitoring, and Surveillance, Leisure Pursuit, Disaster Management, Environmental Mapping, Search and Rescue (S&R)"
+        },
+        {
+          "number": 4,
+          "title": "Description of Sensors, Existing Control Approaches, Autonomous Swarms",
+          "topics": "Description of Sensors, Existing Control Approaches, Autonomous Swarms"
+        },
+        {
+          "number": 5,
+          "title": "Battery Swapping/Recharging, Surveillance Systems, Swarm Design, Management,…",
+          "topics": "Battery Swapping/Recharging, Surveillance Systems, Swarm Design, Management, and Optimization"
+        }
+      ],
+      "outcomes": [
+        "Apply the concept of swarm drone design.",
+        "Develop swarm of drone.",
+        "Test fly the drone."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://www.coursera.org/learn/robotics-flight"
+      ]
+    },
+    "BAE657D": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to multi-disciplinary research What to research and how to find…",
+          "topics": "Introduction to multi-disciplinary research What to research and how to find out more, What is a research objective and a research question, How to formulate a research objective and a research question?"
+        },
+        {
+          "number": 2,
+          "title": "Phases and methods of scientific research, Experimental/Study design, Data…",
+          "topics": "Phases and methods of scientific research, Experimental/Study design, Data collection, Evaluation, validation and verification, Research ethics and human resource research ethics"
+        },
+        {
+          "number": 3,
+          "title": "Research method selection and study design",
+          "topics": "Research method selection and study design: Qualitative methods, Quantitative methods, Mixed method approaches"
+        },
+        {
+          "number": 4,
+          "title": "Data collection and analysis",
+          "topics": "Data collection and analysis: Data collection and data management, Data analysis (qualitative and quantitative), Data interpretation, How to validate and verify data"
+        },
+        {
+          "number": 5,
+          "title": "Research management, documentation and publishing, Research plan writing",
+          "topics": "Research management, documentation and publishing, Research plan writing"
+        }
+      ],
+      "outcomes": [
+        "Apply the concepts of the multi-disciplinary research.",
+        "Examine the data collected.",
+        "Implement the multi-disciplinary research."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": []
+    },
+    "BAE701": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Airplane Control Systems",
+          "topics": "Airplane Control Systems: Conventional Systems, power assisted and fully powered systems, Power actuated systems, Modern control systems, Digital fly by wire systems, Auto pilot system. Aircraft Systems: Hydraulic systems, components, Pneumatic systems and components, Brake system, Landing Gear systems, Classification."
+        },
+        {
+          "number": 2,
+          "title": "Engine Systems",
+          "topics": "Engine Systems: Fuel systems for Piston and jet engines, Components of multi engines. lubricating systems - Starting and Ignition systems. Auxiliary System: Basic Air cycle systems, Vapour Cycle systems, oxygen & pressurization systems, Fire protection systems, De - icing and anti - icing systems."
+        },
+        {
+          "number": 3,
+          "title": "Aircraft Instruments",
+          "topics": "Aircraft Instruments: Flight Instruments, Gyroscope, Accelerometers, Air speed Indicators, TAS, EAS, Mach Meters, Altimeters, Principles and operation, Study of various types of engine instruments, Tachometers, Temperature gauges, Pressure gauges, Operation and Principles. MO DULE - 4 Power Distribution System: Bus Bar, split bus bar system, special purpose cables. Electrical diagram and identification scheme. Circuit controlling devices. Power utilization - typical application to avionics. Need for Avionics in civil and military aircraft."
+        },
+        {
+          "number": 5,
+          "title": "Flight Deck and Cockpits",
+          "topics": "Flight Deck and Cockpits: Control and display technologies CRT, LED, LCD, EL and plasma panel, Touch screen, Direct voice input (DVI), MFDS, HUD, MFK, HOTAS. Avionics Systems Integration: Avionics equipment fit. Electrical data bus system. Communication Systems, Navigation systems, Electronic Warfare, and fire control system, Data buses, MIL – STD 1553 B."
+        }
+      ],
+      "outcomes": [],
+      "textbooks": [
+        "Ian Moir and Allan Seabridge, ‘Aircraft Systems: Mechanical, Electrical and Avionics - Subsystem Integration’, Wiley India Pvt Ltd, 3rd edition, 2012, ISBN - 13: 978 - 8126535217.",
+        "Pallet, E.H.J., “Aircraft Instruments and Integrated Systems”, Longman Scientific and Technical, 1996.",
+        "R.P.G. Collinson., \"Introduction to Avionics Systems\", Springer,3rd edition, 2011, ISBN - 13: 978 - 9400707078"
+      ],
+      "references": [
+        "Lalit Gupta and OP. Sharma, ‘Aircraft Systems (Fundamentals of Flight Vol. IV)’, HimalayanBooks;2006.",
+        "Treager. S, “Gas Turbine Technology”, McGraw - Hill, 3rd edition,2013, ISBN - 13: 978 - 1259064876.",
+        "R.W. Sloley and W.H. Coulthard, ‘The aircraft Engineers Handbook, No 4, Instruments’, 6th Edition, 2005, ISBN - 13: 978 - 8175980518.",
+        "SR. Majumdar, ‘Pneumatic Systems’, Tata McGraw Hill Publishing Co,1st Edition, 2001, ISBN - 13: 978 - 0074602317.",
+        "William A Neese, ‘Aircraft Hydraulic Systems’, Himalayan Books, 2007."
+      ],
+      "links": [
+        "https://nptel.ac.in/courses/101104071",
+        "https://www.iist.ac.in/departments/avionics"
+      ]
+    },
+    "BAE702": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction",
+          "topics": "Introduction: CFD Applications. Need for Parallel Computers in CFD algorithms. Models of flows. Substantial derivative, Divergence of velocity. Continuity, Momentum, and Energy Equations - Derivation in various forms. Integral versus Differential form of equations. Comme nts on governing equations. Physical boundary conditions. Forms of equations especially suitable for CFD work. Shock capturing, and shock fitting."
+        },
+        {
+          "number": 2,
+          "title": "Mathematical Behaviour of Partial Differential Equations",
+          "topics": "Mathematical Behaviour of Partial Differential Equations: Classification of partial differential e quations. Cramer Rule and Eigen value methods for classification. Hyperbolic, parabolic, and elliptic forms of equations. Impact of classification on physical and computational fluid dynamics. Case studies: steady inviscid supersonic flow, unsteady invisci d flow, steady boundary layer flow, and unsteady thermal conduction, steady subsonic inviscid flow."
+        },
+        {
+          "number": 3,
+          "title": "Grid Generation and Adaptive Grids",
+          "topics": "Grid Generation and Adaptive Grids: Need for grid generation and Body - fitted coordinate system. Structured Grids - essential features. Structured Grid generation techniques - algebraic and numerical methods. Unstructured Grids - essential features. Unstructured Grid generation techniques - Delaunay - Voronoi diagram, advancing front method. Surface grid generation, multi - block grid generation, and meshless methods. Grid quality and adaptive grids. Structured grids adaptive methods and unstruct ured grids adaptive methods."
+        },
+        {
+          "number": 4,
+          "title": "Discretisation & Transformation",
+          "topics": "Discretisation & Transformation: Discretisation: Finite differences methods, and difference equations. Explicit and Implicit approaches. Unsteady Problem - Explicit versus Implicit Scheme. Errors and stability analy sis. Time marching and space marching. Reflection boundary condition. Relaxation techniques. Alternating direction implicit method. Successive over relaxation/under relaxation. Second order Lax - Wendroff method, mid - point Leap frog method, upwind scheme, nu merical viscosity, and artificial viscosity. Transformation: Transformation of governing partial differential equations from physical domain to computational domain. Matrices and Jacobians of transformation. Example of transformation. Generic form of the Governing flow equations in Strong Conservative form in the Transformed Space."
+        },
+        {
+          "number": 5,
+          "title": "Finite Volume Technique and Some Applications",
+          "topics": "Finite Volume Technique and Some Applications: Spatial discretisation - cell centered and cell vertex techniques (overlapping control volume, duel control volume). Temporal discretisation - Explicit time stepping, and implicit time stepping. Time step calculation. Upwind scheme and high resolution scheme. Flux vector splitting, approximate factorisation. Artificial dissipation and flux limiters. Unsteady flows and heat conduction problems. Upwind biasing."
+        }
+      ],
+      "outcomes": [
+        "Apply the concepts of control systems.",
+        "Determine the frequency response analysis by using various types of plots.",
+        "Select the suitable materials for engine manufacturing.",
+        "Evaluate the performance of the engine.",
+        "Test the engine using several types of engine testing methods.",
+        "Apply the principles and procedures for model testing in the wind tunnel."
+      ],
+      "textbooks": [
+        "Fletcher, C.A.J., \"Computational Techniques for Fluid Dynamics\", Springer, Berlin,2nd edition, 2002,ISBN - 13: 9783540543046",
+        "John D. Anderson, \"Computational Fluid Dynamics”, McGraw Hill, 2013, ISBN - 13: 978 - 0070016859.",
+        "U.A. Bakshi and V.U. Bakshi, Control Engineering, Technical Publications, ISBN: 978 - 93 - 5099 - 657 - 7.",
+        "A. Nagoor Kani, Control Systems Engineering, RBA Publications, 2014. 2 2",
+        "Irwin E. Treager, ‘Gas Turbine Engine Technology ‘, Mc Graw Hill Education, 3rd edition, 2013, ISBN - 13: 978 - 1259064876."
+      ],
+      "references": [
+        "John F. Wendt, \"Computational Fluid Dynamics - An Introduction\", Springer, 3rd edition,2013",
+        "Charl es Hirsch, \"Numerical Computation of Internal and External Flows”, Elsevier, 1st edition, 2007, ISBN - 13: 9789381269428.",
+        "Klaus A Hoffmann and Steve T. Chiang. \"Computational Fluid Dynamics for Engineers\", Vols. I & II Engineering Education System, P.O. Box 20078, W. Wichita, K.S., 67208 - 1078 USA, 1993.",
+        "Katsuhiko Ogatta, Modern Control Engineering, Pearson Education,2004.",
+        "I.J. Nagrath and M. Gopal, Control Systems Engineering, New Age Publishers, 2017."
+      ],
+      "links": [
+        "https://doc.cfd.direct/notes/cfd",
+        "http://www.ae.iitm.ac.in/~krishna/ecfd4tab.pdf",
+        "https://nptel.ac.in/courses/112105045",
+        "https://onlinecourses.nptel.ac.in/noc21_me126/preview",
+        "https://nptel.ac.in/courses/108106098",
+        "https://nptel.ac.in/courses/108102043"
+      ]
+    },
+    "BAE755C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Historical Perspectives, The case for simulation, Engineering Flight…",
+          "topics": "Historical Perspectives, The case for simulation, Engineering Flight Simulation, The changing role of simulation,"
+        },
+        {
+          "number": 2,
+          "title": "The organisation of flight simulator, Equation of Motion, Aerodynamic model,…",
+          "topics": "The organisation of flight simulator, Equation of Motion, Aerodynamic model, Engine Model, Engine model, data acquisition model, Gear Model, weather model, Visual System, Sound System, Motion System, Controls, Instrument Display, Navigation Systems, Maintenance"
+        },
+        {
+          "number": 3,
+          "title": "Principles of Flight Modeling, Newtonian Mechanics, Differential Equations,…",
+          "topics": "Principles of Flight Modeling, Newtonian Mechanics, Differential Equations, Numerical Integration, Real - time computing, Flight Data"
+        },
+        {
+          "number": 4,
+          "title": "The atmosphere, forces, moments, Axes System, Quaternions, Equations of…",
+          "topics": "The atmosphere, forces, moments, Axes System, Quaternions, Equations of Motions, propulsion - Piston Engine, Jet Engine, the landing gear"
+        },
+        {
+          "number": 5,
+          "title": "Simulation of flight control systems, the Laplace transform, PID control…",
+          "topics": "Simulation of flight control systems, the Laplace transform, PID control systems, Trimming, Aircraft Displays, Attitude Indicator, Altimeter, Airspeed Indicator, compass card, Automatic Direction Finding(ADF), VHF omnidirectional Range(VOR), Dis tance Measuring Equipment(DME),Instrument Landing Systems(ILS), GPS, Inertial Navigation System"
+        }
+      ],
+      "outcomes": [
+        "Apply the basic principle of working of flight components.",
+        "Practise the names of components and their functions.",
+        "Simulate a flight.",
+        "Analyse the need for the flight 4.0.",
+        "Implement Knowledge on both aviation and its internet infrastructure."
+      ],
+      "textbooks": [
+        "Principles of Flight Simulation by David Allerton, Wiley Publisher",
+        "Flight Dynamics, Simulation, and Control by Ranjan Vepa, CRC press",
+        "Advances in Aeronautical Informatics - Technology towards Flight 4.0 by Umut Durak, Springer",
+        "Principles of flight 4.0 by ISBN 9788281070318, 8281070315"
+      ],
+      "references": [
+        "Flight Simulation by JM Rolfe and K J Staples, Cambridge University Press",
+        "In - flight Simulation - theory and Application by Edwin A. Kidd, Gifford Bull, Robert P. Harper",
+        "Aircraft Technology by Melih Cemal Kushan"
+      ],
+      "links": [
+        "http://helijah.free.fr/dev/Principles",
+        "https://onlinecourses.nptel.ac.in/noc21_ae05/preview",
+        "https://www.coursera.org/lecture/cybersecurity"
+      ]
     },
     "BAG301": {
       "source": "https://vtu.ac.in/pdf/2022_3to8/2agrisyll.pdf",
@@ -2634,8 +4746,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
       ],
@@ -2706,8 +4818,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
       ],
@@ -2765,8 +4877,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
       ],
@@ -7911,11 +10023,299 @@
         "https://nptel.ac.in/courses/117104072"
       ]
     },
+    "BBM301": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Fourier Series a nd Practical Harmonic Analysis",
+          "topics": "Fourier Series a nd Practical Harmonic Analysis: Periodic functions, Dirichlet’s condition. Fourier series expansion of functions with period 2 𝜋 and with arbitrary period: periodic rectangular wave, Half - wave rectifier, rectangular pulse, Saw tooth wave. Half - range Fourier series. Triangle and half rang e expansions, Practical harmonic analysis, variation of periodic current. (RBT Levels: L1, L2 and L3)"
+        },
+        {
+          "number": 2,
+          "title": "Infinite Fourier Transforms",
+          "topics": "Infinite Fourier Transforms: Infinite Fourier transforms, Fourier cosine and sine transforms, Inverse Fourier transforms, Inverse Fourier cosine and sine transforms, discrete Fourier transform (DFT), Fast Fourier transform (FFT). (RBT Levels: L1, L2 and L3)"
+        },
+        {
+          "number": 3,
+          "title": "Z Transforms",
+          "topics": "Z Transforms: Definition, Z - transforms of basic sequences and standard functions. Properties: Linearity, scaling, first and second shifting, multiplication by n. Initial and final value theorem. Inverse Z - transforms. Application to difference equations. (RBT Levels: L1, L2 and L3)"
+        },
+        {
+          "number": 4,
+          "title": "Ordinary Differential Equations of Higher Order",
+          "topics": "Ordinary Differential Equations of Higher Order: Higher - order linear ODEs with constant coefficients - Inverse differential operator, problems. Linear differential equations with variable Coefficients - Cauchy’s and Legendre’s differential equations – Problems. Application of linear differential equations to L - C circuit and L - C - R circuit. (RBT Levels: L1, L2 and L3)"
+        },
+        {
+          "number": 5,
+          "title": "Curve fitting, Correlation, and Regressions",
+          "topics": "Curve fitting, Correlation, and Regressions: Principles of least squares, Curve fitting by the method of 2 𝑏 least squares in the form 𝑦 = 𝑎 +, 𝑦 = 𝑎 + 𝑏 𝑥 + 𝑐 𝑥, and 𝑦 = 𝑎 𝑥. Correlation, Coefficient of correlation, Lines of regression, Angle between regression lines, standard error of estimate, rank correlation. (RBT Levels: L1, L2 and L3)"
+        }
+      ],
+      "outcomes": [
+        "Demonstrate the Fourier series to study the behavior of periodic functions and their applications in system communications, digital signal processing, and field theory.",
+        "Understand that physical systems can be described by differential equations and solve such equations.",
+        "Make use of correlation and regression analysis to fit a suitable mathematical model for statistical data.",
+        "Analyse the performance parameters of BJT circuits using re and approximate Hybrid model.",
+        "Explain the construction, working, and performance parameters of JFET and MOSFET.",
+        "Evaluate the performance of FE T amplifiers and Power amplifiers."
+      ],
+      "textbooks": [
+        "John M Yarbrough, Digital Logic Applications and Design, Thomson Learning, 2001.",
+        "Donald D Givone, Digital Principles and Design, McGraw Hill Education (India) Private Limited, 2002.",
+        "Nazeih M Botros, HDL Programming VHDL and Verilog, Dreamtech press, 2009.",
+        "Electrical and Electronic Measurements and Instrumentation – A. K. Sawhney, 17th Edition (Reprint 2004), Dhanpat Rai & Co. Pvt. Ltd., 2004."
+      ],
+      "references": [
+        "V. Ramana, “Higher Engineering Mathematics” McGraw - Hill Education, 11th Ed., 2017",
+        "Srimanta Pal & Subodh C.Bhunia, “Engineering Mathematics” Oxford University Press, 3rd Ed., 2016.",
+        "N.P Bali and Manish Goyal, “A Textbook of Engineering Mathematics” Laxmi Publications, 10th Ed., 2022.",
+        "C. Ray Wylie, Louis C. Barrett, “Advanced Engineering Mathematics” McGraw – Hill Book Co., New York, 6th Ed., 2017.",
+        "Gupta C.B, Sing S.R and Mukesh Kumar, “Engineering Mathematic for Semester I and II”, McGraw Hill Education(India) Pvt. Ltd 2015."
+      ],
+      "links": [
+        "http://nptel.ac.in/courses.php?disciplineID=111",
+        "http://www.class",
+        "https://nptel.ac.in/courses/108102112",
+        "https://nptel.ac.in/courses/108105158",
+        "https://onlinecourses.nptel.ac.in/noc23_ee77/preview",
+        "https://nptel.ac.in/courses/108105132"
+      ]
+    },
+    "BBM306B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction and overview of operating systems",
+          "topics": "Introduction and overview of operating systems: Abstract views of an Operating system, Computing environment and nature of computations Classes of operating systems, Batch processing system, Multi programming systems, Time-sharing systems, Real-time operating systems, distributed operating systems, modern operating systems, Virtual machine operating systems, kernel-based operating systems, microkernel-based operating systems. (Text- 1)"
+        },
+        {
+          "number": 2,
+          "title": "Process Management",
+          "topics": "Process Management: Processes and Programs, implementing processes, race conditions, critical sections, control synchronization and indivisible operations, synchronization approaches, semaphores. File systems: Files, Directories, and File System Implementation (Text-2)"
+        },
+        {
+          "number": 3,
+          "title": "Memory management",
+          "topics": "Memory management: Static and Dynamic memory allocation, Memory allocation to a process, Reuse of memory, Contiguous memory allocation, Non-contiguous memory allocation, Paging, Segmentation, and segmentation with paging. (Text-1)"
+        },
+        {
+          "number": 4,
+          "title": "Deadlocks",
+          "topics": "Deadlocks: resources, introduction to Deadlocks, the ostrich algorithm, deadlock detection and recovery, Deadlock avoidance, deadlock prevention.(Text-2)"
+        },
+        {
+          "number": 5,
+          "title": "Security and Protection",
+          "topics": "Security and Protection: overview of security and protection, security attacks, formal aspects of security, Encryption, authentication and password security, protection structures, capabilities, classification of computer security, case studies in security and protection. (Text - 1)"
+        }
+      ],
+      "outcomes": [
+        "Explain the various classes, the structure of the operating system, and multiprogramming.",
+        "Describe the File systems and process requirements in an operating system.",
+        "Analyze the management allocation and segmentation.",
+        "Apply the knowledge of operatin g system for security and protection."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": [
+        "https://onlinecourses.nptel.ac.in/noc21_cs72/preview"
+      ]
+    },
+    "BBM306C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Nanoscale Fabrication and Characterization",
+          "topics": "Nanoscale Fabrication and Characterization: Nanolithography: Introduction, Cross-Cutting Technologies: Resists and Masks, Photon-Based Nanolithography Techniques, Electron Beam Lithography, Focused Ion Beam Lithography, Emerging Nanolithography."
+        },
+        {
+          "number": 2,
+          "title": "Self - Assembly and Self - Organization",
+          "topics": "Self - Assembly and Self - Organization: The advantages of Self-Assembly, Intermolecular Interactions and Molecular Recognition, Self-Assembled Monolayers (SAM), Electrostatic Self- Assembly, and Self-Organization in Block Copolymers. Scanning Probe Microscopes: Introduction, Basics of SPM, Scanning Tunneling Microscope, other scanned probe microscopes, near-field scanning optical microscope (NSOM)."
+        },
+        {
+          "number": 3,
+          "title": "Fullerenes",
+          "topics": "Fullerenes: Families of Fullerenes, Reactivity, potential applications. Carbon nanotubes: Molecular and Supramolecular Structure, Intrinsic Properties of Individual Single-wall Carbon Nanotubes, Synthesis, and Characterization of Carbon Nanotubes, Modification, and Applications of Nanotubes."
+        },
+        {
+          "number": 4,
+          "title": "Quantum dots",
+          "topics": "Quantum dots: Introduction, Quantum confinement-3D Quantum Dot, Quantum dots formed by Ion Implementation. Nanocomposites: Introduction, Nanolayered Composites, Nanofilamentary and Nanowire Composites, Nanoparticulate Composites."
+        },
+        {
+          "number": 5,
+          "title": "Semiconductor Nanostructures for Quantum Computation",
+          "topics": "Semiconductor Nanostructures for Quantum Computation: N anostructures for Quantum Computation, Quantum Computation Algorithms, Superposition and Quantum Parallelism, Requirements for Physical Realizations of Quantum Computers, Spin as a Physical Realization of Qubit, Quantum Computation with Electron spins in Q uantum Dots, Quantum Computation with Phosphorus Nuclei in Silicon."
+        }
+      ],
+      "outcomes": [
+        "Understand the principles of Fabrication and Characterization of materials on the nanoscale.",
+        "Describe the advantages of Self - assembly, self - organization, and different methods of Scan probing.",
+        "Explain the properties and applications of carbon and carbon nanotubes.",
+        "Describe the properties of Quantum dots and the properties of nano composites.",
+        "Apply the knowledge to characterize semiconductor nanostructures for quantum computation.",
+        "Describe internal environment of human body and explain the fundamental concept of homeostasis."
+      ],
+      "textbooks": [
+        "Massimiliano Di Ventra, Stephane Evoy and Janes R. Heflin Jr. Introduction to Nanoscale Science and Technology, Springer Science + Business Media LLC@2004, Reprinted 2009 25",
+        "Power Electronics - M. H. Rashid, Prentice Hall of India Pvt. Ltd., 2 E dition New Delhi, 2002.",
+        "Power Electronics: Converters, Applications and Design - Ned Mohan, Tore M. Undeland and William P. Robbins, 3rd Edition, John Wiley and Sons, 2003. Advanced C - Peter D. Hipson, Sams Publishing, USA, 1992",
+        "Ross & Wilson’s Anatomy and Physiology in Health and Illness – by Anne Waugh and Allison Grant, 9th Edition, Churchill Livingstone Publications",
+        "Engineering circuit analysis, William H Hayt, Jr, Jack E Kemmerly, Steven M Durbin, Mc Graw Hill Education, Indian Edition 8e."
+      ],
+      "references": [
+        "Power Electronics - M. D. Sing and Khanchandani K. B., Tata McGraw Hill Publishing Company Limited, Reprint 2001.",
+        "Power Electronics - Cyril W. Lander, 3rd Edition, McGraw Hill, 1993.",
+        "Fundamentals of Power Semiconductor Devices - B. JayantBaliga, 1st Edition, International Thompson Computer Press, 1995",
+        "Semiconductor Device Modeling with Spice - G. Massobrio, and P. Antognetti, McGraw - Hill, 2nd Edition",
+        "Concise Medical Physiology - by Sujit K. Chaudhuri, 5th Edition, New Central Book Agency Pvt. Ltd."
+      ],
+      "links": [
+        "https://www.youtube.com/watch?v=qUEbxTkPIWI",
+        "https://www.digimat.in/nptel/courses/video/102107058/L0",
+        "https://www.youtube.com",
+        "https://nptel.ac.in/courses/102104058",
+        "https://www.youtube.com/watch?v=Evsqy0a_Lrk",
+        "https://www.youtube.com/watch?v=BxmBfTZiUW8"
+      ]
+    },
+    "BBM405C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Introduction to HTML, What is HTML and Where did it come from?, HTML Syntax,…",
+          "topics": "Introduction to HTML, What is HTML and Where did it come from?, HTML Syntax, Semantic Markup, Structure of HTML Documents, Quick Tour of HTML Elements, HTML5 Semantic Structure Elements, Introduction to CSS, What is CSS, CSS Syntax, Location of Styles, Selectors, The Cascade: How Styles Interact, The Box Model, CSS Text Styling."
+        },
+        {
+          "number": 2,
+          "title": "HTML Tables and Forms, Introducing Tables, Styling Tables, Introducing…",
+          "topics": "HTML Tables and Forms, Introducing Tables, Styling Tables, Introducing Forms, Form Control Elements, Table and Form Accessibility, Microformats, Advanced CSS: Layout, Normal Flow, Positioning Elements, Floating Elements, Constructing Multicolumn Layouts, Approaches to CSS Layout, Responsive Design, CSS Frameworks."
+        },
+        {
+          "number": 3,
+          "title": "JavaScript",
+          "topics": "JavaScript: Client-Side Scripting, What is JavaScript and What can it do?, JavaScript Design Principles, Where does JavaScript Go?, Syntax, JavaScript Objects, The Document Object Model (DOM), JavaScript Events, Forms, Introduction to Server-Side Development with PHP, What is Server-Side Development, A Web Server‟s Responsibilities, Quick Tour of PHP, Program Control, Functions"
+        },
+        {
+          "number": 4,
+          "title": "PHP Arrays and Superglobals, Arrays, $_GET and $_POST Superglobal Arrays,…",
+          "topics": "PHP Arrays and Superglobals, Arrays, $_GET and $_POST Superglobal Arrays, $_SERVER Array, $_Files Array, Reading/Writing Files, PHP Classes and Objects, Object-Oriented Overview, Classes and Objects in PHP, Object Oriented Design, Error Handling and Validation, What are Errors and Exceptions?, PHP Error Reporting, PHP Error and Exception Handling"
+        },
+        {
+          "number": 5,
+          "title": "Managing State, The Problem of State in Web Applications, Passing…",
+          "topics": "Managing State, The Problem of State in Web Applications, Passing Information via Query Strings, Passing Information via the URL Path, Cookies, Serialization, Session State, HTML5 Web Storage, Caching, Advanced JavaScript and jQuery, JavaScript Pseudo - Classes, jQuery Fou ndations, AJAX, Asynchronous File Transmission, Animation, Backbone MVC Frameworks, XML Processing and Web Services, XML Processing, JSON, Overview of Web Services."
+        }
+      ],
+      "outcomes": [
+        "Apply Laplace transforms to continuous time signals.",
+        "Analyze the inverse Laplace Transforms, its properties and its applications in solving continuous time domain problems.",
+        "Relate FT to LT and use Fourier transforms to analyze problems involving continuous - time domain problems.",
+        "Apply Z - Transform techniques to solve discrete time domain problems.",
+        "Solve mathematical models represented constant coefficient differential and diffe rence equations using appropriate transforms.",
+        "Understand the basics of Linear Algebra."
+      ],
+      "textbooks": [
+        "Randy Connolly, Ricardo Hoar, \"Fundamentals of Web Development”, 1st Edition, Pearson Education India.",
+        "Signals and Systems, 2nd ed, Simon Haykin & Barry Van Veen, 2021, Wiley Publications, ISBN - 10: 354243150, ISBN - 13: 978 - 9354243158",
+        "Continuous and Discrete Time Signals and Systems, Mrinal Mandal & Amir Asif, Cambridge University Press, 2007, ISBN - 13: 978 – 1108477864",
+        "Advanced Engineering Mathematics, Kreyszig, John Wiley & Sons Publishers, 10th Edition, 2010.",
+        "Higher Engineering Mathematics, B. S. Grewal, Khanna Publishers, 43rd Edition, 2015."
+      ],
+      "references": [
+        "Robin Nixon, “Learning PHP, MySQL &JavaScript with jQuery, CSS and HTML5”, 4th Edition, O‟Reilly Publications, 2015.",
+        "Luke Welling, Laura Thomson, “PHP and MySQL Web Development”, 5th Edition, Pearson Education, 2016."
+      ],
+      "links": [
+        "http://www.efunda.com/math/math_home/math.cfm",
+        "https://onlinecourses.nptel.ac.in/noc22_ee28/preview"
+      ]
+    },
+    "BBM456B": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "title": "Block diagram of a medical instrumentation system, Challenges faced with…",
+          "topics": "Block diagram of a medical instrumentation system, Challenges faced with physiological measurements. Medical instrument specifications. Biopotential electrodes: Electrode - Electrolyte Interface, Half cell potential, Offset Voltage. External, Internal and Mi croelectrodes."
+        },
+        {
+          "number": 2,
+          "title": "Equivalent circuit and applications of biopotential electrodes",
+          "topics": "Equivalent circuit and applications of biopotential electrodes. Basic requirements for the display and recording of Biopotential signals. Classification of recorders, PMMC writing systems. General features of ink - jet, thermosensit ive and optical recorders. Array recorders."
+        },
+        {
+          "number": 3,
+          "title": "Hematology",
+          "topics": "Hematology: Blood components and processing, RBC count, WBC count, hemocytometer, Blood Cell Counters - Microscopic and Automatic methods."
+        },
+        {
+          "number": 4,
+          "title": "Light microscopy, cell orientation, TEM, SEM, cell differentiation, cell…",
+          "topics": "Light microscopy, cell orientation, TEM, SEM, cell differentiation, cell signaling and regulation."
+        },
+        {
+          "number": 5,
+          "title": "Body temperature, heat, fat and movement",
+          "topics": "Body temperature, heat, fat and movement. Regulation of body temperature, clinical temperature measurement. Measurement of body fat - direct and indirect. Measurement of body movement - Goniometer, Accelerometer, video and optoelectronic systems."
+        }
+      ],
+      "outcomes": [
+        "Identify various types of bioinstruments suitable for biomedical measurement.",
+        "Understand construction, working principle of basic biomedical instrument.",
+        "Comprehend different types of clinical instruments and analyzers, their construction and operation."
+      ],
+      "textbooks": [
+        "Bioinstrumentation – John G. Webster, John Wiley and Sons, Inc. 2004.",
+        "Biomedical Instrumentation and Measurement – Leslie Cromwell, Fred J Weibell and Erich A. Pfeiffer, 2nd Edition, Prentice - Hall India Pvt. Ltd., 2004."
+      ],
+      "references": [
+        "Transducers and Instrumentation - D. V. S. Murty Prentice Hall India Pvt ltd. 2nd Edition Biomedical Transducers and Instruments – Tatsuo Togawa, Toshiyo Tamura and P. Ake Oberg, CRC Press, 19 97.",
+        "Handbook of Biomedical Instrumentation - R S Khandpur, 2nd edition, Tata McGraw Hill, 2003"
+      ],
+      "links": []
+    },
+    "BBM456C": {
+      "source": "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
+      ],
+      "modules": [],
+      "outcomes": [
+        "Design and evaluate analog integrated circuits like Amplifiers, Oscillators, Active filters, Precision.",
+        "Demonstrate and analyze the working of Sample - Hold, Programmable gain amplifier and Analog.",
+        "Design and evaluate diff erent resolution data converters using discrete components and ICs."
+      ],
+      "textbooks": [],
+      "references": [],
+      "links": []
+    },
     "BBOK407": {
       "source": "https://vtu.ac.in/pdf/2022_3to8/2agrisyll.pdf",
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2agrisyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2eissyll.pdf"
+        "https://vtu.ac.in/pdf/2022_3to8/2eissyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf"
       ],
       "modules": [
         {
@@ -12876,13 +15276,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -12947,13 +15347,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13004,13 +15404,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13072,13 +15472,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13144,13 +15544,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13208,8 +15608,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
       "modules": [
@@ -13262,8 +15662,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2ccesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
@@ -13312,13 +15712,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13343,8 +15743,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13379,8 +15779,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
@@ -13492,13 +15892,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13553,13 +15953,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -13622,8 +16022,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
       "modules": [
@@ -13685,13 +16085,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
@@ -15075,8 +17475,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2ccesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
@@ -15101,12 +17501,12 @@
         "https://vtu.ac.in/pdf/2022_3to8/2ccesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2issyll.pdf"
       ],
       "modules": [],
@@ -18023,8 +20423,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
       ],
@@ -18078,8 +20478,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
       ],
@@ -18407,8 +20807,8 @@
       "sources": [
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
       ],
@@ -18432,8 +20832,8 @@
         "https://vtu.ac.in/pdf/2022_3to8/2aidssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2aimlsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2dsssyll.pdf"
@@ -45951,13 +48351,13 @@
         "https://vtu.ac.in/pdf/2022_3to8/2cesyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csbssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csdsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2cseaimlsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cseaisyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2csebctsyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csedssyll.pdf",
         "https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf",
-        "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf"
+        "https://vtu.ac.in/pdf/2022_3to8/2csiotsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/2cyberssyll.pdf"
       ],
       "modules": [
         {

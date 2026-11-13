@@ -1073,6 +1073,18 @@
    "branch": "industrial-iot",
    "semester": 3,
    "code": "BIO358D"
+  },
+  {
+   "path": "/vtu/robotics-ai/3rd-semester/applications-of-mat-lab-0-0-2-0-refers-to-professional-core",
+   "branch": "robotics-ai",
+   "semester": 3,
+   "code": "BRI358B"
+  },
+  {
+   "path": "/vtu/robotics-ai/3rd-semester/applications-of-mat-lab-0-0-2-0-refers-to-professional-core/lab-manuals",
+   "branch": "robotics-ai",
+   "semester": 3,
+   "code": "BRI358B"
   }
  ],
  "files": [
@@ -5319,6 +5331,10 @@
   {
    "path": "/files/me-thermodynamics-syllabus",
    "code": "BME303"
+  },
+  {
+   "path": "/files/robotics-ai-applications-of-mat-lab-0-0-2-0-refers-to-professional-core-lab",
+   "code": "BRI358B"
   }
  ]
 }

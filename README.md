@@ -10,11 +10,11 @@ notes, PDFs, read-aloud, calculators and VTU notices, all in one place.
 [**vtuhub.site**](https://vtuhub.site) ·
 [Docs](docs/README.md) ·
 [Contribute](CONTRIBUTING.md) ·
-[Discussions](https://github.com/nishanth-kj/vtu-hub/discussions) ·
-[Report a problem](https://github.com/nishanth-kj/vtu-hub/issues/new/choose)
+[Discussions](https://github.com/VTU-HUB/vtu-hub/discussions) ·
+[Report a problem](https://github.com/VTU-HUB/vtu-hub/issues/new/choose)
 
-[![CI](https://github.com/nishanth-kj/vtu-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/nishanth-kj/vtu-hub/actions/workflows/ci.yml)
-[![VTU data sync](https://github.com/nishanth-kj/vtu-hub/actions/workflows/sync-vtu.yml/badge.svg)](https://github.com/nishanth-kj/vtu-hub/actions/workflows/sync-vtu.yml)
+[![CI](https://github.com/VTU-HUB/vtu-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/VTU-HUB/vtu-hub/actions/workflows/ci.yml)
+[![VTU data sync](https://github.com/VTU-HUB/vtu-hub/actions/workflows/sync-vtu.yml/badge.svg)](https://github.com/VTU-HUB/vtu-hub/actions/workflows/sync-vtu.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Notes: CC BY-SA 4.0](https://img.shields.io/badge/notes-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE)
 
@@ -42,7 +42,7 @@ stays on [vtu.ac.in](https://vtu.ac.in).
 Requires Node.js 22.18 or newer.
 
 ```sh
-git clone https://github.com/nishanth-kj/vtu-hub.git
+git clone https://github.com/VTU-HUB/vtu-hub.git
 cd vtu-hub
 npm install
 npm run dev        # http://localhost:8080
@@ -83,8 +83,8 @@ Contributions are welcome, and you don't need to be a programmer.
 - **Fix or improve notes:** click **Edit this page on GitHub** under any notes section
   on vtuhub.site, edit the Markdown, and propose the change.
 - **Write notes for a subject:** follow [Writing notes](docs/writing-notes.md).
-- **Report a wrong title, module or link:** [open an issue](https://github.com/nishanth-kj/vtu-hub/issues/new/choose).
-- **Ask or suggest:** [Discussions](https://github.com/nishanth-kj/vtu-hub/discussions).
+- **Report a wrong title, module or link:** [open an issue](https://github.com/VTU-HUB/vtu-hub/issues/new/choose).
+- **Ask or suggest:** [Discussions](https://github.com/VTU-HUB/vtu-hub/discussions).
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, and follow the
 [Code of Conduct](CODE_OF_CONDUCT.md). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
@@ -93,8 +93,8 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, and follo
 
 Thanks to everyone who has helped build VTUHub.
 
-<a href="https://github.com/nishanth-kj/vtu-hub/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nishanth-kj/vtu-hub" alt="VTUHub contributors" />
+<a href="https://github.com/VTU-HUB/vtu-hub/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=VTU-HUB/vtu-hub" alt="VTUHub contributors" />
 </a>
 
 ## License

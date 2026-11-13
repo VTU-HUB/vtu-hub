@@ -19,4 +19,4 @@ Project files:
 - [AGENTS.md](../AGENTS.md): the hard rules for changing the code
 - [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md), [SECURITY.md](../SECURITY.md), [LICENSE](../LICENSE)
 
-Questions? Ask in [GitHub Discussions](https://github.com/nishanth-kj/vtu-hub/discussions).
+Questions? Ask in [GitHub Discussions](https://github.com/VTU-HUB/vtu-hub/discussions).

@@ -16,7 +16,8 @@ const SLOT_LIKE = /^B[A-Z]{1,5}(\/[A-Z]{1,5})?\d{3}[A-Za-z]?\/?$/;
 /** Headings above the elective option lists. */
 const HEADING = /^((Professional|Open) Elective Courses?|Ability Enhancement Course|Skill (Enhancement|Development) Course|Engineering Science Course)\b/i;
 /** The abbreviation legend under each table: items like ": Professional Core Course,". */
-const isLegend = (row) => row.items.some((it) => /^:\s*\S/.test(it.s));
+// Some PDFs print it as "… (IPCC):" "Refers to Professional Core Course …" instead.
+const isLegend = (row) => row.items.some((it) => /^:\s*\S/.test(it.s) || /^Refers to\b/i.test(it.s));
 
 /**
  * Joins title pieces. Pieces that touch on the same line are one word pdfjs split
@@ -103,8 +104,12 @@ function flatten(rows) {
  * @returns {Promise<{ semester:number, code:string, title:string, credits:number|null,
  *   type:string|null, elective:boolean, group:string|null, page:number }[]>}
  */
-export async function parseScheme(file, { defaultSemesters = [] } = {}) {
-  const pages = await pdfRows(file);
+export async function parseScheme(file, opts = {}) {
+  return parseSchemeRows(await pdfRows(file), opts);
+}
+
+/** Parses rows already read by pdfRows(); used directly by the regression fixtures. */
+export function parseSchemeRows(pages, { defaultSemesters = [] } = {}) {
   const courses = [];
   const groupSemester = new Map(); // "BCS306x" -> 3
   const pendingElectives = [];
