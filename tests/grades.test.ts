@@ -51,9 +51,17 @@ describe("cgpa", () => {
     assert.equal(r.credits, 45);
     assert.equal(r.value.toFixed(4), ((160 + 225) / 45).toFixed(4));
   });
-  it("converts to percentage with (CGPA − 0.75) × 10", () => {
-    assert.equal(cgpaToPercentage(8.5).toFixed(1), "77.5");
+  it("converts to percentage with CGPA × 10 (2022 Regulations, 22OB 6.7)", () => {
+    assert.equal(cgpaToPercentage(8.2).toFixed(1), "82.0"); // the regulation's own example
+    assert.equal(cgpaToPercentage(8.5).toFixed(1), "85.0");
+    assert.equal(cgpaToPercentage(6), 60);
+    assert.equal(cgpaToPercentage(10), 100);
     assert.equal(cgpaToPercentage(0), 0);
+  });
+  it("clamps out-of-range and non-numeric CGPA", () => {
+    assert.equal(cgpaToPercentage(12), 100);
+    assert.equal(cgpaToPercentage(-1), 0);
+    assert.equal(cgpaToPercentage(Number.NaN), 0);
   });
 });
 

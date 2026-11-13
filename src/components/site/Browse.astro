@@ -4,7 +4,6 @@ import {
   branchesByStream,
   branchPath,
   branchSemesterPath,
-  SEMESTER_ORD,
   semesterName,
   semesterPath,
 } from "@/data/branches";
@@ -12,7 +11,7 @@ import { branchesForSemester, countSubjects, creditsLabel, getSubjectsBySemester
 import type { BranchSlug, Subject } from "@/data/types";
 
 interface Props {
-  kind: "branches" | "semesters" | "subjects" | "jump" | "switcher";
+  kind: "branches" | "semesters" | "subjects" | "switcher";
   semester?: number;
   branchSlug?: string;
   subjects?: Subject[];
@@ -21,19 +20,6 @@ interface Props {
 const { kind, semester, branchSlug, subjects = [], current } = Astro.props;
 const branchList = semester ? branchesForSemester(semester) : branches;
 ---
-
-{kind === "jump" ? (
-  <nav aria-label="Jump to a semester">
-    <p class="mb-2 text-xs font-medium uppercase tracking-wider text-muted">Open a semester — all branches</p>
-    <ul class="flex flex-wrap gap-2">
-      {SEMESTER_ORD.map((label, i) => (
-        <li>
-          <a class="inline-flex h-11 min-w-11 items-center justify-center rounded-md border bg-surface px-3 text-sm font-semibold hover:border-primary/40" href={semesterPath(i + 1)}>{label}</a>
-        </li>
-      ))}
-    </ul>
-  </nav>
-) : null}
 
 {kind === "branches" ? (
   <div class="space-y-10">
@@ -120,11 +106,6 @@ const branchList = semester ? branchesForSemester(semester) : branches;
   <div>
     <p class="mb-2 text-xs font-medium uppercase tracking-wider text-faint">Branch</p>
     <div class="flex flex-wrap gap-2" role="navigation" aria-label="Switch branch">
-      <a
-        href={semesterPath(semester)}
-        aria-current={!current ? "page" : undefined}
-        class:list={["inline-flex h-11 items-center rounded-md border px-3 text-sm font-medium", !current ? "border-primary bg-secondary" : "bg-surface text-muted hover:border-primary/40"]}
-      >All branches</a>
       {branches.filter((b) => (b.featured || b.slug === current || b.stream === branches.find((x) => x.slug === current)?.stream) && countSubjects(b.slug, semester) > 0).map((b) => (
         <a
           href={`/vtu/${b.slug}/${["1st","2nd","3rd","4th","5th","6th","7th","8th"][semester - 1]}-semester`}
@@ -132,6 +113,7 @@ const branchList = semester ? branchesForSemester(semester) : branches;
           class:list={["inline-flex h-11 items-center rounded-md border px-3 text-sm font-medium", current === b.slug ? "border-primary bg-secondary" : "bg-surface text-muted hover:border-primary/40"]}
         >{b.shortName}</a>
       ))}
+      <a href="/vtu" class="inline-flex h-11 items-center rounded-md border border-dashed bg-surface px-3 text-sm font-medium text-muted hover:border-primary/40">All programmes →</a>
     </div>
   </div>
 ) : null}

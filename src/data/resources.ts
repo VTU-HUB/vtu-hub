@@ -91,7 +91,7 @@ function syllabusBody(sub: Subject): { body: string[]; bullets: string[] } {
   const units = sub.units;
   return {
     body: [
-      `This syllabus walk-through for ${sub.name} (${sub.code}) is original VTUHub writing. Credits on this card: ${sub.credits}. Programme: ${br}. Term: ${semesterName(sub.semester)}. Scheme: ${sub.scheme}.`,
+      `This syllabus walk-through for ${sub.name} (${sub.code}) is original VTUHub writing. ${sub.credits != null ? `Credits: ${sub.credits}.` : "Credits: not available in our data yet, so check the official scheme."} Programme: ${br}. Term: ${semesterName(sub.semester)}. Scheme: ${sub.scheme}.`,
       `We do not host the official scheme PDF. Download that from vtu.ac.in and match the subject code on your admission ticket before you trust any module title on this page.`,
       units.length
         ? `The ${sub.scheme} core for ${sub.shortName} is commonly taught as ${units.length} modules: ${units.map((u) => `Unit ${u.number} ${u.title}`).join("; ")}.`
