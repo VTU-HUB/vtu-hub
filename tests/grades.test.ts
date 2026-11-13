@@ -43,6 +43,17 @@ describe("sgpa", () => {
     assert.equal(sgpa([{ credits: 0, letter: "O" }, { credits: 3, letter: "Z" }]).value, 0);
     assert.equal(sgpa([]).value, 0);
   });
+  it("leaves DX AU AB PP NP IC out of SGPA (22OB 6.2) and explains why", () => {
+    const r = sgpa([
+      { credits: 4, letter: "A" },
+      { credits: 3, letter: "DX" },
+      { credits: 2, letter: "AB" },
+      { credits: 1, letter: "PP" },
+    ]);
+    assert.equal(r.value, 8);
+    assert.equal(r.credits, 4);
+    assert.deepEqual(r.excluded.map((e) => e.letter), ["DX", "AB", "PP"]);
+  });
 });
 
 describe("cgpa", () => {
@@ -94,11 +105,13 @@ describe("courseResult (2022 scheme, 50 + 50)", () => {
 });
 
 describe("courseResult (2018 scheme, 40 + 60)", () => {
-  it("uses 16/40 CIE and 21/60 SEE minimums", () => {
+  // 18OB 8.1(b) CIE 40% of 40 = 16; 18OB 8.9(e) SEE 35% of 60 = 21 and total ≥ 40.
+  it("uses 16/40 CIE and 21/60 SEE minimums from 18OB 8.1(b) and 8.9(e)", () => {
     assert.equal(courseResult("40", 30, 21).grade.letter, "C");
     assert.equal(courseResult("40", 30, 20).seeOk, false);
     assert.equal(courseResult("40", 15, 50).cieOk, false);
     assert.equal(courseResult("40", 16, 21).pass, false); // 37 total
+    assert.equal(courseResult("40", 16, 24).pass, true); // 40 total, both minima
   });
 });
 

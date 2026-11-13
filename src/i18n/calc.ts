@@ -45,6 +45,9 @@ const en = {
   attendedTooHigh: "Classes attended cannot be more than classes conducted.",
   obtainedTooHigh: "Marks obtained cannot be more than the maximum marks.",
   negative: "Enter a number that is 0 or more.",
+  specialGrades: "Special (not in SGPA)",
+  sgpaSpecialSkipped: (list: string) =>
+    `Left out of SGPA (VTU 22OB 6.2 — these letters carry no grade points): ${list}.`,
   sgpaRowsSkipped: (n: number, max: number) =>
     `${n} course${n === 1 ? " is" : "s are"} not counted: credits must be between 0 and ${max}.`,
   cgpaRowsSkipped: (n: number) =>
@@ -98,6 +101,8 @@ const kn: CalcStrings = {
   attendedTooHigh: "ಹಾಜರಾದ ತರಗತಿಗಳು ನಡೆದ ತರಗತಿಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇರಲು ಸಾಧ್ಯವಿಲ್ಲ.",
   obtainedTooHigh: "ಪಡೆದ ಅಂಕಗಳು ಗರಿಷ್ಠ ಅಂಕಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇರಲು ಸಾಧ್ಯವಿಲ್ಲ.",
   negative: "0 ಅಥವಾ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.",
+  specialGrades: "ವಿಶೇಷ (SGPA ನಲ್ಲಿ ಸೇರುವುದಿಲ್ಲ)",
+  sgpaSpecialSkipped: (list: string) => `SGPA ನಿಂದ ಬಿಟ್ಟಿದೆ (VTU 22OB 6.2 — ಈ ಅಕ್ಷರಗಳಿಗೆ ಗ್ರೇಡ್ ಪಾಯಿಂಟ್ ಇಲ್ಲ): ${list}.`,
   sgpaRowsSkipped: (n: number, max: number) => `${n} ಕೋರ್ಸ್ ಲೆಕ್ಕಕ್ಕೆ ಸೇರಿಲ್ಲ: ಕ್ರೆಡಿಟ್ 0 ರಿಂದ ${max} ರ ನಡುವೆ ಇರಬೇಕು.`,
   cgpaRowsSkipped: (n: number) => `${n} ಸೆಮಿಸ್ಟರ್ ಲೆಕ್ಕಕ್ಕೆ ಸೇರಿಲ್ಲ: ಕ್ರೆಡಿಟ್ 0 ಕ್ಕಿಂತ ಹೆಚ್ಚು ಮತ್ತು SGPA 0 ರಿಂದ 10 ರ ನಡುವೆ ಇರಬೇಕು.`,
   marksRange: (field: string, max: number) => `${field} 0 ರಿಂದ ${max} ರ ನಡುವೆ ಇರಬೇಕು.`,
@@ -147,6 +152,8 @@ const hi: CalcStrings = {
   attendedTooHigh: "उपस्थित कक्षाएँ आयोजित कक्षाओं से अधिक नहीं हो सकतीं।",
   obtainedTooHigh: "प्राप्त अंक अधिकतम अंकों से अधिक नहीं हो सकते।",
   negative: "0 या उससे अधिक संख्या दर्ज करें।",
+  specialGrades: "विशेष (SGPA में नहीं)",
+  sgpaSpecialSkipped: (list: string) => `SGPA से बाहर (VTU 22OB 6.2 — इन अक्षरों के ग्रेड पॉइंट नहीं): ${list}.`,
   sgpaRowsSkipped: (n: number, max: number) => `${n} कोर्स गिने नहीं गए: क्रेडिट 0 से ${max} के बीच होने चाहिए।`,
   cgpaRowsSkipped: (n: number) => `${n} सेमेस्टर गिने नहीं गए: क्रेडिट 0 से अधिक और SGPA 0 से 10 के बीच होना चाहिए।`,
   marksRange: (field: string, max: number) => `${field} 0 से ${max} के बीच होना चाहिए।`,

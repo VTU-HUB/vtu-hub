@@ -17,25 +17,52 @@ export const GRADE_SCALE = [
 export type Grade = (typeof GRADE_SCALE)[number];
 const FAIL = GRADE_SCALE[GRADE_SCALE.length - 1];
 
+/**
+ * Extra letters from VTU B.E./B.Tech Regulations 2022, clause 22OB 6.2.
+ * None of these carry grade points or enter SGPA/CGPA. The calculator lists them
+ * so a student can record the grade card, then explains why the row is left out.
+ * Source: https://vtu.ac.in/wp-content/uploads/2023/04/BE-BTech-Regulations-2022-05.04.2023-1.pdf
+ */
+export const SPECIAL_GRADES = [
+  { letter: "DX", label: "Attendance below 75% — repeat the course", inSgpa: false },
+  { letter: "AU", label: "Audit course, satisfactory", inSgpa: false },
+  { letter: "AB", label: "Absent from the SEE", inSgpa: false },
+  { letter: "PP", label: "Passed a non-credit course", inSgpa: false },
+  { letter: "NP", label: "Not passed a non-credit course", inSgpa: false },
+  { letter: "IC", label: "Incomplete (placeholder until SEE is cleared)", inSgpa: false },
+] as const;
+
+export const SGPA_LETTERS = [...GRADE_SCALE.map((g) => g.letter), ...SPECIAL_GRADES.map((g) => g.letter)] as const;
+
 const finite = (n: number) => (Number.isFinite(n) ? n : 0);
 
 export function gradeFromMarks(total: number): Grade {
   return GRADE_SCALE.find((g) => finite(total) >= g.min) ?? FAIL;
 }
 
-/** Credit-weighted mean of grade points. Rows with an unknown letter or no credits are skipped. */
+export function specialGrade(letter: string) {
+  return SPECIAL_GRADES.find((g) => g.letter === letter) ?? null;
+}
+
+/** Credit-weighted mean of grade points. Failed (F) credits stay in the denominator. */
 export function sgpa(courses: { credits: number; letter: string }[]) {
   let points = 0;
   let credits = 0;
+  const excluded: { letter: string; reason: string }[] = [];
   for (const c of courses) {
-    const g = GRADE_SCALE.find((x) => x.letter === c.letter);
     const cr = finite(c.credits);
+    const spec = specialGrade(c.letter);
+    if (spec) {
+      excluded.push({ letter: spec.letter, reason: spec.label });
+      continue;
+    }
+    const g = GRADE_SCALE.find((x) => x.letter === c.letter);
     if (g && cr > 0) {
       points += cr * g.point;
       credits += cr;
     }
   }
-  return { value: credits === 0 ? 0 : points / credits, points, credits };
+  return { value: credits === 0 ? 0 : points / credits, points, credits, excluded };
 }
 
 /** Credit-weighted mean of semester SGPAs. */
@@ -73,9 +100,11 @@ export const MARK_SPLITS = {
 } as const;
 
 /**
- * Course result under the VTU pass rules: at least 40% of the CIE maximum,
- * at least 35% of the SEE maximum, and at least 40/100 overall. Failing any
- * one of them is an F regardless of the total.
+ * Theory-course result. 2022 (50+50): CIE ≥ 40% of 50, SEE ≥ 35% of 50, total ≥ 40
+ * (Regulations 2022). 2018 (40+60): CIE ≥ 40% of 40 = 16 (18OB 8.1(b)), SEE ≥ 35%
+ * of 60 = 21 and total ≥ 40 (18OB 8.9(e)). Practical CIE 50% in 2018 is a separate
+ * rule and is not this helper.
+ * Source 2018: https://vtu.ac.in/wp-content/uploads/2019/03/be201819.pdf
  */
 export function courseResult(split: keyof typeof MARK_SPLITS, cie: number, see: number) {
   const { cieMax, seeMax } = MARK_SPLITS[split];

@@ -23,7 +23,8 @@ notes, PDFs, read-aloud, calculators and VTU notices, all in one place.
 ## Features
 
 - **All 2022-scheme programmes and subjects**: course codes, titles, credits and
-  elective slots, read from VTU's official scheme PDFs. The 2025 scheme is not covered yet.
+  elective slots, read from VTU's official scheme PDFs. 2025 first-year codes are listed
+  on `/schemes/2025`; they are not mixed into 2022 pages. Live counts: `/coverage`.
 - **Official syllabus**: modules, outcomes and books where the syllabus PDF could be
   parsed. Not every course has usable module text yet.
 - **Module-wise notes**: 13 hand-written subjects so far (mostly CSE). Other courses

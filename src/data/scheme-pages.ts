@@ -9,6 +9,26 @@ export const schemePages: Record<
     sections: { heading: string; paragraphs: string[] }[];
   }
 > = {
+  "2025": {
+    cieSee: "First-year theory on the published 2025 papers is typically 50 CIE + 50 SEE.",
+    codes: "1BMATS101, 1BMATC101, 1BMATM101, 1BMATE101 and other 1B-prefix codes.",
+    who: "Students admitted from 2025–26. Confirm the year on the admission ticket.",
+    sections: [
+      {
+        heading: "What VTUHub covers for 2025",
+        paragraphs: [
+          "VTU has published 2025-scheme PDFs for first year and for some 3rd–8th semester programmes. This site lists first-year 2025 course codes from the official scheme page and links to vtu.ac.in. It does not yet parse those PDFs into subject pages.",
+          "2025 codes are not mixed into 2022 branch–semester lists. If your ticket says 2025 scheme, use the official PDFs until this catalogue is complete.",
+        ],
+      },
+      {
+        heading: "Where to read the official documents",
+        paragraphs: [
+          "The university index is vtu.ac.in/b-e-scheme-syllabus/. The 2025 B.E./B.Tech regulations PDF is published by VTU and is the document that counts for CIE, SEE and attendance.",
+        ],
+      },
+    ],
+  },
   "2022": {
     cieSee: "Most theory papers: 50 CIE + 50 SEE.",
     codes: "BCS, BIS, BEC, BEE, BME, BCV and other Bxx prefixes.",

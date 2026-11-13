@@ -43,7 +43,7 @@ export const faqs: { q: string; a: string[] }[] = [
   {
     q: "Which scheme am I on — 2018, 2021 or 2022?",
     a: [
-      "The scheme is printed on your exam admission ticket and on the scheme PDF. 2022-scheme theory is commonly 50 CIE + 50 SEE with Bxx codes. 2018-scheme papers were often 40 + 60 with 18xx codes.",
+      "The scheme is printed on your exam admission ticket and on the scheme PDF. 2022-scheme theory is commonly 50 CIE + 50 SEE with Bxx codes. 2025-scheme first-year papers use 1B-prefix codes (1BMATS101) and are listed on the 2025 scheme page, not inside 2022 branch lists. 2018-scheme papers were often 40 + 60 with 18xx codes.",
       "Mixing splits in the marks calculator will give you the wrong total.",
     ],
   },

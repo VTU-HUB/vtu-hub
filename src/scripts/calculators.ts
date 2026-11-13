@@ -5,6 +5,7 @@ import {
   courseResult,
   GRADE_SCALE,
   MARK_SPLITS,
+  SPECIAL_GRADES,
   percentage,
   percentageError,
   sgpa as sgpaOf,
@@ -25,7 +26,7 @@ import {
 import { calcStrings } from "@/i18n/calc";
 
 const S = calcStrings();
-const LETTERS = GRADE_SCALE.map((g) => g.letter);
+const LETTERS = [...GRADE_SCALE.map((g) => g.letter), ...SPECIAL_GRADES.map((g) => g.letter)];
 
 /**
  * Calculator inputs persist in this browser only (localStorage); nothing is sent anywhere.
@@ -108,7 +109,10 @@ function mountSgpa(root: HTMLElement) {
     result.value.textContent = s.value.toFixed(2);
     if (result.hint) result.hint.textContent = S.sgpaHint(s.points, s.credits);
     const bad = badSgpaRows(rows);
-    warn.textContent = bad ? S.sgpaRowsSkipped(bad, COURSE_CREDITS.max) : "";
+    const special = s.excluded.length
+      ? S.sgpaSpecialSkipped(s.excluded.map((e) => `${e.letter} (${e.reason})`).join("; "))
+      : "";
+    warn.textContent = [bad ? S.sgpaRowsSkipped(bad, COURSE_CREDITS.max) : "", special].filter(Boolean).join(" ");
   };
   const paint = () => {
     list.replaceChildren();
@@ -133,12 +137,24 @@ function mountSgpa(root: HTMLElement) {
       });
       const letter = el("select", inputClass) as HTMLSelectElement;
       letter.setAttribute("aria-label", S.letterGrade);
+      const scale = el("optgroup") as HTMLOptGroupElement;
+      scale.label = S.letterGrade;
       for (const g of GRADE_SCALE) {
         const opt = el("option", "", g.letter) as HTMLOptionElement;
         opt.value = g.letter;
         if (g.letter === row.letter) opt.selected = true;
-        letter.append(opt);
+        scale.append(opt);
       }
+      letter.append(scale);
+      const extra = el("optgroup") as HTMLOptGroupElement;
+      extra.label = S.specialGrades;
+      for (const g of SPECIAL_GRADES) {
+        const opt = el("option", "", `${g.letter} — ${g.label}`) as HTMLOptionElement;
+        opt.value = g.letter;
+        if (g.letter === row.letter) opt.selected = true;
+        extra.append(opt);
+      }
+      letter.append(extra);
       letter.addEventListener("change", () => {
         row.letter = letter.value;
         update();

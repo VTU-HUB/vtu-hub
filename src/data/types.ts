@@ -4,7 +4,7 @@ export type BranchSlug = string;
 /** First-year engineering stream on the 2022 scheme. */
 export type StreamKey = "cs" | "ee" | "me" | "cv" | "other";
 
-export type SchemeYear = "2022" | "2021" | "2018";
+export type SchemeYear = "2025" | "2022" | "2021" | "2018";
 
 export type ResourceType =
   "notes" | "question-papers" | "syllabus" | "lab-manuals" | "important-questions";

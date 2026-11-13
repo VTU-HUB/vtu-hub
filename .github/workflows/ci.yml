@@ -28,6 +28,7 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run validate:data
+      - run: node scripts/vtu/exceptions.mjs --check
       - run: npm test
       - run: npm run build
       - run: npm run check:seo

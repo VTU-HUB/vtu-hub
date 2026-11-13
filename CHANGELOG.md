@@ -7,6 +7,14 @@ listed.
 
 ## [Unreleased]
 
+### Added
+
+- `/coverage` reports live counts of programmes, credits, syllabus modules, notes and
+  generated guides. `/schemes/2025` lists first-year 2025 codes from vtu.ac.in without
+  mixing them into 2022 subject pages.
+- SGPA calculator lists DX, AU, AB, PP, NP and IC (22OB 6.2) and leaves them out of the
+  average with an explanation.
+
 ### Changed
 
 - Generated practice and “important question” pages are labelled as selected

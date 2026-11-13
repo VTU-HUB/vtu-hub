@@ -11,7 +11,7 @@ export function getStaticPaths() {
 
 const tool = tools.find((t) => t.slug === Astro.params.slug)!;
 const answers: Record<string, string> = {
-  sgpa: "SGPA = Σ (credits × grade points) / Σ credits for that semester. Failed papers stay in the denominator until you clear them. The 10-point scale runs from O (10) to F (0).",
+  sgpa: "SGPA = Σ (credits × grade points) / Σ credits for that semester. Failed papers (F) stay in the denominator until you clear them. DX, AU, AB, PP, NP and IC (VTU 22OB 6.2) carry no grade points and are left out of the average. The 10-point scale runs from O (10) to F (0).",
   cgpa: "CGPA = Σ (semester credits × SGPA) / Σ semester credits. For the 2022 scheme, VTU's Regulations (clause 22OB 6.7) give percentage = CGPA × 10, so a CGPA of 8.20 is 82.0%. VTU notes this is a conversion that may be used for jobs and higher studies, not a separate formula; your grade card is the official record.",
   marks: "Add CIE and SEE, cap the total at 100, then map it to the VTU letter grade. A common pass line is 40. Use 50+50 for the 2022 scheme and 40+60 for 2018.",
   attendance: "Attendance % = classes attended / classes conducted. VTU's 2022 regulations require 85% in each course, with limited condonation only as that regulation allows. If your college notice is stricter, follow that.",

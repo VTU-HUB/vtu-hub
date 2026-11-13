@@ -145,10 +145,16 @@ export function branchesByStream() {
 
 export const schemes: Scheme[] = [
   {
+    year: "2025",
+    name: "2025 Scheme",
+    description:
+      "New scheme from 2025–26. First-year papers use 1B-prefix codes (1BMATS101). VTUHub lists those codes and official PDFs; 3rd–8th semester 2025 subjects are not in the catalogue yet and are not mixed with 2022 pages.",
+  },
+  {
     year: "2022",
     name: "2022 Scheme",
     description:
-      "Current scheme for most VTU programmes. Theory papers typically use 50 CIE + 50 SEE. Subject codes use the Bxx prefix (BCS, BIS, BEC, BEE, BME, BCV).",
+      "Fully catalogued scheme for every B.E./B.Tech programme on VTUHub. Theory papers typically use 50 CIE + 50 SEE. Subject codes use the Bxx prefix (BCS, BIS, BEC, BEE, BME, BCV).",
   },
   {
     year: "2021",

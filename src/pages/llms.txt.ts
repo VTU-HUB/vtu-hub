@@ -22,6 +22,7 @@ export function GET() {
     `- [Browse](${absUrl("/vtu")})`,
     `- [Semesters](${absUrl("/semesters")})`,
     `- [Schemes](${absUrl("/schemes")})`,
+    `- [Coverage](${absUrl("/coverage")})`,
     `- [FAQ](${absUrl("/faq")})`,
     `- [Tools](${absUrl("/tools")})`,
     "",
