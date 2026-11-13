@@ -9,6 +9,15 @@ listed.
 
 ### Changed
 
+- Generated practice and “important question” pages are labelled as selected
+  syllabus-derived prompts, not exhaustive coverage or official PYQs.
+- Privacy policy matches the live config: no ad slots render, and the Google tag
+  is a GTM container (`GTM-…`), not a claimed GA4 Measurement ID.
+- Search ranks an exact subject code above a partial title match.
+- Sitemap index no longer stamps today's date on every rebuild.
+- README and FAQ state 2022-scheme coverage, notes vs generated guides, and that
+  the 2025 scheme is not in the catalogue yet.
+- Attendance copy cites the 2022 regulation 85% minimum rather than “many colleges”.
 - GitHub links (footer, Contribute, schema, clone URLs, issue templates) now point to
   [`VTU-HUB/vtu-hub`](https://github.com/VTU-HUB/vtu-hub).
 

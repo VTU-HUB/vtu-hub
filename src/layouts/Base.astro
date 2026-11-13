@@ -134,7 +134,7 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
     {siteVerification.bing ? <meta name="msvalidate.01" content={siteVerification.bing} /> : null}
     {siteVerification.yandex ? <meta name="yandex-verification" content={siteVerification.yandex} /> : null}
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    {analyticsConfig.ga4MeasurementId.startsWith("GTM-") ? (
+    {analyticsConfig.googleTagId.startsWith("GTM-") ? (
       <>
         {/* Google Tag Manager container. The gtm.start / gtm.js event is what GTM's
             "All Pages" trigger listens for, so it must be pushed before gtm.js loads. */}
@@ -144,12 +144,12 @@ const adsOn = adsConfig.enabled && (Boolean(clientId) || adsConfig.showPlacehold
           function gtag() { dataLayer.push(arguments); }
           gtag("js", new Date());
         </script>
-        <script async is:inline src={`https://www.googletagmanager.com/gtm.js?id=${analyticsConfig.ga4MeasurementId}`}></script>
+        <script async is:inline src={`https://www.googletagmanager.com/gtm.js?id=${analyticsConfig.googleTagId}`}></script>
       </>
-    ) : analyticsConfig.ga4MeasurementId ? (
+    ) : analyticsConfig.googleTagId ? (
       <>
-        <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.ga4MeasurementId}`}></script>
-        <script is:inline define:vars={{ gaId: analyticsConfig.ga4MeasurementId }}>
+        <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.googleTagId}`}></script>
+        <script is:inline define:vars={{ gaId: analyticsConfig.googleTagId }}>
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
           gtag("js", new Date());

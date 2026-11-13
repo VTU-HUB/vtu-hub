@@ -1,5 +1,10 @@
 # VTUHub quality audit — Phase 0 baseline
 
+**This file is a historical baseline**, measured at commit `f0d919e` on 13 November 2026.
+Do not treat its counts (missing credits, BPOPS103, page totals, CI steps) as current.
+Later work landed as Phase A (`dc3b0c9` / PR #9) and Phase B (`a1f13f6` / PR #10).
+Live figures: `npm run validate:data` and `docs/ACADEMIC_EXCEPTIONS.md`.
+
 Audit date: 13 November 2026 · Commit audited: `f0d919e` (main, after #5) ·
 Method: source inspection, a fresh local build, scripts run against `dist/`, and spot
 checks on the live site (https://vtuhub.site) in a browser.
