@@ -106,12 +106,14 @@ function mountSgpa(root: HTMLElement) {
   const update = () => {
     save("sgpa", rows);
     const s = sgpaOf(rows.filter((r) => inRange(r.credits, COURSE_CREDITS)));
-    result.value.textContent = s.value.toFixed(2);
-    if (result.hint) result.hint.textContent = S.sgpaHint(s.points, s.credits);
+    result.value.textContent = s.incomplete || s.value == null ? "—" : s.value.toFixed(2);
+    if (result.hint) result.hint.textContent = s.incomplete ? "" : S.sgpaHint(s.points, s.credits);
     const bad = badSgpaRows(rows);
-    const special = s.excluded.length
-      ? S.sgpaSpecialSkipped(s.excluded.map((e) => `${e.letter} (${e.reason})`).join("; "))
-      : "";
+    const special = s.incomplete
+      ? S.sgpaIncomplete(s.excluded.filter((e) => e.letter === "AB").map((e) => e.reason).join("; "))
+      : s.excluded.length
+        ? S.sgpaSpecialSkipped(s.excluded.map((e) => `${e.letter} (${e.reason})`).join("; "))
+        : "";
     warn.textContent = [bad ? S.sgpaRowsSkipped(bad, COURSE_CREDITS.max) : "", special].filter(Boolean).join(" ");
   };
   const paint = () => {

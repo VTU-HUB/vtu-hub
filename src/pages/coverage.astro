@@ -15,7 +15,8 @@ const rows = [
   ["Codes with parsed course outcomes", c.withOutcomes.toLocaleString("en-IN")],
   ["Codes with prescribed textbooks", c.withBooks.toLocaleString("en-IN")],
   ["Hand-written notes files", String(c.notes)],
-  ["Subjects with a generated study guide", c.generatedGuides.toLocaleString("en-IN")],
+  ["Canonical subjects with at least one generated guide", c.generatedGuides.toLocaleString("en-IN")],
+  ["Generated guide files (syllabus / practice / lab / module)", c.generatedFiles.toLocaleString("en-IN")],
 ];
 ---
 <Base

@@ -7,6 +7,14 @@ listed.
 
 ## [Unreleased]
 
+### Fixed
+
+- SGPA no longer treats every special letter the same: DX/AU/PP/NP/IC/W exclude
+  credits under 22OB 6.2; AB does not print an SGPA because 22OB 6.6 is unresolved.
+- Marks calculator is labelled theory-only (2022 50+50, 2018 40+60).
+- Coverage counts generated guides from the actual resource list, and syllabus
+  modules/outcomes/books only for codes in the current catalogue.
+
 ### Added
 
 - `/coverage` reports live counts of programmes, credits, syllabus modules, notes and

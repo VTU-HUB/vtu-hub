@@ -1,0 +1,54 @@
+name: Deploy
+
+# Cloudflare Workers Builds may also deploy from main. This job is the repo-owned
+# path: it runs only when CLOUDFLARE_API_TOKEN is set, after CI-equivalent checks
+# are not duplicated here — GitHub's CI workflow already gated the push.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Skip when no Cloudflare token
+        id: gate
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "No CLOUDFLARE_API_TOKEN; Workers Builds must deploy main."; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        if: steps.gate.outputs.skip != 'true'
+      - run: npm run build
+        if: steps.gate.outputs.skip != 'true'
+      - uses: cloudflare/wrangler-action@v3
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+      - name: Smoke live site
+        if: steps.gate.outputs.skip != 'true'
+        env:
+          SMOKE_SHA: ${{ github.sha }}
+        run: |
+          sleep 20
+          node scripts/smoke-live.mjs

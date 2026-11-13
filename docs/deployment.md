@@ -16,8 +16,22 @@ The `astro.config.mjs` integrations also produce:
 
 ## Hosting
 
-Cloudflare Workers static assets ([wrangler.jsonc](../wrangler.jsonc)). Pushing to
-`main` deploys.
+Cloudflare Workers static assets ([wrangler.jsonc](../wrangler.jsonc)). Production
+should track `VTU-HUB/vtu-hub` `main`.
+
+Two deploy paths (either is enough if it tracks this repo):
+
+1. **Cloudflare Workers Builds** (dashboard): GitHub app connected to `VTU-HUB/vtu-hub`,
+   production branch `main`, build command `npm run build`, output `dist`.
+2. **Repo workflow** [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml):
+   needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets.
+
+After a deploy, `https://vtuhub.site/version.json` must show the same `sha` as
+`git rev-parse HEAD` on `main`. Check with `npm run smoke:live` (optional
+`SMOKE_SHA=<sha>`). [`.github/workflows/smoke.yml`](../.github/workflows/smoke.yml)
+runs that script on a schedule.
+
+Recommended Cloudflare settings (done in the Cloudflare dashboard):
 
 Recommended Cloudflare settings (done in the Cloudflare dashboard):
 
@@ -38,5 +52,16 @@ Recommended Cloudflare settings (done in the Cloudflare dashboard):
 
 ## CI
 
-[.github/workflows/ci.yml](../.github/workflows/ci.yml) runs lint, typecheck, tests,
-build and the SEO check on every pull request.
+[.github/workflows/ci.yml](../.github/workflows/ci.yml) on every pull request and on
+`main`:
+
+```
+npm run lint
+npm run typecheck
+npm run validate:data
+node scripts/vtu/exceptions.mjs --check
+npm test
+npm run build
+npm run check:seo
+npm run audit:routes
+```

@@ -60,14 +60,19 @@ their semester page through `src/data/vtu/legacy-urls.json`.
 New in the data because VTU's page now lists them: the **biomedical** and **aeronautical**
 programmes.
 
-## Known gaps (warnings, 13 November 2026)
+## Known gaps (14 November 2026)
 
-| Warning | Count | Notes |
+Live counts live in [`docs/ACADEMIC_EXCEPTIONS.md`](ACADEMIC_EXCEPTIONS.md) (regenerated
+from `scripts/vtu/exceptions.json`). Do not use the table below as current; it is a
+snapshot of how the warnings were classified.
+
+| Warning | Open in the register | Notes |
 | --- | ---: | --- |
-| No credits parsed | 76 | Mostly silk-technology (18), first-year streams (17), textile (16), chemical (8) |
-| Same code printed with different titles | 39 | e.g. `Basics of JAVA programming` vs `Basics to JAVA programming` (VTU's own PDFs differ) |
-| Placeholder syllabus module titles | 6 | e.g. BKBKK107 modules titled "1" |
-| Credits differ between PDFs | 1 | BBOK407: 3 vs 2 |
+| No credits parsed | 1 | Most former cases were elective options whose slot prints credits once (`not-in-source`). **BESCK203** (Introduction to Electronics Engineering, first-year EE stream) is still open — no credit was read and the stream PDF URL is empty. |
+| Same code printed with different titles | 39 | VTU's own PDFs differ (e.g. JAVA wording). Not auto-picked. |
+| Placeholder syllabus module titles | 6 | e.g. BKBKK107 modules titled "1". Need a human vs the syllabus PDF. |
+| Credits differ between PDFs | 0 open | **BBOK407** is `confirmed-in-source`: 2 credits on CS-stream PDFs, 3 on other programme PDFs. |
 
 Smart Agritech's 7th/8th-semester PDFs return HTTP 404 on vtu.ac.in; its earlier courses are
-kept until VTU restores them.
+kept until VTU restores them. The 2022 catalogue is therefore not complete for every
+programme.

@@ -19,17 +19,68 @@ const FAIL = GRADE_SCALE[GRADE_SCALE.length - 1];
 
 /**
  * Extra letters from VTU B.E./B.Tech Regulations 2022, clause 22OB 6.2.
- * None of these carry grade points or enter SGPA/CGPA. The calculator lists them
- * so a student can record the grade card, then explains why the row is left out.
+ * Grade point, SGPA credits and CGPA credits are modelled separately. Where 22OB 6.6
+ * does not say how a letter enters the SGPA denominator, `sgpaCredits` is "unresolved"
+ * and the calculator must not print an SGPA.
  * Source: https://vtu.ac.in/wp-content/uploads/2023/04/BE-BTech-Regulations-2022-05.04.2023-1.pdf
  */
 export const SPECIAL_GRADES = [
-  { letter: "DX", label: "Attendance below 75% — repeat the course", inSgpa: false },
-  { letter: "AU", label: "Audit course, satisfactory", inSgpa: false },
-  { letter: "AB", label: "Absent from the SEE", inSgpa: false },
-  { letter: "PP", label: "Passed a non-credit course", inSgpa: false },
-  { letter: "NP", label: "Not passed a non-credit course", inSgpa: false },
-  { letter: "IC", label: "Incomplete (placeholder until SEE is cleared)", inSgpa: false },
+  {
+    letter: "DX",
+    label: "Attendance below 75% — repeat the course",
+    gradePoint: 0,
+    sgpaCredits: "exclude",
+    cgpaCredits: "exclude",
+    clause: "22OB 6.2: 0 grade points; credits are not included in CGPA",
+  },
+  {
+    letter: "AU",
+    label: "Audit course, satisfactory",
+    gradePoint: 0,
+    sgpaCredits: "exclude",
+    cgpaCredits: "exclude",
+    clause: "22OB 3.2.4 / 6.2: AU does not figure in SGPA or CGPA",
+  },
+  {
+    letter: "AB",
+    label: "Absent from SEE",
+    gradePoint: null,
+    sgpaCredits: "unresolved",
+    cgpaCredits: "unresolved",
+    clause: "22OB 6.2 names AB; 22OB 6.6 does not say whether those credits enter the SGPA denominator",
+  },
+  {
+    letter: "PP",
+    label: "Passed a non-credit course",
+    gradePoint: 0,
+    sgpaCredits: "exclude",
+    cgpaCredits: "exclude",
+    clause: "22OB 6.2: non-credit course",
+  },
+  {
+    letter: "NP",
+    label: "Not passed a non-credit course",
+    gradePoint: 0,
+    sgpaCredits: "exclude",
+    cgpaCredits: "exclude",
+    clause: "22OB 6.2: non-credit course",
+  },
+  {
+    letter: "IC",
+    label: "Incomplete (placeholder until SEE is cleared)",
+    gradePoint: null,
+    sgpaCredits: "exclude",
+    cgpaCredits: "exclude",
+    clause: "22OB 6.2: no credits; converted after SEE or to F",
+  },
+  {
+    letter: "W",
+    label: "Withdrawn / dropped course",
+    gradePoint: null,
+    sgpaCredits: "exclude",
+    cgpaCredits: "exclude",
+    clause: "22OB 6.2: dropped/withdrawn placeholder with no credits",
+  },
 ] as const;
 
 export const SGPA_LETTERS = [...GRADE_SCALE.map((g) => g.letter), ...SPECIAL_GRADES.map((g) => g.letter)] as const;
@@ -48,12 +99,14 @@ export function specialGrade(letter: string) {
 export function sgpa(courses: { credits: number; letter: string }[]) {
   let points = 0;
   let credits = 0;
+  let incomplete = false;
   const excluded: { letter: string; reason: string }[] = [];
   for (const c of courses) {
     const cr = finite(c.credits);
     const spec = specialGrade(c.letter);
     if (spec) {
-      excluded.push({ letter: spec.letter, reason: spec.label });
+      excluded.push({ letter: spec.letter, reason: spec.clause });
+      if (spec.sgpaCredits === "unresolved") incomplete = true;
       continue;
     }
     const g = GRADE_SCALE.find((x) => x.letter === c.letter);
@@ -62,7 +115,13 @@ export function sgpa(courses: { credits: number; letter: string }[]) {
       credits += cr;
     }
   }
-  return { value: credits === 0 ? 0 : points / credits, points, credits, excluded };
+  return {
+    value: incomplete ? null : credits === 0 ? 0 : points / credits,
+    points,
+    credits,
+    excluded,
+    incomplete,
+  };
 }
 
 /** Credit-weighted mean of semester SGPAs. */
