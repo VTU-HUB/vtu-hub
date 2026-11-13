@@ -17,6 +17,7 @@
     "format": "prettier --write .",
     "check:seo": "node scripts/check-seo.mjs",
     "audit:routes": "node scripts/audit-routes.mjs",
+    "sync:contributors": "node scripts/sync-contributors.mjs",
     "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {

@@ -7,6 +7,16 @@ listed.
 
 ## [Unreleased]
 
+### Added
+
+- A "Thank you, contributors" section at the bottom of the home page (English, Kannada,
+  Hindi) and a `/contributors` page listing everyone who has contributed, sortable by
+  contributions, most recent, notes, lines changed or name. Each person has a
+  `/contributors/<github-username>` page with their notes, areas and every commit
+  (`noindex`, as it is mostly a list). Data comes from git history at build time,
+  bots and AI tools excluded, with no email addresses published; `npm run
+  sync:contributors` refreshes the snapshot used on shallow clones.
+
 ### Fixed (course data)
 
 - BPOPS103 / BPOPS203 Principles of Programming Using C now have pages, so the BPOPS103

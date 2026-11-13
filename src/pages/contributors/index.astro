@@ -1,0 +1,75 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import Avatar from "@/components/site/Avatar.astro";
+import { contributorPath, contributors } from "@/data/contributors";
+
+const total = contributors.length;
+const commits = contributors.reduce((n, c) => n + c.commits, 0);
+const notes = new Set(contributors.flatMap((c) => c.notes)).size;
+const fmt = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+const plural = (n: number, one: string, many = `${one}s`) => `${n.toLocaleString("en-IN")} ${n === 1 ? one : many}`;
+const sorts = [
+  { by: "commits", dir: "desc", type: "number", label: "Most contributions" },
+  { by: "last", dir: "desc", type: "text", label: "Most recent" },
+  { by: "notes", dir: "desc", type: "number", label: "Most notes" },
+  { by: "lines", dir: "desc", type: "number", label: "Most lines changed" },
+  { by: "name", dir: "asc", type: "text", label: "Name A–Z" },
+];
+const chip =
+  "inline-flex min-h-10 items-center rounded-lg border bg-surface px-3 text-sm font-medium hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary";
+---
+<Base
+  title="VTUHub Contributors: Thank You"
+  description={`The ${plural(total, "person", "people")} who wrote notes, fixed course data and built VTUHub, with every contribution they made. Open source on GitHub.`}
+  path="/contributors"
+  crumbs={[{ label: "Contributors", href: "/contributors" }]}
+>
+  <Crumbs items={[{ label: "Contributors" }]} />
+  <PageHeader
+    title="Thank you, contributors"
+    answer={`VTUHub is open source. ${plural(total, "person has", "people have")} made ${plural(commits, "contribution")} so far, including notes for ${plural(notes, "subject")}. Open a name to see everything that person changed.`}
+  />
+
+  <div data-sort-root>
+    <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Sort contributors">
+      <span class="mr-1 text-sm text-muted">Sort by</span>
+      {sorts.map((s, i) => (
+        <button type="button" class={chip} data-sort-by={s.by} data-sort-dir={s.dir} data-sort-type={s.type} aria-pressed={i === 0 ? "true" : "false"}>
+          {s.label}
+        </button>
+      ))}
+    </div>
+
+    <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-sort-list>
+      {contributors.map((c, i) => (
+        <li data-order={i} data-commits={c.commits} data-last={c.last} data-notes={c.notes.length} data-lines={c.additions + c.deletions} data-name={c.name}>
+          <a href={contributorPath(c)} class="group flex h-full min-w-0 items-center gap-4 rounded-xl border bg-surface p-4 transition hover:border-primary hover:shadow-sm">
+            <Avatar person={c} size={48} />
+            <span class="min-w-0 flex-1">
+              <span class="block truncate font-semibold group-hover:text-primary">{c.name}</span>
+              {c.login ? <span class="block truncate text-xs text-faint">@{c.login}</span> : null}
+              <span class="mt-1 block text-sm text-muted">
+                {plural(c.commits, "contribution")}{c.notes.length ? ` · ${plural(c.notes.length, "note")}` : ""}
+              </span>
+              <span class="block text-xs text-faint">Last: {fmt(c.last)}</span>
+            </span>
+            <span class="text-faint group-hover:text-primary" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <div class="mt-10 max-w-3xl rounded-xl border bg-surface p-5">
+    <h2 class="font-semibold">Want your name here?</h2>
+    <p class="mt-1 text-sm text-muted">Fix a note, write notes for a subject or report wrong course data. Every change merged on GitHub is listed here at the next build.</p>
+    <a class="mt-3 inline-flex h-10 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary-hover" href="/contribute">How to contribute</a>
+  </div>
+  <script>
+    import { mountSortLists } from "@/scripts/sort-list.ts";
+    mountSortLists();
+  </script>
+</Base>

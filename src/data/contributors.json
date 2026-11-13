@@ -1,0 +1,572 @@
+[
+  {
+    "slug": "nishanth-kj",
+    "name": "Nishanth",
+    "login": "nishanth-kj",
+    "githubId": "138886231",
+    "commits": 42,
+    "additions": 121537,
+    "deletions": 85383,
+    "notes": [
+      "BCS301",
+      "BCS302",
+      "BCS303",
+      "BCS304",
+      "BCS401",
+      "BCS402",
+      "BCS403",
+      "BCS501",
+      "BCS502",
+      "BCS503",
+      "BCS601",
+      "BCS602",
+      "BPOPS103"
+    ],
+    "areas": {
+      "notes": 6,
+      "data": 19,
+      "code": 39,
+      "docs": 10
+    },
+    "first": "2026-09-06",
+    "last": "2026-11-13",
+    "history": [
+      {
+        "sha": "9d21338b75d6d3cbd55c4baa673c6607068970a0",
+        "date": "2026-11-13",
+        "subject": "fix(data): accurate course data from VTU's scheme PDFs, validated in CI (#7)",
+        "additions": 3184,
+        "deletions": 1028,
+        "files": 12,
+        "areas": [
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "da9aeb89000072e28b88388a62e8ef0d26b8a91b",
+        "date": "2026-11-13",
+        "subject": "docs: Phase 0 quality audit and a route inventory script (#6)",
+        "additions": 390,
+        "deletions": 0,
+        "files": 3,
+        "areas": [
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "f0d919e4b20f1f5a41737907680b75bb7672ab31",
+        "date": "2026-11-13",
+        "subject": "feat(seo): \"VTU Hub\" brand signals and clean, unique subject titles (#5)",
+        "additions": 146,
+        "deletions": 23,
+        "files": 9,
+        "areas": [
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "0ca5e69bc6580e2a631be52011f0c7c558f44dd3",
+        "date": "2026-11-12",
+        "subject": "Remove semester-first navigation",
+        "additions": 0,
+        "deletions": 1,
+        "files": 1,
+        "areas": [
+          "data"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "15cc765de394cd5c78f81b30def100de921be7d8",
+        "date": "2026-11-12",
+        "subject": "Make branch selection the first step in home finder",
+        "additions": 5,
+        "deletions": 27,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "393a145f25cc05aac74125a6761e946cfacdaa40",
+        "date": "2026-11-12",
+        "subject": "Remove semester-first footer link",
+        "additions": 0,
+        "deletions": 1,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "46178c31409253b89301800f1d3d6d3fbfdc893a",
+        "date": "2026-11-12",
+        "subject": "Remove semester-first links from translated branch browser",
+        "additions": 3,
+        "deletions": 12,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "471027e264d27f3cc6efb14d298a6f1ba894054e",
+        "date": "2026-11-12",
+        "subject": "Redirect legacy semester-first URLs to branch browser",
+        "additions": 1,
+        "deletions": 34,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "4b81ee5478541f2b4c82acd2ad0d9d1f25ffa962",
+        "date": "2026-11-12",
+        "subject": "fix: notes accuracy review, calculator input bugs, PDF structure and symbols, syllabus cleanup",
+        "additions": 1214,
+        "deletions": 784,
+        "files": 22,
+        "areas": [
+          "notes",
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "4be95484407a77793286866537ddc2ea14d863b0",
+        "date": "2026-11-12",
+        "subject": "Redirect old semester-first index to branch browser",
+        "additions": 1,
+        "deletions": 18,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "507490506956f87861fcbd63557ef641123f90ac",
+        "date": "2026-11-12",
+        "subject": "feat: module-wise PDFs with in-site viewer, read-aloud, visual notes; open-source docs",
+        "additions": 3543,
+        "deletions": 419,
+        "files": 45,
+        "areas": [
+          "notes",
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "55b8a15674ee65c8552c94d9e6e792436d608edc",
+        "date": "2026-11-12",
+        "subject": "Add GitHub Sponsors funding configuration",
+        "additions": 3,
+        "deletions": 0,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "5a41a1d39ff6e3bf0616808b10281f7a1e8ce276",
+        "date": "2026-11-12",
+        "subject": "feat(notes): BPOPS103, BCS601 and BCS301 notes; cleaner first-year module titles",
+        "additions": 1756,
+        "deletions": 246,
+        "files": 7,
+        "areas": [
+          "notes",
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "7b6502e5f08721493b1706cd42243249c5498204",
+        "date": "2026-11-12",
+        "subject": "Remove semester-first section from VTU browser",
+        "additions": 3,
+        "deletions": 8,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "8abd213340b442088d1a5bd1c9d4154e2eefeb40",
+        "date": "2026-11-12",
+        "subject": "Add SEO-safe legacy semester redirects",
+        "additions": 21,
+        "deletions": 2,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "8b1cc995c89d9cac2db2258d3513517312bb1554",
+        "date": "2026-11-12",
+        "subject": "feat(notes): BCS501, BCS602 and BCS402 notes; a flow diagram in every module",
+        "additions": 1851,
+        "deletions": 3,
+        "files": 11,
+        "areas": [
+          "notes",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "8d9372cd4a172d75c060d4b362f67656c6ebfbc3",
+        "date": "2026-11-12",
+        "subject": "Remove unsupported head slot from legacy redirect",
+        "additions": 0,
+        "deletions": 1,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "96c7fa9732b7b84f8db426d4e66668b7dfb39127",
+        "date": "2026-11-12",
+        "subject": "Add SEO-safe legacy semester index redirect",
+        "additions": 18,
+        "deletions": 1,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "c34dcb147d11f63755889d987afd826586906c52",
+        "date": "2026-11-12",
+        "subject": "Fix SEO metadata consistency and geographic signals (#4)",
+        "additions": 18,
+        "deletions": 19,
+        "files": 5,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "de8b897c12749e81d5a682b6fc102cedfc03bfb9",
+        "date": "2026-11-12",
+        "subject": "Fix static build for legacy semester redirects",
+        "additions": 8,
+        "deletions": 0,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "e04f52a0ef59219910eafd80d678ff6dc377bc55",
+        "date": "2026-11-12",
+        "subject": "Remove semester-first entry point from VTU browse",
+        "additions": 0,
+        "deletions": 3,
+        "files": 1,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "2f5c65a2456ba0e2ce8af5aba10c05ba8197c8af",
+        "date": "2026-11-11",
+        "subject": "feat(analytics): install the Google tag for the VTUHub GA4 property",
+        "additions": 13,
+        "deletions": 2,
+        "files": 2,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "340e7ba2c8de4022be243d9bac87eebe088633b2",
+        "date": "2026-11-11",
+        "subject": "fix(sync): keep previously discovered syllabus PDFs when the scheme sync runs",
+        "additions": 10,
+        "deletions": 0,
+        "files": 1,
+        "areas": [
+          "data"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "34f0417deabafe1fbf2fc33b4ceb26e5835a87d8",
+        "date": "2026-11-11",
+        "subject": "feat: official VTU data sync, all programmes, live notices and site fixes",
+        "additions": 41199,
+        "deletions": 1789,
+        "files": 64,
+        "areas": [
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "3539106c49d82fabedb6c0ddd5c3a639688f2375",
+        "date": "2026-11-11",
+        "subject": "feat: official syllabus modules, books and links for every course; structured sitemap",
+        "additions": 46438,
+        "deletions": 46,
+        "files": 14,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "3cfc7f0c53daab6587563bf67f98ec77115f74bf",
+        "date": "2026-11-11",
+        "subject": "feat(notes): OS, DBMS and ADA notes; textbooks on notes; notes inside the PDF",
+        "additions": 767,
+        "deletions": 0,
+        "files": 7,
+        "areas": [
+          "notes",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "69bcc9876d3873d1339120c3e21f7b412c10dce4",
+        "date": "2026-11-11",
+        "subject": "data: restore 4th-sem syllabus PDFs for Civil, CSBS and Robotics & AI",
+        "additions": 6,
+        "deletions": 3,
+        "files": 1,
+        "areas": [
+          "data"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "8a41f3d56ebf00be890162ba241b92cff36fc50e",
+        "date": "2026-11-11",
+        "subject": "fix(syllabus): keep full official modules and link each programme's own PDF",
+        "additions": 7910,
+        "deletions": 2213,
+        "files": 15,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "8fc874270d629e03986a55ceed435fab30a80051",
+        "date": "2026-11-11",
+        "subject": "feat: notes PDF download, lighter search, fixed course titles",
+        "additions": 748,
+        "deletions": 118,
+        "files": 18,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "a14f2f33025809466965edd87c07c8f7d9e8b13a",
+        "date": "2026-11-11",
+        "subject": "fix(seo): describe all programmes, not six branches, on hub pages and FAQs (en/kn/hi)",
+        "additions": 10,
+        "deletions": 10,
+        "files": 5,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "ad44053e748cb13a7ee35879256d32f67e12662d",
+        "date": "2026-11-11",
+        "subject": "feat(ui): searchable dropdowns everywhere, themed scrollbars; fix ECE-ACT programme",
+        "additions": 520,
+        "deletions": 8,
+        "files": 8,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "d0990fd4660c1e82a7f282c6fb782335d8801e52",
+        "date": "2026-11-11",
+        "subject": "feat(notes): module-wise study notes system; first notes for BCS304 Data Structures",
+        "additions": 397,
+        "deletions": 0,
+        "files": 5,
+        "areas": [
+          "notes",
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "48de5500584a3e15b525826620d99cbb360dcb3e",
+        "date": "2026-11-10",
+        "subject": "feat(i18n): add Kannada and Hindi pages",
+        "additions": 1544,
+        "deletions": 330,
+        "files": 28,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "947356ac78e33e10dda26bc2cb4e5cab417769bc",
+        "date": "2026-11-10",
+        "subject": "feat(seo): add image alt text, fix icons, and keyword-led VTU titles",
+        "additions": 400,
+        "deletions": 60,
+        "files": 40,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "9fe68569c7e87eb5329f2f75a450483e622a6ac2",
+        "date": "2026-11-10",
+        "subject": "Merge pull request #2 from nishanth-kj/fix/deploy-and-canonical-redirects",
+        "additions": 284,
+        "deletions": 250,
+        "files": 3,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "bd3c7c86941085020fd6c4b36dbfaa7e1dd394ec",
+        "date": "2026-11-10",
+        "subject": "feat(ui): beginner-friendly landing page and simpler navigation",
+        "additions": 335,
+        "deletions": 164,
+        "files": 16,
+        "areas": [
+          "data",
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "9ad0b593356f4ee40adb9c07e1e8924cfcb08681",
+        "date": "2026-10-23",
+        "subject": "fix: mount calculator scripts inside Base component",
+        "additions": 24,
+        "deletions": 22,
+        "files": 3,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "9ae9e7408cfe4e092f260471acd5d33212b788aa",
+        "date": "2026-10-23",
+        "subject": "fix: show a moon and sun icon on the theme toggle",
+        "additions": 33,
+        "deletions": 5,
+        "files": 3,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "b1e7e678d9f3b85664c19d187cb1aa3c297cf198",
+        "date": "2026-10-23",
+        "subject": "feat: migrate to Astro static site generation and fix build/dev scripts",
+        "additions": 8149,
+        "deletions": 2145,
+        "files": 132,
+        "areas": [
+          "data",
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "c6f99b8ece93136fcd6afccb5202a7fc10a73111",
+        "date": "2026-10-23",
+        "subject": "chore: remove the unused TanStack app and leftover dependencies",
+        "additions": 509,
+        "deletions": 14288,
+        "files": 105,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "e09a989701e96ab128a0d27b7c74d60ccde4b806",
+        "date": "2026-10-23",
+        "subject": "refactor: extract branch filter script and mount cleanly",
+        "additions": 20,
+        "deletions": 16,
+        "files": 2,
+        "areas": [
+          "code"
+        ],
+        "coAuthor": false
+      },
+      {
+        "sha": "c507ec69c56d862183cbff12898d6332882cb46d",
+        "date": "2026-09-06",
+        "subject": "refactor: remove deprecated scripts and tests related to app environment and atomic file writing",
+        "additions": 56,
+        "deletions": 61284,
+        "files": 280,
+        "areas": [
+          "code",
+          "docs"
+        ],
+        "coAuthor": false
+      }
+    ]
+  }
+]
