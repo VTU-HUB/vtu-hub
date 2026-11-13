@@ -14,7 +14,7 @@ export const CORRECTIONS_EMAIL = CONTACT_EMAIL;
 export const OFFICIAL_VTU_URL = "https://vtu.ac.in";
 
 /** Open-source repository: anyone can edit notes through GitHub. */
-export const GITHUB_URL = "https://github.com/nishanth-kj/vtu-hub";
+export const GITHUB_URL = "https://github.com/VTU-HUB/vtu-hub";
 export const DISCUSSIONS_URL = `${GITHUB_URL}/discussions`;
 export const NEW_ISSUE_URL = `${GITHUB_URL}/issues/new/choose`;
 

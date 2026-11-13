@@ -3,20 +3,27 @@
 // recorded in courses.json, plus the per-course first-year PDFs on the scheme page) and
 // writes, per course code: VTU's five modules, course outcomes, prescribed textbooks,
 // reference books and web links — src/data/vtu/syllabus.json.
-// Usage: node scripts/vtu/sync-syllabus.mjs   (run after sync-schemes.mjs)
+// A partial failure never deletes good data: courses whose PDF failed keep their previous
+// entry, a course that suddenly has fewer modules keeps the old one, and the file is not
+// written at all when too many PDFs fail or a programme's coverage drops sharply.
+// Usage: node scripts/vtu/sync-syllabus.mjs [--accept-regressions] [--force]
+//        (run after sync-schemes.mjs)
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { parseSyllabus } from "./parse-syllabus.mjs";
+import { fetchRetry } from "./net.mjs";
+import { coverageByProgramme, mergeSyllabus, syncProblems, syncSummary } from "./syllabus-merge.mjs";
 
 const OUT = path.resolve("src/data/vtu/syllabus.json");
 const COURSES = path.resolve("src/data/vtu/courses.json");
 const CACHE = path.join(os.tmpdir(), "vtuhub-syllabus-pdfs");
-const UA = { "User-Agent": "vtuhub-sync/1.0 (+https://vtuhub.site/about)" };
 const SCHEME_PAGE = "https://vtu.ac.in/en/b-e-scheme-syllabus/";
 const CONCURRENCY = 4;
 
 const courses = JSON.parse(fs.readFileSync(COURSES, "utf8"));
+const PREVIOUS = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")).courses ?? {} : {};
+const FORCE = process.argv.includes("--force");
 
 /** Guess a missing semester file from the names VTU already uses for that programme. */
 function syllabusCandidates(program) {
@@ -60,7 +67,7 @@ async function fetchPdf(url) {
     const cached = fs.readFileSync(file);
     if (cached.subarray(0, 5).toString() === "%PDF-") return file;
   }
-  const res = await fetch(url, { headers: UA });
+  const res = await fetchRetry(url);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.subarray(0, 5).toString() !== "%PDF-") throw new Error("not a PDF");
@@ -92,7 +99,17 @@ if (foundSyllabi) {
 const urls = new Set(courses.programs.flatMap((p) => p.syllabi ?? []));
 
 // First-year course syllabi are one PDF per course: /pdf/2022syll/<CODE>.pdf
-const page = await (await fetch(SCHEME_PAGE, { headers: UA })).text();
+let page = "";
+try {
+  const res = await fetchRetry(SCHEME_PAGE);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  page = await res.text();
+} catch (e) {
+  console.warn(`scheme page unavailable (${e.message}); using the PDFs from the previous run`);
+}
+// Every PDF the previous run read is tried again, so a page change or outage cannot
+// silently drop courses: a PDF that is gone fails, and its courses keep their old entry.
+for (const entry of Object.values(PREVIOUS)) for (const u of entry.sources ?? [entry.source]) if (u) urls.add(u);
 for (const m of page.matchAll(/https?:\/\/vtu\.ac\.in\/pdf\/2022syll\/(B[A-Z0-9]+)\.pdf/gi)) urls.add(m[0].replace(/^http:/, "https:"));
 
 const out = {};
@@ -116,23 +133,41 @@ async function worker() {
         else out[code] = { source: url, sources, ...s };
       }
     } catch (e) {
-      failed.push(`${url}: ${e.message}`);
+      failed.push({ url, reason: e.message });
     }
     if (++done % 20 === 0) console.log(`  ${done}/${urls.size} PDFs`);
   }
 }
 await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
-const codes = Object.keys(out).sort();
-for (const f of failed) console.warn(`failed — ${f}`);
-if (codes.length < 300) throw new Error(`Only ${codes.length} course syllabi parsed — refusing to overwrite.`);
+const failedSources = failed.map((f) => f.url).sort();
+for (const f of failed) console.warn(`failed — ${f.url}: ${f.reason}`);
+const { courses: merged, report } = mergeSyllabus(PREVIOUS, out, {
+  failedSources,
+  acceptRegressions: process.argv.includes("--accept-regressions"),
+});
+const codes = Object.keys(merged);
+const problems = syncProblems({
+  report,
+  prevCoverage: coverageByProgramme(courses.programs, PREVIOUS),
+  nextCoverage: coverageByProgramme(courses.programs, merged),
+  sources: urls.size,
+  failed: failed.length,
+  total: codes.length,
+});
+const summary = syncSummary({ report, failedSources, sources: urls.size, total: codes.length, problems });
+console.log(summary);
+if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + "\n");
+if (problems.length && !FORCE) {
+  console.error("\nsyllabus.json NOT written. Fix the cause, or re-run with --force after checking the PDFs.");
+  process.exit(1);
+}
 
-const sorted = Object.fromEntries(codes.map((c) => [c, out[c]]));
-const next = JSON.stringify({ scheme: "2022", source: SCHEME_PAGE, courses: sorted }, null, 2) + "\n";
+const next = JSON.stringify({ scheme: "2022", source: SCHEME_PAGE, courses: merged }, null, 2) + "\n";
 const prev = fs.existsSync(OUT) ? fs.readFileSync(OUT, "utf8").replace(/\r\n/g, "\n") : "";
 if (prev === next) console.log(`syllabus: unchanged (${codes.length} courses)`);
 else {
   fs.writeFileSync(OUT, next);
-  const withModules = codes.filter((c) => out[c].modules.length >= 4).length;
+  const withModules = codes.filter((c) => merged[c].modules.length >= 4).length;
   console.log(`syllabus: wrote ${codes.length} courses (${withModules} with 4–5 modules) from ${urls.size} PDFs`);
 }

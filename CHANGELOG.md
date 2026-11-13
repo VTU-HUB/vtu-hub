@@ -7,6 +7,21 @@ listed.
 
 ## [Unreleased]
 
+### Changed
+
+- GitHub links (footer, Contribute, schema, clone URLs, issue templates) now point to
+  [`VTU-HUB/vtu-hub`](https://github.com/VTU-HUB/vtu-hub).
+
+### Fixed (data pipeline)
+
+- Syllabus sync keeps previously parsed courses when a PDF download fails, and refuses
+  to write on a module-count regression or a coverage drop.
+- Notice sync retries timed-out category fetches and keeps the last good notices for a
+  failed category.
+- Legend text no longer leaks into titles (BRI358B); those URLs 301 to the semester page.
+- Academic exception register (`docs/ACADEMIC_EXCEPTIONS.md`) tracks remaining credit,
+  title and placeholder warnings instead of auto-picking a value.
+
 ### Added
 
 - A "Thank you, contributors" section at the bottom of the home page (English, Kannada,

@@ -16,7 +16,9 @@ export const codeSemester = (code) => Number(/^B[A-Z]+?(\d)\d{2}[A-Z]?$/.exec(co
 
 const DANGLING = /(\s(and|of|for|to|in|the|with|on|or)|[,:;&–-])$/i;
 const NUMBER_RUN = /(^|\s)\d{1,3}(\s\d{1,3}){2,}(\s|$)/;
-const PLACEHOLDER = /^(to be announced|bos will publish|shall have|-+$)/i;
+/** Words from the legend and notes printed under the scheme tables. */
+const LEGEND_TEXT = /\b(Refers to|Credit for|Teaching[–-]Learning hours?|Note:)/i;
+const PLACEHOLDER =/^(to be announced|bos will publish|shall have|-+$)/i;
 
 /**
  * @param {{ streams: Record<string, {courses: any[]}>, programs: any[] }} courses
@@ -50,6 +52,7 @@ export function validate(courses, { syllabus = {}, notesCodes = [] } = {}) {
         if (PLACEHOLDER.test(t)) errors.push(`${id}: placeholder title "${t}"`);
         if (NUMBER_RUN.test(t)) errors.push(`${id}: table cells in title "${t}"`);
         if (DANGLING.test(t)) errors.push(`${id}: title ends mid-phrase "${t}"`);
+        if (LEGEND_TEXT.test(t) || t.length > 120) errors.push(`${id}: table legend or notes in title "${t.slice(0, 90)}…"`);
         // "BESCK104" + "C Introduction to …": the option letter was split off the code.
         if (/\d$/.test(c.code ?? "") && /^[A-Z]\s/.test(t)) errors.push(`${id}: option letter split from the code "${t}"`);
         if (/\b([A-Za-z]{2,})\s+\1\b/i.test(t)) warnings.push(`${id}: repeated word in title "${t}"`);

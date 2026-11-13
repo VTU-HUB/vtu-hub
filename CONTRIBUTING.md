@@ -3,8 +3,8 @@
 Thanks for helping VTU students. Anyone can contribute: fix a typo in the notes,
 write notes for a subject, report a wrong course title, or improve the code.
 
-- **Questions and ideas:** [GitHub Discussions](https://github.com/nishanth-kj/vtu-hub/discussions)
-- **Something is wrong on the site:** [open an issue](https://github.com/nishanth-kj/vtu-hub/issues/new/choose)
+- **Questions and ideas:** [GitHub Discussions](https://github.com/VTU-HUB/vtu-hub/discussions)
+- **Something is wrong on the site:** [open an issue](https://github.com/VTU-HUB/vtu-hub/issues/new/choose)
 - **Full docs:** [docs/](docs/README.md)
 
 ## The quickest contribution: edit a note on GitHub
@@ -65,7 +65,7 @@ Rules for notes:
 You need Node.js 22.18 or newer.
 
 ```sh
-git clone https://github.com/nishanth-kj/vtu-hub.git
+git clone https://github.com/VTU-HUB/vtu-hub.git
 cd vtu-hub
 npm install
 npm run dev          # http://localhost:8080

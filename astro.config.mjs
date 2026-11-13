@@ -135,7 +135,10 @@ export default defineConfig({
           }
           for (const f of legacy.files) {
             if (exists(f.path)) continue;
-            const branch = f.path.replace("/files/", "").split("-")[0];
+            // Longest programme slug that prefixes the file name ("robotics-ai-…", not "robotics").
+            const name = f.path.replace("/files/", "");
+            const branch =
+              fs.readdirSync(vtuDir).filter((b) => name.startsWith(`${b}-`)).sort((a, b) => b.length - a.length)[0] ?? name.split("-")[0];
             const to = byCode.get(`${branch}:${f.code}`) ?? (exists(`/vtu/${branch}`) ? `/vtu/${branch}` : "/vtu");
             lines.push(`${f.path} ${to} 301`);
           }

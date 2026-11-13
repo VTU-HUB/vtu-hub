@@ -4,12 +4,18 @@
 // Only titles, dates and links are stored — the site links out to the official post
 // and PDF, it never re-hosts them. The file is rewritten only when the data changes,
 // so the daily cron makes a commit only when VTU actually publishes something.
+//
+// Safety: every request has a timeout and retries; a category that still fails keeps its
+// notices from the previous run; duplicate ids/URLs are dropped; and the file is not
+// written when the total falls sharply compared with last time.
 import fs from "node:fs";
 import path from "node:path";
+import { fetchRetry } from "./net.mjs";
 
 const API = "https://vtu.ac.in/en/wp-json/wp/v2/posts";
 const OUT = path.resolve("src/data/vtu/notices.json");
-const UA = { "User-Agent": "vtuhub-sync/1.0 (+https://vtuhub.site/about)" };
+const PREVIOUS = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")).notices ?? [] : [];
+const FORCE = process.argv.includes("--force");
 
 // WordPress category ids on vtu.ac.in (from /wp-json/wp/v2/categories).
 const CATEGORIES = { examination: 87, timetable: 90, calendar: 106, regulation: 89 };
@@ -58,15 +64,42 @@ function classify(title, cats) {
 
 async function fetchCategory(id) {
   const url = `${API}?categories=${id}&per_page=${PER_CATEGORY}&orderby=date&order=desc&_fields=id,date,link,title,content,categories`;
-  const res = await fetch(url, { headers: UA });
-  if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
-  return res.json();
+  const res = await fetchRetry(url, { timeout: 45_000 });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  if (!Array.isArray(data)) throw new Error("unexpected response (not a list of posts)");
+  return data;
 }
 
 const byId = new Map();
-for (const id of Object.values(CATEGORIES)) {
-  for (const p of await fetchCategory(id)) {
-    if (byId.has(p.id) || !isOfficial(p.link)) continue;
+const seenUrls = new Set();
+const report = [];
+let duplicates = 0;
+for (const [name, id] of Object.entries(CATEGORIES)) {
+  let posts;
+  try {
+    posts = await fetchCategory(id);
+  } catch (e) {
+    // Keep what we had for this category rather than dropping it.
+    const kept = PREVIOUS.filter((n) => (n.categories ?? []).includes(id));
+    report.push({ name, fetched: 0, error: e.message, kept: kept.length });
+    for (const n of kept) {
+      if (byId.has(n.id) || seenUrls.has(n.url)) continue;
+      byId.set(n.id, n);
+      seenUrls.add(n.url);
+    }
+    continue;
+  }
+  let added = 0;
+  for (const p of posts) {
+    if (!isOfficial(p.link)) continue;
+    if (byId.has(p.id) || seenUrls.has(p.link)) {
+      // Posts filed under two categories are expected; record that they share it.
+      const n = byId.get(p.id);
+      if (n && !n.categories.includes(id)) n.categories.push(id);
+      else duplicates++;
+      continue;
+    }
     const title = decode(p.title?.rendered ?? "");
     if (!title) continue;
     byId.set(p.id, {
@@ -75,13 +108,29 @@ for (const id of Object.values(CATEGORIES)) {
       title,
       type: classify(title, p.categories ?? []),
       url: p.link,
+      categories: [id],
       attachments: attachments(p.content?.rendered ?? ""),
     });
+    seenUrls.add(p.link);
+    added++;
   }
+  report.push({ name, fetched: posts.length, added });
 }
 
 const notices = [...byId.values()].sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id).slice(0, 200);
-if (notices.length < 10) throw new Error(`Only ${notices.length} notices fetched — refusing to overwrite.`);
+for (const r of report)
+  console.log(`  ${r.name}: ${r.error ? `FAILED (${r.error}) — kept ${r.kept} from last run` : `${r.fetched} fetched, ${r.added} new here`}`);
+if (duplicates) console.log(`  ${duplicates} duplicate posts skipped`);
+
+const problems = [];
+if (notices.length < 10) problems.push(`only ${notices.length} notices`);
+if (PREVIOUS.length >= 50 && notices.length < PREVIOUS.length * 0.6)
+  problems.push(`total fell from ${PREVIOUS.length} to ${notices.length}`);
+if (report.every((r) => r.error)) problems.push("every category failed");
+if (problems.length && !FORCE) {
+  console.error(`notices.json NOT written: ${problems.join("; ")}. Re-run with --force after checking vtu.ac.in.`);
+  process.exit(1);
+}
 
 const next = JSON.stringify({ source: "https://vtu.ac.in", notices }, null, 2) + "\n";
 const prev = fs.existsSync(OUT) ? fs.readFileSync(OUT, "utf8") : "";

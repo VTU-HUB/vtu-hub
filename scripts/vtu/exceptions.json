@@ -1,0 +1,2937 @@
+{
+  "$about": "Known gaps and conflicts in VTUHub's course data. Regenerate with node scripts/vtu/exceptions.mjs; edit only expected/resolution/reviewer/verifiedOn/note.",
+  "items": {
+    "credit-conflict:BBOK407": {
+      "kind": "credit-conflict",
+      "code": "BBOK407",
+      "semester": 4,
+      "title": "Biology For Engineers",
+      "parsed": [
+        {
+          "value": 2,
+          "programmes": [
+            "ai-ds",
+            "aiml",
+            "computer-communication",
+            "computer-engineering"
+          ],
+          "sources": [
+            "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf"
+          ]
+        },
+        {
+          "value": 3,
+          "programmes": [
+            "aeronautical",
+            "agricultural",
+            "biomedical",
+            "biotechnology",
+            "chemical",
+            "cv",
+            "ece",
+            "eee",
+            "eie",
+            "electronics-communication-advanced-communication",
+            "electronics-computer",
+            "ete",
+            "iem",
+            "industrial-iot",
+            "industrial-production",
+            "marine",
+            "me",
+            "mechanical-smart-manufacturing",
+            "mechatronics",
+            "mining",
+            "robotics-ai",
+            "silk-technology",
+            "smart-agritech",
+            "textile",
+            "vlsi"
+          ],
+          "sources": [
+            "https://vtu.ac.in/pdf/2022_3to8/2biotechsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/34agrisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/34eesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/34marinesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/34mechasch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/3biotechsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/4biotechsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58agrisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58civsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58eesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58marinesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58mechasch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58mecsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58miningsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/58smartsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/5biomedsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/5vlsisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/7vlsisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/actsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/biomedsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/biotechsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/civsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/iemsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/indiotsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/ipesch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/mecsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/miningsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/smartsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/smmsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf",
+            "https://vtu.ac.in/pdf/2022_3to8/vlsisch.pdf"
+          ]
+        }
+      ],
+      "evidence": "Programmes' scheme PDFs print different credits for the same code.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BAS306A": {
+      "kind": "missing-credits",
+      "code": "BAS306A",
+      "semester": 3,
+      "title": "Introduction to Drone Technology",
+      "programmes": [
+        "aeronautical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BAS306B": {
+      "kind": "missing-credits",
+      "code": "BAS306B",
+      "semester": 3,
+      "title": "Mechanism & Machine Theory",
+      "programmes": [
+        "aeronautical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BAS358A": {
+      "kind": "missing-credits",
+      "code": "BAS358A",
+      "semester": 3,
+      "title": "Development of Soft Skills for Engineers",
+      "programmes": [
+        "aeronautical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BAS358B": {
+      "kind": "missing-credits",
+      "code": "BAS358B",
+      "semester": 3,
+      "title": "Ethics, Technology and Engineering",
+      "programmes": [
+        "aeronautical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH358B": {
+      "kind": "missing-credits",
+      "code": "BCH358B",
+      "semester": 3,
+      "title": "Personality Development Skills",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH358C": {
+      "kind": "missing-credits",
+      "code": "BCH358C",
+      "semester": 3,
+      "title": "Understanding Equipment Data Sheet",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH358D": {
+      "kind": "missing-credits",
+      "code": "BCH358D",
+      "semester": 3,
+      "title": "Career Options after Engineering",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH456A": {
+      "kind": "missing-credits",
+      "code": "BCH456A",
+      "semester": 4,
+      "title": "Data Analytics",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH456B": {
+      "kind": "missing-credits",
+      "code": "BCH456B",
+      "semester": 4,
+      "title": "Entrepreneurship Development",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH456C": {
+      "kind": "missing-credits",
+      "code": "BCH456C",
+      "semester": 4,
+      "title": "Basics of Accounting and Taxation",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCH456D": {
+      "kind": "missing-credits",
+      "code": "BCH456D",
+      "semester": 4,
+      "title": "Energy and Environmental Auditing",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BCHL358A": {
+      "kind": "missing-credits",
+      "code": "BCHL358A",
+      "semester": 3,
+      "title": "Advanced MS Excel for Chemical Engineers",
+      "programmes": [
+        "chemical"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BEI657A": {
+      "kind": "missing-credits",
+      "code": "BEI657A",
+      "semester": 6,
+      "title": "Integrated Systems Lab",
+      "programmes": [
+        "eie"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BEI657B": {
+      "kind": "missing-credits",
+      "code": "BEI657B",
+      "semester": 6,
+      "title": "Java Programming",
+      "programmes": [
+        "eie"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BEI657C": {
+      "kind": "missing-credits",
+      "code": "BEI657C",
+      "semester": 6,
+      "title": "Network Security",
+      "programmes": [
+        "eie"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BEI657D": {
+      "kind": "missing-credits",
+      "code": "BEI657D",
+      "semester": 6,
+      "title": "Machine Learning using Python",
+      "programmes": [
+        "eie"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BESCK203": {
+      "kind": "missing-credits",
+      "code": "BESCK203",
+      "semester": 2,
+      "title": "Introduction to Electronics Engineering",
+      "programmes": [
+        "first-year ee stream"
+      ],
+      "sources": [],
+      "parsed": null,
+      "evidence": "No credit value read from any PDF that lists this code.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BPLCK205A": {
+      "kind": "missing-credits",
+      "code": "BPLCK205A",
+      "semester": 2,
+      "title": "Introduction to Web Programming",
+      "programmes": [
+        "first-year cs stream",
+        "first-year cv stream",
+        "first-year ee stream",
+        "first-year me stream"
+      ],
+      "sources": [],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BPLCK205B": {
+      "kind": "missing-credits",
+      "code": "BPLCK205B",
+      "semester": 2,
+      "title": "Introduction to Python Programming",
+      "programmes": [
+        "first-year cs stream",
+        "first-year cv stream",
+        "first-year ee stream",
+        "first-year me stream"
+      ],
+      "sources": [],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BPLCK205C": {
+      "kind": "missing-credits",
+      "code": "BPLCK205C",
+      "semester": 2,
+      "title": "Basics of JAVA programming",
+      "programmes": [
+        "first-year cs stream",
+        "first-year cv stream",
+        "first-year ee stream",
+        "first-year me stream"
+      ],
+      "sources": [],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BPLCK205D": {
+      "kind": "missing-credits",
+      "code": "BPLCK205D",
+      "semester": 2,
+      "title": "Introduction to C++ Programming",
+      "programmes": [
+        "first-year cs stream",
+        "first-year cv stream",
+        "first-year ee stream",
+        "first-year me stream"
+      ],
+      "sources": [],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BRI306A": {
+      "kind": "missing-credits",
+      "code": "BRI306A",
+      "semester": 3,
+      "title": "Material Science",
+      "programmes": [
+        "robotics-ai"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BRI306B": {
+      "kind": "missing-credits",
+      "code": "BRI306B",
+      "semester": 3,
+      "title": "Linear Integrated Circuits",
+      "programmes": [
+        "robotics-ai"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BRI306C": {
+      "kind": "missing-credits",
+      "code": "BRI306C",
+      "semester": 3,
+      "title": "Unmanned Aerial Vehicles (UAV)",
+      "programmes": [
+        "robotics-ai"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BRI358A": {
+      "kind": "missing-credits",
+      "code": "BRI358A",
+      "semester": 3,
+      "title": "Data Structures and Algorithms Lab (0:0:2:0)",
+      "programmes": [
+        "robotics-ai"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BRI358B": {
+      "kind": "missing-credits",
+      "code": "BRI358B",
+      "semester": 3,
+      "title": "Applications of MAT LAB (0:0:2:0)",
+      "programmes": [
+        "robotics-ai"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BST306A": {
+      "kind": "missing-credits",
+      "code": "BST306A",
+      "semester": 3,
+      "title": "Sericulture and Silk Technology",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BST405A": {
+      "kind": "missing-credits",
+      "code": "BST405A",
+      "semester": 4,
+      "title": "Structure and Properties of silk",
+      "programmes": [
+        "silk-technology"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BST714C": {
+      "kind": "missing-credits",
+      "code": "BST714C",
+      "semester": 7,
+      "title": "Fabric Structure and Design Analysis",
+      "programmes": [
+        "silk-technology"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX306B": {
+      "kind": "missing-credits",
+      "code": "BTX306B",
+      "semester": 3,
+      "title": "Sustainable Textile Technologies",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX306C": {
+      "kind": "missing-credits",
+      "code": "BTX306C",
+      "semester": 3,
+      "title": "Fibre Reinforced Composites",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX306D": {
+      "kind": "missing-credits",
+      "code": "BTX306D",
+      "semester": 3,
+      "title": "Characterisation of fibres and polymers",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX358A": {
+      "kind": "missing-credits",
+      "code": "BTX358A",
+      "semester": 3,
+      "title": "Introduction to Polymers",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX358D": {
+      "kind": "missing-credits",
+      "code": "BTX358D",
+      "semester": 3,
+      "title": "Medical Textiles",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX456A": {
+      "kind": "missing-credits",
+      "code": "BTX456A",
+      "semester": 4,
+      "title": "Processing of MMFs and Blends",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX456B": {
+      "kind": "missing-credits",
+      "code": "BTX456B",
+      "semester": 4,
+      "title": "Textured yarn Technology",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX456C": {
+      "kind": "missing-credits",
+      "code": "BTX456C",
+      "semester": 4,
+      "title": "Eco-friendly process of Textiles",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTX657A": {
+      "kind": "missing-credits",
+      "code": "BTX657A",
+      "semester": 6,
+      "title": "Pattern Engineering and Draping of Garments",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTXL358B": {
+      "kind": "missing-credits",
+      "code": "BTXL358B",
+      "semester": 3,
+      "title": "Identification of Fibres-lab",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTXL358C": {
+      "kind": "missing-credits",
+      "code": "BTXL358C",
+      "semester": 3,
+      "title": "Engineering with Microsoft Office-lab",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTXL456D": {
+      "kind": "missing-credits",
+      "code": "BTXL456D",
+      "semester": 4,
+      "title": "Evaluation of textiles fibres using modern tools -lab",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTXL657B": {
+      "kind": "missing-credits",
+      "code": "BTXL657B",
+      "semester": 6,
+      "title": "Fashion Accessories- lab",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTXL657C": {
+      "kind": "missing-credits",
+      "code": "BTXL657C",
+      "semester": 6,
+      "title": "Computer Aided Textile Designing- lab",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BTXL657D": {
+      "kind": "missing-credits",
+      "code": "BTXL657D",
+      "semester": 6,
+      "title": "Textile Recycling and Fashion Up cycling- lab",
+      "programmes": [
+        "silk-technology",
+        "textile"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BUE714A": {
+      "kind": "missing-credits",
+      "code": "BUE714A",
+      "semester": 7,
+      "title": "Low Power VLSI Design",
+      "programmes": [
+        "electronics-computer"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BUE714B": {
+      "kind": "missing-credits",
+      "code": "BUE714B",
+      "semester": 7,
+      "title": "RISK-V Processor",
+      "programmes": [
+        "electronics-computer"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BUE755A": {
+      "kind": "missing-credits",
+      "code": "BUE755A",
+      "semester": 7,
+      "title": "Verilog HDL",
+      "programmes": [
+        "electronics-computer"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "missing-credits:BUE755B": {
+      "kind": "missing-credits",
+      "code": "BUE755B",
+      "semester": 7,
+      "title": "Computer Organization",
+      "programmes": [
+        "electronics-computer"
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf"
+      ],
+      "parsed": null,
+      "evidence": "Elective option: the scheme prints credits once for the elective slot, not per option.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "placeholder-module:BKBKK107:1": {
+      "kind": "placeholder-module",
+      "code": "BKBKK107",
+      "semester": 1,
+      "parsed": "1",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022syll/BKBKK107.pdf"
+      ],
+      "evidence": "Module 1 has no readable title in the syllabus PDF.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "placeholder-module:BKBKK107:2": {
+      "kind": "placeholder-module",
+      "code": "BKBKK107",
+      "semester": 1,
+      "parsed": "1",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022syll/BKBKK107.pdf"
+      ],
+      "evidence": "Module 2 has no readable title in the syllabus PDF.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "placeholder-module:BKBKK107:3": {
+      "kind": "placeholder-module",
+      "code": "BKBKK107",
+      "semester": 1,
+      "parsed": "1",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022syll/BKBKK107.pdf"
+      ],
+      "evidence": "Module 3 has no readable title in the syllabus PDF.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "placeholder-module:BKBKK107:4": {
+      "kind": "placeholder-module",
+      "code": "BKBKK107",
+      "semester": 1,
+      "parsed": "1",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022syll/BKBKK107.pdf"
+      ],
+      "evidence": "Module 4 has no readable title in the syllabus PDF.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "placeholder-module:BKBKK107:5": {
+      "kind": "placeholder-module",
+      "code": "BKBKK107",
+      "semester": 1,
+      "parsed": "1",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022syll/BKBKK107.pdf"
+      ],
+      "evidence": "Module 5 has no readable title in the syllabus PDF.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "placeholder-module:BME714C:1": {
+      "kind": "placeholder-module",
+      "code": "BME714C",
+      "semester": 7,
+      "parsed": "I",
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/4mecsyll.pdf"
+      ],
+      "evidence": "Module 1 has no readable title in the syllabus PDF.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BAD702": {
+      "kind": "title-variants",
+      "code": "BAD702",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "Statistical Machine Learning",
+          "programmes": [
+            "ai-ds",
+            "data-science"
+          ]
+        },
+        {
+          "value": "Statistical Machine Learning for Data Science",
+          "programmes": [
+            "cse-ds"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BAI613A": {
+      "kind": "title-variants",
+      "code": "BAI613A",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Human-Centered AI",
+          "programmes": [
+            "cse-aiml"
+          ]
+        },
+        {
+          "value": "Human-Centred AI",
+          "programmes": [
+            "ai-ds",
+            "aiml"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BBOC407": {
+      "kind": "title-variants",
+      "code": "BBOC407",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Biology For Computer Engineers",
+          "programmes": [
+            "cs-design",
+            "csbs",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "cse-iot",
+            "cse-iot-cyber-blockchain"
+          ]
+        },
+        {
+          "value": "Biology For Engineers",
+          "programmes": [
+            "ai-ds",
+            "aiml",
+            "computer-communication"
+          ]
+        },
+        {
+          "value": "Biology for Computer Engineers",
+          "programmes": [
+            "cse",
+            "data-science",
+            "ise"
+          ]
+        },
+        {
+          "value": "Biology for Engineers Biology For Computer Science",
+          "programmes": [
+            "computer-engineering"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BBOK407": {
+      "kind": "title-variants",
+      "code": "BBOK407",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Biology Fo r Engineers",
+          "programmes": [
+            "aeronautical"
+          ]
+        },
+        {
+          "value": "Biology For Engineers",
+          "programmes": [
+            "agricultural",
+            "ai-ds",
+            "aiml",
+            "biomedical",
+            "computer-communication",
+            "cv",
+            "ece",
+            "eee",
+            "eie",
+            "electronics-communication-advanced-communication",
+            "electronics-computer",
+            "ete",
+            "iem",
+            "industrial-iot",
+            "industrial-production",
+            "marine",
+            "me",
+            "mechanical-smart-manufacturing",
+            "mechatronics",
+            "mining",
+            "robotics-ai",
+            "silk-technology",
+            "smart-agritech",
+            "textile",
+            "vlsi"
+          ]
+        },
+        {
+          "value": "Biology For Engineers (Dr VM, SCE)",
+          "programmes": [
+            "biotechnology"
+          ]
+        },
+        {
+          "value": "Biology for Engineers",
+          "programmes": [
+            "chemical"
+          ]
+        },
+        {
+          "value": "Biology for Engineers Biology For Computer Science",
+          "programmes": [
+            "computer-engineering"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34marinesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34mechasch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/3biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/4biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58civsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58marinesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58mechasch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58mecsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58miningsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58smartsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5biomedsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/actsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/biomedsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/civsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/iemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/indiotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ipesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/mecsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/miningsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/smartsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/smmsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/vlsisch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCO613D": {
+      "kind": "title-variants",
+      "code": "BCO613D",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Fog & Edge Computing",
+          "programmes": [
+            "cse-iot"
+          ]
+        },
+        {
+          "value": "Fog and Edge Computing",
+          "programmes": [
+            "cse-iot-cyber-blockchain"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCS405A": {
+      "kind": "title-variants",
+      "code": "BCS405A",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Discrete Mathematical Structures",
+          "programmes": [
+            "aiml",
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "csbs",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "cse-iot",
+            "cse-iot-cyber-blockchain",
+            "data-science",
+            "ise"
+          ]
+        },
+        {
+          "value": "Discrete Mathematics Structures",
+          "programmes": [
+            "ai-ds"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCS405C": {
+      "kind": "title-variants",
+      "code": "BCS405C",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Optimization Technique",
+          "programmes": [
+            "ai-ds",
+            "aiml",
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "csbs",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "cse-iot",
+            "cse-iot-cyber-blockchain",
+            "data-science"
+          ]
+        },
+        {
+          "value": "Optimization Techniques",
+          "programmes": [
+            "ise"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCS508": {
+      "kind": "title-variants",
+      "code": "BCS508",
+      "semester": 5,
+      "parsed": [
+        {
+          "value": "Environmental Studies and E-waste Management",
+          "programmes": [
+            "ai-ds",
+            "aiml",
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "cse-iot",
+            "cse-iot-cyber-blockchain",
+            "data-science",
+            "ise"
+          ]
+        },
+        {
+          "value": "Management",
+          "programmes": [
+            "csbs"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCS602": {
+      "kind": "title-variants",
+      "code": "BCS602",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Machine Learning",
+          "programmes": [
+            "ai-ds",
+            "csbs",
+            "cse",
+            "cse-ai",
+            "ise"
+          ]
+        },
+        {
+          "value": "Machine Learning -I",
+          "programmes": [
+            "cse-aiml"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCS703": {
+      "kind": "title-variants",
+      "code": "BCS703",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "Cryptography & Network Security",
+          "programmes": [
+            "computer-engineering",
+            "cs-design",
+            "csbs",
+            "cse",
+            "cse-aiml",
+            "cse-ds",
+            "cse-iot"
+          ]
+        },
+        {
+          "value": "Cryptography and Network Security",
+          "programmes": [
+            "computer-communication"
+          ]
+        },
+        {
+          "value": "Cryptography and network security",
+          "programmes": [
+            "cse-ai"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCSL358D": {
+      "kind": "title-variants",
+      "code": "BCSL358D",
+      "semester": 3,
+      "parsed": [
+        {
+          "value": "Data Visualization with Phyton",
+          "programmes": [
+            "computer-engineering",
+            "ise"
+          ]
+        },
+        {
+          "value": "Data Visualization with Python",
+          "programmes": [
+            "computer-communication",
+            "cs-design",
+            "csbs",
+            "cse",
+            "cse-cyber-security",
+            "cse-iot",
+            "cse-iot-cyber-blockchain",
+            "data-science"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCSL404": {
+      "kind": "title-variants",
+      "code": "BCSL404",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Analysis & Design of Algorithms Lab",
+          "programmes": [
+            "ai-ds",
+            "aiml",
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "csbs",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "data-science",
+            "ise"
+          ]
+        },
+        {
+          "value": "Cyber Security Lab",
+          "programmes": [
+            "cse-iot-cyber-blockchain"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BCSL456D": {
+      "kind": "title-variants",
+      "code": "BCSL456D",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Technical writing using LATEX",
+          "programmes": [
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "ise"
+          ]
+        },
+        {
+          "value": "Technical writing using LATEX (Lab)",
+          "programmes": [
+            "cse-iot",
+            "cse-iot-cyber-blockchain"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BDSL456B": {
+      "kind": "title-variants",
+      "code": "BDSL456B",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "MangoDB",
+          "programmes": [
+            "ai-ds",
+            "aiml",
+            "cse-ai",
+            "cse-aiml",
+            "cse-ds"
+          ]
+        },
+        {
+          "value": "MongoDB",
+          "programmes": [
+            "data-science"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC456A": {
+      "kind": "title-variants",
+      "code": "BEC456A",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Microcontroller Lab",
+          "programmes": [
+            "ece",
+            "electronics-communication-advanced-communication"
+          ]
+        },
+        {
+          "value": "Microcontrollers Lab",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/actsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC515D": {
+      "kind": "title-variants",
+      "code": "BEC515D",
+      "semester": 5,
+      "parsed": [
+        {
+          "value": "Satellite Communication",
+          "programmes": [
+            "ete"
+          ]
+        },
+        {
+          "value": "Satellite and Optical Communication",
+          "programmes": [
+            "ece"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC613B": {
+      "kind": "title-variants",
+      "code": "BEC613B",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Computer and Data Security",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "Data Security Computer and Data Security",
+          "programmes": [
+            "vlsi"
+          ]
+        },
+        {
+          "value": "Data security",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/vlsisch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC613D": {
+      "kind": "title-variants",
+      "code": "BEC613D",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "FPGA Based System design Using Verilog",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "FPGA System Design using Verilog",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC702": {
+      "kind": "title-variants",
+      "code": "BEC702",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "Computer Networks and Protocols",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "ComputerNetworksandProtocols",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC714D": {
+      "kind": "title-variants",
+      "code": "BEC714D",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "Radar Communication",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "RadarCommunication",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC755B": {
+      "kind": "title-variants",
+      "code": "BEC755B",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "Automative Electronics",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "AutomativeEngineering",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEC755D": {
+      "kind": "title-variants",
+      "code": "BEC755D",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "Sensors and Actuators",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "SensorsandActuators",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BECL657A": {
+      "kind": "title-variants",
+      "code": "BECL657A",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "FPGA System Design using Verilog LAB",
+          "programmes": [
+            "ete"
+          ]
+        },
+        {
+          "value": "FPGA system design Lab using Verilog",
+          "programmes": [
+            "ece"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BECL657B": {
+      "kind": "title-variants",
+      "code": "BECL657B",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "System Modeling using Simulink",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "System Modelling using Simulink",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BECL657C": {
+      "kind": "title-variants",
+      "code": "BECL657C",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "IOT Lab",
+          "programmes": [
+            "ete",
+            "vlsi"
+          ]
+        },
+        {
+          "value": "IoT Laboratory",
+          "programmes": [
+            "ece"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/vlsisch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BECL657D": {
+      "kind": "title-variants",
+      "code": "BECL657D",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Pythan Programing for Machine Learning Applications",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "Python Programming for Machine Learning applications",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BEE801B": {
+      "kind": "title-variants",
+      "code": "BEE801B",
+      "semester": 8,
+      "parsed": [
+        {
+          "value": "Instrumentation and Process Control in Food Industry",
+          "programmes": [
+            "agricultural"
+          ]
+        },
+        {
+          "value": "NPTEL /MOOCS",
+          "programmes": [
+            "eee"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/34agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eesch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BESCK104E": {
+      "kind": "title-variants",
+      "code": "BESCK104E",
+      "semester": 1,
+      "parsed": [
+        {
+          "value": "Introduction to C Programming",
+          "programmes": [
+            "first-year cs stream",
+            "first-year cv stream",
+            "first-year me stream"
+          ]
+        },
+        {
+          "value": "Introduction to C Programming, and all courses under PLC and ETC",
+          "programmes": [
+            "first-year ee stream"
+          ]
+        }
+      ],
+      "sources": [],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BIS613B": {
+      "kind": "title-variants",
+      "code": "BIS613B",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Cloud Computing and Security",
+          "programmes": [
+            "cs-design"
+          ]
+        },
+        {
+          "value": "Internet of Things",
+          "programmes": [
+            "ise"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BIS613D": {
+      "kind": "title-variants",
+      "code": "BIS613D",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Cloud Computing & Security",
+          "programmes": [
+            "cse-cyber-security",
+            "cse-iot-cyber-blockchain"
+          ]
+        },
+        {
+          "value": "Cloud Computing and Security",
+          "programmes": [
+            "aiml",
+            "cse-ai",
+            "ise"
+          ]
+        },
+        {
+          "value": "Cloud Computing and security",
+          "programmes": [
+            "computer-engineering",
+            "cse-aiml"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BPLCK105C": {
+      "kind": "title-variants",
+      "code": "BPLCK105C",
+      "semester": 1,
+      "parsed": [
+        {
+          "value": "Basics of JAVA programming",
+          "programmes": [
+            "first-year cs stream",
+            "first-year cv stream",
+            "first-year ee stream"
+          ]
+        },
+        {
+          "value": "Basics to JAVA programming",
+          "programmes": [
+            "first-year me stream"
+          ]
+        }
+      ],
+      "sources": [],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BPLCK205C": {
+      "kind": "title-variants",
+      "code": "BPLCK205C",
+      "semester": 2,
+      "parsed": [
+        {
+          "value": "Basics of JAVA programming",
+          "programmes": [
+            "first-year cs stream",
+            "first-year cv stream",
+            "first-year ee stream"
+          ]
+        },
+        {
+          "value": "Basics to JAVA programming",
+          "programmes": [
+            "first-year me stream"
+          ]
+        }
+      ],
+      "sources": [],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BRMK557": {
+      "kind": "title-variants",
+      "code": "BRMK557",
+      "semester": 5,
+      "parsed": [
+        {
+          "value": "Research Methodology and IPR",
+          "programmes": [
+            "aeronautical",
+            "aerospace",
+            "agricultural",
+            "ai-ds",
+            "aiml",
+            "automobile",
+            "biotechnology",
+            "chemical",
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "cse-iot",
+            "cse-iot-cyber-blockchain",
+            "cv",
+            "data-science",
+            "ece",
+            "eee",
+            "eie",
+            "electronics-computer",
+            "ete",
+            "iem",
+            "industrial-production",
+            "ise",
+            "marine",
+            "me",
+            "mechanical-smart-manufacturing",
+            "mechatronics",
+            "mining",
+            "robotics-ai",
+            "robotics-automation",
+            "silk-technology",
+            "smart-agritech",
+            "textile",
+            "vlsi"
+          ]
+        },
+        {
+          "value": "Research Methodology and IPR Environmental Studies and E-waste",
+          "programmes": [
+            "csbs"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34aerossch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34marinesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34mechasch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/3biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/4biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58aerossch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58autossch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58civsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58marinesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58mechasch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58mecsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58miningsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58robosch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58smartsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/autosch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/civsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/iemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ipesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/mecsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/miningsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/robosch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/smartsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/smmsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/vlsisch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BSCK307": {
+      "kind": "title-variants",
+      "code": "BSCK307",
+      "semester": 3,
+      "parsed": [
+        {
+          "value": "Social Connect and Ability Enhancement",
+          "programmes": [
+            "electronics-computer"
+          ]
+        },
+        {
+          "value": "Social Connect and Res ponsibility",
+          "programmes": [
+            "aeronautical"
+          ]
+        },
+        {
+          "value": "Social Connect and Responsibility",
+          "programmes": [
+            "agricultural",
+            "ai-ds",
+            "aiml",
+            "biomedical",
+            "biotechnology",
+            "chemical",
+            "computer-communication",
+            "computer-engineering",
+            "cs-design",
+            "csbs",
+            "cse",
+            "cse-ai",
+            "cse-aiml",
+            "cse-cyber-security",
+            "cse-ds",
+            "cse-iot",
+            "cse-iot-cyber-blockchain",
+            "cv",
+            "data-science",
+            "ece",
+            "eee",
+            "eie",
+            "electronics-communication-advanced-communication",
+            "ete",
+            "iem",
+            "industrial-iot",
+            "industrial-production",
+            "ise",
+            "marine",
+            "me",
+            "mechanical-smart-manufacturing",
+            "mechatronics",
+            "mining",
+            "robotics-ai",
+            "robotics-automation",
+            "silk-technology",
+            "smart-agritech",
+            "textile",
+            "vlsi"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34eisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34marinesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/34mechasch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aidssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38aimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38ccesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csbssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csdsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaimlsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cseaisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csebctsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csedssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38csesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38cybersch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38dssch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38iotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/38issch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/3biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/4biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/56raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58agrisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58civsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58eissch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58marinesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58mechasch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58mecsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58miningsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58robosch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/58smartsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5biomedsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/78raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7encsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7vlsisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/actsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/biomedsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/biotechsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/chemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/civsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/enccsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/iemsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/indiotsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ipesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/mecsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/miningsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/raisch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/robosch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/smartsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/smmsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/vlsisch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BSFHK158": {
+      "kind": "title-variants",
+      "code": "BSFHK158",
+      "semester": 1,
+      "parsed": [
+        {
+          "value": "Scientific Foundations for Health",
+          "programmes": [
+            "first-year me stream"
+          ]
+        },
+        {
+          "value": "Scientific Foundations of Health",
+          "programmes": [
+            "first-year cs stream",
+            "first-year cv stream",
+            "first-year ee stream"
+          ]
+        }
+      ],
+      "sources": [],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BSFHK258": {
+      "kind": "title-variants",
+      "code": "BSFHK258",
+      "semester": 2,
+      "parsed": [
+        {
+          "value": "Scientific Foundations for Health",
+          "programmes": [
+            "first-year me stream"
+          ]
+        },
+        {
+          "value": "Scientific Foundations of Health",
+          "programmes": [
+            "first-year cs stream",
+            "first-year cv stream",
+            "first-year ee stream"
+          ]
+        }
+      ],
+      "sources": [],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BTE755C": {
+      "kind": "title-variants",
+      "code": "BTE755C",
+      "semester": 7,
+      "parsed": [
+        {
+          "value": "EmbeddedSystemApplications",
+          "programmes": [
+            "ece"
+          ]
+        },
+        {
+          "value": "EmbeddedSystemsApplications",
+          "programmes": [
+            "ete"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/5ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/5etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/6etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/7etsch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/ecesch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/etsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BTX405B": {
+      "kind": "title-variants",
+      "code": "BTX405B",
+      "semester": 4,
+      "parsed": [
+        {
+          "value": "Speciality Yarns and Fabrics",
+          "programmes": [
+            "textile"
+          ]
+        },
+        {
+          "value": "Speciality yarn and Fabrics",
+          "programmes": [
+            "silk-technology"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    },
+    "title-variants:BTXL657C": {
+      "kind": "title-variants",
+      "code": "BTXL657C",
+      "semester": 6,
+      "parsed": [
+        {
+          "value": "Computer Aided Textile &Garment Designing -lab",
+          "programmes": [
+            "textile"
+          ]
+        },
+        {
+          "value": "Computer Aided Textile Designing- lab",
+          "programmes": [
+            "silk-technology"
+          ]
+        }
+      ],
+      "sources": [
+        "https://vtu.ac.in/pdf/2022_3to8/silksch.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/textsch.pdf"
+      ],
+      "evidence": "Different PDFs print different wording; check whether it is one course or a parser problem.",
+      "expected": null,
+      "resolution": "open",
+      "reviewer": null,
+      "verifiedOn": null,
+      "note": null
+    }
+  }
+}

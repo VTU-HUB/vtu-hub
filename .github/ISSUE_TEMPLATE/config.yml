@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Questions and ideas
-    url: https://github.com/nishanth-kj/vtu-hub/discussions
+    url: https://github.com/VTU-HUB/vtu-hub/discussions
     about: Ask a question or suggest an idea in Discussions.
   - name: Official VTU documents
     url: https://vtu.ac.in
