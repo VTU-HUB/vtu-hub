@@ -1,4 +1,4 @@
-import { absUrl, CONTACT_EMAIL, LOGO, OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { absUrl, CONTACT_EMAIL, GITHUB_URL, LOGO, OG_IMAGE, SITE_ALT_NAMES, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export type Crumb = { label: string; href?: string };
 export type FaqItem = { q: string; a: string };
@@ -12,7 +12,9 @@ export function organizationLd() {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
+    alternateName: [...SITE_ALT_NAMES],
     url: SITE_URL,
+    sameAs: [GITHUB_URL],
     email: CONTACT_EMAIL,
     description: SITE_DESCRIPTION,
     logo: {
@@ -55,6 +57,7 @@ export function websiteLd() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     name: SITE_NAME,
+    alternateName: [...SITE_ALT_NAMES],
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     inLanguage: "en-IN",

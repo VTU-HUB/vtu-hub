@@ -1,4 +1,6 @@
 export const SITE_NAME = "VTUHub";
+/** Spellings people type into search ("vtu hub"); used as schema.org alternateName. */
+export const SITE_ALT_NAMES = ["VTU Hub", "vtuhub.site"] as const;
 export const SITE_URL = "https://vtuhub.site";
 export const SITE_TAGLINE = "Original VTU study guides, calculators and scheme explainers";
 export const SITE_DESCRIPTION =

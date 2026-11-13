@@ -7,6 +7,16 @@ listed.
 
 ## [Unreleased]
 
+### Changed (SEO)
+
+- "VTU Hub" is now a schema.org `alternateName` of the site, and the home page
+  title leads with "VTUHub (VTU Hub)" in English, Kannada and Hindi.
+- Subject page titles say "Notes" only when the course has notes; otherwise
+  "Syllabus & Modules". Every title keeps the branch, so first-year courses
+  shared across programmes no longer repeat the same title.
+- Course names drop the printed L:T:P pattern, all-lowercase names get capitals,
+  and short names never end on "and", "of" or "with". URLs are unchanged.
+
 ### Added
 
 - Module-wise PDFs: every module card has **View Module N PDF** and **Download**.
