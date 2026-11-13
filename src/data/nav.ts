@@ -1,6 +1,5 @@
 export const mainNav = [
   { label: "Notes", href: "/vtu", hint: "Pick your branch" },
-  { label: "Semesters", href: "/semesters", hint: "1st to 8th sem" },
   { label: "Calculators", href: "/tools", hint: "SGPA, CGPA, attendance" },
   { label: "Exam updates", href: "/updates", hint: "Timetable, results" },
   { label: "Guides", href: "/articles", hint: "How-to articles" },

@@ -1,36 +1,29 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { clampDesc } from "@/lib/seo-doc";
-import Browse from "@/components/site/Browse.astro";
-import Crumbs from "@/components/site/Crumbs.astro";
-import Notice from "@/components/site/Notice.astro";
-import PageHeader from "@/components/site/PageHeader.astro";
-import { parseSemesterSlug, semesterAbout, semesterName, semesterSlug } from "@/data/branches";
-import { branchesForSemester } from "@/data/subjects";
+import { SEMESTER_ORD, semesterName, semesterSlug } from "@/data/branches";
 
 export function getStaticPaths() {
-  return [1, 2, 3, 4, 5, 6, 7, 8]
-    .filter((n) => branchesForSemester(n).length > 0)
-    .map((n) => ({ params: { semester: semesterSlug(n) } }));
+  return SEMESTER_ORD.map((_, index) => ({
+    params: { semester: semesterSlug(index + 1) },
+  }));
 }
 
-const n = parseSemesterSlug(Astro.params.semester)!;
-const list = branchesForSemester(n);
-const about = semesterAbout(n);
+const semester = SEMESTER_ORD.findIndex((_, index) => semesterSlug(index + 1) === Astro.params.semester) + 1;
+const label = semesterName(semester);
+const destination = "/vtu";
 ---
+
 <Base
-  title={`VTU ${semesterName(n)} Notes and Subjects, All Branches`}
-  description={clampDesc(`VTU ${semesterName(n)} on the 2022 scheme, all ${list.length} programmes: ${list.map((b) => b.shortName).join(", ")}. Pick yours for subject codes, credits and the official syllabus.`)}
-  path={`/semesters/${Astro.params.semester}`}
-  crumbs={[{ label: "Semesters", href: "/semesters" }, { label: semesterName(n), href: `/semesters/${Astro.params.semester}` }]}
-  faqs={[{ q: `Which branches run VTU ${semesterName(n)}?`, a: `${semesterName(n)} on VTUHub lists ${list.map((b) => b.shortName).join(", ")}. ${about}` }]}
+  title={`${label} — Browse VTU Branches`}
+  description={`The semester-first VTU browser has moved. Choose your VTU branch first, then select ${label}.`}
+  path={Astro.url.pathname}
+  canonical={destination}
+  noindex
 >
-  <Crumbs items={[{ label: "Semesters", href: "/semesters" }, { label: semesterName(n) }]} />
-  <PageHeader kicker="All branches" title={semesterName(n)} answer={about} />
-  <Notice class="mb-8">This page is the semester hub. Choose your branch below to open subjects and files for that programme. VTUHub never assumes Computer Science.</Notice>
-  <Browse kind="switcher" semester={n} />
-  <div class="mt-8">
-    <h2 class="mb-4 text-lg font-semibold">Branches in this semester</h2>
-    <Browse kind="branches" semester={n} />
-  </div>
+  <section class="mx-auto max-w-2xl text-center">
+    <h1 class="text-2xl font-bold">Choose your VTU branch first</h1>
+    <p class="mt-3 text-muted">The semester-first browser has been replaced. Select your branch, then choose {label}.</p>
+    <p class="mt-6"><a class="text-primary underline" href={destination}>Browse VTU branches</a></p>
+  </section>
+  <script is:inline>window.location.replace("/vtu");</script>
 </Base>

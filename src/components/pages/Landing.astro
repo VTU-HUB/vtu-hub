@@ -2,12 +2,12 @@
 /** Landing page, shared by / (en), /kn and /hi. */
 import Base from "@/layouts/Base.astro";
 import { faqs } from "@/data/faq";
-import { branches, branchesByStream, SEMESTER_ORD } from "@/data/branches";
+import { branches, branchesByStream } from "@/data/branches";
 import { latestNotices, NOTICE_LABEL, notices, OFFICIAL_LINKS } from "@/data/notices";
 import { countSubjects, popularSubjectsMixed, subjectPath, subjects } from "@/data/subjects";
 import { tools } from "@/data/tools";
 import { SITE_NAME } from "@/lib/site";
-import { branchText, FAQ_TEXT, SEM_ORD, toolText } from "@/i18n/content";
+import { branchText, FAQ_TEXT, toolText } from "@/i18n/content";
 import { hasTranslation, localePath, t, type Lang } from "@/i18n/ui";
 
 interface Props {
@@ -93,16 +93,6 @@ const featuredTools = tools
             ))}
           </select>
         </div>
-        <div>
-          <label for="qf-sem" class="mb-1.5 flex items-center gap-2 text-sm font-medium">
-            <span class="grid size-5 place-items-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground" aria-hidden="true">2</span>
-            {L.yourSemester}
-          </label>
-          <select id="qf-sem" name="semester" required class="h-12 w-full rounded-lg border bg-surface px-3 text-base">
-            <option value="" disabled selected>{L.selectSemester}</option>
-            {SEMESTER_ORD.map((ord, i) => <option value={`${ord}-semester`}>{L.semesterOption(SEM_ORD[lang][i])}</option>)}
-          </select>
-        </div>
         <button type="submit" class="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-semibold text-primary-foreground hover:bg-primary-hover">
           {L.showSubjects} <span aria-hidden="true">→</span>
         </button>
@@ -117,16 +107,16 @@ const featuredTools = tools
       f.addEventListener("submit", function (e) {
         e.preventDefault();
         var b = f.elements.namedItem("branch").value;
-        var s = f.elements.namedItem("semester").value;
+        
         // Open the first empty dropdown instead of failing silently.
-        var missing = !b ? "qf-branch" : !s ? "qf-sem" : null;
+        var missing = !b ? "qf-branch" : null;
         if (missing) {
           var trigger = document.querySelector('[data-ss-for="' + missing + '"]');
           if (trigger) { trigger.closest(".ss").classList.add("is-invalid"); trigger.click(); }
           else document.getElementById(missing).focus();
           return;
         }
-        location.href = (f.getAttribute("data-base") || "") + "/vtu/" + b + "/" + s;
+        location.href = (f.getAttribute("data-base") || "") + "/vtu/" + b;
       });
     })();
   </script>
@@ -240,18 +230,6 @@ const featuredTools = tools
         ) : null;
       })}
     </div>
-  </section>
-
-  <section class="mt-10 rounded-xl border bg-surface p-5" aria-labelledby="sems">
-    <h2 id="sems" class="font-semibold">{L.semTitle}</h2>
-    <p class="mt-1 text-sm text-muted">{L.semText}</p>
-    <ul class="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-8">
-      {SEMESTER_ORD.map((ord, i) => (
-        <li>
-          <a class="flex h-12 items-center justify-center rounded-lg border bg-secondary/60 font-semibold hover:border-primary hover:text-primary" href={`/semesters/${ord}-semester`} aria-label={L.semesterOption(SEM_ORD[lang][i])}>{SEM_ORD[lang][i]}</a>
-        </li>
-      ))}
-    </ul>
   </section>
 
   <section class="mt-14" aria-labelledby="calc">

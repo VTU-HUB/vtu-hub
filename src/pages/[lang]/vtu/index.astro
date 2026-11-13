@@ -3,9 +3,9 @@ import Base from "@/layouts/Base.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import Steps from "@/components/site/Steps.astro";
-import { branches, SEMESTER_ORD } from "@/data/branches";
+import { branches } from "@/data/branches";
 import { countSubjects } from "@/data/subjects";
-import { branchText, SEM_ORD } from "@/i18n/content";
+import { branchText } from "@/i18n/content";
 import { localePath, t, TRANSLATED_LANGS } from "@/i18n/ui";
 
 export function getStaticPaths() {
@@ -29,7 +29,7 @@ const crumbs = [{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }];
 <Base title={seo.title} description={seo.description} path={localePath(lang, "/vtu")} crumbs={crumbs} lang={lang}>
   <Crumbs items={[{ label: d.nav.notes[0] }]} lang={lang} />
   <Steps current={1} lang={lang} />
-  <PageHeader title={d.browse.vtuTitle} answer={d.browse.vtuIntro} lang={lang} />
+  <PageHeader title={d.browse.vtuTitle} answer="Choose your programme first. Each branch page lists its own available semesters and subjects." lang={lang} />
   <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
     {branches.map((b) => (
       <li>
@@ -45,13 +45,4 @@ const crumbs = [{ label: d.nav.notes[0], href: localePath(lang, "/vtu") }];
       </li>
     ))}
   </ul>
-  <section class="mt-10 rounded-xl border bg-surface p-5">
-    <h2 class="font-semibold">{d.landing.semTitle}</h2>
-    <p class="mt-1 text-sm text-muted">{d.landing.semText}</p>
-    <ul class="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-8">
-      {SEMESTER_ORD.map((ord, i) => (
-        <li><a class="flex h-12 items-center justify-center rounded-lg border bg-secondary/60 font-semibold hover:border-primary hover:text-primary" href={`/semesters/${ord}-semester`}>{SEM_ORD[lang][i]}</a></li>
-      ))}
-    </ul>
-  </section>
 </Base>
