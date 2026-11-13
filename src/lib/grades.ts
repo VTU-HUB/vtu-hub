@@ -52,9 +52,18 @@ export function cgpa(semesters: { credits: number; sgpa: number }[]) {
   return { value: credits === 0 ? 0 : sum / credits, credits };
 }
 
-/** VTU's published conversion: percentage = (CGPA − 0.75) × 10. */
+/** Highest grade point on VTU's 10-point scale. */
+export const CGPA_MAX = 10;
+
+/**
+ * VTU B.E./B.Tech Regulations 2022, clause 22OB 6.7: "Percentage of marks secured,
+ * M = CGPA Earned x 10" (illustration: 8.20 → 82.0 %). The clause also says there is
+ * no formula as such and this one "may be used" for employment and higher studies.
+ * Older schemes have their own regulations; this is the 2022-scheme conversion only.
+ * Out-of-range input is clamped to 0–10.
+ */
 export function cgpaToPercentage(value: number) {
-  return Math.max(0, (finite(value) - 0.75) * 10);
+  return Math.min(CGPA_MAX, Math.max(0, finite(value))) * 10;
 }
 
 /** CIE/SEE maxima per scheme. 2022: 50 + 50. 2018: 40 + 60. */

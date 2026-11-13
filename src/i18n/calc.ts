@@ -16,7 +16,7 @@ const en = {
   sgpa: "SGPA",
   creditsCounted: (n: number) => `${n} credits counted`,
   cgpaNote: (pct: string) =>
-    `Informal percentage conversion (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct}%</span>. Unofficial. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">How CGPA is calculated</a>.`,
+    `2022 scheme: percentage = CGPA × 10 = <span class="tabular-nums text-foreground">${pct}%</span> (VTU Regulations 2022, clause 22OB 6.7). Your grade card is the official record. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">How CGPA is calculated</a>.`,
   schemeSplit: "Scheme split",
   totalGrade: "Total / grade",
   grading: '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">Grading explained</a>.',
@@ -45,6 +45,11 @@ const en = {
   attendedTooHigh: "Classes attended cannot be more than classes conducted.",
   obtainedTooHigh: "Marks obtained cannot be more than the maximum marks.",
   negative: "Enter a number that is 0 or more.",
+  sgpaRowsSkipped: (n: number, max: number) =>
+    `${n} course${n === 1 ? " is" : "s are"} not counted: credits must be between 0 and ${max}.`,
+  cgpaRowsSkipped: (n: number) =>
+    `${n} semester${n === 1 ? " is" : "s are"} not counted: credits must be more than 0 and SGPA between 0 and 10.`,
+  marksRange: (field: string, max: number) => `${field} must be between 0 and ${max}.`,
 };
 
 type CalcStrings = typeof en;
@@ -64,7 +69,7 @@ const kn: CalcStrings = {
   sgpa: "SGPA",
   creditsCounted: (n) => `${n} ಕ್ರೆಡಿಟ್ ಎಣಿಸಲಾಗಿದೆ`,
   cgpaNote: (pct) =>
-    `ಅನಧಿಕೃತ ಶೇಕಡಾ ಪರಿವರ್ತನೆ (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct}%</span>. ಅಧಿಕೃತವಲ್ಲ. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">CGPA ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕುತ್ತಾರೆ (ಇಂಗ್ಲಿಷ್)</a>.`,
+    `2022 ಸ್ಕೀಮ್: ಶೇಕಡಾ = CGPA × 10 = <span class="tabular-nums text-foreground">${pct}%</span> (VTU ನಿಯಮಾವಳಿ 2022, ಕಲಂ 22OB 6.7). ನಿಮ್ಮ ಗ್ರೇಡ್ ಕಾರ್ಡ್ ಅಧಿಕೃತ ದಾಖಲೆ. <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">CGPA ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕುತ್ತಾರೆ (ಇಂಗ್ಲಿಷ್)</a>.`,
   schemeSplit: "ಸ್ಕೀಮ್ ವಿಭಾಗ",
   totalGrade: "ಒಟ್ಟು / ಗ್ರೇಡ್",
   grading: '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">ಗ್ರೇಡಿಂಗ್ ವಿವರಣೆ (ಇಂಗ್ಲಿಷ್)</a>.',
@@ -93,6 +98,9 @@ const kn: CalcStrings = {
   attendedTooHigh: "ಹಾಜರಾದ ತರಗತಿಗಳು ನಡೆದ ತರಗತಿಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇರಲು ಸಾಧ್ಯವಿಲ್ಲ.",
   obtainedTooHigh: "ಪಡೆದ ಅಂಕಗಳು ಗರಿಷ್ಠ ಅಂಕಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇರಲು ಸಾಧ್ಯವಿಲ್ಲ.",
   negative: "0 ಅಥವಾ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.",
+  sgpaRowsSkipped: (n: number, max: number) => `${n} ಕೋರ್ಸ್ ಲೆಕ್ಕಕ್ಕೆ ಸೇರಿಲ್ಲ: ಕ್ರೆಡಿಟ್ 0 ರಿಂದ ${max} ರ ನಡುವೆ ಇರಬೇಕು.`,
+  cgpaRowsSkipped: (n: number) => `${n} ಸೆಮಿಸ್ಟರ್ ಲೆಕ್ಕಕ್ಕೆ ಸೇರಿಲ್ಲ: ಕ್ರೆಡಿಟ್ 0 ಕ್ಕಿಂತ ಹೆಚ್ಚು ಮತ್ತು SGPA 0 ರಿಂದ 10 ರ ನಡುವೆ ಇರಬೇಕು.`,
+  marksRange: (field: string, max: number) => `${field} 0 ರಿಂದ ${max} ರ ನಡುವೆ ಇರಬೇಕು.`,
 };
 
 const hi: CalcStrings = {
@@ -110,7 +118,7 @@ const hi: CalcStrings = {
   sgpa: "SGPA",
   creditsCounted: (n) => `${n} क्रेडिट गिने गए`,
   cgpaNote: (pct) =>
-    `अनौपचारिक प्रतिशत रूपांतरण (CGPA − 0.75) × 10 ≈ <span class="tabular-nums text-foreground">${pct}%</span>। आधिकारिक नहीं। <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">CGPA कैसे निकालें (अंग्रेज़ी)</a>।`,
+    `2022 स्कीम: प्रतिशत = CGPA × 10 = <span class="tabular-nums text-foreground">${pct}%</span> (VTU विनियम 2022, खंड 22OB 6.7)। आपका ग्रेड कार्ड ही आधिकारिक रिकॉर्ड है। <a class="text-primary hover:underline" href="/articles/how-to-calculate-vtu-cgpa">CGPA कैसे निकालें (अंग्रेज़ी)</a>।`,
   schemeSplit: "स्कीम विभाजन",
   totalGrade: "कुल / ग्रेड",
   grading: '<a class="text-primary hover:underline" href="/articles/understanding-vtu-grading">ग्रेडिंग समझें (अंग्रेज़ी)</a>।',
@@ -139,6 +147,9 @@ const hi: CalcStrings = {
   attendedTooHigh: "उपस्थित कक्षाएँ आयोजित कक्षाओं से अधिक नहीं हो सकतीं।",
   obtainedTooHigh: "प्राप्त अंक अधिकतम अंकों से अधिक नहीं हो सकते।",
   negative: "0 या उससे अधिक संख्या दर्ज करें।",
+  sgpaRowsSkipped: (n: number, max: number) => `${n} कोर्स गिने नहीं गए: क्रेडिट 0 से ${max} के बीच होने चाहिए।`,
+  cgpaRowsSkipped: (n: number) => `${n} सेमेस्टर गिने नहीं गए: क्रेडिट 0 से अधिक और SGPA 0 से 10 के बीच होना चाहिए।`,
+  marksRange: (field: string, max: number) => `${field} 0 से ${max} के बीच होना चाहिए।`,
 };
 
 export function calcStrings(): CalcStrings {

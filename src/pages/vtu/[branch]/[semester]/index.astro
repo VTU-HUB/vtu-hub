@@ -6,7 +6,7 @@ import Browse from "@/components/site/Browse.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
-import { branches, getBranch, parseSemesterSlug, semesterAbout, semesterName, semesterPath, semesterSlug } from "@/data/branches";
+import { branches, getBranch, parseSemesterSlug, semesterAbout, semesterName, semesterSlug } from "@/data/branches";
 import { getSubjectsBySemester } from "@/data/subjects";
 
 export function getStaticPaths() {
@@ -53,7 +53,7 @@ const seoDesc = clampDesc(
   <Steps current={3} branch={{ label: branch.shortName, href: `/vtu/${branch.slug}` }} semester={{ label: semesterName(n), href: `/vtu/${branch.slug}/${Astro.params.semester}` }} />
   <PageHeader kicker={`${branch.shortName} · ${branch.code}`} title={`VTU ${branch.shortName} ${semesterName(n)}`} answer={about} />
   <Notice class="mb-6">
-    You are viewing <strong class="text-foreground">{branch.shortName}</strong> for this semester. Other programmes have different subject codes. <a class="text-primary hover:underline" href={semesterPath(n)}>See all branches in {semesterName(n)}</a>.
+    You are viewing <strong class="text-foreground">{branch.shortName}</strong> for this semester. Other programmes have different subject codes. Switch branch below, or <a class="text-primary hover:underline" href="/vtu">choose another programme</a>.
   </Notice>
   <Browse kind="switcher" semester={n} current={branch.slug} />
   <section class="mt-8">

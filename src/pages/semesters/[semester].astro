@@ -16,7 +16,7 @@ const destination = "/vtu";
 <Base
   title={`${label} — Browse VTU Branches`}
   description={`The semester-first VTU browser has moved. Choose your VTU branch first, then select ${label}.`}
-  path={Astro.url.pathname}
+  path={`/semesters/${Astro.params.semester}`}
   canonical={destination}
   noindex
 >

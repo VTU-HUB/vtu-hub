@@ -9,25 +9,40 @@ import {
   percentageError,
   sgpa as sgpaOf,
 } from "@/lib/grades";
+import {
+  badCgpaRows,
+  badSgpaRows,
+  checkCgpaRows,
+  checkMarks,
+  checkNumbers,
+  checkSgpaRows,
+  COURSE_CREDITS,
+  inRange,
+  POINT_SCALE,
+  readStored,
+  writeStored,
+} from "@/lib/calc-input";
 import { calcStrings } from "@/i18n/calc";
 
 const S = calcStrings();
+const LETTERS = GRADE_SCALE.map((g) => g.letter);
 
-/** Calculator inputs persist in this browser only (localStorage); nothing is sent anywhere. */
+/**
+ * Calculator inputs persist in this browser only (localStorage); nothing is sent anywhere.
+ * A saved value is used only when `check` accepts its shape; anything else (corrupt,
+ * from an older version, edited by hand) is ignored and the defaults are shown.
+ */
 const STORE = "vtuhub-calc-";
-function load<T>(key: string, fallback: T): T {
+function load<T>(key: string, fallback: T, check: (v: unknown) => T | null): T {
   try {
-    const raw = localStorage.getItem(STORE + key);
-    if (!raw) return fallback;
-    const value = JSON.parse(raw) as T;
-    return value && typeof value === typeof fallback ? value : fallback;
+    return readStored(localStorage.getItem(STORE + key), check) ?? fallback;
   } catch {
     return fallback;
   }
 }
 function save(key: string, value: unknown) {
   try {
-    localStorage.setItem(STORE + key, JSON.stringify(value));
+    localStorage.setItem(STORE + key, writeStored(value));
   } catch {
     /* storage blocked: calculators still work, just without memory */
   }
@@ -63,7 +78,7 @@ function mountSgpa(root: HTMLElement) {
     { id: 3, name: S.course(3), credits: 3, letter: "B+" },
     { id: 4, name: S.course(4), credits: 3, letter: "O" },
     { id: 5, name: S.lab, credits: 1, letter: "A+" },
-  ]);
+  ], (v) => checkSgpaRows(v, LETTERS));
   const list = el("div", "space-y-3");
   const card = el("div", "rounded-lg border bg-surface p-4 md:p-5");
   card.append(list);
@@ -80,16 +95,20 @@ function mountSgpa(root: HTMLElement) {
   side.append(result.box);
   const note = el("p", "text-sm text-muted");
   note.innerHTML = S.sgpaNote;
-  side.append(note);
+  const warn = el("p", "text-sm text-danger");
+  warn.setAttribute("aria-live", "polite");
+  side.append(note, warn);
   wrap.append(card, side);
 
   // Results refresh on every keystroke; the rows are rebuilt only on add/remove,
   // so the field being typed in is never destroyed.
   const update = () => {
     save("sgpa", rows);
-    const s = sgpaOf(rows);
+    const s = sgpaOf(rows.filter((r) => inRange(r.credits, COURSE_CREDITS)));
     result.value.textContent = s.value.toFixed(2);
     if (result.hint) result.hint.textContent = S.sgpaHint(s.points, s.credits);
+    const bad = badSgpaRows(rows);
+    warn.textContent = bad ? S.sgpaRowsSkipped(bad, COURSE_CREDITS.max) : "";
   };
   const paint = () => {
     list.replaceChildren();
@@ -104,8 +123,8 @@ function mountSgpa(root: HTMLElement) {
       });
       const credits = el("input", inputClass) as HTMLInputElement;
       credits.type = "number";
-      credits.min = "1";
-      credits.max = "12";
+      credits.min = String(COURSE_CREDITS.min);
+      credits.max = String(COURSE_CREDITS.max);
       credits.value = String(row.credits);
       credits.setAttribute("aria-label", S.credits);
       credits.addEventListener("input", () => {
@@ -157,7 +176,7 @@ function mountCgpa(root: HTMLElement) {
     { id: 1, name: S.semester(1), credits: 20, sgpa: 8.2 },
     { id: 2, name: S.semester(2), credits: 20, sgpa: 8.6 },
     { id: 3, name: S.semester(3), credits: 21, sgpa: 8.4 },
-  ]);
+  ], checkCgpaRows);
   const list = el("div", "space-y-3");
   const card = el("div", "rounded-lg border bg-surface p-4 md:p-5");
   card.append(list);
@@ -172,14 +191,18 @@ function mountCgpa(root: HTMLElement) {
   const wrap = el("div", "grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]");
   const side = el("div", "space-y-4");
   const note = el("p", "text-sm text-muted");
-  side.append(result.box, note);
+  const warn = el("p", "text-sm text-danger");
+  warn.setAttribute("aria-live", "polite");
+  side.append(result.box, note, warn);
   wrap.append(card, side);
   const update = () => {
     save("cgpa", rows);
-    const c = cgpaOf(rows);
+    const c = cgpaOf(rows.filter((r) => r.credits > 0 && inRange(r.sgpa, POINT_SCALE)));
     result.value.textContent = c.value.toFixed(2);
     if (result.hint) result.hint.textContent = S.creditsCounted(c.credits);
     note.innerHTML = S.cgpaNote(cgpaToPercentage(c.value).toFixed(1));
+    const bad = badCgpaRows(rows);
+    warn.textContent = bad ? S.cgpaRowsSkipped(bad) : "";
   };
   const paint = () => {
     list.replaceChildren();
@@ -201,8 +224,8 @@ function mountCgpa(root: HTMLElement) {
       });
       const sgpa = el("input", inputClass) as HTMLInputElement;
       sgpa.type = "number";
-      sgpa.min = "0";
-      sgpa.max = "10";
+      sgpa.min = String(POINT_SCALE.min);
+      sgpa.max = String(POINT_SCALE.max);
       sgpa.step = "0.01";
       sgpa.value = String(row.sgpa);
       sgpa.addEventListener("input", () => {
@@ -235,7 +258,7 @@ function mountMarks(root: HTMLElement) {
   let scheme: "50" | "40" = "50";
   let cie = 42;
   let see = 38;
-  ({ scheme, cie, see } = load("marks", { scheme, cie, see }));
+  ({ scheme, cie, see } = load("marks", { scheme, cie, see }, checkMarks));
   const card = el("div", "space-y-4 rounded-lg border bg-surface p-4 md:p-5");
   const split = el("div", "flex flex-wrap gap-2");
   card.append(el("p", "text-sm font-medium", S.schemeSplit), split);
@@ -287,6 +310,15 @@ function mountMarks(root: HTMLElement) {
       });
       split.append(b);
     }
+    // Out-of-range marks get a message instead of a silently capped result.
+    const range = !inRange(cie, { min: 0, max: cieMax }) ? S.marksRange("CIE", cieMax)
+      : !inRange(see, { min: 0, max: seeMax }) ? S.marksRange("SEE", seeMax)
+      : "";
+    if (range) {
+      result.value.textContent = "–";
+      if (result.hint) result.hint.textContent = range;
+      return;
+    }
     const r = courseResult(scheme, cie, see);
     const outcome = r.pass ? "pass" : !r.cieOk ? "cie" : !r.seeOk ? "see" : "total";
     result.value.textContent = `${r.total} · ${r.grade.letter}`;
@@ -310,7 +342,9 @@ function mountAttendance(root: HTMLElement) {
   let attended = 42;
   let conducted = 56;
   let target = 85;
-  ({ attended, conducted, target } = load("attendance", { attended, conducted, target }));
+  ({ attended, conducted, target } = load("attendance", { attended, conducted, target }, (v) =>
+    checkNumbers(v, ["attended", "conducted", "target"] as const),
+  ));
   const card = el("div", "grid gap-4 rounded-lg border bg-surface p-4 sm:grid-cols-3 md:p-5");
   const fields: Array<[string, string, () => number, (n: number) => void]> = [
     [S.attended, "att", () => attended, (n) => (attended = n)],
@@ -357,7 +391,7 @@ function mountAttendance(root: HTMLElement) {
 function mountPercentage(root: HTMLElement) {
   let obtained = 78;
   let max = 100;
-  ({ obtained, max } = load("percentage", { obtained, max }));
+  ({ obtained, max } = load("percentage", { obtained, max }, (v) => checkNumbers(v, ["obtained", "max"] as const)));
   const card = el("div", "max-w-lg space-y-4 rounded-lg border bg-surface p-4 md:p-5");
   const grid = el("div", "grid gap-4 sm:grid-cols-2");
   const mk = (id: string, label: string, value: number, write: (n: number) => void) => {

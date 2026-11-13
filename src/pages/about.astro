@@ -3,26 +3,33 @@ import Base from "@/layouts/Base.astro";
 import Crumbs from "@/components/site/Crumbs.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import { SITE_NAME } from "@/lib/site";
+import { branches } from "@/data/branches";
+import { notesCodes } from "@/data/notes";
+import { lastCommitDate } from "@/lib/content-date";
+
+const programmeCount = branches.length;
+const notesCount = notesCodes.length;
+const updated = new Date(`${lastCommitDate("src/pages/about.astro")}T00:00:00Z`).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 ---
 <Base title="About VTUHub: Independent VTU Study Platform" description="VTUHub is an independent student resource platform for Visvesvaraya Technological University — notes, papers, syllabus and tools organised by branch and semester." path="/about" crumbs={[{ label: "About", href: "/about" }]}>
   <Crumbs items={[{ label: "About" }]} />
   <PageHeader title="About VTUHub" answer="VTUHub is an independent catalogue of VTU study resources for students in Karnataka. It is not the university, not a college portal, and not the results system.">
-    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 28 August 2026</p>
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated {updated}</p>
   </PageHeader>
   <div class="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
     <h2 class="text-xl font-semibold text-foreground">What this site is</h2>
     <p>{SITE_NAME} is a student-built resource platform for programmes under Visvesvaraya Technological University, Belagavi. It organises original guides and small calculators by branch, semester and subject.</p>
     <p>It is not Visvesvaraya Technological University, not a college portal, and not an official results or exam-application system. Circulars, USNs, hall tickets and marks live on <a class="text-primary hover:underline" href="https://vtu.ac.in">vtu.ac.in</a> and on your college exam section.</p>
     <h2 class="mt-10 text-xl font-semibold text-foreground">Who it is for</h2>
-    <p>Undergraduates on the 2022 scheme (and students still sitting 2018 or 2021 papers) in Computer Science, Information Science, Electronics and Communication, Electrical and Electronics, Mechanical and Civil Engineering across Karnataka. If your branch is missing, that is a gap — not a claim that the programme does not exist.</p>
+    <p>B.E./B.Tech students on VTU's 2022 scheme across Karnataka. The course catalogue covers {programmeCount} programmes, read from VTU's official scheme PDFs. The 2025 scheme is not covered yet. If your programme is missing, that is a gap — not a claim that the programme does not exist.</p>
     <h2 class="mt-10 text-xl font-semibold text-foreground">How resources are organised</h2>
     <ul class="list-disc space-y-1.5 pl-5">
-      <li>Branch first when you already know your programme — subject codes (BCS, BIS, BEC, …) stay in their own tree.</li>
-      <li>Semester first when you only know the term. Opening a semester lists every branch that runs it. Nothing defaults to CSE.</li>
-      <li>Subject pages hold original unit guides, practice questions, a syllabus walk-through and a lab-prep checklist where a lab exists. We do not host university question-paper PDFs.</li>
+      <li>Branch, then semester, then subject. Each programme keeps its own subject codes (BCS, BIS, BEC, …), and a semester page lets you switch to another branch for the same term.</li>
+      <li>Every subject page lists the course code, credits and, where VTU's syllabus could be read, its official modules.</li>
+      <li>Full hand-written notes exist for {notesCount} subjects so far, mostly CSE. Other subjects have generated study guides and practice prompts built from the syllabus modules; these are study aids, not VTU question papers. We do not host university question-paper PDFs.</li>
     </ul>
     <h2 class="mt-10 text-xl font-semibold text-foreground">Accuracy</h2>
-    <p>Module titles and codes are transcribed from publicly described 2022 scheme structures and labelled as study aids. Colleges overlay electives and lab batches. Always match the code on your admission ticket. If a guide is wrong, use the <a class="text-primary hover:underline" href="/contact">contact</a> page.</p>
+    <p>Course codes, titles and credits are read automatically from VTU's official 2022-scheme PDFs and checked by a validator on every change; a few titles and credits could not be read and are shown as missing rather than guessed. Colleges overlay electives and lab batches. Always match the code on your admission ticket. If a guide is wrong, use the <a class="text-primary hover:underline" href="/contact">contact</a> page.</p>
     <h2 class="mt-10 text-xl font-semibold text-foreground">What we do not do</h2>
     <ul class="list-disc space-y-1.5 pl-5">
       <li>Host scanned VTU question papers or third-party notes.</li>

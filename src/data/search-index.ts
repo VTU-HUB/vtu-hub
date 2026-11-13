@@ -1,5 +1,5 @@
 import { articles } from "@/data/articles";
-import { branches, semesterName, semesterSlug } from "@/data/branches";
+import { branches, semesterName } from "@/data/branches";
 import { resourceTypes } from "@/data/resource-types";
 import { subjectPath, subjects } from "@/data/subjects";
 import { tools } from "@/data/tools";
@@ -61,9 +61,6 @@ export const searchIndex: SearchEntry[] = [
     "page",
     "Term dates",
     "cie last working day",
-  ),
-  ...[1, 2, 3, 4, 5, 6, 7, 8].map((n) =>
-    hit(semesterName(n), `/semesters/${semesterSlug(n)}`, "page", "All branches", `${n} semester`),
   ),
   ...branches.map((b) =>
     hit(b.name, `/vtu/${b.slug}`, "branch", b.shortName, `${b.code} ${b.shortName}`),

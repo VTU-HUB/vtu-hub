@@ -78,7 +78,7 @@ export const articles: Article[] = [
     slug: "how-to-calculate-vtu-cgpa",
     title: "How to calculate VTU CGPA",
     description:
-      "Credit-weighted CGPA across semesters, what to do with arrears, and why WhatsApp percentage conversions are unofficial.",
+      "Credit-weighted CGPA across semesters, what to do with arrears, and the CGPA × 10 percentage conversion in the 2022 regulations.",
     category: "Grading",
     published: "2026-06-18",
     updated: "2026-08-22",
@@ -99,7 +99,7 @@ export const articles: Article[] = [
       {
         heading: "Percentage conversions",
         paragraphs: [
-          "A commonly cited informal rule is percentage ≈ (CGPA − 0.75) × 10. VTU has not published a single conversion that every circular uses. Treat it as a planning figure. The transcript is the document that counts.",
+          "For the 2022 scheme, VTU's B.E./B.Tech Regulations (clause 22OB 6.7) say there is no formula for converting CGPA into a percentage, but that percentage = CGPA × 10 may be used for employment and higher studies. Their own example: a CGPA of 8.20 is 82.0%. Older schemes have their own regulations, so check the one for your batch. The grade card and transcript are the documents that count.",
         ],
       },
     ],

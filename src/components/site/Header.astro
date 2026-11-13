@@ -15,7 +15,6 @@ const d = t(lang);
 const loc = (path: string) => (hasTranslation(path) ? localePath(lang, path) : path);
 const nav = [
   { key: "notes", href: "/vtu" },
-  { key: "semesters", href: "/semesters" },
   { key: "calculators", href: "/tools" },
   { key: "updates", href: "/updates" },
   { key: "guides", href: "/articles" },
@@ -29,7 +28,8 @@ const branchLinks = branches.filter((b) => b.featured).map((b) => ({
 }));
 const allBranchesHref = loc("/vtu");
 
-const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+// build.format "file" puts ".html" (and "/index.html" for the home pages) in the path.
+const path = Astro.url.pathname.replace(/(\/index)?\.html$/, "").replace(/\/$/, "") || "/";
 function active(href: string) {
   return path === href || (href !== "/" && href !== `/${lang}` && path.startsWith(`${href}/`));
 }
