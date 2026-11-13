@@ -154,7 +154,7 @@ export const schemes: Scheme[] = [
     year: "2022",
     name: "2022 Scheme",
     description:
-      "Fully catalogued scheme for every B.E./B.Tech programme on VTUHub. Theory papers typically use 50 CIE + 50 SEE. Subject codes use the Bxx prefix (BCS, BIS, BEC, BEE, BME, BCV).",
+      "Catalogued 2022 B.E./B.Tech scheme on VTUHub (typically 50 CIE + 50 SEE, Bxx codes). Some official PDFs are still missing, including Smart Agritech 7th/8th.",
   },
   {
     year: "2021",

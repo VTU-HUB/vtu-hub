@@ -19,7 +19,7 @@ export const tools: ToolDef[] = [
     slug: "marks",
     name: "Marks Calculator",
     description:
-      "Add CIE and SEE marks, map the total to a VTU letter grade, and check the 40% pass rule.",
+      "Theory papers only: 2022 is 50+50, 2018 is 40+60. Labs and practicals use different CIE rules.",
     href: "/tools/marks",
   },
   {

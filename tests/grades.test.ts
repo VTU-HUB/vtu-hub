@@ -43,16 +43,26 @@ describe("sgpa", () => {
     assert.equal(sgpa([{ credits: 0, letter: "O" }, { credits: 3, letter: "Z" }]).value, 0);
     assert.equal(sgpa([]).value, 0);
   });
-  it("leaves DX AU AB PP NP IC out of SGPA (22OB 6.2) and explains why", () => {
+  it("excludes DX AU PP NP IC W from the SGPA denominator (22OB 6.2)", () => {
+    for (const letter of ["DX", "AU", "PP", "NP", "IC", "W"] as const) {
+      const r = sgpa([
+        { credits: 4, letter: "A" },
+        { credits: 3, letter },
+      ]);
+      assert.equal(r.value, 8, letter);
+      assert.equal(r.credits, 4, letter);
+      assert.equal(r.incomplete, false, letter);
+      assert.equal(r.excluded[0].letter, letter);
+    }
+  });
+  it("does not print an SGPA while AB is unresolved against 22OB 6.6", () => {
     const r = sgpa([
       { credits: 4, letter: "A" },
-      { credits: 3, letter: "DX" },
-      { credits: 2, letter: "AB" },
-      { credits: 1, letter: "PP" },
+      { credits: 3, letter: "AB" },
     ]);
-    assert.equal(r.value, 8);
-    assert.equal(r.credits, 4);
-    assert.deepEqual(r.excluded.map((e) => e.letter), ["DX", "AB", "PP"]);
+    assert.equal(r.value, null);
+    assert.equal(r.incomplete, true);
+    assert.equal(r.excluded[0].letter, "AB");
   });
 });
 
