@@ -1,0 +1,172 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import Avatar from "@/components/site/Avatar.astro";
+import { contributorPath, contributors } from "@/data/contributors";
+import { canonicalSubject, subjectPath, subjects } from "@/data/subjects";
+import { notesFor } from "@/data/notes";
+import { cleanCourseTitle } from "@/lib/titles";
+import { GITHUB_URL } from "@/lib/site";
+import type { Area, Contributor } from "@/lib/contributors";
+
+export function getStaticPaths() {
+  return contributors.map((person) => ({ params: { slug: person.slug }, props: { person } }));
+}
+
+interface Props {
+  person: Contributor;
+}
+const { person: c } = Astro.props;
+
+const fmt = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+const num = (n: number) => n.toLocaleString("en-IN");
+const plural = (n: number, one: string, many = `${one}s`) => `${num(n)} ${n === 1 ? one : many}`;
+
+const AREA_LABEL: Record<Area, string> = { notes: "Notes", data: "Course data", code: "Site & tools", docs: "Docs" };
+const notes = c.notes.map((code) => {
+  const sub = subjects.find((s) => s.code.toUpperCase() === code);
+  const title = notesFor(code)?.frontmatter.title ?? (sub ? sub.name : code);
+  return { code, title: cleanCourseTitle(title), href: sub ? subjectPath(canonicalSubject(sub)) : null };
+});
+const stats = [
+  { label: "Contributions", value: num(c.commits) },
+  { label: "Notes", value: num(c.notes.length) },
+  { label: "Lines added", value: `+${num(c.additions)}` },
+  { label: "Lines removed", value: `−${num(c.deletions)}` },
+];
+const sorts = [
+  { by: "date", dir: "desc", type: "text", label: "Newest" },
+  { by: "date", dir: "asc", type: "text", label: "Oldest" },
+  { by: "size", dir: "desc", type: "number", label: "Largest change" },
+];
+const chip =
+  "inline-flex min-h-10 items-center rounded-lg border bg-surface px-3 text-sm font-medium hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary";
+const others = contributors.filter((o) => o.slug !== c.slug).slice(0, 6);
+---
+<Base
+  title={`${c.name} – VTUHub Contributor`}
+  description={`${c.name} has made ${plural(c.commits, "contribution")} to VTUHub${c.notes.length ? `, including notes for ${plural(c.notes.length, "subject")}` : ""}, from ${fmt(c.first)} to ${fmt(c.last)}.`}
+  path={contributorPath(c)}
+  noindex
+  crumbs={[
+    { label: "Contributors", href: "/contributors" },
+    { label: c.name, href: contributorPath(c) },
+  ]}
+>
+  <Crumbs items={[{ label: "Contributors", href: "/contributors" }, { label: c.name }]} />
+  <div class="flex min-w-0 items-start gap-4">
+    <Avatar person={c} size={72} class="mt-1" />
+    <div class="min-w-0 flex-1">
+      <PageHeader
+        title={c.name}
+        answer={`Thank you, ${c.name}: ${plural(c.commits, "contribution")} to VTUHub between ${fmt(c.first)} and ${fmt(c.last)}.`}
+      >
+        {c.login ? (
+          <p slot="meta" class="mt-2 text-sm">
+            <a class="font-medium text-primary hover:underline" href={`https://github.com/${c.login}`} rel="noopener" target="_blank">@{c.login} on GitHub</a>
+          </p>
+        ) : null}
+      </PageHeader>
+    </div>
+  </div>
+
+  <dl class="grid grid-cols-2 gap-3 md:grid-cols-4">
+    {stats.map((s) => (
+      <div class="rounded-xl border bg-surface p-4">
+        <dt class="text-xs uppercase tracking-wider text-muted">{s.label}</dt>
+        <dd class="mt-1 text-2xl font-semibold tabular-nums">{s.value}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <section class="mt-10" aria-labelledby="areas">
+    <h2 id="areas" class="text-xl font-semibold">Where they helped</h2>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {(Object.keys(AREA_LABEL) as Area[]).filter((a) => c.areas[a] > 0).map((a) => (
+        <li class="rounded-lg border bg-secondary/50 px-3 py-2 text-sm">
+          <span class="font-medium">{AREA_LABEL[a]}</span> <span class="text-muted">· {plural(c.areas[a], "change")}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {notes.length ? (
+    <section class="mt-10" aria-labelledby="notes">
+      <h2 id="notes" class="text-xl font-semibold">Notes written or edited</h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+        {notes.map((n) => (
+          <li>
+            {n.href ? (
+              <a class="group flex min-w-0 items-center gap-3 rounded-xl border bg-surface p-4 hover:border-primary" href={n.href}>
+                <span class="shrink-0 rounded-md bg-secondary px-2 py-1 font-mono text-xs text-muted">{n.code}</span>
+                <span class="min-w-0 flex-1 font-medium group-hover:text-primary">{n.title}</span>
+              </a>
+            ) : (
+              <span class="flex min-w-0 items-center gap-3 rounded-xl border bg-surface p-4">
+                <span class="shrink-0 rounded-md bg-secondary px-2 py-1 font-mono text-xs text-muted">{n.code}</span>
+                <span class="min-w-0 flex-1 font-medium">{n.title}</span>
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ) : null}
+
+  <section class="mt-10" aria-labelledby="history" data-sort-root>
+    <div class="flex flex-wrap items-end justify-between gap-3">
+      <h2 id="history" class="text-xl font-semibold">All contributions</h2>
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Sort contributions">
+        <span class="mr-1 text-sm text-muted">Sort by</span>
+        {sorts.map((s, i) => (
+          <button type="button" class={chip} data-sort-by={s.by} data-sort-dir={s.dir} data-sort-type={s.type} aria-pressed={i === 0 ? "true" : "false"}>
+            {s.label}
+          </button>
+        ))}
+      </div>
+    </div>
+    <ol class="mt-4 divide-y rounded-xl border bg-surface" data-sort-list>
+      {c.history.map((h, i) => (
+        <li class="flex min-w-0 flex-col gap-1 p-4 sm:flex-row sm:items-center sm:gap-4" data-order={i} data-date={h.date} data-size={h.additions + h.deletions}>
+          <time class="shrink-0 text-xs tabular-nums text-faint sm:w-24" datetime={h.date}>{fmt(h.date)}</time>
+          <span class="min-w-0 flex-1">
+            <a class="break-words font-medium hover:text-primary hover:underline" href={`${GITHUB_URL}/commit/${h.sha}`} rel="noopener" target="_blank">{h.subject}</a>
+            <span class="mt-1 flex flex-wrap gap-1.5 text-xs text-muted">
+              {h.areas.map((a) => <span class="rounded bg-secondary px-1.5 py-0.5">{AREA_LABEL[a]}</span>)}
+              {h.coAuthor ? <span class="rounded bg-primary/10 px-1.5 py-0.5 text-primary">Co-author</span> : null}
+            </span>
+          </span>
+          <span class="shrink-0 font-mono text-xs tabular-nums text-muted">
+            <span class="text-green-700 dark:text-green-400">+{num(h.additions)}</span>{" "}
+            <span class="text-red-700 dark:text-red-400">−{num(h.deletions)}</span>
+            <span class="text-faint"> · {plural(h.files, "file")}</span>
+          </span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  {others.length ? (
+    <section class="mt-10" aria-labelledby="others">
+      <h2 id="others" class="text-xl font-semibold">Other contributors</h2>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {others.map((o) => (
+          <li>
+            <a class="inline-flex min-h-10 items-center gap-2 rounded-full border bg-surface py-1 pl-1 pr-3 text-sm hover:border-primary hover:text-primary" href={contributorPath(o)}>
+              <Avatar person={o} size={28} />
+              {o.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ) : null}
+
+  <p class="mt-10 text-sm"><a class="font-medium text-primary hover:underline" href="/contributors">← All contributors</a></p>
+  <script>
+    import { mountSortLists } from "@/scripts/sort-list.ts";
+    mountSortLists();
+  </script>
+</Base>

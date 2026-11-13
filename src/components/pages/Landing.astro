@@ -6,6 +6,8 @@ import { branches, branchesByStream } from "@/data/branches";
 import { latestNotices, NOTICE_LABEL, notices, OFFICIAL_LINKS } from "@/data/notices";
 import { countSubjects, popularSubjectsMixed, subjectPath, subjects } from "@/data/subjects";
 import { tools } from "@/data/tools";
+import { contributorPath, contributors } from "@/data/contributors";
+import Avatar from "@/components/site/Avatar.astro";
 import { SITE_NAME } from "@/lib/site";
 import { branchText, FAQ_TEXT, toolText } from "@/i18n/content";
 import { hasTranslation, localePath, t, type Lang } from "@/i18n/ui";
@@ -34,6 +36,9 @@ const seo = {
     description: `सभी ${programmeCount} VTU 2022 स्कीम B.E./B.Tech प्रोग्राम: आधिकारिक स्कीम से विषय कोड, क्रेडिट और इलेक्टिव, परीक्षा टाइमटेबल और SGPA/CGPA कैलकुलेटर।`,
   },
 }[lang];
+const thanked = contributors.slice(0, 12);
+/** Contributor pages are English only; mark links from /kn and /hi as such. */
+const enLink = lang === "en" ? undefined : "en";
 const latest = latestNotices(6);
 const streams = branchesByStream();
 const featuredBranches = branches.filter((b) => b.featured);
@@ -282,4 +287,26 @@ const featuredTools = tools
     </div>
     <p class="mt-4 text-sm"><a class="font-medium text-primary hover:underline" href={loc("/faq")}>{L.moreFaq} →</a></p>
   </section>
+
+  {thanked.length ? (
+    <section class="mt-14 rounded-2xl border bg-surface p-5 md:p-8" aria-labelledby="thanks">
+      <h2 id="thanks" class="text-xl font-semibold md:text-2xl">{L.thanksTitle}</h2>
+      <p class="mt-2 max-w-2xl text-sm text-muted">{L.thanksText}</p>
+      <ul class="mt-5 flex flex-wrap gap-2">
+        {thanked.map((c) => (
+          <li>
+            <a class="inline-flex min-h-11 max-w-full items-center gap-2 rounded-full border bg-background py-1 pl-1 pr-3 text-sm hover:border-primary hover:text-primary" href={contributorPath(c)} hreflang={enLink}>
+              <Avatar person={c} size={32} />
+              <span class="truncate font-medium">{c.name}</span>
+              <span class="shrink-0 text-xs text-faint">{L.contributions(c.commits)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        <a class="font-medium text-primary hover:underline" href="/contributors" hreflang={enLink}>{L.allContributors} →</a>
+        <a class="font-medium text-primary hover:underline" href="/contribute" hreflang={enLink}>{L.becomeContributor} →</a>
+      </p>
+    </section>
+  ) : null}
 </Base>

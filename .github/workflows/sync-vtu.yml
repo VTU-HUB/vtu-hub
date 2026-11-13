@@ -56,6 +56,7 @@ jobs:
           git diff --quiet -- src/data/vtu && exit 0
           git config user.name "vtuhub-bot"
           git config user.email "vtuhub-bot@users.noreply.github.com"
-          git add src/data/vtu
+          node scripts/sync-contributors.mjs || echo "Contributor snapshot not refreshed."
+          git add src/data/vtu src/data/contributors.json
           git commit -m "data: sync official VTU notices and schemes"
           git push
