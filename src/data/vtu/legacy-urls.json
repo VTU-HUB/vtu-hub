@@ -1019,6 +1019,60 @@
    "branch": "robotics-automation",
    "semester": 4,
    "code": "BRA456C"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU802C"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau802d",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU802D"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau811a",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU811A"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau811b",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU811B"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau811c",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU811C"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau811d",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU811D"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau852a",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU852A"
+  },
+  {
+   "path": "/vtu/automobile/8th-semester/to-be-announced-on-the-vtu-web-portal-bau852b",
+   "branch": "automobile",
+   "semester": 8,
+   "code": "BAU852B"
+  },
+  {
+   "path": "/vtu/industrial-iot/3rd-semester/l-t-p",
+   "branch": "industrial-iot",
+   "semester": 3,
+   "code": "BIO358D"
   }
  ],
  "files": [

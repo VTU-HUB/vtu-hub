@@ -19,7 +19,20 @@
     "BEC456B": "Programmable Logic Controllers",
     "BETCK105A": "Smart Materials and Systems",
     "BETCK205A": "Smart Materials and Systems",
-    "BRA456C": "Signal Conditioning, Supervisory Control & Data Acquisition System (SCADA)"
+    "BRA456C": "Signal Conditioning, Supervisory Control & Data Acquisition System (SCADA)",
+    "BKSKK107": "Samskrutika Kannada",
+    "BKBKK107": "Balake Kannada",
+    "BKSKK207": "Samskrutika Kannada",
+    "BKBKK207": "Balake Kannada",
+    "BMEL305": "Introduction to Modelling and Design for Manufacturing",
+    "BRIL305": "Introduction to Modeling and Design for Manufacturing",
+    "BTX657A": "Pattern Engineering and Draping of Garments"
+  },
+  "$sources": {
+    "BKSKK107": "csesch.pdf p1 prints one row 'BKSKK107/ BKBKK107 Samskrutika Kannada/ Balake Kannada'; each code takes its half, in printed order (same for 207 on p4).",
+    "BMEL305": "58mecsch.pdf / 34mechsch.pdf print 'Introduction to Modelling and Design for Manufacturing'; raisch.pdf and 34marinesch.pdf overlay two title layers ('Intro duction').",
+    "BRIL305": "raisch.pdf p1 prints 'Introduction to Modeling and Design for Manufacturing' (wrapped over two lines, overlaid with the BMEL305 layer).",
+    "BTX657A": "3textsyll.pdf p46 heading 'PATTERN ENGINEERING AND DRAPING OF GARMENTS'; the scheme PDF cuts it to 'Pattern Engineering Draping of Garments and'."
   },
   "codes": {
     "BPWKS206": "BPWSK206",

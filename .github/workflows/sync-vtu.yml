@@ -46,6 +46,7 @@ jobs:
       - name: Check the site still builds with the new data
         run: |
           git diff --quiet -- src/data/vtu && { echo "No changes."; exit 0; }
+          npm run validate:data
           npm test
           npm run build
           npm run check:seo

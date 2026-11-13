@@ -35,7 +35,7 @@
           "code": "BENGK106",
           "title": "Communicative English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -95,7 +95,7 @@
           "code": "BETCK105A",
           "title": "Smart Materials and Systems",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -105,7 +105,7 @@
           "code": "BETCK105B",
           "title": "Green Buildings",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -115,7 +115,7 @@
           "code": "BETCK105C",
           "title": "Introduction to Nano Technology",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -125,7 +125,7 @@
           "code": "BETCK105D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -135,7 +135,7 @@
           "code": "BETCK105E",
           "title": "Renewable Energy Sources",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -145,7 +145,7 @@
           "code": "BETCK105F",
           "title": "Waste Management",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -155,7 +155,7 @@
           "code": "BETCK105G",
           "title": "Emerging Applications of Biosensors",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -165,7 +165,7 @@
           "code": "BETCK105H",
           "title": "Introduction to Internet of Things (IOT)",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -175,7 +175,7 @@
           "code": "BETCK105I",
           "title": "Introduction to Cyber Security",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -185,7 +185,7 @@
           "code": "BETCK105J",
           "title": "Introduction to Embedded System",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -195,7 +195,7 @@
           "code": "BICOK107",
           "title": "Indian Constitution",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -205,7 +205,7 @@
           "code": "BIDTK158",
           "title": "Innovation and Design Thinking",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -213,7 +213,17 @@
         },
         {
           "code": "BKBKK107",
-          "title": "Samskrutika Kannada/ Balake Kannada",
+          "title": "Balake Kannada",
+          "semester": 1,
+          "credits": 1,
+          "type": "HSMC",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BKSKK107",
+          "title": "Samskrutika Kannada",
           "semester": 1,
           "credits": 1,
           "type": null,
@@ -232,10 +242,20 @@
           "group": null
         },
         {
+          "code": "BPHYS102",
+          "title": "Applied Physics for CSE stream",
+          "semester": 1,
+          "credits": 4,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BPLCK105A",
           "title": "Introduction to Web Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -245,7 +265,7 @@
           "code": "BPLCK105B",
           "title": "Introduction to Python Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -255,7 +275,7 @@
           "code": "BPLCK105C",
           "title": "Basics of JAVA programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -265,9 +285,19 @@
           "code": "BPLCK105D",
           "title": "Introduction to C++ Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BPOPS103",
+          "title": "Principles of Programming Using C",
+          "semester": 1,
+          "credits": 3,
+          "type": "ESC",
+          "category": "core",
           "elective": false,
           "group": null
         },
@@ -275,7 +305,7 @@
           "code": "BPWSK106",
           "title": "Professional Writing Skills in English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -285,7 +315,7 @@
           "code": "BSFHK158",
           "title": "Scientific Foundations of Health",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -315,7 +345,7 @@
           "code": "BENGK206",
           "title": "Communicative English",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -375,7 +405,7 @@
           "code": "BETCK205A",
           "title": "Smart Materials and Systems",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -385,7 +415,7 @@
           "code": "BETCK205B",
           "title": "Green Buildings",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -395,7 +425,7 @@
           "code": "BETCK205C",
           "title": "Introduction to Nano Technology",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -405,7 +435,7 @@
           "code": "BETCK205D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -415,7 +445,7 @@
           "code": "BETCK205E",
           "title": "Renewable Energy Sources",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -425,7 +455,7 @@
           "code": "BETCK205F",
           "title": "Waste Management",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -435,7 +465,7 @@
           "code": "BETCK205G",
           "title": "Emerging Applications of Biosensors",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -445,7 +475,7 @@
           "code": "BETCK205H",
           "title": "Introduction to Internet of Things(IoT)",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -455,7 +485,7 @@
           "code": "BETCK205I",
           "title": "Introduction to Cyber Security",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -465,7 +495,7 @@
           "code": "BETCK205J",
           "title": "Introduction to Embedded System",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -475,7 +505,7 @@
           "code": "BICOK207",
           "title": "Indian Constitution",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -493,10 +523,20 @@
         },
         {
           "code": "BKBKK207",
-          "title": "Samskrutika Kannada/ Balake Kannada",
+          "title": "Balake Kannada",
           "semester": 2,
           "credits": 1,
-          "type": "HSMC",
+          "type": null,
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BKSKK207",
+          "title": "Samskrutika Kannada",
+          "semester": 2,
+          "credits": 1,
+          "type": null,
           "category": "common",
           "elective": false,
           "group": null
@@ -585,7 +625,7 @@
           "code": "BSFHK258",
           "title": "Scientific Foundations of Health",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -604,12 +644,12 @@
       "courses": [
         {
           "code": "BBEE103",
-          "title": "Basic Electronics compulsorily",
+          "title": "Basic Electronics for EEE stream",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
-          "category": "elective",
-          "elective": true,
+          "category": "core",
+          "elective": false,
           "group": null
         },
         {
@@ -636,7 +676,7 @@
           "code": "BEEE103",
           "title": "Elements of Electrical Engineering",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "core",
           "elective": false,
@@ -646,7 +686,7 @@
           "code": "BENGK106",
           "title": "Communicative English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -706,7 +746,7 @@
           "code": "BETCK105A",
           "title": "Smart Materials and Systems",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -716,7 +756,7 @@
           "code": "BETCK105B",
           "title": "Green Buildings",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -726,7 +766,7 @@
           "code": "BETCK105C",
           "title": "Introduction to Nano Technology",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -736,7 +776,7 @@
           "code": "BETCK105D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -746,7 +786,7 @@
           "code": "BETCK105E",
           "title": "Renewable Energy Sources",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -756,7 +796,7 @@
           "code": "BETCK105F",
           "title": "Waste Management",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -766,7 +806,7 @@
           "code": "BETCK105G",
           "title": "Emerging Applications of Biosensors",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -776,7 +816,7 @@
           "code": "BETCK105H",
           "title": "Introduction to Internet of Things (IOT)",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -786,7 +826,7 @@
           "code": "BETCK105I",
           "title": "Introduction to Cyber Security",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -796,7 +836,7 @@
           "code": "BETCK105J",
           "title": "Introduction to Embedded System",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -806,7 +846,7 @@
           "code": "BICOK107",
           "title": "Indian Constitution",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -816,7 +856,7 @@
           "code": "BIDTK158",
           "title": "Innovation and Design Thinking",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -824,7 +864,7 @@
         },
         {
           "code": "BKBKK107",
-          "title": "Samskrutika Kannada/ Balake Kannada",
+          "title": "Balake Kannada",
           "semester": 1,
           "credits": 1,
           "type": "HSMC",
@@ -856,7 +896,7 @@
           "code": "BPLCK105A",
           "title": "Introduction to Web Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -866,7 +906,7 @@
           "code": "BPLCK105B",
           "title": "Introduction to Python Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -876,7 +916,7 @@
           "code": "BPLCK105C",
           "title": "Basics of JAVA programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -886,7 +926,7 @@
           "code": "BPLCK105D",
           "title": "Introduction to C++ Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -896,7 +936,7 @@
           "code": "BPWSK106",
           "title": "Professional Writing Skills in English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -906,7 +946,7 @@
           "code": "BSFHK158",
           "title": "Scientific Foundations of Health",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -916,7 +956,7 @@
           "code": "BBEE203",
           "title": "Basic Electronics compulsorily",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -946,7 +986,7 @@
           "code": "BEEE203",
           "title": "Elements of Electrical Engineering compulsorily",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -956,7 +996,7 @@
           "code": "BENGK206",
           "title": "Communicative English",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1066,7 +1106,7 @@
           "code": "BETCK205A",
           "title": "Smart Materials and Systems",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1076,7 +1116,7 @@
           "code": "BETCK205B",
           "title": "Green Buildings",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1086,7 +1126,7 @@
           "code": "BETCK205C",
           "title": "Introduction to Nano Technology",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1096,7 +1136,7 @@
           "code": "BETCK205D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1106,7 +1146,7 @@
           "code": "BETCK205E",
           "title": "Renewable Energy Sources",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1116,7 +1156,7 @@
           "code": "BETCK205F",
           "title": "Waste Management",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1126,7 +1166,7 @@
           "code": "BETCK205G",
           "title": "Emerging Applications of Biosensors",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1136,7 +1176,7 @@
           "code": "BETCK205H",
           "title": "Introduction to Internet of Things(IoT)",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1146,7 +1186,7 @@
           "code": "BETCK205I",
           "title": "Introduction to Cyber Security",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1156,7 +1196,7 @@
           "code": "BETCK205J",
           "title": "Introduction to Embedded System",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1166,7 +1206,7 @@
           "code": "BICOK207",
           "title": "Indian Constitution",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1187,7 +1227,7 @@
           "title": "Balake Kannada",
           "semester": 2,
           "credits": 1,
-          "type": "HSMC",
+          "type": null,
           "category": "common",
           "elective": false,
           "group": null
@@ -1266,7 +1306,7 @@
           "code": "BSFHK258",
           "title": "Scientific Foundations of Health",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1294,8 +1334,18 @@
           "group": null
         },
         {
+          "code": "BCHEM102",
+          "title": "Applied Chemistry for ME Streams",
+          "semester": 1,
+          "credits": 4,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BEMEM103",
-          "title": "Elements of Mechanical Engineering Mechanical",
+          "title": "Elements of Mechanical Engineering",
           "semester": 1,
           "credits": 3,
           "type": "ESC",
@@ -1307,9 +1357,9 @@
           "code": "BENGK106",
           "title": "Communicative English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": "AEC",
-          "category": "common",
+          "category": "ability",
           "elective": false,
           "group": null
         },
@@ -1367,7 +1417,7 @@
           "code": "BETCK105A",
           "title": "Smart Materials and Systems",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1377,7 +1427,7 @@
           "code": "BETCK105B",
           "title": "Green Buildings",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1387,7 +1437,7 @@
           "code": "BETCK105C",
           "title": "Introduction to Nano Technology",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1397,7 +1447,7 @@
           "code": "BETCK105D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1407,7 +1457,7 @@
           "code": "BETCK105E",
           "title": "Renewable Energy Sources",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1417,7 +1467,7 @@
           "code": "BETCK105F",
           "title": "Waste Management",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1427,7 +1477,7 @@
           "code": "BETCK105G",
           "title": "Emerging Applications of Biosensors",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1437,7 +1487,7 @@
           "code": "BETCK105H",
           "title": "Introduction to Internet of Things (IOT)",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1447,7 +1497,7 @@
           "code": "BETCK105I",
           "title": "Introduction to Cyber Security",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1457,7 +1507,7 @@
           "code": "BETCK105J",
           "title": "Introduction to Embedded System",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1467,7 +1517,7 @@
           "code": "BICOK107",
           "title": "Indian Constitution",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1477,7 +1527,7 @@
           "code": "BIDTK158",
           "title": "Innovation and Design Thinking",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1517,7 +1567,7 @@
           "code": "BPLCK105A",
           "title": "Introduction to Web Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1527,7 +1577,7 @@
           "code": "BPLCK105B",
           "title": "Introduction to Python Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1537,7 +1587,7 @@
           "code": "BPLCK105C",
           "title": "Basics to JAVA programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1547,7 +1597,7 @@
           "code": "BPLCK105D",
           "title": "Introduction to C++ Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1557,7 +1607,7 @@
           "code": "BPWSK106",
           "title": "Professional Writing Skills in English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1565,9 +1615,9 @@
         },
         {
           "code": "BSFHK158",
-          "title": "Scientific Foundations of Health",
+          "title": "Scientific Foundations for Health",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1595,7 +1645,7 @@
         },
         {
           "code": "BEME203",
-          "title": "Elements of Mechanical Engineering Mechanical",
+          "title": "Elements of Mechanical Engineering",
           "semester": 2,
           "credits": 3,
           "type": "ESC",
@@ -1607,7 +1657,7 @@
           "code": "BENGK206",
           "title": "Communicative English",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1667,7 +1717,7 @@
           "code": "BETCK205A",
           "title": "Smart Materials and Systems",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1677,7 +1727,7 @@
           "code": "BETCK205B",
           "title": "Green Buildings",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1687,7 +1737,7 @@
           "code": "BETCK205C",
           "title": "Introduction to Nano Technology",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1697,7 +1747,7 @@
           "code": "BETCK205D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1707,7 +1757,7 @@
           "code": "BETCK205E",
           "title": "Renewable Energy Sources",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1717,7 +1767,7 @@
           "code": "BETCK205F",
           "title": "Waste Management",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1727,7 +1777,7 @@
           "code": "BETCK205G",
           "title": "Emerging Applications of Biosensors",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1737,7 +1787,7 @@
           "code": "BETCK205H",
           "title": "Introduction to Internet of Things(IoT)",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1747,7 +1797,7 @@
           "code": "BETCK205I",
           "title": "Introduction to Cyber Security",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1757,7 +1807,7 @@
           "code": "BETCK205J",
           "title": "Introduction to Embedded System",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "elective",
           "elective": true,
@@ -1767,7 +1817,7 @@
           "code": "BICOK207",
           "title": "Indian Constitution",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1785,10 +1835,20 @@
         },
         {
           "code": "BKBKK207",
-          "title": "Samskrutika Kannada/ Balake Kannada",
+          "title": "Balake Kannada",
           "semester": 2,
           "credits": 1,
-          "type": "HSMC",
+          "type": null,
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BKSKK207",
+          "title": "Samskrutika Kannada",
+          "semester": 2,
+          "credits": 1,
+          "type": null,
           "category": "common",
           "elective": false,
           "group": null
@@ -1865,9 +1925,9 @@
         },
         {
           "code": "BSFHK258",
-          "title": "Scientific Foundations of Health",
+          "title": "Scientific Foundations for Health",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -1885,6 +1945,26 @@
       ],
       "courses": [
         {
+          "code": "BCEDK103",
+          "title": "Computer-Aided Engineering Drawing",
+          "semester": 1,
+          "credits": 3,
+          "type": "ESC",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BCHEC102",
+          "title": "Applied Chemistry for Civil Engg Stream",
+          "semester": 1,
+          "credits": 4,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BCIVC103",
           "title": "Engineering Mechanics",
           "semester": 1,
@@ -1898,9 +1978,9 @@
           "code": "BENGK106",
           "title": "Communicative English",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": "AEC",
-          "category": "common",
+          "category": "ability",
           "elective": false,
           "group": null
         },
@@ -1958,8 +2038,8 @@
           "code": "BETCK105A",
           "title": "Smart Materials and Systems",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -1968,8 +2048,8 @@
           "code": "BETCK105B",
           "title": "Green Buildings",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -1978,8 +2058,8 @@
           "code": "BETCK105C",
           "title": "Introduction to Nano Technology",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -1988,8 +2068,8 @@
           "code": "BETCK105D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -1998,8 +2078,8 @@
           "code": "BETCK105E",
           "title": "Renewable Energy Sources",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -2008,8 +2088,8 @@
           "code": "BETCK105F",
           "title": "Waste Management",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -2018,8 +2098,8 @@
           "code": "BETCK105G",
           "title": "Emerging Applications of Biosensors",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -2028,8 +2108,8 @@
           "code": "BETCK105H",
           "title": "Introduction to Internet of Things (IOT)",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -2038,8 +2118,8 @@
           "code": "BETCK105I",
           "title": "Introduction to Cyber Security",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -2048,8 +2128,8 @@
           "code": "BETCK105J",
           "title": "Introduction to Embedded System",
           "semester": 1,
-          "credits": null,
-          "type": "PLC",
+          "credits": 3,
+          "type": "ETC",
           "category": "elective",
           "elective": true,
           "group": "105x"
@@ -2058,7 +2138,7 @@
           "code": "BICOK107",
           "title": "Indian Constitution",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2068,7 +2148,7 @@
           "code": "BIDTK158",
           "title": "Innovation and Design Thinking",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2076,7 +2156,7 @@
         },
         {
           "code": "BKBKK107",
-          "title": "Samskrutika Kannada/ Balake Kannada",
+          "title": "Balake Kannada",
           "semester": 1,
           "credits": 1,
           "type": "HSMC",
@@ -2108,7 +2188,7 @@
           "code": "BPLCK105A",
           "title": "Introduction to Web Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2118,7 +2198,7 @@
           "code": "BPLCK105B",
           "title": "Introduction to Python Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2128,7 +2208,7 @@
           "code": "BPLCK105C",
           "title": "Basics of JAVA programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2138,7 +2218,17 @@
           "code": "BPLCK105D",
           "title": "Introduction to C++ Programming",
           "semester": 1,
-          "credits": null,
+          "credits": 3,
+          "type": null,
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BPWSK106",
+          "title": "Professional Writing Skills in English",
+          "semester": 1,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2148,8 +2238,18 @@
           "code": "BSFHK158",
           "title": "Scientific Foundations of Health",
           "semester": 1,
-          "credits": null,
+          "credits": 1,
           "type": null,
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BCEDK203",
+          "title": "Computer-Aided Engineering Drawing",
+          "semester": 2,
+          "credits": 3,
+          "type": "ESC",
           "category": "common",
           "elective": false,
           "group": null
@@ -2161,6 +2261,26 @@
           "credits": 4,
           "type": null,
           "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BCIVC203",
+          "title": "Engineering Mechanics",
+          "semester": 2,
+          "credits": 3,
+          "type": "ESC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BENGK206",
+          "title": "Communicative English",
+          "semester": 2,
+          "credits": 1,
+          "type": null,
+          "category": "common",
           "elective": false,
           "group": null
         },
@@ -2218,7 +2338,7 @@
           "code": "BETCK205A",
           "title": "Smart Materials and Systems",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2228,7 +2348,7 @@
           "code": "BETCK205B",
           "title": "Green Buildings",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2238,7 +2358,7 @@
           "code": "BETCK205C",
           "title": "Introduction to Nano Technology",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2248,7 +2368,7 @@
           "code": "BETCK205D",
           "title": "Introduction to Sustainable Engineering",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2258,7 +2378,7 @@
           "code": "BETCK205E",
           "title": "Renewable Energy Sources",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2268,7 +2388,7 @@
           "code": "BETCK205F",
           "title": "Waste Management",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2278,7 +2398,7 @@
           "code": "BETCK205G",
           "title": "Emerging Applications of Biosensors",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2288,7 +2408,7 @@
           "code": "BETCK205H",
           "title": "Introduction to Internet of Things(IoT)",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2298,7 +2418,7 @@
           "code": "BETCK205I",
           "title": "Introduction to Cyber Security",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2308,7 +2428,7 @@
           "code": "BETCK205J",
           "title": "Introduction to Embedded System",
           "semester": 2,
-          "credits": null,
+          "credits": 3,
           "type": "ETC",
           "category": "elective",
           "elective": true,
@@ -2318,7 +2438,7 @@
           "code": "BICOK207",
           "title": "Indian Constitution",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2336,7 +2456,17 @@
         },
         {
           "code": "BKBKK207",
-          "title": "Samskrutika Kannada/ Balake Kannada",
+          "title": "Balake Kannada",
+          "semester": 2,
+          "credits": 1,
+          "type": null,
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BKSKK207",
+          "title": "Samskrutika Kannada",
           "semester": 2,
           "credits": 1,
           "type": null,
@@ -2358,7 +2488,7 @@
           "code": "BPHYC202",
           "title": "Applied Physics for Civil Engineering Stream",
           "semester": 2,
-          "credits": null,
+          "credits": 4,
           "type": null,
           "category": "core",
           "elective": false,
@@ -2405,10 +2535,20 @@
           "group": null
         },
         {
+          "code": "BPWSK206",
+          "title": "Professional Writing Skills in English",
+          "semester": 2,
+          "credits": 1,
+          "type": null,
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BSFHK258",
           "title": "Scientific Foundations of Health",
           "semester": 2,
-          "credits": null,
+          "credits": 1,
           "type": null,
           "category": "common",
           "elective": false,
@@ -2641,7 +2781,7 @@
         },
         {
           "code": "BCV405B",
-          "title": "Construction Equipment, Plants and Machine ry",
+          "title": "Construction Equipment, Plants and Machinery",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -4662,6 +4802,16 @@
           "group": null
         },
         {
+          "code": "BBOC407",
+          "title": "Biology for Engineers Biology For Computer Science",
+          "semester": 4,
+          "credits": 2,
+          "type": "BSC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BBOK407",
           "title": "Biology for Engineers Biology For Computer Science",
           "semester": 4,
@@ -5227,7 +5377,8 @@
         4,
         5,
         6,
-        7
+        7,
+        8
       ],
       "courses": [
         {
@@ -5361,6 +5512,16 @@
           "group": null
         },
         {
+          "code": "BAD402",
+          "title": "Artificial Intelligence",
+          "semester": 4,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BAI402",
           "title": "Artificial Intelligence",
           "semester": 4,
@@ -5389,6 +5550,16 @@
           "category": "elective",
           "elective": true,
           "group": "405x"
+        },
+        {
+          "code": "BBOC407",
+          "title": "Biology For Engineers",
+          "semester": 4,
+          "credits": 2,
+          "type": "BSC",
+          "category": "core",
+          "elective": false,
+          "group": null
         },
         {
           "code": "BBOK407",
@@ -5452,23 +5623,43 @@
         },
         {
           "code": "BDSL456A",
-          "title": "Scala B DSL 456C MERN",
+          "title": "Scala",
           "semester": 4,
           "credits": 1,
-          "type": null,
+          "type": "AEC",
           "category": "elective",
           "elective": true,
-          "group": null
+          "group": "456x"
         },
         {
           "code": "BDSL456B",
-          "title": "MangoDB B DSL 456D Julia",
+          "title": "MangoDB",
           "semester": 4,
           "credits": 1,
-          "type": null,
+          "type": "AEC",
           "category": "elective",
           "elective": true,
-          "group": null
+          "group": "456x"
+        },
+        {
+          "code": "BDSL456C",
+          "title": "MERN",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BDSL456D",
+          "title": "Julia",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
         },
         {
           "code": "BUHK408",
@@ -5859,6 +6050,16 @@
           "category": "open-elective",
           "elective": true,
           "group": "755x"
+        },
+        {
+          "code": "BAD883",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         }
       ]
     },
@@ -6057,6 +6258,16 @@
           "credits": 2,
           "type": "BSC",
           "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBOK407",
+          "title": "Biology For Engineers",
+          "semester": 4,
+          "credits": 2,
+          "type": "BSC",
+          "category": "common",
           "elective": false,
           "group": null
         },
@@ -7424,6 +7635,16 @@
           "credits": 2,
           "type": "BSC",
           "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBOK407",
+          "title": "Biology For Engineers",
+          "semester": 4,
+          "credits": 2,
+          "type": "BSC",
+          "category": "common",
           "elective": false,
           "group": null
         },
@@ -10179,6 +10400,16 @@
           "group": null
         },
         {
+          "code": "BAD402",
+          "title": "Artificial Intelligence",
+          "semester": 4,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BAI402",
           "title": "Artificial Intelligence",
           "semester": 4,
@@ -10875,6 +11106,16 @@
           "credits": 1,
           "type": "UHV",
           "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAD402",
+          "title": "Artificial Intelligence",
+          "semester": 4,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
           "elective": false,
           "group": null
         },
@@ -12030,7 +12271,7 @@
         },
         {
           "code": "BCY714D",
-          "title": "Cyber Security Management, Compliance and",
+          "title": "Cyber Security Management, Compliance and Governance",
           "semester": 7,
           "credits": 3,
           "type": "PEC",
@@ -15132,7 +15373,7 @@
         },
         {
           "code": "BEC405A",
-          "title": "Microcontroller s",
+          "title": "Microcontrollers",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -15162,7 +15403,7 @@
         },
         {
           "code": "BEC405D",
-          "title": "Data Structure s using C",
+          "title": "Data Structures using C",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -15342,7 +15583,7 @@
         },
         {
           "code": "BEC601",
-          "title": "Embedded System Design VLSI Design and Testing",
+          "title": "Embedded System Design",
           "semester": 6,
           "credits": 4,
           "type": "IPCC",
@@ -15392,7 +15633,7 @@
         },
         {
           "code": "BEC613D",
-          "title": "FPGA System Design using Verilog",
+          "title": "FPGA Based System design Using Verilog",
           "semester": 6,
           "credits": 3,
           "type": "PEC",
@@ -15499,6 +15740,46 @@
           "category": "lab",
           "elective": false,
           "group": null
+        },
+        {
+          "code": "BECL657A",
+          "title": "FPGA system design Lab using Verilog",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "lab",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BECL657B",
+          "title": "System Modeling using Simulink",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "lab",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BECL657C",
+          "title": "IoT Laboratory",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "lab",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BECL657D",
+          "title": "Pythan Programing for Machine Learning Applications",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "lab",
+          "elective": true,
+          "group": "657x"
         },
         {
           "code": "BEC701",
@@ -15723,6 +16004,315 @@
       ]
     },
     {
+      "slug": "biomedical",
+      "name": "Biomedical Engineering",
+      "printedName": "Biomedical Engineering",
+      "code": "BM",
+      "short": "Biomedical",
+      "stream": "ee",
+      "sources": [
+        {
+          "url": "https://vtu.ac.in/pdf/2022_3to8/biomedsch.pdf",
+          "sha256": "30c9e0a140c78ab7"
+        },
+        {
+          "url": "https://vtu.ac.in/pdf/2022_3to8/5biomedsch.pdf",
+          "sha256": "5a9a507fcecead7d"
+        }
+      ],
+      "syllabi": [
+        "https://vtu.ac.in/pdf/2022_3to8/2biomedsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/3biomedsyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/4biomedsyll.pdf"
+      ],
+      "semesters": [
+        3,
+        4
+      ],
+      "courses": [
+        {
+          "code": "BBM301",
+          "title": "Mathematics – III for B M",
+          "semester": 3,
+          "credits": 3,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM302",
+          "title": "Analog Electronic Circuits",
+          "semester": 3,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM303",
+          "title": "Digital Design and HDL",
+          "semester": 3,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM304",
+          "title": "Instrumentation, Measurements and Biomedical Transducers",
+          "semester": 3,
+          "credits": 3,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM306A",
+          "title": "Micro Electro Mechanical Systems [MEMS]",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BBM306B",
+          "title": "Operating Systems",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BBM306C",
+          "title": "Nano Science and Nano Technology",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BBM306D",
+          "title": "Power Electronics Embedded C",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BBM358A",
+          "title": "Human Anatomy and Physiology",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BBM358B",
+          "title": "Network Analysis",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BBM358C",
+          "title": "Digital Design Lab using Pspice / MultiSIM",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BBM358D",
+          "title": "AEC Lab using Pspice / MultiSIM",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BBML305B",
+          "title": "305 Measurement and Biomedical Transducers Lab",
+          "semester": 3,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BSCK307",
+          "title": "Social Connect and Responsibility",
+          "semester": 3,
+          "credits": 1,
+          "type": "UHV",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM401",
+          "title": "Signal Conditioning and Data Acquisition Circuits",
+          "semester": 4,
+          "credits": 3,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM402",
+          "title": "Embedded Controllers",
+          "semester": 4,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM403",
+          "title": "Java Programming",
+          "semester": 4,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBM405A",
+          "title": "Biomedical Instrumentation",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BBM405B",
+          "title": "Bioelectric Phenomena",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BBM405C",
+          "title": "Web Technology",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BBM405D",
+          "title": "Mathematics for Biome dical",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BBM456A",
+          "title": "Programming in MATLAB",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BBM456B",
+          "title": "Bioinstrumentation Techniques",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BBM456C",
+          "title": "Signal Conditioning Lab using Pspice / MultiSIM",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BBM456D",
+          "title": "Python Programming for Instrumentation",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BBML404B",
+          "title": "404 Signal Conditioning and Data Acquisition Circuits Lab",
+          "semester": 4,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBOK407",
+          "title": "Biology For Engineers",
+          "semester": 4,
+          "credits": 3,
+          "type": "BSC",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUHK408",
+          "title": "Universal human values course",
+          "semester": 4,
+          "credits": 1,
+          "type": "UHV",
+          "category": "common",
+          "elective": false,
+          "group": null
+        }
+      ]
+    },
+    {
       "slug": "eee",
       "name": "Electrical & Electronics Engineering",
       "printedName": "Electrical & Electronics Engineering",
@@ -15755,7 +16345,7 @@
       "courses": [
         {
           "code": "BEE301",
-          "title": "Engineering Mathematics for",
+          "title": "Engineering Mathematics for EEE",
           "semester": 3,
           "credits": 3,
           "type": "PCC",
@@ -17538,7 +18128,7 @@
         },
         {
           "code": "BEC405A",
-          "title": "Microcontroller s",
+          "title": "Microcontrollers",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -17568,7 +18158,7 @@
         },
         {
           "code": "BEC405D",
-          "title": "Data Structure s using C",
+          "title": "Data Structures using C",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -17578,7 +18168,7 @@
         },
         {
           "code": "BEC456A",
-          "title": "Microcontroller s Lab",
+          "title": "Microcontrollers Lab",
           "semester": 4,
           "credits": 1,
           "type": "AEC",
@@ -17828,7 +18418,7 @@
         },
         {
           "code": "BECL657A",
-          "title": "(L:T:P) FPGA System Design using Verilog LAB",
+          "title": "FPGA System Design using Verilog LAB",
           "semester": 6,
           "credits": 1,
           "type": null,
@@ -17838,7 +18428,7 @@
         },
         {
           "code": "BECL657B",
-          "title": "(L:T:P) System Modelling using Simulink",
+          "title": "System Modelling using Simulink",
           "semester": 6,
           "credits": 1,
           "type": null,
@@ -17848,7 +18438,7 @@
         },
         {
           "code": "BECL657C",
-          "title": "(L:T:P) IOT Lab",
+          "title": "IOT Lab",
           "semester": 6,
           "credits": 1,
           "type": null,
@@ -17858,7 +18448,7 @@
         },
         {
           "code": "BECL657D",
-          "title": "(L:T:P) Python Programming for Machine Learning applications",
+          "title": "Python Programming for Machine Learning applications",
           "semester": 6,
           "credits": 1,
           "type": null,
@@ -18131,7 +18721,7 @@
         },
         {
           "code": "BIO358A",
-          "title": "(L:T:P) Robotics and Industrial Automation Lab-Design",
+          "title": "Robotics and Industrial Automation Lab-Design",
           "semester": 3,
           "credits": 1,
           "type": "AEC",
@@ -18141,7 +18731,7 @@
         },
         {
           "code": "BIO358B",
-          "title": "(L:T:P) Lab VIEW -Graphical Programming -Level1",
+          "title": "Lab VIEW -Graphical Programming -Level1",
           "semester": 3,
           "credits": 1,
           "type": "AEC",
@@ -18151,17 +18741,7 @@
         },
         {
           "code": "BIO358C",
-          "title": "(L:T:P) IOT-Connecting the World - Level1",
-          "semester": 3,
-          "credits": 1,
-          "type": "AEC",
-          "category": "elective",
-          "elective": true,
-          "group": "358x"
-        },
-        {
-          "code": "BIO358D",
-          "title": "(L:T:P)",
+          "title": "IOT-Connecting the World - Level1",
           "semester": 3,
           "credits": 1,
           "type": "AEC",
@@ -19241,7 +19821,7 @@
         },
         {
           "code": "BEC405A",
-          "title": "Microcontroller s",
+          "title": "Microcontrollers",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -19271,7 +19851,7 @@
         },
         {
           "code": "BEC405D",
-          "title": "Data Structure s using C",
+          "title": "Data Structures using C",
           "semester": 4,
           "credits": 3,
           "type": "ESC",
@@ -19371,7 +19951,8 @@
         3,
         4,
         5,
-        6
+        6,
+        7
       ],
       "courses": [
         {
@@ -19705,6 +20286,26 @@
           "group": null
         },
         {
+          "code": "BUE515A",
+          "title": "Digital Communication",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
+          "code": "BUE515B",
+          "title": "Advanced Computer Architecture",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
           "code": "BUE515C",
           "title": "Software Engineering and Project Management",
           "semester": 5,
@@ -19895,6 +20496,56 @@
           "group": "657x"
         },
         {
+          "code": "BUE701",
+          "title": "Principles of AI and ML",
+          "semester": 7,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUE702",
+          "title": "System Verilog",
+          "semester": 7,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUE703",
+          "title": "Computer Graphics and Image Processing",
+          "semester": 7,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUE714A",
+          "title": "Low Power VLSI Design",
+          "semester": 7,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUE714B",
+          "title": "RISK-V Processor",
+          "semester": 7,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BUE714C",
           "title": "Cloud Computing",
           "semester": 7,
@@ -19915,6 +20566,26 @@
           "group": "714x"
         },
         {
+          "code": "BUE755A",
+          "title": "Verilog HDL",
+          "semester": 7,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUE755B",
+          "title": "Computer Organization",
+          "semester": 7,
+          "credits": null,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BUE755C",
           "title": "ARM Microcontroller",
           "semester": 7,
@@ -19933,6 +20604,715 @@
           "category": "open-elective",
           "elective": true,
           "group": "755x"
+        },
+        {
+          "code": "BUE786",
+          "title": "Major Project Phase-II",
+          "semester": 7,
+          "credits": 6,
+          "type": "PROJ",
+          "category": "project",
+          "elective": false,
+          "group": null
+        }
+      ]
+    },
+    {
+      "slug": "aeronautical",
+      "name": "Aeronautical Engineering",
+      "printedName": "Aeronautical Engineering",
+      "code": "AE",
+      "short": "Aero",
+      "stream": "me",
+      "sources": [
+        {
+          "url": "https://vtu.ac.in/pdf/2022_3to8/aeroch.pdf",
+          "sha256": "4f840ccf8ab3d5e5"
+        }
+      ],
+      "syllabi": [
+        "https://vtu.ac.in/pdf/2022_3to8/2aerosyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/3aesyll.pdf",
+        "https://vtu.ac.in/pdf/2022_3to8/4aesyll.pdf"
+      ],
+      "semesters": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "courses": [
+        {
+          "code": "BAE301",
+          "title": "Aircraft Materials & Processes",
+          "semester": 3,
+          "credits": 3,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE302",
+          "title": "Elements of Aeronautics",
+          "semester": 3,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE304",
+          "title": "Mechanics of Materials",
+          "semester": 3,
+          "credits": 3,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE306C",
+          "title": "Aircraft Maintenance, Repair and Overhaul",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BAE306D",
+          "title": "/ IOT Concepts And Algorit hms",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BAE358C",
+          "title": "Digitalization in Aeronautics",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BAE358D",
+          "title": "/ Coding literacy",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BAS303",
+          "title": "Fluid Mechanics",
+          "semester": 3,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS306A",
+          "title": "Introduction to Drone Technology",
+          "semester": 3,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS306B",
+          "title": "Mechanism & Machine Theory",
+          "semester": 3,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS358A",
+          "title": "Development of Soft Skills for Engineers",
+          "semester": 3,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS358B",
+          "title": "Ethics, Technology and Engineering",
+          "semester": 3,
+          "credits": null,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BASL305",
+          "title": "Computer Aided Aircraft Drawing",
+          "semester": 3,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BSCK307",
+          "title": "Social Connect and Res ponsibility",
+          "semester": 3,
+          "credits": 1,
+          "type": "UHV",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE401",
+          "title": "Aero Engineering Thermodynamics",
+          "semester": 4,
+          "credits": 3,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE403",
+          "title": "Aircraft Propulsion",
+          "semester": 4,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE405A",
+          "title": "Additive Manufacturing (3D Printing)",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BAE405B",
+          "title": "Turbomachines",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BAE405C",
+          "title": "/ Introduction to Space Technology",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BAE405D",
+          "title": "Introduction to Combustion",
+          "semester": 4,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "405x"
+        },
+        {
+          "code": "BAE456A",
+          "title": "Spreadsheet - Basic for Engineers",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BAE456B",
+          "title": "/ DRONE Pilot Training",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BAE456C",
+          "title": "Introduction to Augmented Reality",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BAE456D",
+          "title": "Introduction to programming with MATLAB and Python",
+          "semester": 4,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "456x"
+        },
+        {
+          "code": "BAEL404",
+          "title": "Aircraft Material Testing & Processing Lab",
+          "semester": 4,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS402",
+          "title": "Aerodynamics",
+          "semester": 4,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBOK407",
+          "title": "Biology Fo r Engineers",
+          "semester": 4,
+          "credits": 3,
+          "type": "BSC",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUHK408",
+          "title": "Universal human values course",
+          "semester": 4,
+          "credits": 1,
+          "type": "UHV",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE502",
+          "title": "Aircraft Structures",
+          "semester": 5,
+          "credits": 10,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE503",
+          "title": "Unmanned Aerial Vehicles - Basics and Applications",
+          "semester": 5,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE515A",
+          "title": "/BAS515A Finite Element Methods",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
+          "code": "BAE515B",
+          "title": "Rocket & Missiles",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
+          "code": "BAE515C",
+          "title": "Helicopter Dynamics",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
+          "code": "BAE515D",
+          "title": "Industrial & Experimental Aerodynamics",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
+          "code": "BAE586",
+          "title": "Mini Project",
+          "semester": 5,
+          "credits": 2,
+          "type": "PROJ",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAEL504",
+          "title": "Energy Conversion Lab",
+          "semester": 5,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS501",
+          "title": "Aviation Management",
+          "semester": 5,
+          "credits": 3,
+          "type": null,
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BESK508",
+          "title": "Environmental Studies",
+          "semester": 5,
+          "credits": 2,
+          "type": "MC",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BRMK557",
+          "title": "Research Methodology and IPR",
+          "semester": 5,
+          "credits": 3,
+          "type": "AEC",
+          "category": "ability",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE601",
+          "title": "Composite Materials & Structures",
+          "semester": 6,
+          "credits": 4,
+          "type": "IPCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE602",
+          "title": "Aircraft Performance and Stability",
+          "semester": 6,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE613A",
+          "title": "Flight Vehi cle Design",
+          "semester": 6,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "613x"
+        },
+        {
+          "code": "BAE613B",
+          "title": "Airframe Structural Design",
+          "semester": 6,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "613x"
+        },
+        {
+          "code": "BAE613C",
+          "title": "Guidance & Navigation",
+          "semester": 6,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "613x"
+        },
+        {
+          "code": "BAE613D",
+          "title": "Vibration & Aeroelasticity",
+          "semester": 6,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "613x"
+        },
+        {
+          "code": "BAE654A",
+          "title": "/ Introduction to Aerospace History",
+          "semester": 6,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "654x"
+        },
+        {
+          "code": "BAE654B",
+          "title": "/BAS654B Introduction to Helicopt ers",
+          "semester": 6,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "654x"
+        },
+        {
+          "code": "BAE654C",
+          "title": "Introduction to UAV",
+          "semester": 6,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "654x"
+        },
+        {
+          "code": "BAE654D",
+          "title": "Introduction to Flight Simulator",
+          "semester": 6,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "654x"
+        },
+        {
+          "code": "BAE657A",
+          "title": "/ Probability and statistics for Aerospace Engineering",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "core",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BAE657B",
+          "title": "/ Virtual Aircraft Simulation",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "core",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BAE657C",
+          "title": "Introduction to Swarm Drone",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "core",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BAE657D",
+          "title": "Multi - disciplinary Research in Aeronautical Engineering",
+          "semester": 6,
+          "credits": 1,
+          "type": null,
+          "category": "core",
+          "elective": true,
+          "group": "657x"
+        },
+        {
+          "code": "BAE685",
+          "title": "Project Phase I",
+          "semester": 6,
+          "credits": 2,
+          "type": "PROJ",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAEL606",
+          "title": "Flight Simulation Lab",
+          "semester": 6,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE701",
+          "title": "Avionics and Systems",
+          "semester": 7,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAE714A",
+          "title": "Gas Turbine Technology BAE714C/",
+          "semester": 7,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "714x"
+        },
+        {
+          "code": "BAE714B",
+          "title": "Wind Tunnel Techniques BAE714D/",
+          "semester": 7,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "714x"
+        },
+        {
+          "code": "BAE755B",
+          "title": "/BAS755B Air Traffic and Weather",
+          "semester": 7,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "755x"
+        },
+        {
+          "code": "BAE755C",
+          "title": "Basics of Flight Simulation",
+          "semester": 7,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "755x"
+        },
+        {
+          "code": "BAE755D",
+          "title": "/BAS755D Aviation and Internet I nfrastructure",
+          "semester": 7,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "755x"
+        },
+        {
+          "code": "BAE786",
+          "title": "Major Project Phase - I I",
+          "semester": 7,
+          "credits": 6,
+          "type": null,
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS702",
+          "title": "Computational Fluid Dynamics",
+          "semester": 7,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS703",
+          "title": "Control Engineering",
+          "semester": 7,
+          "credits": 4,
+          "type": "PCC",
+          "category": "core",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAS714C",
+          "title": "Fight Testing",
+          "semester": 7,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "714x"
+        },
+        {
+          "code": "BAS714D",
+          "title": "AI and ML for Aerospace Applications",
+          "semester": 7,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "714x"
+        },
+        {
+          "code": "BAE803",
+          "title": "Internship (Industry/ Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         }
       ]
     },
@@ -20237,7 +21617,7 @@
         },
         {
           "code": "BAS803",
-          "title": "Internship (Industry/Research) (14 - 20 0 0 12 03 weeks)",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -20274,7 +21654,8 @@
         4,
         5,
         6,
-        7
+        7,
+        8
       ],
       "courses": [
         {
@@ -20539,10 +21920,20 @@
         },
         {
           "code": "BBOK407",
-          "title": "Biology For Engineers 8 Universal human values course",
+          "title": "Biology For Engineers",
           "semester": 4,
           "credits": 3,
           "type": "BSC",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BUHK408",
+          "title": "Universal human values course",
+          "semester": 4,
+          "credits": 1,
+          "type": "UHV",
           "category": "common",
           "elective": false,
           "group": null
@@ -20634,6 +22025,16 @@
           "credits": 2,
           "type": "PROJ",
           "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BAGL504",
+          "title": "Manufacturing Process Lab",
+          "semester": 5,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
           "elective": false,
           "group": null
         },
@@ -21008,6 +22409,16 @@
           "group": "802x"
         },
         {
+          "code": "BAG803",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BEE801B",
           "title": "Instrumentation and Process Control in Food Industry",
           "semester": 8,
@@ -21099,8 +22510,28 @@
           "group": "515x"
         },
         {
+          "code": "BAU515B",
+          "title": "Principles of Alternative/ Energies",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
           "code": "BAU515C",
           "title": "Mechatronics",
+          "semester": 5,
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
+          "elective": true,
+          "group": "515x"
+        },
+        {
+          "code": "BAU515D",
+          "title": "Factory Physics",
           "semester": 5,
           "credits": 3,
           "type": "PEC",
@@ -21300,7 +22731,7 @@
         },
         {
           "code": "BAU701",
-          "title": "Automotive chassis and suspension AU",
+          "title": "Automotive chassis and suspension",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -21310,7 +22741,7 @@
         },
         {
           "code": "BAU702",
-          "title": "Hydraulics and Pneumatics AU",
+          "title": "Hydraulics and Pneumatics",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -21320,7 +22751,7 @@
         },
         {
           "code": "BAU703",
-          "title": "Application Of AI in Automotive Vehicles AU",
+          "title": "Application Of AI in Automotive Vehicles",
           "semester": 7,
           "credits": 4,
           "type": "PCC",
@@ -21370,7 +22801,7 @@
         },
         {
           "code": "BAU755A",
-          "title": "Energy efficiency and Management B AU 755C Human Resource Management",
+          "title": "Energy efficiency and Management",
           "semester": 7,
           "credits": 3,
           "type": "OEC",
@@ -21380,7 +22811,27 @@
         },
         {
           "code": "BAU755B",
-          "title": "Knowledge Management B AU 755D Refrigeration and Air-Conditioning Concepts",
+          "title": "Knowledge Management",
+          "semester": 7,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "755x"
+        },
+        {
+          "code": "BAU755C",
+          "title": "Human Resource Management",
+          "semester": 7,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "755x"
+        },
+        {
+          "code": "BAU755D",
+          "title": "Refrigeration and Air-Conditioning Concepts",
           "semester": 7,
           "credits": 3,
           "type": "OEC",
@@ -21390,7 +22841,7 @@
         },
         {
           "code": "BAU786",
-          "title": "Major Project Phase-II AU 0 0 12 03 100 100 400 300",
+          "title": "Major Project Phase-II",
           "semester": 7,
           "credits": 6,
           "type": "PROJ",
@@ -21399,88 +22850,18 @@
           "group": null
         },
         {
-          "code": "BAU802C",
-          "title": "To be Announced on the VTU web portal",
+          "code": "BAU803",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
-          "credits": 3,
-          "type": "OEC",
-          "category": "open-elective",
-          "elective": true,
-          "group": "802x"
-        },
-        {
-          "code": "BAU802D",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": "OEC",
-          "category": "open-elective",
-          "elective": true,
-          "group": "802x"
-        },
-        {
-          "code": "BAU811A",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": null,
-          "category": "core",
-          "elective": true,
-          "group": "811x"
-        },
-        {
-          "code": "BAU811B",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": null,
-          "category": "core",
-          "elective": true,
-          "group": "811x"
-        },
-        {
-          "code": "BAU811C",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": null,
-          "category": "core",
-          "elective": true,
-          "group": "811x"
-        },
-        {
-          "code": "BAU811D",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": null,
-          "category": "core",
-          "elective": true,
-          "group": "811x"
-        },
-        {
-          "code": "BAU852A",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": null,
-          "category": "core",
-          "elective": true,
-          "group": "852x"
-        },
-        {
-          "code": "BAU852B",
-          "title": "To be Announced on the VTU web portal",
-          "semester": 8,
-          "credits": 3,
-          "type": null,
-          "category": "core",
-          "elective": true,
-          "group": "852x"
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         },
         {
           "code": "BAU883",
-          "title": "0 0 12 03 100 100 200 20 weeks)",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -22083,7 +23464,7 @@
         },
         {
           "code": "BCH701",
-          "title": "Process Modeling and Simulation CH",
+          "title": "Process Modeling and Simulation",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -22093,7 +23474,7 @@
         },
         {
           "code": "BCH702",
-          "title": "Process control and Industrial IOT CH",
+          "title": "Process control and Industrial IOT",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -22103,7 +23484,7 @@
         },
         {
           "code": "BCH703",
-          "title": "Process Engineering Economics and CH Management",
+          "title": "Process Engineering Economics and Management",
           "semester": 7,
           "credits": 4,
           "type": "PCC",
@@ -22183,7 +23564,7 @@
         },
         {
           "code": "BCH755D",
-          "title": "Protein",
+          "title": "Protein Chemistry",
           "semester": 7,
           "credits": 3,
           "type": "OEC",
@@ -22193,7 +23574,7 @@
         },
         {
           "code": "BCH786",
-          "title": "Major Project Phase-II CH",
+          "title": "Major Project Phase-II",
           "semester": 7,
           "credits": 6,
           "type": "PROJ",
@@ -22980,6 +24361,16 @@
           "category": "project",
           "elective": false,
           "group": null
+        },
+        {
+          "code": "BIP883",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         }
       ]
     },
@@ -23710,6 +25101,16 @@
       ],
       "courses": [
         {
+          "code": "BMEL305",
+          "title": "Introduction to Modelling and Design for Manufacturing",
+          "semester": 3,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BMR301",
           "title": "Basic Ship Knowledge and Watch keeping",
           "semester": 3,
@@ -24318,6 +25719,16 @@
           "category": "project",
           "elective": false,
           "group": null
+        },
+        {
+          "code": "BEE883",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         }
       ]
     },
@@ -24400,7 +25811,7 @@
         },
         {
           "code": "BMM306A",
-          "title": "Complex Analysis, Probability and statistics Methods &Linear",
+          "title": "Complex Analysis, Probability and statistics Methods &Linear Programming",
           "semester": 3,
           "credits": 3,
           "type": "ESC",
@@ -24913,10 +26324,20 @@
           "title": "Flexible Manufacturing Systems",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
           "group": "801x"
+        },
+        {
+          "code": "BMM803",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         },
         {
           "code": "BMM811B",
@@ -24933,8 +26354,8 @@
           "title": "Energy and environment",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
         },
@@ -24943,8 +26364,8 @@
           "title": "Conservation of natural resources",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
         },
@@ -25033,7 +26454,7 @@
         },
         {
           "code": "BME305",
-          "title": "for Manufacturing",
+          "title": "Introduction to Modelling and Design for Manufacturing",
           "semester": 3,
           "credits": 1,
           "type": "PCCL",
@@ -25120,6 +26541,16 @@
           "category": "elective",
           "elective": true,
           "group": "358x"
+        },
+        {
+          "code": "BMEL305",
+          "title": "Introduction to Modelling and Design for Manufacturing",
+          "semester": 3,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
         },
         {
           "code": "BSCK307",
@@ -25683,7 +27114,7 @@
         },
         {
           "code": "BME801C",
-          "title": "Modelling & Analytics for Supply Chain Management (Available in",
+          "title": "Modelling & Analytics for Supply Chain Management (Available in NPTEL)",
           "semester": 8,
           "credits": 3,
           "type": "PEC",
@@ -25726,7 +27157,7 @@
           "title": "Fundamentals of Automotive systems (Available in NPTEL)",
           "semester": 8,
           "credits": 3,
-          "type": null,
+          "type": "OEC",
           "category": "lab",
           "elective": true,
           "group": "852x"
@@ -25736,7 +27167,7 @@
           "title": "Computer Integrated Manufacturing (Available in NPTEL)",
           "semester": 8,
           "credits": 3,
-          "type": null,
+          "type": "OEC",
           "category": "lab",
           "elective": true,
           "group": "852x"
@@ -25746,10 +27177,20 @@
           "title": "Business Planning & Project Management (Available in Swayam Portal)",
           "semester": 8,
           "credits": 3,
-          "type": null,
+          "type": "OEC",
           "category": "lab",
           "elective": true,
           "group": "852x"
+        },
+        {
+          "code": "BME883",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         }
       ]
     },
@@ -25835,11 +27276,101 @@
           "group": null
         },
         {
+          "code": "BMT306A",
+          "title": "Analog Communication Systems",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BMT306B",
+          "title": "Signals and Systems",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BMT306C",
+          "title": "Python Programming",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BMT306D",
+          "title": "Product Life Cycle Management",
+          "semester": 3,
+          "credits": 3,
+          "type": "ESC",
+          "category": "elective",
+          "elective": true,
+          "group": "306x"
+        },
+        {
+          "code": "BMT358A",
+          "title": "Programming in Python (002)",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BMT358B",
+          "title": "Trends in Digital Manufacturing",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BMT358C",
+          "title": "PCB Design Technology (002)",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
+          "code": "BMT358D",
+          "title": "Robotics Ecosystem",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
+        },
+        {
           "code": "BSCK307",
           "title": "Social Connect and Responsibility",
           "semester": 3,
           "credits": 1,
           "type": "UHV",
+          "category": "common",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BBOK407",
+          "title": "Biology For Engineers",
+          "semester": 4,
+          "credits": 3,
+          "type": "BSC",
           "category": "common",
           "elective": false,
           "group": null
@@ -26209,18 +27740,18 @@
           "title": "Computer Vision (SWAYAM)",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
           "group": "801x"
         },
         {
           "code": "BMT801B",
-          "title": "Electronic Systems Design: Hands-on Circuits and PCB Design with CAD Software",
+          "title": "Electronic Systems Design: Hands-on Circuits and PCB Design with CAD Software (SWAYAM)",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
           "group": "801x"
         },
@@ -26229,8 +27760,8 @@
           "title": "Mechanics and Control of Robotic Manipulators (NPTEL)",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
           "group": "801x"
         },
@@ -26255,6 +27786,16 @@
           "group": "802x"
         },
         {
+          "code": "BMT803",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BMT811C",
           "title": "Machinery Fault Diagnosis and Signal Processing (NPTEL)",
           "semester": 8,
@@ -26269,8 +27810,8 @@
           "title": "Transducers for instrumentation (NPTEL)",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
         },
@@ -26279,14 +27820,14 @@
           "title": "Mechanics and Control of Robotic Manipulators (NPTEL)",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
         },
         {
           "code": "BMT883",
-          "title": "weeks)",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -26327,6 +27868,16 @@
         8
       ],
       "courses": [
+        {
+          "code": "BMEL305",
+          "title": "Introduction to Modelling and Design for Manufacturing",
+          "semester": 3,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
+        },
         {
           "code": "BRA301",
           "title": "Fundamentals of Robotics & Applications",
@@ -26978,6 +28529,16 @@
           "group": "755x"
         },
         {
+          "code": "BRA786",
+          "title": "Major Project Phase-II",
+          "semester": 7,
+          "credits": 6,
+          "type": "PROJ",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BRA801A",
           "title": "Modern Robotics: Mechanics Planning, and Control",
           "semester": 8,
@@ -27019,7 +28580,7 @@
         },
         {
           "code": "BRA803",
-          "title": "Internship (Industry/Research)/ Rural Internship",
+          "title": "Internship (Industry/Research)/ Rural Internship (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -27032,8 +28593,8 @@
           "title": "Robotics and Mechatronics",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
           "group": "811x"
         },
@@ -27042,8 +28603,8 @@
           "title": "Introduction to Drones",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
         },
@@ -27052,8 +28613,8 @@
           "title": "Artificial Intelligence and Machine Learning in Business",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
         },
@@ -27062,10 +28623,20 @@
           "title": "Robotics and the Geometry of Motion",
           "semester": 8,
           "credits": 3,
-          "type": null,
-          "category": "core",
+          "type": "OEC",
+          "category": "open-elective",
           "elective": true,
           "group": "852x"
+        },
+        {
+          "code": "BRA883",
+          "title": "Internship (Industry/Research)/ Rural Internship (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
         }
       ]
     },
@@ -27107,7 +28678,7 @@
       "courses": [
         {
           "code": "BMEL305",
-          "title": "Manufacturing Introduction to Modelling and Design",
+          "title": "Introduction to Modelling and Design for Manufacturing",
           "semester": 3,
           "credits": 1,
           "type": "PCCL",
@@ -27167,11 +28738,11 @@
         },
         {
           "code": "BRI306B",
-          "title": "Linear Integrated Circuits Ability Enhancement Course",
+          "title": "Linear Integrated Circuits",
           "semester": 3,
           "credits": null,
           "type": null,
-          "category": "ability",
+          "category": "core",
           "elective": false,
           "group": null
         },
@@ -27234,6 +28805,16 @@
           "category": "elective",
           "elective": true,
           "group": "358x"
+        },
+        {
+          "code": "BRIL305",
+          "title": "Introduction to Modeling and Design for Manufacturing",
+          "semester": 3,
+          "credits": 1,
+          "type": "PCCL",
+          "category": "lab",
+          "elective": false,
+          "group": null
         },
         {
           "code": "BSCK307",
@@ -27556,6 +29137,16 @@
           "group": "654x"
         },
         {
+          "code": "BRI654B",
+          "title": "Unmanned Arial Vehicle",
+          "semester": 6,
+          "credits": 3,
+          "type": "OEC",
+          "category": "open-elective",
+          "elective": true,
+          "group": "654x"
+        },
+        {
           "code": "BRI654C",
           "title": "Fundamentals of Robotics",
           "semester": 6,
@@ -27746,6 +29337,16 @@
           "group": "755x"
         },
         {
+          "code": "BRI786",
+          "title": "Major Project Phase-II",
+          "semester": 7,
+          "credits": 6,
+          "type": "PROJ",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BRI811A",
           "title": "Advanced Robotics",
           "semester": 8,
@@ -27827,7 +29428,7 @@
         },
         {
           "code": "BRI883",
-          "title": "Internship (Industry/Research) (14 - 20 0 0 12 03 weeks)",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -27974,7 +29575,7 @@
         },
         {
           "code": "BTXL305",
-          "title": "Spinning Technology Lab-I ESC/ETC/PLC",
+          "title": "Spinning Technology Lab-I",
           "semester": 3,
           "credits": 1,
           "type": "PCCL",
@@ -28114,7 +29715,7 @@
         },
         {
           "code": "BTXL404",
-          "title": "Chemical Processing of Textiles Lab -II ESC/ETC/PLC",
+          "title": "Chemical Processing of Textiles Lab -II",
           "semester": 4,
           "credits": 1,
           "type": "PCCL",
@@ -28354,7 +29955,7 @@
         },
         {
           "code": "BTX657A",
-          "title": "Pattern Engineering Draping of Garments and",
+          "title": "Pattern Engineering and Draping of Garments",
           "semester": 6,
           "credits": null,
           "type": null,
@@ -28414,7 +30015,7 @@
         },
         {
           "code": "BST703",
-          "title": "Non Mulberry Silk and Silk Bi- Products Textile/ Silk Professional Elective Course Textile/ Silk",
+          "title": "Non Mulberry Silk and Silk Bi- Products",
           "semester": 7,
           "credits": 4,
           "type": "PCC",
@@ -28434,7 +30035,7 @@
         },
         {
           "code": "BTX701",
-          "title": "Textile Testing -II Textile/ Silk",
+          "title": "Textile Testing -II",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -28444,7 +30045,7 @@
         },
         {
           "code": "BTX702",
-          "title": "Knitting and Non-Woven Technology Textile/ Silk",
+          "title": "Knitting and Non-Woven Technology",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -28524,7 +30125,7 @@
         },
         {
           "code": "BTX786",
-          "title": "Major Project Phase-II Textile/ Silk",
+          "title": "Major Project Phase-II",
           "semester": 7,
           "credits": 6,
           "type": "PROJ",
@@ -28534,7 +30135,17 @@
         },
         {
           "code": "BEE803",
-          "title": "Internship (Industry/Research) (14 - 20 weeks) Textile/ Silk",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
+          "code": "BEE883",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -28683,7 +30294,7 @@
         },
         {
           "code": "BTXL305",
-          "title": "Spinning Technology Lab-I ESC/ETC/PLC",
+          "title": "Spinning Technology Lab-I",
           "semester": 3,
           "credits": 1,
           "type": "PCCL",
@@ -29123,7 +30734,7 @@
         },
         {
           "code": "BTX701",
-          "title": "Textile Testing -II Textile/ Silk",
+          "title": "Textile Testing -II",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -29133,7 +30744,7 @@
         },
         {
           "code": "BTX702",
-          "title": "Knitting and Non-Woven Technology Textile/ Silk",
+          "title": "Knitting and Non-Woven Technology",
           "semester": 7,
           "credits": 4,
           "type": "IPCC",
@@ -29143,7 +30754,7 @@
         },
         {
           "code": "BTX703",
-          "title": "Textile Mathematics – II Textile/ Silk",
+          "title": "Textile Mathematics – II",
           "semester": 7,
           "credits": 4,
           "type": "PCC",
@@ -29233,7 +30844,7 @@
         },
         {
           "code": "BTX786",
-          "title": "Major Project Phase-II Textile/ Silk",
+          "title": "Major Project Phase-II",
           "semester": 7,
           "credits": 6,
           "type": "PROJ",
@@ -29242,8 +30853,18 @@
           "group": null
         },
         {
+          "code": "BTX803",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
+          "semester": 8,
+          "credits": 10,
+          "type": "INT",
+          "category": "project",
+          "elective": false,
+          "group": null
+        },
+        {
           "code": "BTX883",
-          "title": "Internship (Industry/Research) (14 - 20 weeks) Textile/ Silk",
+          "title": "Internship (Industry/Research) (14 - 20 weeks)",
           "semester": 8,
           "credits": 10,
           "type": "INT",
@@ -29391,6 +31012,16 @@
           "category": "lab",
           "elective": false,
           "group": null
+        },
+        {
+          "code": "BSAL358A",
+          "title": "Advanced Python Programming",
+          "semester": 3,
+          "credits": 1,
+          "type": "AEC",
+          "category": "elective",
+          "elective": true,
+          "group": "358x"
         },
         {
           "code": "BSAL358C",
@@ -29606,41 +31237,41 @@
           "code": "BSA515A",
           "title": "Water Harvesting and Soil Conservation Structures",
           "semester": 5,
-          "credits": null,
-          "type": null,
-          "category": "elective",
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
-          "group": null
+          "group": "515x"
         },
         {
           "code": "BSA515B",
           "title": "Pests of Crops and Stored Grains & their Management",
           "semester": 5,
-          "credits": null,
-          "type": null,
-          "category": "elective",
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
-          "group": null
+          "group": "515x"
         },
         {
           "code": "BSA515C",
           "title": "Storage and Packaging Technology",
           "semester": 5,
-          "credits": null,
-          "type": null,
-          "category": "elective",
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
-          "group": null
+          "group": "515x"
         },
         {
           "code": "BSA515D",
           "title": "Landscape Irrigation Design and Management",
           "semester": 5,
-          "credits": null,
-          "type": null,
-          "category": "elective",
+          "credits": 3,
+          "type": "PEC",
+          "category": "professional-elective",
           "elective": true,
-          "group": null
+          "group": "515x"
         },
         {
           "code": "BSA586",
