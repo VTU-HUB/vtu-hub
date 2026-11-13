@@ -13,6 +13,7 @@ import { parseScheme } from "./parse-scheme.mjs";
 import { matchProgram, slugify } from "./programs.mjs";
 
 const OUT = path.resolve("src/data/vtu/courses.json");
+const PREVIOUS = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : null;
 const FIXES = JSON.parse(fs.readFileSync(new URL("./title-fixes.json", import.meta.url), "utf8"));
 const CACHE = path.join(os.tmpdir(), "vtuhub-scheme-pdfs");
 const UA = { "User-Agent": "vtuhub-sync/1.0 (+https://vtuhub.site/about)" };
@@ -34,7 +35,7 @@ const SCHEME_PAGE = "https://vtu.ac.in/en/b-e-scheme-syllabus/";
  * VTU adds to the table are picked up automatically.
  */
 async function discoverPrograms() {
-  const res = await fetch(SCHEME_PAGE, { headers: UA });
+  const res = await fetchRetry(SCHEME_PAGE);
   if (!res.ok) throw new Error(`${SCHEME_PAGE} → HTTP ${res.status}`);
   const html = await res.text();
   const rows = [];
@@ -69,12 +70,28 @@ async function discoverPrograms() {
 
 // Mandatory non-credit activities (NSS, PE, Yoga, IKS) are not study subjects.
 const NON_CREDIT = /^B(NSK|PEK|YOK|IKS)\d{3}$/;
-const JUNK_TITLE = /^(shall have|see shall|[-,]|bos will publish|th th to be completed)/i;
+// Placeholder rows, not courses ("To be Announced on the VTU web portal" fills empty
+// online-elective slots in the 7th/8th semester PDFs).
+// "CIE Marks 50 SEE Marks 50" is a syllabus page header: VTU links some syllabus PDFs
+// (3biotechsch.pdf) as schemes, and their headers must not replace real titles.
+const JUNK_TITLE = /^(shall have|see shall|[-,]|bos will publish|th th to be completed|to be announced|cie marks|course code|teaching hours)/i;
+
+/** vtu.ac.in sometimes times out; one slow response must not fail the whole daily sync. */
+async function fetchRetry(url, tries = 4) {
+  for (let i = 1; ; i++) {
+    try {
+      return await fetch(url, { headers: UA, signal: AbortSignal.timeout(60_000) });
+    } catch (e) {
+      if (i >= tries) throw new Error(`${url} → ${e.cause?.code ?? e.message} after ${tries} tries`);
+      await new Promise((r) => setTimeout(r, 2000 * i));
+    }
+  }
+}
 
 async function download(url) {
   fs.mkdirSync(CACHE, { recursive: true });
   const file = path.join(CACHE, path.basename(new URL(url).pathname));
-  const res = await fetch(url, { headers: UA });
+  const res = await fetchRetry(url);
   if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.subarray(0, 5).toString() !== "%PDF-") throw new Error(`${url} is not a PDF`);
@@ -89,7 +106,7 @@ function semesterFromCode(code) {
   return n >= 1 && n <= 8 ? n : null;
 }
 
-const DEPT_WORDS = "EEE|ME|CV|EC|CS|CSE|IS|Maths|Physics|Chemistry|Phy|Chem|Mech|Any ?Dept|Any|Engg\\.?(?: dept)?|Dept|OR|Humanities";
+const DEPT_WORDS = "EEE|ME|CV|EC|CS|CSE|IS|Maths|Physics|Chemistry|Phy|Chem|Mech|Mechanical|Any ?Dept\\.?|Any|Engg\\.?(?: dept)?|Dept|OR|Humanities";
 
 function cleanTitle(code, raw) {
   if (FIXES.titles[code]) return FIXES.titles[code];
@@ -98,10 +115,18 @@ function cleanTitle(code, raw) {
     .replace(/\s\d \d \d\s/g, " ") // L-T-P that landed mid-title
     // Note: words pdfjs splits after one letter ("L ogic") are fixed per course in
     // title-fixes.json — a blanket rule also merged real ones ("R programming", "I for").
-    .replace(/^(#\s*|(ME|EEE|AV|Dept)\s+|Civil\/[A-Za-z/]+(\s+Engg)?\s+)/, "")
+    .replace(/\s*\(L:T:P\)\s*/gi, " ") // column header text printed beside lab options (6ecesch.pdf)
+    .replace(/^(#+\s*|(ME|EEE|AV|Dept)\s+|Civil\/[A-Za-z/]+(\s+Engg)?\s+)/, "") // "##" footnote marks (elecsch.pdf BBEE103)
     .replace(/\bfor(?=[A-Z])/g, "for ");
   // Department / paper-setting-board words that pdfjs placed on the title line.
-  for (let i = 0; i < 3; i++) t = t.replace(new RegExp(`\\s+(${DEPT_WORDS})\\s*$`, "i"), "");
+  // Stop before a strip would leave the title hanging: "Engineering Mathematics for EEE
+  // Maths" loses "Maths" (the department) but keeps "EEE", which is part of the title.
+  for (let i = 0; i < 3; i++) {
+    const next = t.replace(new RegExp(`\\s+(${DEPT_WORDS})\\s*$`, "i"), "");
+    // …and never down to one word ("Factory Physics" is a title, not "Factory" + dept).
+    if (next === t || /\s(for|and|of|in|to|the|with|on)$/i.test(next) || !/\s/.test(next.trim())) break;
+    t = next;
+  }
   return t.replace(/\s{2,}/g, " ").trim();
 }
 
@@ -189,6 +214,7 @@ for (const row of await discoverPrograms()) {
   }
   const sources = [];
   const parsed = [];
+  let failed = 0;
   try {
     for (const url of row.schemes) {
       try {
@@ -197,10 +223,24 @@ for (const row of await discoverPrograms()) {
         parsed.push(...(await parseScheme(file)));
       } catch (e) {
         // One dead link on VTU's page (it happens) should not drop the whole programme.
+        failed++;
         skipped.push(`${row.name}: ${e.message}`);
       }
     }
     const courses = normalise(parsed, { firstYear: false });
+    // A PDF that failed to download is not evidence that its courses were withdrawn:
+    // keep the courses the last good sync read for this programme (their pages are live
+    // URLs). They drop out only when every PDF downloads and none lists them.
+    if (failed && PREVIOUS) {
+      const old = PREVIOUS.programs?.find((q) => q.slug === slug)?.courses ?? [];
+      const have = new Set(courses.map((c) => c.code));
+      const kept = old.filter((c) => !have.has(c.code));
+      if (kept.length) {
+        courses.push(...kept);
+        courses.sort((a, b) => a.semester - b.semester || a.code.localeCompare(b.code));
+        skipped.push(`${row.name}: kept ${kept.length} courses from the last sync (${kept.map((c) => c.code).join(", ")})`);
+      }
+    }
     const sems = [...new Set(courses.filter((c) => !c.elective).map((c) => c.semester))];
     // Programmes whose scheme PDFs only cover some semesters are kept with what exists,
     // but a scheme that yields almost nothing is a parse failure, not data.
@@ -221,7 +261,14 @@ for (const row of await discoverPrograms()) {
     });
     console.log(`${slug}: ${courses.length} courses, sems ${sems.join(",")}${official ? "" : "  (not in official stream list)"}`);
   } catch (e) {
-    skipped.push(`${row.name}: ${e.message}`);
+    // A parse failure is our problem, not a withdrawn programme: keep the last good data
+    // (its pages are live URLs) and report it, rather than deleting the programme.
+    const old = PREVIOUS?.programs?.find((q) => q.slug === slug);
+    if (old && !seenSlugs.has(slug)) {
+      seenSlugs.add(slug);
+      programs.push(old);
+      skipped.push(`${row.name}: ${e.message} — kept the last good sync`);
+    } else skipped.push(`${row.name}: ${e.message}`);
   }
 }
 for (const s of skipped) console.warn(`skipped — ${s}`);

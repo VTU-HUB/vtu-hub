@@ -7,6 +7,18 @@ listed.
 
 ## [Unreleased]
 
+### Fixed (course data)
+
+- BPOPS103 / BPOPS203 Principles of Programming Using C now have pages, so the BPOPS103
+  notes finally show.
+- 135 courses gained their credits (either-or courses and elective options).
+- Automobile, chemical, textile, silk, ECE, civil and aeronautical titles no longer carry
+  table cells, department names or split words; BAU755C and BAU755D now exist.
+- New programmes from VTU's page: Biomedical and Aeronautical.
+- `npm run validate:data` checks the course data in CI and before every scheduled sync;
+  see `docs/ACADEMIC_DATA_QUALITY.md`.
+- Pages for 9 placeholder records VTU never titled now redirect to their semester page.
+
 ### Changed (SEO)
 
 - "VTU Hub" is now a schema.org `alternateName` of the site, and the home page
