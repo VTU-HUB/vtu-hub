@@ -1,14 +1,6 @@
 {
   "name": "vtu-hub",
   "private": true,
-  "homepage": "https://vtuhub.site",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VTU-HUB/vtu-hub.git"
-  },
-  "bugs": {
-    "url": "https://github.com/VTU-HUB/vtu-hub/issues"
-  },
   "sideEffects": false,
   "type": "module",
   "engines": {
