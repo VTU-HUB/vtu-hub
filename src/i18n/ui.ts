@@ -83,7 +83,7 @@ const en = {
     },
   },
   landing: {
-    eyebrow: "For VTU students in Karnataka",
+    eyebrow: "VTUHub (VTU Hub) · For VTU students in Karnataka",
     h1: "Every VTU programme, semester and subject, in one place",
     intro: "Course codes, credits and electives for every 2022-scheme B.E./B.Tech programme, read from VTU's official scheme PDFs. Plus live exam updates and SGPA/CGPA calculators.",
     popular: "Popular:",
@@ -217,7 +217,7 @@ const kn: Dict = {
     },
   },
   landing: {
-    eyebrow: "ಕರ್ನಾಟಕದ VTU ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ",
+    eyebrow: "VTUHub (VTU Hub) · ಕರ್ನಾಟಕದ VTU ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ",
     h1: "ಪ್ರತಿ VTU ಪ್ರೋಗ್ರಾಂ, ಸೆಮಿಸ್ಟರ್ ಮತ್ತು ವಿಷಯ — ಒಂದೇ ಜಾಗದಲ್ಲಿ",
     intro: "2022 ಸ್ಕೀಮ್‌ನ ಪ್ರತಿ B.E./B.Tech ಪ್ರೋಗ್ರಾಂಗೆ ವಿಷಯ ಕೋಡ್, ಕ್ರೆಡಿಟ್ ಮತ್ತು ಪಠ್ಯಕ್ರಮದ ಘಟಕಗಳು, ಅಧಿಕೃತ ಸ್ಕೀಮ್ PDF ನಿಂದ. ಜೊತೆಗೆ ಪರೀಕ್ಷಾ ಅಪ್‌ಡೇಟ್ ಮತ್ತು SGPA/CGPA ಕ್ಯಾಲ್ಕುಲೇಟರ್.",
     popular: "ಜನಪ್ರಿಯ:",
@@ -349,7 +349,7 @@ const hi: Dict = {
     },
   },
   landing: {
-    eyebrow: "कर्नाटक के VTU छात्रों के लिए",
+    eyebrow: "VTUHub (VTU Hub) · कर्नाटक के VTU छात्रों के लिए",
     h1: "हर VTU प्रोग्राम, सेमेस्टर और विषय — एक ही जगह",
     intro: "2022 स्कीम के हर B.E./B.Tech प्रोग्राम के विषय कोड, क्रेडिट और सिलेबस मॉड्यूल, आधिकारिक स्कीम PDF से। साथ में परीक्षा अपडेट और SGPA/CGPA कैलकुलेटर।",
     popular: "लोकप्रिय:",

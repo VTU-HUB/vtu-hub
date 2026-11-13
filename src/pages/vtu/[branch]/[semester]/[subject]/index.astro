@@ -57,16 +57,22 @@ for (const h of studyNotes?.getHeadings() ?? []) {
 const firstBook = subject.textbooks?.[0]?.replace(/^\d+[.)]\s*/, "").trim();
 const bookSearch = firstBook ? `https://www.google.com/search?tbm=bks&q=${encodeURIComponent(firstBook.slice(0, 120))}` : "";
 const br = branch.shortName;
+// Title says "Notes" only when this course really has study notes; otherwise it names
+// what the page does have (the official syllabus), so the search result matches the page.
+const what = studyNotes ? "Notes & Syllabus" : "Syllabus & Modules";
+const whatShort = studyNotes ? "Notes" : "Syllabus";
 const seoTitle = fitTitle(
-  `${subject.name} (${subject.code}) VTU ${br} Notes & Questions`,
-  `${subject.name} (${subject.code}) – VTU ${br} Notes`,
-  `${subject.code} ${subject.shortName} – VTU ${br} Notes & Questions`,
-  `${subject.code} ${subject.shortName} – VTU ${br} Notes`,
-  `${subject.code} ${subject.name} – VTU ${br}`,
-  `${subject.code} ${subject.name} – VTU`,
+  `${subject.name} (${subject.code}) VTU ${br} ${what}`,
+  `${subject.name} (${subject.code}) – VTU ${br} ${whatShort}`,
+  `${subject.name} (${subject.code}) – VTU ${br}`,
+  `${subject.code} ${subject.shortName} – VTU ${br} ${what}`,
+  `${subject.code} ${subject.shortName} – VTU ${br} ${whatShort}`,
   `${subject.code} ${subject.shortName} – VTU ${br}`,
-  `${subject.code} ${subject.name}`,
-  `${subject.code} ${subject.shortName}`,
+  // Every candidate keeps the branch: first-year courses are shared by up to 41
+  // programmes, and a title without it repeats across all of them.
+  `${subject.code} ${subject.shortName} – ${br}`,
+  // Last resort: a slightly long title is better than a cut name that means something else.
+  `${subject.code} ${subject.shortName.replace(/^Introduction to /i, "Intro to ")} – ${br}`,
 );
 const seoDesc = clampDesc(
   `${subject.code} ${subject.name}, VTU ${br} ${semesterName(n)} (${subject.scheme} scheme)${credits ? `, ${credits}` : ""}. ${subject.description}`,

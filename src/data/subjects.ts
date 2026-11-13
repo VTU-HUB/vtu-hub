@@ -10,6 +10,7 @@ import { branches, semesterName } from "@/data/branches";
 import { legacySubjects } from "@/data/legacy-subjects";
 import type { BranchSlug, Subject, SubjectKind } from "@/data/types";
 import { isPedagogyOutcome } from "@/lib/outcomes.mjs";
+import { cleanCourseTitle, shortCourseTitle } from "@/lib/titles";
 import courseData from "@/data/vtu/courses.json";
 import syllabusData from "@/data/vtu/syllabus.json";
 
@@ -114,10 +115,6 @@ function slugify(s: string) {
     .replace(/-+$/, "");
 }
 
-function shortTitle(title: string) {
-  const t = title.replace(/\s*\(.*?\)\s*/g, " ").trim();
-  return t.length <= 28 ? t : t.split(/\s+/).slice(0, 4).join(" ");
-}
 
 function kindOf(c: Course): SubjectKind {
   if (c.category === "lab") return "lab";
@@ -132,7 +129,7 @@ function describe(c: Course, programName: string) {
   const kind = (c.type && TYPE_LABEL[c.type]) || CATEGORY_LABEL[c.category] || "course";
   const credits = c.credits != null ? `${c.credits}-credit ` : "";
   const elective = c.elective && c.group ? ` It is one of the options in elective slot ${c.group}.` : "";
-  return `${c.title} (${c.code}) is a ${credits}${kind} course in the ${semesterName(c.semester)} of VTU's 2022-scheme ${programName} programme.${elective}`;
+  return `${cleanCourseTitle(c.title)} (${c.code}) is a ${credits}${kind} course in the ${semesterName(c.semester)} of VTU's 2022-scheme ${programName} programme.${elective}`;
 }
 
 function build(): Subject[] {
@@ -174,8 +171,9 @@ function build(): Subject[] {
         semester: c.semester,
         slug,
         code: c.code,
-        name: c.title,
-        shortName: legacy?.shortName ?? shortTitle(c.title),
+        // Display title only; the slug above still comes from the raw title (URLs never change).
+        name: cleanCourseTitle(c.title),
+        shortName: legacy?.shortName ?? shortCourseTitle(c.title),
         scheme: "2022",
         credits: c.credits,
         kind,
