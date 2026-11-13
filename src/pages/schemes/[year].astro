@@ -6,6 +6,7 @@ import Notice from "@/components/site/Notice.astro";
 import PageHeader from "@/components/site/PageHeader.astro";
 import { getScheme, schemes } from "@/data/branches";
 import { schemePages } from "@/data/scheme-pages";
+import { SCHEME_2025_SOURCE, scheme2025FirstYear } from "@/data/scheme-2025";
 
 export function getStaticPaths() {
   return schemes.map((s) => ({ params: { year: s.year } }));
@@ -25,7 +26,7 @@ const extra = schemePages[scheme.year];
   <PageHeader kicker={`${scheme.year} regulation`} title={scheme.name} answer={`${extra.who} ${extra.cieSee}`} description={scheme.description}>
     <p slot="meta" class="mt-3 flex flex-wrap gap-x-3 text-sm text-muted"><span>{extra.cieSee}</span><span>{extra.who}</span></p>
   </PageHeader>
-  <Notice>Confirm the scheme printed on your exam admission ticket. VTUHub organises current notes around the 2022 basket; older papers stay useful for practice.</Notice>
+  <Notice>Confirm the scheme printed on your exam admission ticket. VTUHub organises current notes around the 2022 basket; older papers stay useful for practice. 2025 codes are listed separately and are not mixed into 2022 subject pages.</Notice>
   <p class="mt-6 text-sm text-muted">Typical codes: {extra.codes}</p>
   {extra.sections.map((sec) => (
     <section class="mt-10 max-w-3xl">
@@ -33,10 +34,26 @@ const extra = schemePages[scheme.year];
       {sec.paragraphs.map((p) => <p class="mt-3 leading-relaxed text-muted">{p}</p>)}
     </section>
   ))}
-  <section class="mt-12">
-    <h2 class="mb-4 text-lg font-semibold">Browse a branch</h2>
-    <Browse kind="branches" />
-  </section>
+  {scheme.year === "2025" ? (
+    <section class="mt-12 max-w-3xl">
+      <h2 class="mb-3 text-lg font-semibold">First-year 2025 papers listed so far</h2>
+      <p class="mb-4 text-sm text-muted">Copied from VTU's scheme index. Open the official PDF for modules and credits. <a class="text-primary hover:underline" href={SCHEME_2025_SOURCE} rel="noopener" target="_blank">vtu.ac.in scheme page ↗</a></p>
+      <ul class="divide-y rounded-lg border bg-surface">
+        {scheme2025FirstYear.map((x) => (
+          <li class="flex flex-wrap items-baseline gap-x-3 px-4 py-3">
+            <span class="w-28 shrink-0 font-mono text-sm">{x.code}</span>
+            <span class="min-w-0 flex-1">{x.title}</span>
+            <span class="text-xs text-faint">sem {x.semester} · {x.stream}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ) : (
+    <section class="mt-12">
+      <h2 class="mb-4 text-lg font-semibold">Browse a 2022-scheme branch</h2>
+      <Browse kind="branches" />
+    </section>
+  )}
   <ul class="mt-10 flex flex-wrap gap-3 text-sm">
     {schemes.filter((s) => s.year !== scheme.year).map((s) => (
       <li><a class="text-primary hover:underline" href={`/schemes/${s.year}`}>{s.name}</a></li>

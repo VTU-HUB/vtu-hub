@@ -29,8 +29,10 @@ for (const r of resources) {
 export const searchIndex: SearchEntry[] = [
   hit("Home", "/", "page", "VTUHub", "vtuhub guides calculators syllabus"),
   hit("Browse VTU resources", "/vtu", "page", "Branches and schemes", "browse vtu"),
-  hit("Schemes", "/schemes", "page", "2018 2021 2022", "scheme cie see"),
-  hit("2022 Scheme", "/schemes/2022", "page", "Current scheme", "bxx 50 cie"),
+  hit("Coverage", "/coverage", "page", "What VTUHub has", "notes syllabus credits 2025"),
+  hit("Schemes", "/schemes", "page", "2018 2021 2022 2025", "scheme cie see"),
+  hit("2025 Scheme", "/schemes/2025", "page", "New scheme first year", "1bmats101 2025"),
+  hit("2022 Scheme", "/schemes/2022", "page", "Catalogued scheme", "bxx 50 cie"),
   hit("2021 Scheme", "/schemes/2021", "page", "Transitional scheme", "21cs"),
   hit("2018 Scheme", "/schemes/2018", "page", "CBCS scheme", "18cs 40 60"),
   hit("FAQ", "/faq", "page", "Questions", "sgpa attendance copyright"),

@@ -37,6 +37,8 @@ function ensureDialog() {
   return dialog;
 }
 
+let openId = 0;
+
 export async function showPdf(bytes: Uint8Array, title: string, filename: string) {
   const d = ensureDialog();
   const pages = d.querySelector<HTMLDivElement>(".pdfv-pages")!;
@@ -47,23 +49,44 @@ export async function showPdf(bytes: Uint8Array, title: string, filename: string
   pages.replaceChildren();
   document.documentElement.style.overflow = "hidden";
   d.showModal();
+  const id = ++openId;
 
-  // pdf.js may transfer the buffer to its worker, so give it a copy.
-  const doc = await pdfjs.getDocument({ data: bytes.slice() }).promise;
-  const width = Math.min(pages.clientWidth - 16, 900);
-  const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  for (let i = 1; i <= doc.numPages; i++) {
-    if (!d.open) break;
-    const page = await doc.getPage(i);
-    const base = page.getViewport({ scale: 1 });
-    const viewport = page.getViewport({ scale: (width / base.width) * ratio });
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.floor(viewport.width);
-    canvas.height = Math.floor(viewport.height);
-    canvas.style.width = `${Math.floor(viewport.width / ratio)}px`;
-    canvas.setAttribute("aria-label", `Page ${i} of ${doc.numPages}`);
-    pages.append(canvas);
-    await page.render({ canvasContext: canvas.getContext("2d")!, viewport }).promise;
+  try {
+    // pdf.js may transfer the buffer to its worker, so give it a copy.
+    const doc = await pdfjs.getDocument({ data: bytes.slice() }).promise;
+    const width = Math.min(pages.clientWidth - 16, 900);
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    const live = elStatus(pages, `Page 1 of ${doc.numPages}. The same notes are on the subject page as HTML.`);
+    for (let i = 1; i <= doc.numPages; i++) {
+      if (!d.open || id !== openId) break;
+      const page = await doc.getPage(i);
+      const base = page.getViewport({ scale: 1 });
+      const viewport = page.getViewport({ scale: (width / base.width) * ratio });
+      const wrap = document.createElement("figure");
+      wrap.className = "pdfv-page";
+      const cap = document.createElement("figcaption");
+      cap.textContent = `Page ${i} of ${doc.numPages}`;
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.floor(viewport.width);
+      canvas.height = Math.floor(viewport.height);
+      canvas.style.width = `${Math.floor(viewport.width / ratio)}px`;
+      canvas.setAttribute("aria-label", `Page ${i} of ${doc.numPages}`);
+      wrap.append(cap, canvas);
+      pages.append(wrap);
+      live.textContent = `Page ${i} of ${doc.numPages}. The same notes are on the subject page as HTML.`;
+      await page.render({ canvasContext: canvas.getContext("2d")!, viewport }).promise;
+    }
+    void doc.destroy();
+  } catch {
+    pages.append(Object.assign(document.createElement("p"), { className: "pdfv-err", textContent: "The PDF could not be opened here. Use Download, or read the HTML notes on the subject page." }));
   }
-  void doc.destroy();
+}
+
+function elStatus(pages: HTMLElement, text: string) {
+  const p = document.createElement("p");
+  p.className = "pdfv-status";
+  p.setAttribute("aria-live", "polite");
+  p.textContent = text;
+  pages.prepend(p);
+  return p;
 }

@@ -1,0 +1,59 @@
+---
+import Base from "@/layouts/Base.astro";
+import Crumbs from "@/components/site/Crumbs.astro";
+import PageHeader from "@/components/site/PageHeader.astro";
+import { coverageStats } from "@/lib/coverage";
+import { SCHEME_2025_SOURCE, scheme2025FirstYear, scheme2025Status } from "@/data/scheme-2025";
+
+const c = coverageStats();
+const rows = [
+  ["Programmes in the 2022 catalogue", String(c.programmes)],
+  ["Course records (programme × course)", c.records.toLocaleString("en-IN")],
+  ["Unique course codes", c.uniqueCodes.toLocaleString("en-IN")],
+  ["Codes with a parsed credit value", c.withCredits.toLocaleString("en-IN")],
+  ["Codes with at least three syllabus modules", c.withModules.toLocaleString("en-IN")],
+  ["Codes with parsed course outcomes", c.withOutcomes.toLocaleString("en-IN")],
+  ["Codes with prescribed textbooks", c.withBooks.toLocaleString("en-IN")],
+  ["Hand-written notes files", String(c.notes)],
+  ["Subjects with a generated study guide", c.generatedGuides.toLocaleString("en-IN")],
+];
+---
+<Base
+  title="VTUHub coverage: what is catalogued and what is missing"
+  description="Live counts of VTUHub programmes, credits, syllabus modules, authored notes and generated guides. The 2025 scheme is listed separately from the 2022 catalogue."
+  path="/coverage"
+  crumbs={[{ label: "Coverage", href: "/coverage" }]}
+>
+  <Crumbs items={[{ label: "Coverage" }]} />
+  <PageHeader
+    title="What VTUHub actually has"
+    answer={`The 2022 catalogue has ${c.programmes} programmes and ${c.uniqueCodes.toLocaleString("en-IN")} unique course codes. Hand-written notes exist for ${c.notes} of those codes. Syllabus modules are parsed for ${c.withModules.toLocaleString("en-IN")} codes. The 2025 scheme is listed, not mixed in.`}
+  />
+  <table class="mt-8 w-full max-w-3xl text-sm">
+    <thead>
+      <tr class="border-b text-left text-xs font-semibold uppercase tracking-wider text-muted">
+        <th class="py-2 pr-4">Resource</th>
+        <th class="py-2">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(([k, v]) => (
+        <tr class="border-b">
+          <td class="py-2 pr-4">{k}</td>
+          <td class="py-2 font-medium tabular-nums">{v}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <section class="mt-10 max-w-3xl space-y-3 text-[15px] leading-relaxed text-muted">
+    <h2 class="text-lg font-semibold text-foreground">2025 scheme</h2>
+    <p>First year: <strong class="text-foreground">{scheme2025Status.firstYear}</strong> ({scheme2025FirstYear.length} named papers). Semesters 3–8: <strong class="text-foreground">{scheme2025Status.laterSemesters.replace(/-/g, " ")}</strong>. 2025 codes are not shown on 2022 branch pages.</p>
+    <p>Official index: <a class="text-primary hover:underline" href={SCHEME_2025_SOURCE} rel="noopener" target="_blank">{SCHEME_2025_SOURCE.replace("https://", "")}</a></p>
+    <ul class="list-disc space-y-1 pl-5">
+      {scheme2025FirstYear.map((x) => (
+        <li><span class="font-mono text-foreground">{x.code}</span> — {x.title} (sem {x.semester}, {x.stream})</li>
+      ))}
+    </ul>
+    <p>Open items in the academic exception register (missing credits, title variants) stay on <a class="text-primary hover:underline" href="https://github.com/VTU-HUB/vtu-hub/blob/main/docs/ACADEMIC_EXCEPTIONS.md">ACADEMIC_EXCEPTIONS.md</a>. Values are not guessed.</p>
+  </section>
+</Base>
