@@ -7,8 +7,8 @@ import { CONTACT_EMAIL } from "@/lib/site";
 ---
 <Base title="Privacy Policy" description="How VTUHub handles logs, cookies, analytics and advertising, including Google advertising cookies if ads are enabled." path="/privacy-policy" crumbs={[{ label: "Privacy Policy", href: "/privacy-policy" }]}>
   <Crumbs items={[{ label: "Privacy Policy" }]} />
-  <PageHeader title="Privacy Policy" answer="Calculators stay in your browser. VTUHub does not ask for a USN. Ad slots are on every page; a third-party ad script loads only after a publisher id is configured.">
-    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 23 October 2026</p>
+  <PageHeader title="Privacy Policy" answer="Calculators stay in your browser. VTUHub does not ask for a USN. Advertisements are not shown on pages today; a third-party ad script would load only after a publisher id is configured.">
+    <p slot="meta" class="mt-3 text-sm text-muted">Last updated 13 November 2026</p>
   </PageHeader>
   <div class="prose-legal max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted">
     <h2 class="text-xl font-semibold text-foreground">Who we are</h2>
@@ -22,19 +22,21 @@ import { CONTACT_EMAIL } from "@/lib/site";
     <h2 class="mt-10 text-xl font-semibold text-foreground">Cookies</h2>
     <p>First-party cookies, if any, are limited to hosting, security and similar operational needs. Search queries you type are used to show results on this site.</p>
     <h2 class="mt-10 text-xl font-semibold text-foreground">Advertising</h2>
-    <p>Every page reserves advertisement placements: a leaderboard under the header, a sidebar on large screens, an in-article slot after the content, and a mobile slot. Those slots stay labeled placeholders until a Google AdSense publisher id is added. When that network is enabled:</p>
+    <p>No advertisement slots or placeholders are rendered on the site today, because no Google AdSense publisher id is configured. If a publisher id is added later, pages may show a leaderboard under the header, a sidebar on large screens, an in-article slot and a mobile slot. When that network is enabled:</p>
     <ul class="list-disc space-y-1.5 pl-5">
       <li>Google and its partners may use cookies to serve ads based on previous visits to this or other websites.</li>
       <li>Users may opt out of personalised advertising at <a class="text-primary hover:underline" href="https://www.google.com/settings/ads">Google Ads Settings</a>.</li>
       <li>Some third-party cookies can be limited at <a class="text-primary hover:underline" href="https://www.aboutads.info/choices/">aboutads.info</a>.</li>
     </ul>
     <h2 class="mt-10 text-xl font-semibold text-foreground">Analytics</h2>
-    {analyticsConfig.ga4MeasurementId ? (
+    {analyticsConfig.googleTagId.startsWith("GTM-") ? (
+      <p>VTUHub loads a Google Tag Manager container (<code>{analyticsConfig.googleTagId}</code>). GTM itself is a loader: which measurement or advertising tags fire inside that container is configured in Google's dashboard, not in this website's source. USNs and calculator contents stay in your browser and are not sent to VTUHub. You can block third-party scripts in the browser. See <a class="text-primary hover:underline" href="https://policies.google.com/technologies/partner-sites">how Google uses data from sites that use its services</a>.</p>
+    ) : analyticsConfig.googleTagId ? (
       <p>VTUHub uses Google Analytics 4 to understand which pages are useful. It sets first-party cookies (such as <code>_ga</code>) and receives your IP address, which is anonymised. It never receives USNs or calculator contents, which stay in your browser. You can opt out with the <a class="text-primary hover:underline" href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out add-on</a> or by blocking cookies. See <a class="text-primary hover:underline" href="https://policies.google.com/technologies/partner-sites">how Google uses data from sites that use its services</a>.</p>
     ) : null}
     {analyticsConfig.cloudflareToken ? (
       <p>VTUHub uses Cloudflare Web Analytics to count page views. It sets no cookies, does not fingerprint visitors and does not see USNs or calculator contents, which never leave your browser. See <a class="text-primary hover:underline" href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a>.</p>
-    ) : analyticsConfig.ga4MeasurementId ? null : (
+    ) : analyticsConfig.googleTagId ? null : (
       <p>If traffic analytics are added later, they will be configured to avoid collecting USNs or calculator contents. This policy will name the product if that happens.</p>
     )}
     <h2 class="mt-10 text-xl font-semibold text-foreground">Retention and children</h2>

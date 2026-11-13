@@ -84,14 +84,15 @@ export default defineConfig({
             groups.get(SECTIONS.find(([, , test]) => test(p))[0]).push(u);
           }
           const xsl = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>';
-          const today = new Date().toISOString().slice(0, 10);
           const index = [];
           for (const [key, label] of SECTIONS) {
             const list = groups.get(key);
             if (!list.length) continue;
             const file = `sitemap-${key}.xml`;
             fs.writeFileSync(path.join(out, file), `${xsl}${head}<!-- ${label}: ${list.length} URLs -->${list.join("")}</urlset>`);
-            index.push(`<sitemap><loc>https://vtuhub.site/${file}</loc><lastmod>${today}</lastmod></sitemap>`);
+            // No lastmod on the index: a rebuild that did not change pages must not
+            // look like every section was updated today.
+            index.push(`<sitemap><loc>https://vtuhub.site/${file}</loc></sitemap>`);
           }
           const idx = `${xsl}<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${index.join("")}</sitemapindex>`;
           fs.writeFileSync(path.join(out, "sitemap.xml"), idx);

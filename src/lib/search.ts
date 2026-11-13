@@ -20,14 +20,20 @@ export const KIND_LABEL: Record<SearchKind, string> = {
   page: "Page",
 };
 
+const CODE = /^[a-z]{2,6}\d{3}[a-z]?$/i;
+
 export function search(index: SearchEntry[], query: string, limit = 40): SearchEntry[] {
   const q = query.trim().toLowerCase();
   if (q.length < 1) return [];
   const terms = q.split(/\s+/).filter(Boolean);
+  const code = CODE.test(q.replace(/\s+/g, "")) ? q.replace(/\s+/g, "") : "";
   const scored: { hit: SearchEntry; score: number }[] = [];
   for (const item of index) {
     const title = item.t.toLowerCase();
     let score = 0;
+    if (code && (title.includes(code) || item.x.split(" ").includes(code))) {
+      score += item.k === "subject" ? 80 : 40;
+    }
     if (title === q) score += 50;
     if (title.includes(q)) score += 20;
     if (item.x.includes(q)) score += 8;

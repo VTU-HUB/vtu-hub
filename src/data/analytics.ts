@@ -3,13 +3,14 @@
  *
  * - cloudflareToken: Cloudflare dashboard → Web Analytics → Add a site → copy the token
  *   from the snippet (`data-cf-beacon='{"token": "…"}'`). Cookie-free.
- * - ga4MeasurementId: Google Analytics → Admin → Data streams → Web → "G-XXXXXXXXXX".
- *   GA sets cookies; the privacy policy mentions it automatically once this is set.
+ * - googleTagId: a Google Tag Manager container (`GTM-…`) or a direct GA4
+ *   Measurement ID (`G-…`). This repo cannot see which tags fire inside GTM.
+ *   The privacy policy names GTM vs GA4 from the prefix.
  */
 export const analyticsConfig = {
   cloudflareToken: "",
-  // Google tag for the "VTUHub" GA4 property (stream "VTUHub website", id 16315241681).
-  ga4MeasurementId: "GTM-5L4TQMT3",
+  // GTM container for vtuhub.site. Not a GA4 Measurement ID (those start with G-).
+  googleTagId: "GTM-5L4TQMT3",
 };
 
 /**

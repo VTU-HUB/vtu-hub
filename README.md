@@ -22,12 +22,12 @@ notes, PDFs, read-aloud, calculators and VTU notices, all in one place.
 
 ## Features
 
-- **All programmes and subjects**: course codes, titles, credits and elective slots,
-  read from VTU's official scheme PDFs.
-- **Official syllabus**: modules, course outcomes, textbooks and reference books for
-  every course.
-- **Module-wise notes**: simple notes with "In short" boxes, flow diagrams and tables,
-  written in our own words.
+- **All 2022-scheme programmes and subjects**: course codes, titles, credits and
+  elective slots, read from VTU's official scheme PDFs. The 2025 scheme is not covered yet.
+- **Official syllabus**: modules, outcomes and books where the syllabus PDF could be
+  parsed. Not every course has usable module text yet.
+- **Module-wise notes**: 13 hand-written subjects so far (mostly CSE). Other courses
+  have generated study guides and syllabus-derived practice prompts — not VTU papers.
 - **PDFs**: view or download the whole course or a single module, inside the site.
 - **Read aloud**: listen to the notes, with play/pause, speed and "start at module".
 - **Calculators**: SGPA, CGPA, marks needed and attendance.

@@ -10,7 +10,7 @@ export const faqs: { q: string; a: string[] }[] = [
     q: "How do I find subjects for my branch and semester?",
     a: [
       "Open Notes in the top menu, pick your programme (any of the 2022-scheme B.E./B.Tech programmes, grouped by stream), then pick the semester. That page lists subjects with that programme’s subject codes, credits and syllabus modules.",
-      "On a semester page you can switch to another branch for the same semester, or go back to the full programme list.",
+      "The 2025 scheme is not in the catalogue yet. On a semester page you can switch to another 2022-scheme branch for the same term, or go back to the full programme list.",
     ],
   },
   {
@@ -36,8 +36,8 @@ export const faqs: { q: string; a: string[] }[] = [
   {
     q: "What attendance percentage do I need?",
     a: [
-      "Many VTU colleges use 85% as the eligibility line up to the last working day, but the college notice can be stricter than the university calendar. Follow the stricter one.",
-      "The attendance calculator models consecutive classes still needed; it does not replace your department register.",
+      "VTU's 2022 B.E./B.Tech regulations set a minimum of 85% attendance in each course, with limited condonation only under the conditions and approvals in that regulation. A college notice can be stricter; follow the stricter rule.",
+      "The attendance calculator models consecutive classes still needed to reach a target you type (default 85%). It does not replace your department register.",
     ],
   },
   {

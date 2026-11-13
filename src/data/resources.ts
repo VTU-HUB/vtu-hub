@@ -96,7 +96,7 @@ function syllabusBody(sub: Subject): { body: string[]; bullets: string[] } {
       units.length
         ? `The ${sub.scheme} core for ${sub.shortName} is commonly taught as ${units.length} modules: ${units.map((u) => `Unit ${u.number} ${u.title}`).join("; ")}.`
         : `${sub.shortName} is a ${sub.kind} paper on this card. Confirm hours and CIE split on the scheme PDF.`,
-      `CIE work for a theory paper is usually internals plus assignments; a lab companion, if any, is marked separately. ${sub.hasLab ? `${sub.shortName} lists a lab component on VTUHub — treat the lab record as its own CIE bucket.` : `${sub.shortName} is listed here as ${sub.kind} without a paired lab on this card.`}`,
+      `VTUHub study guidance: theory CIE is often internals plus assignments, and a lab companion is usually marked separately. The assessment method for this course is the one in the official scheme and your college notice, not this paragraph. ${sub.hasLab ? `${sub.shortName} lists a lab component on VTUHub.` : `${sub.shortName} is listed here as ${sub.kind} without a paired lab on this card.`}`,
       `Elective baskets and college-specific experiments do not always appear in a generic ${br} list. If the code on your ticket is not ${sub.code}, you are on the wrong page.`,
     ],
     bullets: units.flatMap((u) => {
@@ -109,27 +109,28 @@ function syllabusBody(sub: Subject): { body: string[]; bullets: string[] } {
 
 function practiceBody(sub: Subject): { body: string[]; bullets: string[] } {
   const fromTopics = sub.units.flatMap((u) => topicClauses(u.topics).slice(0, 2).map((c) => `Module ${u.number}: ${questionFor(c)}`));
-  const qs = fromTopics.length ? fromTopics : sub.units.map((u) => `Module ${u.number}: Explain ${u.title}.`);
+  const qs = (fromTopics.length ? fromTopics : sub.units.map((u) => `Module ${u.number}: Explain ${u.title}.`)).slice(0, 12);
+  const moduleCount = new Set(qs.map((q) => /^Module (\d+)/.exec(q)?.[1]).filter(Boolean)).size;
   return {
     body: [
-      `These are original practice questions for ${sub.name} (${sub.code}), one for each official module topic. This is not a scanned VTU semester-end paper and not a photocopy of a university booklet.`,
-      `Official previous papers stay on vtu.ac.in. Write each answer in twelve minutes, then mark it against the topic list on the syllabus page.`,
+      `These are syllabus-derived practice prompts for ${sub.name} (${sub.code}), written by VTUHub from the official module list. They are a selected sample (${qs.length} prompts across ${moduleCount || sub.units.length} modules), not one question per topic and not an exhaustive bank.`,
+      `They are not previous-year VTU papers and not ranked by how often a topic was asked. Official SEE papers stay on vtu.ac.in. Use the full module list on the syllabus page as the coverage check.`,
     ],
-    bullets: qs.slice(0, 12),
+    bullets: qs,
   };
 }
 
 function importantBody(sub: Subject): { body: string[]; bullets: string[] } {
+  const fromTopics = sub.units.flatMap((u) => topicClauses(u.topics).slice(0, 3).map((c) => `Module ${u.number} (${u.title}): ${questionFor(c)}`)).slice(0, 15);
+  const qs = fromTopics.length ? fromTopics : sub.units.map((u) => `Module ${u.number} (${u.title}): Explain ${u.title}.`);
+  const moduleCount = new Set(qs.map((q) => /^Module (\d+)/.exec(q)?.[1]).filter(Boolean)).size;
   return {
     body: [
-      `These important questions for ${sub.name} (${sub.code}) are compiled by VTUHub from the module list — not copied from a paid “question bank” PDF and not a paper leak.`,
-      `They are syllabus-derived prompts, one per module topic. They are not previous-year VTU questions and are not ranked by how often a topic was asked. If you can answer the list below in full sentences, you have covered the syllabus. If you can only recognise the title, you have not.`,
-      `Drill plan: two questions a night in the last ten days before SEE, handwritten, then compared with class notes. Do not highlight a PDF.`,
+      `These are syllabus-derived practice prompts for ${sub.name} (${sub.code}), written by VTUHub from the module list — not copied from a paid question-bank PDF and not a paper leak.`,
+      `Up to three prompts are taken from each module, then the list is capped at 15 (${qs.length} prompts from ${moduleCount || sub.units.length} modules). They are not previous-year VTU questions, not ranked by exam frequency, and not a complete coverage of the syllabus.`,
+      `Drill plan: two prompts a night in the last ten days before SEE, handwritten, then compared with class notes and the official module list. Do not highlight a PDF.`,
     ],
-    bullets: (() => {
-      const fromTopics = sub.units.flatMap((u) => topicClauses(u.topics).slice(0, 3).map((c) => `Module ${u.number} (${u.title}): ${questionFor(c)}`)).slice(0, 15);
-      return fromTopics.length ? fromTopics : sub.units.map((u) => `Module ${u.number} (${u.title}): Explain ${u.title}.`);
-    })(),
+    bullets: qs,
   };
 }
 
@@ -137,7 +138,7 @@ function labBody(sub: Subject): { body: string[]; bullets: string[] } {
   return {
     body: [
       `This lab-prep guide for ${sub.name} (${sub.code}) is original VTUHub writing. It is not your college’s signed lab manual, not a scanned observation book, and not equipment-specific procedure for a particular bench.`,
-      `CIE lab marks in a typical ${branchName(sub.branch)} department split across performance, record and viva. Before the session, write the aim, the apparatus your lab actually has, and the observation-table headings in the record. Do not wait until the viva week.`,
+      `VTUHub study guidance (not a university or college rule): many departments split CIE lab marks across performance, record and viva, but the split for this course is the one on your scheme PDF and lab timetable. Before the session, write the aim, the apparatus your lab actually has, and the observation-table headings in the record.`,
       `Follow the instructor for voltage, load, software version and submission format. A generic write-up that ignores the kit in front of you is how students lose the performance mark.`,
       `If this subject also has theory (${sub.kind === "theory" ? "it does on this card" : "check the subject page"}), keep the lab record and the theory notes in separate folders. Examiners treat them as different CIE buckets.`,
     ],

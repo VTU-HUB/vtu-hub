@@ -229,8 +229,16 @@ function subjectPath(sub: Subject) {
 const PREFIX_OWNER: Record<string, string> = {
   CS: "cse", IS: "ise", AI: "aiml", AD: "aiml", EC: "ece", EE: "eee", ME: "me", CV: "cv",
 };
+/** Same code + semester grouped once so canonicalSubject does not rescan the full list. */
+const SUBJECTS_BY_CODE_SEM = new Map<string, Subject[]>();
+for (const s of subjects) {
+  const key = `${s.code}:${s.semester}`;
+  const list = SUBJECTS_BY_CODE_SEM.get(key);
+  if (list) list.push(s);
+  else SUBJECTS_BY_CODE_SEM.set(key, [s]);
+}
 function canonicalSubject(sub: Subject): Subject {
-  const same = subjects.filter((x) => x.code === sub.code && x.semester === sub.semester);
+  const same = SUBJECTS_BY_CODE_SEM.get(`${sub.code}:${sub.semester}`) ?? [sub];
   if (same.length < 2) return sub;
   const prefix = /^B([A-Z]{2})/.exec(sub.code)?.[1] ?? "";
   const owner = PREFIX_OWNER[prefix];
