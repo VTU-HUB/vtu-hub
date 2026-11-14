@@ -55,6 +55,10 @@ describe("notes files", () => {
       it("has balanced code fences and well-formed flow blocks", () => {
         const fences = fm!.body.match(/^```/gm) ?? [];
         assert.equal(fences.length % 2, 0, "unclosed ``` code fence");
+        // A closing fence with text after it ("``` More text") does not close the block.
+        for (const f of fm!.body.match(/^```.*$/gm) ?? []) {
+          assert.match(f.trimEnd(), /^```[\w-]*$/, `fence must be bare \`\`\` or \`\`\`lang: "${f}"`);
+        }
         for (const m of fm!.body.matchAll(/^```flow\r?\n([\s\S]*?)^```/gm)) {
           for (const line of m[1].split(/\r?\n/).filter((l) => l.trim())) {
             assert.ok(line.includes("->"), `flow line without an arrow: "${line}"`);

@@ -16,8 +16,13 @@ interface Props {
   branchSlug?: string;
   subjects?: Subject[];
   current?: string;
+  /** Heading level for subject group titles; 4 when the list sits under its own h3. */
+  headingLevel?: 3 | 4;
+  /** Keeps group ids unique when one page renders several subject lists. */
+  idPrefix?: string;
 }
-const { kind, semester, branchSlug, subjects = [], current } = Astro.props;
+const { kind, semester, branchSlug, subjects = [], current, headingLevel = 3, idPrefix = "" } = Astro.props;
+const GroupHeading = headingLevel === 4 ? "h4" : "h3";
 const branchList = semester ? branchesForSemester(semester) : branches;
 ---
 
@@ -58,14 +63,24 @@ const branchList = semester ? branchesForSemester(semester) : branches;
   <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4">
     {[1, 2, 3, 4, 5, 6, 7, 8].filter((n) => (branchSlug ? countSubjects(branchSlug, n) > 0 : branchesForSemester(n).length > 0)).map((n) => {
       const href = branchSlug ? branchSemesterPath(branchSlug, n) : semesterPath(n);
-      const count = branchSlug ? countSubjects(branchSlug as BranchSlug, n) : branchesForSemester(n).length;
+      // A student takes one option per elective slot, so count slots, not options.
+      const list = branchSlug ? getSubjectsBySemester(branchSlug as BranchSlug, n) : [];
+      const options = list.filter((s) => s.electiveGroup).length;
+      const courses = list.length - options + new Set(list.map((s) => s.electiveGroup).filter(Boolean)).size;
       const names = branchSlug ? "" : branchesForSemester(n).map((b) => b.shortName).join(" · ");
+      // First-year lists hold both the physics and chemistry cycles and unflagged choice
+      // groups (ESC, PLC, Kannada), so a "courses you take" count would be wrong there.
+      const label =
+        n <= 2
+          ? `${list.length} courses listed · both cycles`
+          : `${courses} course${courses === 1 ? "" : "s"}${options ? ` · ${options} elective option${options === 1 ? "" : "s"}` : ""}`;
       return (
         <li>
           <a class="flex h-full flex-col rounded-lg border bg-surface p-4 hover:border-primary/40" href={href}>
-            <span class="text-xs font-medium uppercase tracking-wider text-muted">Semester</span>
-            <span class="mt-1 text-xl font-semibold">{semesterName(n)}</span>
-            <span class="mt-2 text-xs text-faint">{branchSlug ? `${count} subject${count === 1 ? "" : "s"}` : names}</span>
+            <span class="text-xl font-semibold">{semesterName(n)}</span>
+            <span class="mt-2 text-xs text-faint">
+              {branchSlug ? label : names}
+            </span>
           </a>
         </li>
       );
@@ -76,10 +91,10 @@ const branchList = semester ? branchesForSemester(semester) : branches;
 {kind === "subjects" && subjects.length > 0 ? (
   <div class="space-y-8">
     {groupSubjects(subjects).map((g) => (
-      <section aria-labelledby={`g-${g.id}`}>
-        <h3 id={`g-${g.id}`} class="flex items-baseline gap-2 text-sm font-semibold uppercase tracking-wider text-muted">
+      <section aria-labelledby={`${idPrefix}g-${g.id}`}>
+        <GroupHeading id={`${idPrefix}g-${g.id}`} class="flex items-baseline gap-2 text-sm font-semibold uppercase tracking-wider text-muted">
           {g.title}<span class="font-normal normal-case tracking-normal text-faint">{g.subjects.length}</span>
-        </h3>
+        </GroupHeading>
         {g.note ? <p class="mt-1 text-xs text-faint">{g.note}</p> : null}
         <ul class="mt-2 divide-y rounded-lg border bg-surface">
           {g.subjects.map((s) => (

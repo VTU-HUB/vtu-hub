@@ -163,7 +163,11 @@ function build(): Subject[] {
       const kind = kindOf(c);
       // Modules from VTU's official syllabus win; a hand-written outline is the fallback.
       const syl = syllabi[c.code];
-      const officialUnits = syl && syl.modules.length >= 3 ? syl.modules : null;
+      // pdf.js splits "Peterson’s" into "Peterson ’ s"; the parser now joins it, this covers data synced before that.
+      const officialUnits =
+        syl && syl.modules.length >= 3
+          ? syl.modules.map((m) => ({ ...m, topics: m.topics.replace(/(\w)\s+’\s*(?=\w)/g, "$1’") }))
+          : null;
       const links = syllabusLinks(c.code, c.semester, p.syllabi ?? [], syl);
       const hasOutline = Boolean(officialUnits) || Boolean(legacy && legacy.units[0]?.title !== GENERIC_UNIT);
       out.push({
