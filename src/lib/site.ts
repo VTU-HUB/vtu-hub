@@ -54,7 +54,7 @@ export const OG_IMAGE = {
   width: 1200,
   height: 675,
   type: "image/jpeg",
-  alt: "VTUHub logo above a stack of ruled study cards with a blue tab, captioned Notes, Papers, Syllabus for VTU students",
+  alt: "VTUHub logo above a stack of ruled study cards with a blue tab, captioned Notes, Syllabus, Tools for VTU students",
 } as const;
 
 export const LOGO = { path: "/icon-512.png", width: 512, height: 512, alt: "VTUHub logo: two blue and white study pages" } as const;

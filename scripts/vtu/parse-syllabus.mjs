@@ -39,6 +39,8 @@ const tidy = (s) =>
     // "(8 hours of Pedagogy)" once the hours are gone, and brackets left empty.
     .replace(/\(\s*(?:of\s+)?Pedagogy\s*\)/gi, "")
     .replace(/\(\s*\)/g, "")
+    // pdf.js splits "Peterson’s" into "Peterson ’ s".
+    .replace(/(\w)\s+’\s*(?=\w)/g, "$1’")
     .replace(/\s+/g, " ")
     .trim();
 
